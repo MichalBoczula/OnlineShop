@@ -1,10 +1,11 @@
-﻿using System;
+﻿using OnlineShop.Domain.Model;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OnlineShop.Domain.Model
+namespace OnlineShop.Application.ViewModels.Mobile
 {
-    public class MobilePhone
+    public class MobileDetailsVM
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -13,9 +14,7 @@ namespace OnlineShop.Domain.Model
         public string FirstImage { get; set; }
         public string SecondImage { get; set; }
         public string ThirdImage { get; set; }
-        public string ShortDescription { get; set; }
         public string Description { get; set; }
-        public bool ActiveStatus { get; set; }
         public Camera Camera { get; set; }
         public Screen Screen { get; set; }
         public Hardware Hardware { get; set; }
