@@ -1,4 +1,6 @@
-﻿using OnlineShop.Application.ViewModels.Camera;
+﻿using AutoMapper;
+using OnlineShop.Application.Mapping;
+using OnlineShop.Application.ViewModels.Camera;
 using OnlineShop.Application.ViewModels.Hardware;
 using OnlineShop.Application.ViewModels.Screen;
 using OnlineShop.Domain.Model;
@@ -8,7 +10,7 @@ using System.Text;
 
 namespace OnlineShop.Application.ViewModels.Mobile
 {
-    public class MobileDetailsVM
+    public class MobileDetailsVM : IMapFrom<MobilePhone>
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -21,5 +23,13 @@ namespace OnlineShop.Application.ViewModels.Mobile
         public CameraVM Camera { get; set; }
         public ScreenVM Screen { get; set; }
         public HardwareVM Hardware { get; set; }
+
+        public void Mapping(Profile profile)
+        {
+            profile.CreateMap<MobilePhone, MobileDetailsVM>()
+                .ForMember(m => m.Camera, opt => opt.Ignore())
+                .ForMember(m => m.Screen, opt => opt.Ignore())
+                .ForMember(m => m.Hardware, opt => opt.Ignore());
+        }
     }
 }
