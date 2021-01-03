@@ -1,4 +1,7 @@
-﻿using OnlineShop.Domain.Model;
+﻿using OnlineShop.Application.ViewModels.Camera;
+using OnlineShop.Application.ViewModels.Hardware;
+using OnlineShop.Application.ViewModels.Screen;
+using OnlineShop.Domain.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,8 +18,8 @@ namespace OnlineShop.Application.ViewModels.Mobile
         public string SecondImage { get; set; }
         public string ThirdImage { get; set; }
         public string Description { get; set; }
-        public Camera Camera { get; set; }
-        public Screen Screen { get; set; }
-        public Hardware Hardware { get; set; }
+        public CameraVM Camera { get; set; }
+        public ScreenVM Screen { get; set; }
+        public HardwareVM Hardware { get; set; }
     }
 }
