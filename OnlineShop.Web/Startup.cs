@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -7,10 +8,17 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using OnlineShop.Application;
+using OnlineShop.Application.Interfaces;
+using OnlineShop.Application.Services;
+using OnlineShop.Domain.Interfaces;
+using OnlineShop.Infrastructure;
+using OnlineShop.Infrastructure.Repositories;
 using OnlineShop.Web.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace OnlineShop.Web
@@ -32,6 +40,10 @@ namespace OnlineShop.Web
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddApplication();
+            services.AddInfrastructure();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

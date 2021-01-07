@@ -20,6 +20,12 @@ namespace OnlineShop.Application.Services
         private readonly IMobileRepository _repository;
         private readonly IMapper _mapper;
 
+        public MobileService(IMobileRepository repository, IMapper mapper)
+        {
+            _repository = repository;
+            _mapper = mapper;
+        }
+
         public List<MobileForListVM> GetMobilesForList()
         {
             var mobilesForListVm = _repository.GetAllActiveMobiles()
@@ -41,7 +47,6 @@ namespace OnlineShop.Application.Services
         {
             throw new NotImplementedException();
         }
-
 
         private ScreenVM GetScreenVM(MobilePhone mobile)
         {
