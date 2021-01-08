@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using OnlineShop.Application.Interfaces;
 using OnlineShop.Domain.Model;
 using OnlineShop.Infrastructure.Repositories;
 using System;
@@ -10,13 +12,18 @@ namespace OnlineShop.Web.Controllers
 {
     public class MobilePhoneController : Controller
     {
-        private readonly MobilePhoneRepository<MobilePhone> _mobilePhoneRepository;
+        private readonly ILogger<MobilePhoneController> _logger;
+        private readonly IMobileService _mobileService;
 
-        public MobilePhoneController(MobilePhoneRepository<MobilePhone> mobilePhoneRepository)
+        public MobilePhoneController(ILogger<MobilePhoneController> logger, IMobileService mobileService)
         {
-            _mobilePhoneRepository = mobilePhoneRepository;
+            _logger = logger;
+            _mobileService = mobileService;
         }
 
-
+        public IActionResult Index()
+        {
+            return View();
+        }
     }
 }

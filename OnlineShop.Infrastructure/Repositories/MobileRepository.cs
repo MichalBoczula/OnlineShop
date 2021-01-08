@@ -9,14 +9,24 @@ namespace OnlineShop.Infrastructure.Repositories
 {
     public class MobileRepository : IMobileRepository
     {
+        private readonly MockDBContext _mockDBContext;
+
+        public MobileRepository()
+        {
+            _mockDBContext = new MockDBContext();
+        }
+
         public IQueryable<MobilePhone> GetAllActiveMobiles()
         {
-            throw new NotImplementedException();
+           return _mockDBContext.GetMobiles()
+                                .Where(m => m.ActiveStatus == true)
+                                .AsQueryable();
         }
 
         public MobilePhone GetMobileById(int mobilePhoneId)
         {
-            throw new NotImplementedException();
+            return _mockDBContext.GetMobiles()
+                                 .FirstOrDefault(m => m.Id == mobilePhoneId);
         }
     }
 }

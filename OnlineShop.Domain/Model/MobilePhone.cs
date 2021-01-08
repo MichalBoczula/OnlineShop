@@ -7,6 +7,7 @@ namespace OnlineShop.Domain.Model
     public class MobilePhone
     {
         public int Id { get; set; }
+        public string Brand { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
         public string MainImage { get; set; }
@@ -16,6 +17,7 @@ namespace OnlineShop.Domain.Model
         public string ShortDescription { get; set; }
         public string Description { get; set; }
         public bool ActiveStatus { get; set; }
+        public QuantityStatus QuantityInStack { get; set; }
         public Camera Camera { get; set; }
         public Screen Screen { get; set; }
         public Hardware Hardware { get; set; }

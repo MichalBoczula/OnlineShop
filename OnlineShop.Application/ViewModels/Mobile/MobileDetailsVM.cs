@@ -20,6 +20,7 @@ namespace OnlineShop.Application.ViewModels.Mobile
         public string SecondImage { get; set; }
         public string ThirdImage { get; set; }
         public string Description { get; set; }
+        public QuantityStatus QuantityInStack { get; set; }
         public CameraVM Camera { get; set; }
         public ScreenVM Screen { get; set; }
         public HardwareVM Hardware { get; set; }
