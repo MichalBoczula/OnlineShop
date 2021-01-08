@@ -15,7 +15,8 @@ namespace OnlineShop.Web.Controllers
         private readonly ILogger<MobilePhoneController> _logger;
         private readonly IMobileService _mobileService;
 
-        public MobilePhoneController(ILogger<MobilePhoneController> logger, IMobileService mobileService)
+        public MobilePhoneController(ILogger<MobilePhoneController> logger,
+                                     IMobileService mobileService)
         {
             _logger = logger;
             _mobileService = mobileService;
@@ -23,7 +24,8 @@ namespace OnlineShop.Web.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var model = _mobileService.GetMobilesForList();
+            return View(model);
         }
     }
 }
