@@ -28,7 +28,9 @@ namespace OnlineShop.Web
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-        }
+            // < img src = "~/images/@Model.ImageUrl" class="detail-img" />
+            //A:\Programowanie\Portfolio\MuseumOfCandyShop\MuseumOfCandyShop\wwwroot\images\applePie.jpg
+    }
 
         public IConfiguration Configuration { get; }
 

@@ -21,4 +21,8 @@
     <ProjectReference Include="..\OnlineShop.Infrastructure\OnlineShop.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\Apple\iPhone 12\" />
+  </ItemGroup>
+
 </Project>

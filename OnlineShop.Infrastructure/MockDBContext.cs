@@ -42,6 +42,7 @@ namespace OnlineShop.Infrastructure
                 " venenatis cursus eros ut, efficitur mollis nisl.",
                 ActiveStatus = true,
                 QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Apple/iPhone 12/Main.png"
             };
             var mobile2 = new MobilePhone()
             {
@@ -65,6 +66,7 @@ namespace OnlineShop.Infrastructure
                 " nec lobortis sem interdum sit amet.",
                 ActiveStatus = true,
                 QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Apple/iPhone 12/Main.png"
             };
             var mobile3 = new MobilePhone()
             {
@@ -90,6 +92,7 @@ namespace OnlineShop.Infrastructure
                 " Suspendisse vitae pellentesque ante.",
                 ActiveStatus = true,
                 QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Apple/iPhone 12/Main.png"
             };
             phones.Add(mobile1);
             phones.Add(mobile2);
