@@ -4,51 +4,48 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-
-<div class="row">
-
-    @foreach (var item in Model)
-    {
-        <div class="col-md-6">
-            <div class="card">
-                <img src="~/images/@item.MainImage" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h4 class="card-title">@Html.DisplayFor(modelItem => item.Brand)</h4>
-                    <h3 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h3>
-                    <h2 class="card-text">@Html.DisplayFor(modelItem => item.Price)</h2>
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.ShortDescription)</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="container" id="list">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6">
+                <div class="card">
+                    <img src="~/images/@item.MainImage" class="card-img-top" id="photo">
+                    <div class="card-body">
+                        <div class="title-container">
+                            <h3 id="brand" class="card-title">@Html.DisplayFor(modelItem => item.Brand)</h3>
+                            <h3 id="model"class="card-title">@Html.DisplayFor(modelItem => item.Name)</h3>
+                        </div>
+                        <h4 id="price" class="card-text">@Html.DisplayFor(modelItem => item.Price) <span class="price-currency">zl</span></h4>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.ShortDescription)</p>
+                        @*<a href="#" class="btn btn-primary">Learn more</a>*@
+                    </div>
                 </div>
             </div>
-        </div>
 
-        @*<tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
+            @*<tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
 
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MainImage)
-                </td>
-                <td>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MainImage)
+                    </td>
+                    <td>
 
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                </td>
-            </tr>*@
-    }
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>*@
+        }
+    </div>
 </div>
 

@@ -1,0 +1,71 @@
+﻿/*Layout*/
+/*####################################################################################################################################################
+####################################################################################################################################################
+####################################################################################################################################################*/
+.body {
+    background-image: url("../images/background.jpeg");
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#nav {
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    top: 0;
+}
+
+#footer {
+    background-color: #fff;
+}
+
+/*MobilePhone Index*/
+/*####################################################################################################################################################
+####################################################################################################################################################
+####################################################################################################################################################*/
+#list {
+    margin-top: 80px;
+}
+
+.card {
+    padding: 15px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+}
+
+.card-img-top {
+    width: auto;
+    height: 20vw;
+    min-height: 300px;
+    background-size: contain;
+    margin: auto;
+}
+
+.card-text {
+    text-align: justify;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#brand {
+    text-shadow: 1px 1px 2px darkgrey;
+    padding-right: 15px;
+}
+
+#model {
+    text-shadow: 1px 1px 2px black;
+    color: #1763A1;
+}
+
+#price {
+    text-shadow: 1px 1px 2px black;
+}
+
+.price-currency {
+    text-shadow: 1px 1px 2px black;
+    font-size: 1.5rem;
+}
