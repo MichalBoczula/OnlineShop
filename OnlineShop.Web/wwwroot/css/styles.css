@@ -23,6 +23,10 @@
 /*####################################################################################################################################################
 ####################################################################################################################################################
 ####################################################################################################################################################*/
+a:hover {
+    text-decoration: none;
+}
+
 #list {
     margin-top: 80px;
 }
@@ -34,6 +38,7 @@
 }
 
     .card:hover .hover-msg {
+        z-index: 1;
         opacity: 0.6;
     }
 
@@ -60,6 +65,7 @@
 #brand {
     text-shadow: 1px 1px 2px black;
     padding-right: 15px;
+    color: #212529;
 }
 
 #model {
@@ -69,11 +75,17 @@
 
 #price {
     text-shadow: 1px 1px 2px black;
+    color: #212529;
 }
 
 .price-currency {
     text-shadow: 1px 1px 2px black;
     font-size: 1.5rem;
+    color: #212529;
+}
+
+.card-text {
+    color: #212529;
 }
 
 .hover-msg {
@@ -88,9 +100,19 @@
     opacity: 0;
     transition: all linear 0.5s;
     text-shadow: 1px 1px 2px black;
+    z-index: -1;
+}
+
+.hover-msg-msg {
+    color: black;
+}
+
+#mouse-icon {
+    color: black;
 }
 
 #mouse-icon {
     padding-right: 25px;
     text-shadow: 1px 1px 2px black;
 }
+
