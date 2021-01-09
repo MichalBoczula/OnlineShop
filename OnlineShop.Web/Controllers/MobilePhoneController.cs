@@ -27,5 +27,11 @@ namespace OnlineShop.Web.Controllers
             var model = _mobileService.GetMobilesForList();
             return View(model);
         }
+
+        public IActionResult Details(int mobilePhoneId)
+        {
+            var model = _mobileService.GetDetails(mobilePhoneId);
+            return View(model);
+        }
     }
 }

@@ -116,3 +116,53 @@ a:hover {
     text-shadow: 1px 1px 2px black;
 }
 
+/*MobilePhone Details*/
+/*####################################################################################################################################################
+####################################################################################################################################################
+####################################################################################################################################################*/
+
+.details-container {
+    width: 90%;
+    margin: auto;
+    background-color: #fff;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.carousel-item {
+    width: 70%;
+    background-size: contain;
+}   
+
+.carousel-inner {
+    width: 70%;
+    margin: auto;
+}
+
+.carousel-container {
+    width: 100%;
+}
+
+.carousel-image {
+    margin-left: 25%;
+}
+
+.carousel-control-prev-icon {
+    background-image: none;
+    border: solid #212529;
+    border-width: 0 10px 10px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.carousel-control-next-icon {
+    background-image: none;
+    border: solid #212529;
+    border-width: 0 10px 10px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
