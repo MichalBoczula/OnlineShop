@@ -127,12 +127,13 @@ a:hover {
     background-color: #fff;
     margin-top: 50px;
     margin-bottom: 50px;
+    border-radius: 20px;
 }
 
 .carousel-item {
     width: 70%;
     background-size: contain;
-}   
+}
 
 .carousel-inner {
     width: 70%;
@@ -165,4 +166,41 @@ a:hover {
     padding: 3px;
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
+}
+
+.content {
+    padding: 25px;
+}
+
+.product-name {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.product-name-name {
+    margin: 0;
+    margin-left: 20px;
+    align-self: flex-end;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px black;
+}
+
+.description-title {
+    font-size: 1.5rem;
+}
+
+.description {
+    text-align: justify;
+}
+
+.return-btn {
+    background-image: none;
+    border: solid #212529;
+    border-width: 0 10px 10px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    margin-right: 10px
 }

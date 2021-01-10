@@ -11,9 +11,19 @@
 
 <div class="details-container">
     <div class="container" id="list">
-        <div class="row">
+        <div class="row content">
             <div class="col-md-6">
-                \
+                <div class="product-name">
+                    <i class="fas fa-signature fa-2x product-name-icon"></i>
+                    <p class="product-name-name">@Model.Brand  @Model.Name</p>
+                </div>
+                <div class="description-container">
+                    <h3 class="description-title">Information</h3>
+                    <p class="description">@Model.Description</p>
+                </div>
+                <div class="return-container">
+                    <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Back to List</p>
+                </div>
             </div>
             <div class="col-md-6">
                 <div class="carousel-container">
@@ -46,63 +56,92 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+
+        </div>
 
 
         @*<hr />
             <dl class="row">
-                <dt class = "col-sm-2">
-                    @Html.DisplayNameFor(model => model.Id)
-                </dt>
-                <dd class = "col-sm-10">
-                    @Html.DisplayFor(model => model.Id)
-                </dd>
-                <dt class = "col-sm-2">
-                    @Html.DisplayNameFor(model => model.Name)
-                </dt>
-                <dd class = "col-sm-10">
-                    @Html.DisplayFor(model => model.Name)
-                </dd>
-                <dt class = "col-sm-2">
-                    @Html.DisplayNameFor(model => model.Price)
-                </dt>
-                <dd class = "col-sm-10">
-                    @Html.DisplayFor(model => model.Price)
-                </dd>
-                <dt class = "col-sm-2">
-                    @Html.DisplayNameFor(model => model.MainImage)
-                </dt>
-                <dd class = "col-sm-10">
-                    @Html.DisplayFor(model => model.MainImage)
-                </dd>
-                <dt class = "col-sm-2">
-                    @Html.DisplayNameFor(model => model.FirstImage)
-                </dt>
-                <dd class = "col-sm-10">
-                    @Html.DisplayFor(model => model.FirstImage)
-                </dd>
-                <dt class = "col-sm-2">
-                    @Html.DisplayNameFor(model => model.SecondImage)
-                </dt>
-                <dd class = "col-sm-10">
-                    @Html.DisplayFor(model => model.SecondImage)
-                </dd>
-                <dt class = "col-sm-2">
-                    @Html.DisplayNameFor(model => model.ThirdImage)
-                </dt>
-                <dd class = "col-sm-10">
-                    @Html.DisplayFor(model => model.ThirdImage)
-                </dd>
-                <dt class = "col-sm-2">
-                    @Html.DisplayNameFor(model => model.Description)
-                </dt>
-                <dd class = "col-sm-10">
-                    @Html.DisplayFor(model => model.Description)
-                </dd>
-                <dt class = "col-sm-2">
-                    @Html.DisplayNameFor(model => model.QuantityInStack)
-                </dt>
-                <dd class = "col-sm-10">
-                    @Html.DisplayFor(model => model.QuantityInStack)
-                </dd>
+
             </dl>*@
     </div>
+</div>
+
+<div class="details-container">
+    <div class="container" id="list">
+        <div class="row content">
+            <div class="col-lg-4">
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>twitter</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-4">
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>twitter</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-4">
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>twitter</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+    </div>
+
+
+    @*<hr />
+        <dl class="row">
+
+        </dl>*@
+</div>
+</div>
+
+
+
+
+
+
+
