@@ -204,3 +204,26 @@ a:hover {
     -webkit-transform: rotate(135deg);
     margin-right: 10px
 }
+
+.hardware-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.hardware-title {
+    margin-left: 15px;
+}
+
+#function-icon {
+    color: #1763A1;
+}
+
+#hardware-icon,
+#camera-icon,
+#multimedia-icon {
+    color: #1763A1;
+}

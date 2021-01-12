@@ -14,5 +14,7 @@ namespace OnlineShop.Domain.Model
         public int MemorySpace { get; set; }
         public string SimCardType { get; set; }
         public int BatteryCapacity { get; set; }
+        public ICollection<MobilePhone> MobilePhones { get; set; }
+
     }
 }

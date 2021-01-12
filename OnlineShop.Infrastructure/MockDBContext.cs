@@ -8,7 +8,7 @@ namespace OnlineShop.Infrastructure
     public class MockDBContext
     {
         private readonly List<MobilePhone> mobilePhones;
-        
+
         public MockDBContext()
         {
             mobilePhones = new List<MobilePhone>();
@@ -17,7 +17,34 @@ namespace OnlineShop.Infrastructure
 
         private List<MobilePhone> Seed()
         {
-            var  phones = new List<MobilePhone>();
+            var phones = new List<MobilePhone>();
+            var hardware = new Hardware()
+            {
+                Id = 1,
+                ProcessorName = "SnapDragon",
+                ProcessorClock = "4x 2.4Ghz",
+                GraphicsProcessor = "GraphFlex",
+                OperationMemory = 8,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                BatteryCapacity = 5000
+            };
+            var camera = new Camera()
+            {
+                Id = 1,
+                Zoom = 8,
+                FrontResulution = 16,
+                MainResulution = 32,
+                AdditionalResulution = 16,
+                VideoRecorderResolution = "4K",
+                VideoFPS = 120,
+                Functions =  new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash"
+                }
+            };
             var mobile1 = new MobilePhone()
             {
                 Id = 1,
@@ -42,7 +69,9 @@ namespace OnlineShop.Infrastructure
                 " venenatis cursus eros ut, efficitur mollis nisl.",
                 ActiveStatus = true,
                 QuantityInStack = QuantityStatus.Full,
-                MainImage = "/Apple/iPhone 12/Main.png"
+                MainImage = "/Apple/iPhone 12/Main.png",
+                Hardware = hardware,
+                Camera = camera
             };
             var mobile2 = new MobilePhone()
             {
@@ -66,7 +95,9 @@ namespace OnlineShop.Infrastructure
                 " nec lobortis sem interdum sit amet.",
                 ActiveStatus = true,
                 QuantityInStack = QuantityStatus.Full,
-                MainImage = "/Samsung/Galaxy Z Fold2/Main.png"
+                MainImage = "/Samsung/Galaxy Z Fold2/Main.png",
+                Hardware = hardware,
+                Camera = camera
             };
             var mobile3 = new MobilePhone()
             {
@@ -92,7 +123,9 @@ namespace OnlineShop.Infrastructure
                 " Suspendisse vitae pellentesque ante.",
                 ActiveStatus = true,
                 QuantityInStack = QuantityStatus.Full,
-                MainImage = "/LG/Wing/Main.png"
+                MainImage = "/LG/Wing/Main.png",
+                Hardware = hardware,
+                Camera = camera
             };
             phones.Add(mobile1);
             phones.Add(mobile2);
