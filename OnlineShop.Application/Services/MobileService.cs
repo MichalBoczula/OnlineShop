@@ -5,6 +5,7 @@ using OnlineShop.Application.ViewModels;
 using OnlineShop.Application.ViewModels.Camera;
 using OnlineShop.Application.ViewModels.Hardware;
 using OnlineShop.Application.ViewModels.Mobile;
+using OnlineShop.Application.ViewModels.Multimedia;
 using OnlineShop.Application.ViewModels.Screen;
 using OnlineShop.Domain.Interfaces;
 using OnlineShop.Domain.Model;
@@ -40,6 +41,7 @@ namespace OnlineShop.Application.Services
             mobileDetailsVM.Camera = GetCameraVM(mobile);
             mobileDetailsVM.Hardware = GetHardwareVM(mobile);
             mobileDetailsVM.Screen = GetScreenVM(mobile);
+            mobileDetailsVM.Multimedia = GetMultimediaVM(mobile);
             return mobileDetailsVM;
         }
 
@@ -61,6 +63,11 @@ namespace OnlineShop.Application.Services
         private CameraVM GetCameraVM(MobilePhone mobile)
         {
             return _mapper.Map<CameraVM>(mobile.Camera);
+        }
+
+        private MultimediaVM GetMultimediaVM(MobilePhone mobile)
+        {
+            return _mapper.Map<MultimediaVM>(mobile.Multimedia);
         }
     }
 }

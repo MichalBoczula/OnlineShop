@@ -12,7 +12,7 @@
 <div class="details-container">
     <div class="container" id="list">
         <div class="row content">
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <div class="product-name">
                     <i class="fas fa-signature fa-2x product-name-icon"></i>
                     <p class="product-name-name">@Model.Brand  @Model.Name</p>
@@ -22,10 +22,12 @@
                     <p class="description">@Model.Description</p>
                 </div>
                 <div class="return-container">
-                    <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Back to List</p>
+                    <a asp-controller="MobilePhone" asp-action="Index">
+                        <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Back to List</p>
+                    </a>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <div class="carousel-container">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
@@ -62,7 +64,7 @@
 <div class="details-container">
     <div class="container" id="list">
         <div class="row content">
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="hardware-container">
                     <i class="fas fa-microchip fa-2x" id="hardware-icon"></i>
                     <h3 class="hardware-title">Hardware</h3>
@@ -70,37 +72,68 @@
                 <table class="table table-hover">
                     <tbody>
                         <tr>
-                            <th scope="row">ProcessorName</th>
+                            <th scope="row">Processor Name</th>
                             <td>@Model.Hardware.ProcessorName</td>
                         </tr>
                         <tr>
-                            <th scope="row">ProcessorClock</th>
+                            <th scope="row">Processor Clock</th>
                             <td>@Model.Hardware.ProcessorClock</td>
                         </tr>
                         <tr>
-                            <th scope="row">GraphicsProcessor</th>
+                            <th scope="row">Graphics Processor</th>
                             <td>@Model.Hardware.GraphicsProcessor</td>
                         </tr>
                         <tr>
-                            <th scope="row">OperationMemory</th>
+                            <th scope="row">Operation Memory</th>
                             <td>@Model.Hardware.OperationMemory GB RAM</td>
                         </tr>
                         <tr>
-                            <th scope="row">MemorySpace</th>
+                            <th scope="row">Memory Space</th>
                             <td>@Model.Hardware.MemorySpace GB</td>
                         </tr>
                         <tr>
-                            <th scope="row">SimCardType</th>
+                            <th scope="row">Sim Card Type</th>
                             <td>@Model.Hardware.SimCardType</td>
                         </tr>
                         <tr>
-                            <th scope="row">BatteryCapacity</th>
+                            <th scope="row">Battery Capacity</th>
                             <td>@Model.Hardware.BatteryCapacity mAh</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-6">
+                <div class="hardware-container">
+                    <i class="fas fa-mobile fa-2x" id="screen-icon"></i>
+                    <h3 class="hardware-title">Screen</h3>
+                </div>
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Screen Type</th>
+                            <td>@Model.Screen.ScreenType</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Size</th>
+                            <td>@Model.Screen.Size inches</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Colors Quantity</th>
+                            <td>@Model.Screen.ColorsQuantity mln</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Horizontal Resolution</th>
+                            <td>@Model.Screen.HorizontalResolution px</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Vertical Resolution</th>
+                            <td>@Model.Screen.VerticalResolution px</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-lg-6">
                 <div class="hardware-container">
                     <i class="fas fa-camera fa-2x" id="camera-icon"></i>
                     <h3 class="hardware-title">Camera</h3>
@@ -112,23 +145,23 @@
                             <td>@Model.Camera.Zoom X</td>
                         </tr>
                         <tr>
-                            <th scope="row">FrontResulution</th>
+                            <th scope="row">Front Resulution</th>
                             <td>@Model.Camera.FrontResulution Mpix</td>
                         </tr>
                         <tr>
-                            <th scope="row">MainResulution</th>
+                            <th scope="row">Main Resulution</th>
                             <td>@Model.Camera.MainResulution Mpix</td>
                         </tr>
                         <tr>
-                            <th scope="row">AdditionalResulution</th>
+                            <th scope="row">Additional Resulution</th>
                             <td>@Model.Camera.AdditionalResulution Mpix</td>
                         </tr>
                         <tr>
-                            <th scope="row">VideoRecorderResolution</th>
+                            <th scope="row">Video Recorder Resolution</th>
                             <td>@Model.Camera.VideoRecorderResolution</td>
                         </tr>
                         <tr>
-                            <th scope="row">VideoFPS</th>
+                            <th scope="row">Video FPS</th>
                             <td>@Model.Camera.VideoFPS Fps</td>
                         </tr>
                         @foreach (var fun in Model.Camera.Functions)
@@ -141,7 +174,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="hardware-container">
                     <i class="fas fa-list-alt fa-2x" id="multimedia-icon"></i>
                     <h3 class="hardware-title">Multimedia</h3>
@@ -149,16 +182,74 @@
                 <table class="table table-hover">
                     <tbody>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
+                            <th scope="row">Bluetooth</th>
+                            @if (Model.Multimedia.Bluetooth)
+                            {
+                                <td><i class="fas fa-check-circle" id="function-icon"></i></td>
+                            }
+                            else
+                            {
+                                <td><i class="fas fa-times-circle" id="function-icon"></i></td>
+                            }
                         </tr>
                         <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
+                            <th scope="row">LTE</th>
+                            @if (Model.Multimedia.LTE)
+                            {
+                                <td><i class="fas fa-check-circle" id="function-icon"></i></td>
+                            }
+                            else
+                            {
+                                <td><i class="fas fa-times-circle" id="function-icon"></i></td>
+                            }
                         </tr>
                         <tr>
-                            <th scope="row">3</th>
-                            <td>twitter</td>
+                            <th scope="row">GPS</th>
+                            @if (Model.Multimedia.GPS)
+                            {
+                                <td><i class="fas fa-check-circle" id="function-icon"></i></td>
+                            }
+                            else
+                            {
+                                <td><i class="fas fa-times-circle" id="function-icon"></i></td>
+                            }
+                        </tr>
+                        <tr>
+                            <th scope="row">NFC</th>
+                            @if (Model.Multimedia.NFC)
+                            {
+                                <td><i class="fas fa-check-circle" id="function-icon"></i></td>
+                            }
+                            else
+                            {
+                                <td><i class="fas fa-times-circle" id="function-icon"></i></td>
+                            }
+                        </tr>
+                        <tr>
+                            <th scope="row">WiFiCalling</th>
+                            @if (Model.Multimedia.WiFiCalling)
+                            {
+                                <td><i class="fas fa-check-circle" id="function-icon"></i></td>
+                            }
+                            else
+                            {
+                                <td><i class="fas fa-times-circle" id="function-icon"></i></td>
+                            }
+                        </tr>
+                        <tr>
+                            <th scope="row">FingerPrintReader</th>
+                            @if (Model.Multimedia.FingerPrintReader)
+                            {
+                                <td><i class="fas fa-check-circle" id="function-icon"></i></td>
+                            }
+                            else
+                            {
+                                <td><i class="fas fa-times-circle" id="function-icon"></i></td>
+                            }
+                        </tr>
+                        <tr>
+                            <th scope="row">USB Type</th>
+                            <td>@Model.Multimedia.USBType</td>
                         </tr>
                     </tbody>
                 </table>
@@ -174,7 +265,6 @@
         <dl class="row">
 
         </dl>*@
-</div>
 </div>
 
 

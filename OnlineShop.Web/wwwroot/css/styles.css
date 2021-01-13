@@ -224,6 +224,25 @@ a:hover {
 
 #hardware-icon,
 #camera-icon,
-#multimedia-icon {
+#multimedia-icon,
+#screen-icon {
     color: #1763A1;
 }
+
+.return-desc {
+    color: #212529;
+    transition: all linear 0.2s;
+}
+
+.return-btn {
+    transition: all linear 0.2s;
+}
+
+    .return-desc:hover {
+        font-weight: 700;
+    }
+
+        .return-desc:hover .return-btn {
+            font-weight: 700;
+            border-width: 0 12px 12px 0;
+        }

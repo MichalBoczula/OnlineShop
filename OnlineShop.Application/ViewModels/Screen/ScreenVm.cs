@@ -9,7 +9,7 @@ namespace OnlineShop.Application.ViewModels.Screen
     public class ScreenVM : IMapFrom<OnlineShop.Domain.Model.Screen>
     {
         public int Id { get; set; }
-        public int Size { get; set; }
+        public decimal Size { get; set; }
         public int ColorsQuantity { get; set; }
         public string ScreenType { get; set; }
         public int HorizontalResolution { get; set; }

@@ -7,7 +7,7 @@ namespace OnlineShop.Domain.Model
     public class Screen
     {
         public int Id { get; set; }
-        public int Size { get; set; }
+        public decimal Size { get; set; }
         /// <summary>
         /// In mln 
         /// </summary>

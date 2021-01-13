@@ -45,6 +45,26 @@ namespace OnlineShop.Infrastructure
                     "Flash"
                 }
             };
+            var multimedia = new Multimedia()
+            {
+                Id = 1,
+                USBType = "Lighting",
+                Bluetooth = true,
+                NFC = true,
+                FingerPrintReader = true,
+                LTE = true,
+                GPS = true,
+                WiFiCalling = false
+            };
+            var screen = new Screen()
+            {
+                Id = 1,
+                Size = 6.1m,
+                ColorsQuantity = 16,
+                ScreenType = "Super Retina XDR",
+                HorizontalResolution = 2532,
+                VerticalResolution = 1170
+            };
             var mobile1 = new MobilePhone()
             {
                 Id = 1,
@@ -71,7 +91,9 @@ namespace OnlineShop.Infrastructure
                 QuantityInStack = QuantityStatus.Full,
                 MainImage = "/Apple/iPhone 12/Main.png",
                 Hardware = hardware,
-                Camera = camera
+                Camera = camera,
+                Multimedia = multimedia,
+                Screen = screen
             };
             var mobile2 = new MobilePhone()
             {
@@ -97,7 +119,9 @@ namespace OnlineShop.Infrastructure
                 QuantityInStack = QuantityStatus.Full,
                 MainImage = "/Samsung/Galaxy Z Fold2/Main.png",
                 Hardware = hardware,
-                Camera = camera
+                Camera = camera,
+                Multimedia = multimedia,
+                Screen = screen
             };
             var mobile3 = new MobilePhone()
             {
@@ -125,7 +149,9 @@ namespace OnlineShop.Infrastructure
                 QuantityInStack = QuantityStatus.Full,
                 MainImage = "/LG/Wing/Main.png",
                 Hardware = hardware,
-                Camera = camera
+                Camera = camera,
+                Multimedia = multimedia,
+                Screen = screen
             };
             phones.Add(mobile1);
             phones.Add(mobile2);
