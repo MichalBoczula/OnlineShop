@@ -1,10 +1,11 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OnlineShop.Domain.Model
+namespace OnlineShop.Application.ViewModels.Multimedia
 {
-    public class Multimedia
+    public class MultimediaVM
     {
         public int Id { get; set; }
         public string WiFiStandard { get; set; }
@@ -15,6 +16,9 @@ namespace OnlineShop.Domain.Model
         public int DownloadDataSpeed { get; set; }
         public int SendDataSpeed { get; set; }
 
-        public ICollection<MobilePhone> MobilePhones { get; set; }
+        public void Mapping(Profile profile)
+        {
+            profile.CreateMap<OnlineShop.Domain.Model.Multimedia, MultimediaVM>();
+        }
     }
 }

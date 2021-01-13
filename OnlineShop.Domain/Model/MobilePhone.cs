@@ -21,5 +21,6 @@ namespace OnlineShop.Domain.Model
         public Camera Camera { get; set; }
         public Screen Screen { get; set; }
         public Hardware Hardware { get; set; }
+        public Multimedia Multimedia { get; set; }
     }
 }
