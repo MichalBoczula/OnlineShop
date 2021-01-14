@@ -17,6 +17,7 @@ namespace OnlineShop.Domain.Model
         public string ShortDescription { get; set; }
         public string Description { get; set; }
         public bool ActiveStatus { get; set; }
+        public bool BestSeller { get; set; }
         public QuantityStatus QuantityInStack { get; set; }
         public Camera Camera { get; set; }
         public Screen Screen { get; set; }

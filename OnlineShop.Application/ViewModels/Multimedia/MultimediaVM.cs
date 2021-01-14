@@ -8,14 +8,14 @@ namespace OnlineShop.Application.ViewModels.Multimedia
 {
     public class MultimediaVM : IMapFrom<OnlineShop.Domain.Model.Multimedia>
     {
-        public int Id { get; set; }
-        public string USBType { get; set; }
-        public bool Bluetooth { get; set; }
-        public bool NFC { get; set; }
-        public bool FingerPrintReader { get; set; }
-        public bool LTE { get; set; }
-        public bool GPS { get; set; }
-        public bool WiFiCalling { get; set; }
+        public int Id;
+        public string USBType;
+        public bool Bluetooth;
+        public bool NFC;
+        public bool FingerPrintReader;
+        public bool LTE;
+        public bool GPS;
+        public bool WiFiCalling;
 
         public void Mapping(Profile profile)
         {

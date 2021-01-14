@@ -13,20 +13,20 @@ namespace OnlineShop.Application.ViewModels.Mobile
 {
     public class MobileDetailsVM : IMapFrom<MobilePhone>
     {
-        public int Id { get; set; }
-        public string Brand { get; set; }
-        public string Name { get; set; }
-        public double Price { get; set; }
-        public string MainImage { get; set; }
-        public string FirstImage { get; set; }
-        public string SecondImage { get; set; }
-        public string ThirdImage { get; set; }
-        public string Description { get; set; }
-        public QuantityStatus QuantityInStack { get; set; }
-        public CameraVM Camera { get; set; }
-        public ScreenVM Screen { get; set; }
-        public HardwareVM Hardware { get; set; }
-        public MultimediaVM Multimedia { get; set; }
+        public int Id;
+        public string Brand;
+        public string Name;
+        public double Price;
+        public string MainImage;
+        public string FirstImage;
+        public string SecondImage;
+        public string ThirdImage;
+        public string Description;
+        public QuantityStatus QuantityInStack;
+        public CameraVM Camera;
+        public ScreenVM Screen;
+        public HardwareVM Hardware;
+        public MultimediaVM Multimedia;
 
         public void Mapping(Profile profile)
         {

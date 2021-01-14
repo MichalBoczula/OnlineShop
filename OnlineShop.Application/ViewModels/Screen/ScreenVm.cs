@@ -8,12 +8,12 @@ namespace OnlineShop.Application.ViewModels.Screen
 {
     public class ScreenVM : IMapFrom<OnlineShop.Domain.Model.Screen>
     {
-        public int Id { get; set; }
-        public decimal Size { get; set; }
-        public int ColorsQuantity { get; set; }
-        public string ScreenType { get; set; }
-        public int HorizontalResolution { get; set; }
-        public int VerticalResolution { get; set; }
+        public int Id;
+        public decimal Size;
+        public int ColorsQuantity;
+        public string ScreenType;
+        public int HorizontalResolution;
+        public int VerticalResolution;
 
         public void Mapping(Profile profile)
         {

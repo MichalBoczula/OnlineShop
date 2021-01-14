@@ -7,18 +7,18 @@ using System.Text;
 
 namespace OnlineShop.Application.ViewModels.Mobile
 {
-    public class MobileForListVM : IMapFrom<MobilePhone>
+    public class MobilePhoneForHomeVM : IMapFrom<MobilePhone>
     {
         public int Id;
         public string Brand;
         public string Name;
-        public double Price;
+        public bool BestSeller;
+        public bool ActiveStatus;
         public string MainImage;
-        public string ShortDescription;
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<MobilePhone, MobileForListVM>();
+            profile.CreateMap<OnlineShop.Domain.Model.MobilePhone, MobilePhoneForHomeVM>();
         }
     }
 }

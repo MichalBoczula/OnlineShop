@@ -8,14 +8,14 @@ namespace OnlineShop.Application.ViewModels.Hardware
 {
     public class HardwareVM : IMapFrom<OnlineShop.Domain.Model.Hardware>
     {
-        public int Id { get; set; }
-        public string ProcessorName { get; set; }
-        public string ProcessorClock { get; set; }
-        public string GraphicsProcessor { get; set; }
-        public int OperationMemory { get; set; }
-        public int MemorySpace { get; set; }
-        public string SimCardType { get; set; }
-        public int BatteryCapacity { get; set; }
+        public int Id;
+        public string ProcessorName;
+        public string ProcessorClock;
+        public string GraphicsProcessor;
+        public int OperationMemory;
+        public int MemorySpace;
+        public string SimCardType;
+        public int BatteryCapacity;
 
         public void Mapping(Profile profile)
         {
