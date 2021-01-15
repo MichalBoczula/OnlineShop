@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using OnlineShop.Application.Interfaces;
 using OnlineShop.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -12,15 +13,19 @@ namespace OnlineShop.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IMobileService _mobileService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,
+                              IMobileService mobileService = null)
         {
             _logger = logger;
+            _mobileService = mobileService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var model =_mobileService.GetMobilesForHome();
+            return View(model);
         }
 
         public IActionResult Privacy()

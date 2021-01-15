@@ -30,7 +30,8 @@ namespace OnlineShop.Application.Services
         public List<MobileForListVM> GetMobilesForList()
         {
             var mobilesForListVm = _repository.GetAllActiveMobiles()
-                .ProjectTo<MobileForListVM>(_mapper.ConfigurationProvider).ToList();
+                .ProjectTo<MobileForListVM>(_mapper.ConfigurationProvider)
+                .ToList();
             return mobilesForListVm;
         }
 
@@ -43,6 +44,13 @@ namespace OnlineShop.Application.Services
             mobileDetailsVM.Screen = GetScreenVM(mobile);
             mobileDetailsVM.Multimedia = GetMultimediaVM(mobile);
             return mobileDetailsVM;
+        }
+        public List<MobilePhoneForHomeVM> GetMobilesForHome()
+        {
+            var mobilePhones = _repository.GetBestSellers()
+                                          .ProjectTo<MobilePhoneForHomeVM>(_mapper.ConfigurationProvider)
+                                          .ToList();
+            return mobilePhones;
         }
 
         public int AddNewMobile(NewMobileVM newMobile)
@@ -69,5 +77,6 @@ namespace OnlineShop.Application.Services
         {
             return _mapper.Map<MultimediaVM>(mobile.Multimedia);
         }
+
     }
 }

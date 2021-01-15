@@ -9,6 +9,7 @@ namespace OnlineShop.Domain.Interfaces
     public interface IMobileRepository
     {
         IQueryable<MobilePhone> GetAllActiveMobiles();
+        IQueryable<MobilePhone> GetBestSellers();
         MobilePhone GetMobileById(int mobilePhoneId);
     }
 }

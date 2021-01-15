@@ -1,4 +1,6 @@
-﻿<head>
+﻿@model IEnumerable<MobilePhoneForHomeVM>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - OnlineShop.Web</title>
@@ -8,5 +10,15 @@
 <article class="container">
     <sector class="container-title">
         <h1 class="home-title">Mobile Galactica</h1>
+    </sector>
+    <sector class="container-best-sellers">
+        <div class="row">
+            @foreach (var phone in Model)
+            {
+                <div class="col-md-4">
+                    <h1 class="home-title">@phone.Name</h1>
+                </div>
+            }
+        </div>
     </sector>
 </article>

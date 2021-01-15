@@ -11,5 +11,6 @@ namespace OnlineShop.Application.Interfaces
         List<MobileForListVM> GetMobilesForList();
         MobileDetailsVM GetDetails(int mobileId);
         int AddNewMobile(NewMobileVM newMobile);
+        List<MobilePhoneForHomeVM> GetMobilesForHome();
     }
 }

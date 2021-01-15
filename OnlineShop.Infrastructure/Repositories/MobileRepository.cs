@@ -18,9 +18,16 @@ namespace OnlineShop.Infrastructure.Repositories
 
         public IQueryable<MobilePhone> GetAllActiveMobiles()
         {
-           return _mockDBContext.GetMobiles()
-                                .Where(m => m.ActiveStatus == true)
-                                .AsQueryable();
+            return _mockDBContext.GetMobiles()
+                                 .Where(m => m.ActiveStatus == true)
+                                 .AsQueryable();
+        }
+
+        public IQueryable<MobilePhone> GetBestSellers()
+        {
+            return _mockDBContext.GetMobiles()
+                                 .Where(m => m.BestSeller == true)
+                                 .AsQueryable();
         }
 
         public MobilePhone GetMobileById(int mobilePhoneId)

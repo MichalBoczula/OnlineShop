@@ -38,7 +38,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 16,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
-                Functions =  new List<string>()
+                Functions = new List<string>()
                 {
                     "Video Recorder",
                     "Autofokus",
@@ -93,7 +93,8 @@ namespace OnlineShop.Infrastructure
                 Hardware = hardware,
                 Camera = camera,
                 Multimedia = multimedia,
-                Screen = screen
+                Screen = screen,
+                BestSeller = true
             };
             var mobile2 = new MobilePhone()
             {
@@ -121,7 +122,9 @@ namespace OnlineShop.Infrastructure
                 Hardware = hardware,
                 Camera = camera,
                 Multimedia = multimedia,
-                Screen = screen
+                Screen = screen,
+                BestSeller = true
+
             };
             var mobile3 = new MobilePhone()
             {
@@ -151,7 +154,8 @@ namespace OnlineShop.Infrastructure
                 Hardware = hardware,
                 Camera = camera,
                 Multimedia = multimedia,
-                Screen = screen
+                Screen = screen,
+                BestSeller = true
             };
             phones.Add(mobile1);
             phones.Add(mobile2);
