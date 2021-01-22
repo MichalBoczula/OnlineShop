@@ -16,12 +16,23 @@
             @foreach (var phone in Model)
             {
                 <div class="col-lg-4 container-card">
-                    <div class="card" style="width: 18rem;">
-                        <img src="~/images/@phone.MainImage" class="card-img">
-                        <div class="card-body">
-                            <h5 class="card-title">@phone.Brand @phone.Name</h5>
+                    <a asp-controller="MobilePhone" asp-action="Details" asp-route-mobilePhoneId="@phone.Id">
+                        <div class="card" style="width: 18rem;">
+                            <img src="~/images/@phone.MainImage" class="card-img">
+                            <div class="card-body">
+                                <h5 class="card-title">@phone.Brand @phone.Name</h5>
+                                <div class="bestseller-icon">
+                                    <p class="bestseller-title">
+                                        Best
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="hover-msg">
+                                <i class="fas fa-mouse fa-3x" id="mouse-icon"></i>
+                                <h4 class="hover-msg-msg">Click for more</h4>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             }
 
@@ -29,15 +40,10 @@
     </article>
     <article class="container-btn">
         <a asp-controller="MobilePhone" asp-action="Index">
-            <div class="to-list-btn">dsadsa</div>
+            <div class="to-list-btn">
+                <p class="to-list-title">Check More</p>
+                <i class="fas fa-arrow-right fa-2x"></i>
+            </div>
         </a>
     </article>
-    <div class="col-lg-4 container-card">
-        <div class="card" style="width: 18rem;">
-            <img src="~\images\Apple\iPhone 12\Main.png" class="card-img">
-            <div class="card-body">
-                <h5 class="card-title">Iphone 123</h5>
-            </div>
-        </div>
-    </div>
 </section>
