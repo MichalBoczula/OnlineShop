@@ -146,6 +146,8 @@ a:hover {
 
 .carousel-image {
     margin-left: 25%;
+    height: 400px;
+    background-size: contain;
 }
 
 .carousel-control-prev-icon {

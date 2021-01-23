@@ -10,7 +10,7 @@ namespace OnlineShop.Application.ViewModels.Hardware
     {
         public int Id;
         public string ProcessorName;
-        public string ProcessorClock;
+        public string OperationSystem;
         public string GraphicsProcessor;
         public int OperationMemory;
         public int MemorySpace;

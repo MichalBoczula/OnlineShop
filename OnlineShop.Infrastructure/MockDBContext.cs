@@ -18,18 +18,18 @@ namespace OnlineShop.Infrastructure
         private List<MobilePhone> Seed()
         {
             var phones = new List<MobilePhone>();
-            var hardware = new Hardware()
+            var hardwareiPhone12 = new Hardware()
             {
                 Id = 1,
-                ProcessorName = "SnapDragon",
-                ProcessorClock = "4x 2.4Ghz",
-                GraphicsProcessor = "GraphFlex",
-                OperationMemory = 8,
-                MemorySpace = 128,
+                ProcessorName = "A14 Bionic",
+                OperationSystem = "iOS",
+                GraphicsProcessor = "A14 Bionic",
+                OperationMemory = 4,
+                MemorySpace = 64,
                 SimCardType = "Nano",
-                BatteryCapacity = 5000
+                BatteryCapacity = 2500
             };
-            var camera = new Camera()
+            var cameraiPhone12 = new Camera()
             {
                 Id = 1,
                 Zoom = 8,
@@ -45,7 +45,16 @@ namespace OnlineShop.Infrastructure
                     "Flash"
                 }
             };
-            var multimedia = new Multimedia()
+            var screeniPhone12 = new Screen()
+            {
+                Id = 1,
+                Size = 6.1m,
+                ColorsQuantity = 16,
+                ScreenType = "OLED Super Retina XDR",
+                HorizontalResolution = 2532,
+                VerticalResolution = 1170
+            };
+            var multimediaApple = new Multimedia()
             {
                 Id = 1,
                 USBType = "Lighting",
@@ -56,16 +65,18 @@ namespace OnlineShop.Infrastructure
                 GPS = true,
                 WiFiCalling = false
             };
-            var screen = new Screen()
+            var multimediaAndroid = new Multimedia()
             {
                 Id = 1,
-                Size = 6.1m,
-                ColorsQuantity = 16,
-                ScreenType = "Super Retina XDR",
-                HorizontalResolution = 2532,
-                VerticalResolution = 1170
+                USBType = "USB C",
+                Bluetooth = true,
+                NFC = true,
+                FingerPrintReader = true,
+                LTE = true,
+                GPS = true,
+                WiFiCalling = false
             };
-            var mobile1 = new MobilePhone()
+            var iPhone12 = new MobilePhone()
             {
                 Id = 1,
                 Brand = "Apple",
@@ -90,13 +101,52 @@ namespace OnlineShop.Infrastructure
                 ActiveStatus = true,
                 QuantityInStack = QuantityStatus.Full,
                 MainImage = "/Apple/iPhone 12/Main.png",
-                Hardware = hardware,
-                Camera = camera,
-                Multimedia = multimedia,
-                Screen = screen,
+                FirstImage = "/Apple/iPhone 12/First.png",
+                SecondImage= "/Apple/iPhone 12/Second.png",
+                Hardware = hardwareiPhone12,
+                Camera = cameraiPhone12,
+                Multimedia = multimediaApple,
+                Screen = screeniPhone12,
                 BestSeller = true
             };
-            var mobile2 = new MobilePhone()
+
+            var hardwareFold2 = new Hardware()
+            {
+                Id = 2,
+                ProcessorName = "Qualcomm",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 650",
+                OperationMemory = 12,
+                MemorySpace = 256,
+                SimCardType = "Nano",
+                BatteryCapacity = 4500
+            };
+            var cameraFold2 = new Camera()
+            {
+                Id = 2,
+                Zoom = 2,
+                FrontResulution = 12,
+                MainResulution = 12,
+                AdditionalResulution = 12,
+                VideoRecorderResolution = "4K",
+                VideoFPS = 60,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash"
+                }
+            };
+            var screenFold2 = new Screen()
+            {
+                Id = 2,
+                Size = 6.1m,
+                ColorsQuantity = 16,
+                ScreenType = "Dynamic AMOLED 2X",
+                HorizontalResolution = 2208,
+                VerticalResolution = 1768
+            };
+            var fold2 = new MobilePhone()
             {
                 Id = 2,
                 Brand = "Samsung",
@@ -119,14 +169,57 @@ namespace OnlineShop.Infrastructure
                 ActiveStatus = true,
                 QuantityInStack = QuantityStatus.Full,
                 MainImage = "/Samsung/Galaxy Z Fold2/Main.png",
-                Hardware = hardware,
-                Camera = camera,
-                Multimedia = multimedia,
-                Screen = screen,
+                FirstImage = "/Samsung/Galaxy Z Fold2/First.png",
+                SecondImage = "/Samsung/Galaxy Z Fold2/Second.png",
+                Hardware = hardwareFold2,
+                Camera = cameraFold2,
+                Multimedia = multimediaAndroid,
+                Screen = screenFold2,
                 BestSeller = true
 
             };
-            var mobile3 = new MobilePhone()
+
+            var hardwareLgWing = new Hardware()
+            {
+                Id = 3,
+                ProcessorName = "Qualcomm Snapdragon 765G",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 620 GPU",
+                OperationMemory = 8,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                BatteryCapacity = 4000
+            };
+            var cameraLgWing = new Camera()
+            {
+                Id = 3,
+                Zoom = 2,
+                FrontResulution = 32,
+                MainResulution = 64,
+                AdditionalResulution = 12,
+                VideoRecorderResolution = "4K",
+                VideoFPS = 120,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash",
+                    "Night Mode",
+                    "Gimbal",
+                    "AI CAM",
+                    "AR Stickers"
+                }
+            };
+            var screenLgWing = new Screen()
+            {
+                Id = 3,
+                Size = 6.8m,
+                ColorsQuantity = 16,
+                ScreenType = "FHD+ P-OLED FullVision",
+                HorizontalResolution = 2460,
+                VerticalResolution = 1080
+            };
+            var lgWing = new MobilePhone()
             {
                 Id = 3,
                 Brand = "LG",
@@ -151,17 +244,97 @@ namespace OnlineShop.Infrastructure
                 ActiveStatus = true,
                 QuantityInStack = QuantityStatus.Full,
                 MainImage = "/LG/Wing/Main.png",
-                Hardware = hardware,
-                Camera = camera,
-                Multimedia = multimedia,
-                Screen = screen,
+                FirstImage = "/LG/Wing/First.png",
+                SecondImage = "/LG/Wing/Second.png",
+                Hardware = hardwareLgWing,
+                Camera = cameraLgWing,
+                Multimedia = multimediaAndroid,
+                Screen = screenLgWing,
                 BestSeller = true
             };
-            phones.Add(mobile1);
-            phones.Add(mobile2);
-            phones.Add(mobile3);
+            
+            var hardwareiPhone12Pro = new Hardware()
+            {
+                Id = 4,
+                ProcessorName = "A14 Bionic",
+                OperationSystem = "iOS",
+                GraphicsProcessor = "A14 Bionic",
+                OperationMemory = 6,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                BatteryCapacity = 2775
+            };
+            var cameraiPhone12Pro = new Camera()
+            {
+                Id = 4,
+                Zoom = 10,
+                FrontResulution = 12,
+                MainResulution = 12,
+                AdditionalResulution = 12,
+                VideoRecorderResolution = "4K",
+                VideoFPS = 120,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash",
+                    "HDR",
+                    "Dolby Vision",
+                    "Night Mode",
+                    "Deep Fusion"
+                }
+            };
+            var screeniPhone12Pro = new Screen()
+            {
+                Id = 4,
+                Size = 6.1m,
+                ColorsQuantity = 16,
+                ScreenType = "Super Retina XDR",
+                HorizontalResolution = 2532,
+                VerticalResolution = 1170
+            };
+            var iPhone12Pro = new MobilePhone()
+            {
+                Id = 4,
+                Brand = "Apple",
+                Name = "12 Pro",
+                Price = 5200,
+                ShortDescription = "Sed eget dui vitae est ultricies aliquet sit amet sed" +
+               " lectus. Morbi sit amet pellentesque quam. " +
+               "Nulla viverra commodo tortor ac dictum. Morbi nec sapien nec velit" +
+               " ullamcorper dictum.",
+                Description = "Sed eget dui vitae est ultricies aliquet sit amet sed" +
+               " lectus. Morbi sit amet pellentesque quam. Nulla viverra commodo" +
+               " tortor ac dictum. Morbi nec sapien nec velit ullamcorper dictum." +
+               " Aenean eget eros faucibus, egestas nisi vel, lobortis mauris." +
+               " Quisque luctus risus quam, nec bibendum sapien imperdiet ut." +
+               " Nulla iaculis mauris leo, a finibus leo varius sed." +
+               " Aenean tristique orci vel convallis luctus." +
+               " Aenean a enim ac nulla congue aliquam." +
+               " Vestibulum lobortis turpis sit amet augue vestibulum tincidunt." +
+               " Proin nec libero scelerisque, efficitur libero sed, interdum augue." +
+               " Suspendisse condimentum accumsan condimentum." +
+               " Suspendisse vitae pellentesque ante.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Apple/iPhone 12 Pro/Main.png",
+                FirstImage = "/Apple/iPhone 12 Pro/First.png",
+                SecondImage = "/Apple/iPhone 12 Pro/Second.png",
+                Hardware = hardwareiPhone12Pro,
+                Camera = cameraiPhone12Pro,
+                Multimedia = multimediaApple,
+                Screen = screeniPhone12Pro,
+                BestSeller = false
+            };
+
+            phones.Add(iPhone12);
+            phones.Add(fold2);
+            phones.Add(lgWing);
+            phones.Add(iPhone12Pro);
             return phones;
         }
+
+
 
         public List<MobilePhone> GetMobiles()
         {

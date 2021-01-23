@@ -8,7 +8,7 @@ namespace OnlineShop.Domain.Model
     {
         public int Id { get; set; }
         public string ProcessorName { get; set; }
-        public string ProcessorClock { get; set; }
+        public string OperationSystem { get; set; }
         public string GraphicsProcessor { get; set; }
         public int OperationMemory { get; set; }
         public int MemorySpace { get; set; }
