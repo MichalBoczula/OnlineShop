@@ -700,7 +700,7 @@ namespace OnlineShop.Infrastructure
             var cameraA51 = new Camera()
             {
                 Id = 10,
-                Zoom = 30,
+                Zoom = 2,
                 FrontResulution = 32,
                 MainResulution = 48,
                 AdditionalResulution = 12,
@@ -756,6 +756,146 @@ namespace OnlineShop.Infrastructure
                 BestSeller = false
             };
 
+            var hardwareMateXS = new Hardware()
+            {
+                Id = 11,
+                ProcessorName = "Kirin 990 5G",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Kirin 990 5G",
+                OperationMemory = 8,
+                MemorySpace = 512,
+                SimCardType = "Nano",
+                BatteryCapacity = 4500
+            };
+            var cameraMateXS = new Camera()
+            {
+                Id = 11,
+                Zoom = 30,
+                FrontResulution = 40,
+                MainResulution = 40,
+                AdditionalResulution = 8,
+                VideoRecorderResolution = "4K",
+                VideoFPS = 120,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash",
+                    "HDR",
+                    "Deep Photo"
+                }
+            };
+            var screenMateXS = new Screen()
+            {
+                Id = 11,
+                Size = 6.6m,
+                ColorsQuantity = 16,
+                ScreenType = "OLED",
+                HorizontalResolution = 2480,
+                VerticalResolution = 1148
+            };
+            var MateXS = new MobilePhone()
+            {
+                Id = 11,
+                Brand = "Huawei",
+                Name = "Mate XS",
+                Price = 10000,
+                ShortDescription = "Nunc eget sapien quis eros semper tincidunt." +
+                " Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut.",
+                Description = "Nunc eget sapien quis eros semper tincidunt. " +
+                "Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut. " +
+                "Phasellus vehicula sed risus vitae aliquet. Sed neque metus, " +
+                "sollicitudin blandit venenatis hendrerit, pulvinar at diam." +
+                " Fusce blandit eu arcu vitae aliquet. " +
+                "Donec placerat at felis in convallis. " +
+                "Nam tristique neque sed dolor pharetra, sed vestibulum nulla varius." +
+                " Phasellus non diam nunc. Cras dignissim scelerisque tortor," +
+                " vel sodales massa ornare sed. Pellentesque consectetur nisl eros," +
+                " nec lobortis sem interdum sit amet.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Huawei/Mate XS/Main.png",
+                FirstImage = "/Huawei/Mate XS/First.png",
+                SecondImage = "/Huawei/Mate XS/Second.png",
+                Hardware = hardwareMateXS,
+                Camera = cameraMateXS,
+                Multimedia = multimediaAndroid,
+                Screen = screenMateXS,
+                BestSeller = false
+            };
+
+            var hardwareMate40Pro = new Hardware()
+            {
+                Id = 12,
+                ProcessorName = "Kirin 9000",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Kirin 9000",
+                OperationMemory = 8,
+                MemorySpace = 256,
+                SimCardType = "Nano",
+                BatteryCapacity = 4500
+            };
+            var cameraMate40Pro = new Camera()
+            {
+                Id = 12,
+                Zoom = 10,
+                FrontResulution = 13,
+                MainResulution = 50,
+                AdditionalResulution = 20,
+                VideoRecorderResolution = "4K",
+                VideoFPS = 120,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash",
+                    "HDR",
+                    "Deep Photo 3D"
+                }
+            };
+            var screenMate40Pro = new Screen()
+            {
+                Id = 12,
+                Size = 6.8m,
+                ColorsQuantity = 16,
+                ScreenType = "FHD+ OLED",
+                HorizontalResolution = 2772,
+                VerticalResolution = 1344
+            };
+            var Mate40Pro = new MobilePhone()
+            {
+                Id = 12,
+                Brand = "Huawei",
+                Name = "Mate 40 Pro",
+                Price = 5400,
+                ShortDescription = "Nunc eget sapien quis eros semper tincidunt." +
+                " Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut.",
+                Description = "Nunc eget sapien quis eros semper tincidunt. " +
+                "Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut. " +
+                "Phasellus vehicula sed risus vitae aliquet. Sed neque metus, " +
+                "sollicitudin blandit venenatis hendrerit, pulvinar at diam." +
+                " Fusce blandit eu arcu vitae aliquet. " +
+                "Donec placerat at felis in convallis. " +
+                "Nam tristique neque sed dolor pharetra, sed vestibulum nulla varius." +
+                " Phasellus non diam nunc. Cras dignissim scelerisque tortor," +
+                " vel sodales massa ornare sed. Pellentesque consectetur nisl eros," +
+                " nec lobortis sem interdum sit amet.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Huawei/Mate 40 Pro/Main.png",
+                FirstImage = "/Huawei/Mate 40 Pro/First.png",
+                SecondImage = "/Huawei/Mate 40 Pro/Second.png",
+                Hardware = hardwareMate40Pro,
+                Camera = cameraMate40Pro,
+                Multimedia = multimediaAndroid,
+                Screen = screenMate40Pro,
+                BestSeller = false
+            };
+
             phones.Add(iPhone12);
             phones.Add(iPhone12Pro);
             phones.Add(iPhone12Mini);
@@ -766,6 +906,8 @@ namespace OnlineShop.Infrastructure
             phones.Add(flip);
             phones.Add(s21);
             phones.Add(a51);
+            phones.Add(MateXS);
+            phones.Add(Mate40Pro);
             return phones;
         }
 
