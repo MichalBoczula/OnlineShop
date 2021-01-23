@@ -240,11 +240,16 @@ a:hover {
     transition: all linear 0.2s;
 }
 
-    .return-desc:hover {
+.return-desc:hover {
+    font-weight: 700;
+}
+
+    .return-desc:hover .return-btn {
         font-weight: 700;
+        border-width: 0 12px 12px 0;
     }
 
-        .return-desc:hover .return-btn {
-            font-weight: 700;
-            border-width: 0 12px 12px 0;
-        }
+.w-100 {
+    width: auto!important;
+    max-width: 100%;
+}
