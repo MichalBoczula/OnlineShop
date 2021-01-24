@@ -98,6 +98,7 @@ namespace OnlineShop.Infrastructure
                 Screen = screeniPhone12,
                 BestSeller = true
             };
+
             var hardwareiPhone12Pro = new Hardware()
             {
                 Id = 2,
@@ -171,6 +172,7 @@ namespace OnlineShop.Infrastructure
                 Screen = screeniPhone12Pro,
                 BestSeller = false
             };
+
             var hardwareiPhone12Mini = new Hardware()
             {
                 Id = 3,
@@ -1454,6 +1456,285 @@ namespace OnlineShop.Infrastructure
                 BestSeller = false
             };
 
+            var hardwareNokia7 = new Hardware()
+            {
+                Id = 21,
+                ProcessorName = "Qualcomm Snapdragon 660",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 512",
+                OperationMemory = 4,
+                MemorySpace = 64,
+                SimCardType = "Nano",
+                BatteryCapacity = 3500
+            };
+            var cameraNokia7 = new Camera()
+            {
+                Id = 21,
+                Zoom = 2,
+                FrontResulution = 20,
+                MainResulution = 48,
+                AdditionalResulution = 8,
+                VideoRecorderResolution = "HD",
+                VideoFPS = 60,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash"
+                }
+            };
+            var screenNokia7 = new Screen()
+            {
+                Id = 21,
+                Size = 6.3m,
+                ColorsQuantity = 16,
+                ScreenType = "IPS TFT",
+                HorizontalResolution = 2340,
+                VerticalResolution = 1080
+            };
+            var nokia7 = new MobilePhone()
+            {
+                Id = 21,
+                Brand = "Nokia",
+                Name = "7.2",
+                Price = 1000,
+                ShortDescription = "Nunc eget sapien quis eros semper tincidunt." +
+                " Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut.",
+                Description = "Nunc eget sapien quis eros semper tincidunt. " +
+                "Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut. " +
+                "Phasellus vehicula sed risus vitae aliquet. Sed neque metus, " +
+                "sollicitudin blandit venenatis hendrerit, pulvinar at diam." +
+                " Fusce blandit eu arcu vitae aliquet. " +
+                "Donec placerat at felis in convallis. " +
+                "Nam tristique neque sed dolor pharetra, sed vestibulum nulla varius." +
+                " Phasellus non diam nunc. Cras dignissim scelerisque tortor," +
+                " vel sodales massa ornare sed. Pellentesque consectetur nisl eros," +
+                " nec lobortis sem interdum sit amet.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Nokia/7.2/Main.png",
+                FirstImage = "/Nokia/7.2/First.png",
+                SecondImage = "/Nokia/7.2/Second.png",
+                Hardware = hardwareNokia7,
+                Camera = cameraNokia7,
+                Multimedia = multimediaAndroid,
+                Screen = screenNokia7,
+                BestSeller = false
+            };
+
+            var hardwareNokia8 = new Hardware()
+            {
+                Id = 22,
+                ProcessorName = "Qualcomm Snapdragon 765G",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 620",
+                OperationMemory = 8,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                BatteryCapacity = 4500
+            };
+            var cameraNokia8 = new Camera()
+            {
+                Id = 22,
+                Zoom = 8,
+                FrontResulution = 24,
+                MainResulution = 64,
+                AdditionalResulution = 12,
+                VideoRecorderResolution = "4K",
+                VideoFPS = 60,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash",
+                    "Night mode",
+                    "Deep photo",
+                    "Live colors"
+                }
+            };
+            var screenNokia8 = new Screen()
+            {
+                Id = 22,
+                Size = 6.8m,
+                ColorsQuantity = 16,
+                ScreenType = "FHD+ LCD with PureDisplay",
+                HorizontalResolution = 2400,
+                VerticalResolution = 1080
+            };
+            var nokia8 = new MobilePhone()
+            {
+                Id = 22,
+                Brand = "Nokia",
+                Name = "8.3",
+                Price = 2700,
+                ShortDescription = "Nunc eget sapien quis eros semper tincidunt." +
+                " Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut.",
+                Description = "Nunc eget sapien quis eros semper tincidunt. " +
+                "Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut. " +
+                "Phasellus vehicula sed risus vitae aliquet. Sed neque metus, " +
+                "sollicitudin blandit venenatis hendrerit, pulvinar at diam." +
+                " Fusce blandit eu arcu vitae aliquet. " +
+                "Donec placerat at felis in convallis. " +
+                "Nam tristique neque sed dolor pharetra, sed vestibulum nulla varius." +
+                " Phasellus non diam nunc. Cras dignissim scelerisque tortor," +
+                " vel sodales massa ornare sed. Pellentesque consectetur nisl eros," +
+                " nec lobortis sem interdum sit amet.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Nokia/7.2/Main.png",
+                FirstImage = "/Nokia/7.2/First.png",
+                SecondImage = "/Nokia/7.2/Second.png",
+                Hardware = hardwareNokia8,
+                Camera = cameraNokia8,
+                Multimedia = multimediaAndroid,
+                Screen = screenNokia8,
+                BestSeller = false
+            };
+
+            var hardwareIPhone11 = new Hardware()
+            {
+                Id = 23,
+                ProcessorName = "A13 Bionic",
+                OperationSystem = "Android",
+                GraphicsProcessor = "A13 Bionic",
+                OperationMemory = 6,
+                MemorySpace = 64,
+                SimCardType = "Nano",
+                BatteryCapacity = 3110 
+            };
+            var cameraIPhone11 = new Camera()
+            {
+                Id = 23,
+                Zoom = 4,
+                FrontResulution = 12,
+                MainResulution = 12,
+                AdditionalResulution = 12,
+                VideoRecorderResolution = "HD",
+                VideoFPS = 60,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash",
+                    "Night mode",
+                    "Deep photo",
+                    "Portrait"
+                }
+            };
+            var screenIPhone11 = new Screen()
+            {
+                Id = 23,
+                Size = 6.1m,
+                ColorsQuantity = 16,
+                ScreenType = "Liquid Retina HD",
+                HorizontalResolution = 1792,
+                VerticalResolution = 828
+            };
+            var iPhone11 = new MobilePhone()
+            {
+                Id = 23,
+                Brand = "Apple",
+                Name = "iPhone 11",
+                Price = 3100,
+                ShortDescription = "Nunc eget sapien quis eros semper tincidunt." +
+                " Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut.",
+                Description = "Nunc eget sapien quis eros semper tincidunt. " +
+                "Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut. " +
+                "Phasellus vehicula sed risus vitae aliquet. Sed neque metus, " +
+                "sollicitudin blandit venenatis hendrerit, pulvinar at diam." +
+                " Fusce blandit eu arcu vitae aliquet. " +
+                "Donec placerat at felis in convallis. " +
+                "Nam tristique neque sed dolor pharetra, sed vestibulum nulla varius." +
+                " Phasellus non diam nunc. Cras dignissim scelerisque tortor," +
+                " vel sodales massa ornare sed. Pellentesque consectetur nisl eros," +
+                " nec lobortis sem interdum sit amet.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Apple/iPhone 11/Main.png",
+                FirstImage = "/Apple/iPhone 11/First.png",
+                SecondImage = "/Apple/iPhone 11/Second.png",
+                Hardware = hardwareIPhone11,
+                Camera = cameraIPhone11,
+                Multimedia = multimediaAndroid,
+                Screen = screenIPhone11,
+                BestSeller = false
+            };
+
+            var hardwareIPhoneSE = new Hardware()
+            {
+                Id = 24,
+                ProcessorName = "A13 Bionic",
+                OperationSystem = "Android",
+                GraphicsProcessor = "A13 Bionic",
+                OperationMemory = 4,
+                MemorySpace = 64,
+                SimCardType = "Nano",
+                BatteryCapacity = 1821
+            };
+            var cameraIPhoneSE = new Camera()
+            {
+                Id = 24,
+                Zoom = 2,
+                FrontResulution = 7,
+                MainResulution = 12,
+                AdditionalResulution = 5,
+                VideoRecorderResolution = "HD",
+                VideoFPS = 30,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash",
+                    "Night mode",
+                }
+            };
+            var screenIPhoneSE = new Screen()
+            {
+                Id = 24,
+                Size = 4.7m,
+                ColorsQuantity = 16,
+                ScreenType = "Retina HD IPS",
+                HorizontalResolution = 1334,
+                VerticalResolution = 750
+            };
+            var iPhoneSE = new MobilePhone()
+            {
+                Id = 24,
+                Brand = "Apple",
+                Name = "iPhone SE",
+                Price = 2100,
+                ShortDescription = "Nunc eget sapien quis eros semper tincidunt." +
+                " Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut.",
+                Description = "Nunc eget sapien quis eros semper tincidunt. " +
+                "Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut. " +
+                "Phasellus vehicula sed risus vitae aliquet. Sed neque metus, " +
+                "sollicitudin blandit venenatis hendrerit, pulvinar at diam." +
+                " Fusce blandit eu arcu vitae aliquet. " +
+                "Donec placerat at felis in convallis. " +
+                "Nam tristique neque sed dolor pharetra, sed vestibulum nulla varius." +
+                " Phasellus non diam nunc. Cras dignissim scelerisque tortor," +
+                " vel sodales massa ornare sed. Pellentesque consectetur nisl eros," +
+                " nec lobortis sem interdum sit amet.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Apple/iPhone SE/Main.png",
+                FirstImage = "/Apple/iPhone SE/First.png",
+                SecondImage = "/Apple/iPhone SE/Second.png",
+                Hardware = hardwareIPhoneSE,
+                Camera = cameraIPhoneSE,
+                Multimedia = multimediaAndroid,
+                Screen = screenIPhoneSE,
+                BestSeller = false
+            };
+
             phones.Add(iPhone12);
             phones.Add(iPhone12Pro);
             phones.Add(iPhone12Mini);
@@ -1474,7 +1755,11 @@ namespace OnlineShop.Infrastructure
             phones.Add(razr);
             phones.Add(edge);
             phones.Add(moto);
-
+            phones.Add(nokia7);
+            phones.Add(nokia8);
+            phones.Add(iPhone11);
+            phones.Add(iPhoneSE);
+            
             return phones;
         }
 
