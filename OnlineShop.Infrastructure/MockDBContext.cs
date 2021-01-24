@@ -794,7 +794,7 @@ namespace OnlineShop.Infrastructure
                 HorizontalResolution = 2480,
                 VerticalResolution = 1148
             };
-            var MateXS = new MobilePhone()
+            var mateXS = new MobilePhone()
             {
                 Id = 11,
                 Brand = "Huawei",
@@ -864,7 +864,7 @@ namespace OnlineShop.Infrastructure
                 HorizontalResolution = 2772,
                 VerticalResolution = 1344
             };
-            var Mate40Pro = new MobilePhone()
+            var mate40Pro = new MobilePhone()
             {
                 Id = 12,
                 Brand = "Huawei",
@@ -896,6 +896,142 @@ namespace OnlineShop.Infrastructure
                 BestSeller = false
             };
 
+            var hardwareSonyL4 = new Hardware()
+            {
+                Id = 13,
+                ProcessorName = "MediaTek MT6762",
+                OperationSystem = "Android",
+                GraphicsProcessor = "IMG GE8320",
+                OperationMemory = 3,
+                MemorySpace = 64,
+                SimCardType = "Nano",
+                BatteryCapacity = 3580
+            };
+            var cameraSonyL4 = new Camera()
+            {
+                Id = 13,
+                Zoom = 2,
+                FrontResulution = 8,
+                MainResulution = 13,
+                AdditionalResulution = 5,
+                VideoRecorderResolution = "HD",
+                VideoFPS = 120,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash"
+                }
+            };
+            var screenSonyL4 = new Screen()
+            {
+                Id = 13,
+                Size = 6.2m,
+                ColorsQuantity = 16,
+                ScreenType = "TFT LCD",
+                HorizontalResolution = 1680,
+                VerticalResolution = 720
+            };
+            var sonyXperiaL4 = new MobilePhone()
+            {
+                Id = 13,
+                Brand = "Sony",
+                Name = "Xperia L4",
+                Price = 1000,
+                ShortDescription = "Nunc eget sapien quis eros semper tincidunt." +
+                " Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut.",
+                Description = "Nunc eget sapien quis eros semper tincidunt. " +
+                "Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut. " +
+                "Phasellus vehicula sed risus vitae aliquet. Sed neque metus, " +
+                "sollicitudin blandit venenatis hendrerit, pulvinar at diam." +
+                " Fusce blandit eu arcu vitae aliquet. " +
+                "Donec placerat at felis in convallis. " +
+                "Nam tristique neque sed dolor pharetra, sed vestibulum nulla varius." +
+                " Phasellus non diam nunc. Cras dignissim scelerisque tortor," +
+                " vel sodales massa ornare sed. Pellentesque consectetur nisl eros," +
+                " nec lobortis sem interdum sit amet.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Sony/Xperia L4/Main.png",
+                FirstImage = "/Sony/Xperia L4/First.png",
+                SecondImage = "/Sony/Xperia L4/Second.png",
+                Hardware = hardwareSonyL4,
+                Camera = cameraSonyL4,
+                Multimedia = multimediaAndroid,
+                Screen = screenSonyL4,
+                BestSeller = false
+            };
+
+            var hardwareSony10 = new Hardware()
+            {
+                Id = 14,
+                ProcessorName = "Qualcomm Snapdragon 665",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 610",
+                OperationMemory = 4,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                BatteryCapacity = 3600
+            };
+            var cameraSony10 = new Camera()
+            {
+                Id = 14,
+                Zoom = 4,
+                FrontResulution = 8,
+                MainResulution = 12,
+                AdditionalResulution = 8,
+                VideoRecorderResolution = "HD",
+                VideoFPS = 120,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash"
+                }
+            };
+            var screenSony10 = new Screen()
+            {
+                Id = 14,
+                Size = 6.0m,
+                ColorsQuantity = 16,
+                ScreenType = "OLED",
+                HorizontalResolution = 2520,
+                VerticalResolution = 1080
+            };
+            var sonyXperia10 = new MobilePhone()
+            {
+                Id = 14,
+                Brand = "Sony",
+                Name = "Xperia 10",
+                Price = 1800,
+                ShortDescription = "Nunc eget sapien quis eros semper tincidunt." +
+                " Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut.",
+                Description = "Nunc eget sapien quis eros semper tincidunt. " +
+                "Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut. " +
+                "Phasellus vehicula sed risus vitae aliquet. Sed neque metus, " +
+                "sollicitudin blandit venenatis hendrerit, pulvinar at diam." +
+                " Fusce blandit eu arcu vitae aliquet. " +
+                "Donec placerat at felis in convallis. " +
+                "Nam tristique neque sed dolor pharetra, sed vestibulum nulla varius." +
+                " Phasellus non diam nunc. Cras dignissim scelerisque tortor," +
+                " vel sodales massa ornare sed. Pellentesque consectetur nisl eros," +
+                " nec lobortis sem interdum sit amet.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Sony/Xperia 10/Main.png",
+                FirstImage = "/Sony/Xperia 10/First.png",
+                SecondImage = "/Sony/Xperia 10/Second.png",
+                Hardware = hardwareSony10,
+                Camera = cameraSony10,
+                Multimedia = multimediaAndroid,
+                Screen = screenSony10,
+                BestSeller = false
+            };
+
             phones.Add(iPhone12);
             phones.Add(iPhone12Pro);
             phones.Add(iPhone12Mini);
@@ -906,8 +1042,11 @@ namespace OnlineShop.Infrastructure
             phones.Add(flip);
             phones.Add(s21);
             phones.Add(a51);
-            phones.Add(MateXS);
-            phones.Add(Mate40Pro);
+            phones.Add(mateXS);
+            phones.Add(mate40Pro);
+            phones.Add(sonyXperiaL4);
+            phones.Add(sonyXperia10);
+            
             return phones;
         }
 
