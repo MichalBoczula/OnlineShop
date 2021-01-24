@@ -1735,6 +1735,213 @@ namespace OnlineShop.Infrastructure
                 BestSeller = false
             };
 
+            var hardwareReno4Pro = new Hardware()
+            {
+                Id = 25,
+                ProcessorName = "Qualcomm Snapdragon 765 5G",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 620",
+                OperationMemory = 12,
+                MemorySpace = 256,
+                SimCardType = "Nano",
+                BatteryCapacity = 4000
+            };
+            var cameraReno4Pro = new Camera()
+            {
+                Id = 25,
+                Zoom = 10,
+                FrontResulution = 32,
+                MainResulution = 48,
+                AdditionalResulution = 12,
+                VideoRecorderResolution = "4K",
+                VideoFPS = 30,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash",
+                    "Night mode",
+                }
+            };
+            var screenReno4Pro = new Screen()
+            {
+                Id = 25,
+                Size = 6.5m,
+                ColorsQuantity = 16,
+                ScreenType = "AMOLED HDR10+",
+                HorizontalResolution = 2400,
+                VerticalResolution = 1080
+            };
+            var reno4Pro = new MobilePhone()
+            {
+                Id = 25,
+                Brand = "Oppo",
+                Name = "Reno4 Pro",
+                Price = 3300,
+                ShortDescription = "Nunc eget sapien quis eros semper tincidunt." +
+                " Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut.",
+                Description = "Nunc eget sapien quis eros semper tincidunt. " +
+                "Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut. " +
+                "Phasellus vehicula sed risus vitae aliquet. Sed neque metus, " +
+                "sollicitudin blandit venenatis hendrerit, pulvinar at diam." +
+                " Fusce blandit eu arcu vitae aliquet. " +
+                "Donec placerat at felis in convallis. " +
+                "Nam tristique neque sed dolor pharetra, sed vestibulum nulla varius." +
+                " Phasellus non diam nunc. Cras dignissim scelerisque tortor," +
+                " vel sodales massa ornare sed. Pellentesque consectetur nisl eros," +
+                " nec lobortis sem interdum sit amet.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Oppo/Reno4 Pro/Main.png",
+                FirstImage = "/Oppo/Reno4 Pro/First.png",
+                SecondImage = "/Oppo/Reno4 Pro/Second.png",
+                Hardware = hardwareReno4Pro,
+                Camera = cameraReno4Pro,
+                Multimedia = multimediaAndroid,
+                Screen = screenReno4Pro,
+                BestSeller = false
+            };
+
+            var hardwareReno4Lite = new Hardware()
+            {
+                Id = 26,
+                ProcessorName = "MediaTek Helio P95",
+                OperationSystem = "Android",
+                GraphicsProcessor = "PowerVR GM9446",
+                OperationMemory = 8,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                BatteryCapacity = 4000
+            };
+            var cameraReno4Lite = new Camera()
+            {
+                Id = 26,
+                Zoom = 4,
+                FrontResulution = 16,
+                MainResulution = 48,
+                AdditionalResulution = 8,
+                VideoRecorderResolution = "HD",
+                VideoFPS = 60,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash",
+                    "Night mode",
+                }
+            };
+            var screenReno4Lite = new Screen()
+            {
+                Id = 26,
+                Size = 6.4m,
+                ColorsQuantity = 16,
+                ScreenType = "AMOLED",
+                HorizontalResolution = 2400,
+                VerticalResolution = 1080
+            };
+            var reno4Lite = new MobilePhone()
+            {
+                Id = 26,
+                Brand = "Oppo",
+                Name = "Reno4 Lite",
+                Price = 1600,
+                ShortDescription = "Nunc eget sapien quis eros semper tincidunt." +
+                " Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut.",
+                Description = "Nunc eget sapien quis eros semper tincidunt. " +
+                "Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut. " +
+                "Phasellus vehicula sed risus vitae aliquet. Sed neque metus, " +
+                "sollicitudin blandit venenatis hendrerit, pulvinar at diam." +
+                " Fusce blandit eu arcu vitae aliquet. " +
+                "Donec placerat at felis in convallis. " +
+                "Nam tristique neque sed dolor pharetra, sed vestibulum nulla varius." +
+                " Phasellus non diam nunc. Cras dignissim scelerisque tortor," +
+                " vel sodales massa ornare sed. Pellentesque consectetur nisl eros," +
+                " nec lobortis sem interdum sit amet.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Oppo/Reno4 Lite/Main.png",
+                FirstImage = "/Oppo/Reno4 Lite/First.png",
+                SecondImage = "/Oppo/Reno4 Lite/Second.png",
+                Hardware = hardwareReno4Lite,
+                Camera = cameraReno4Lite,
+                Multimedia = multimediaAndroid,
+                Screen = screenReno4Lite,
+                BestSeller = false
+            };
+
+            var hardwareOppoA53 = new Hardware()
+            {
+                Id = 27,
+                ProcessorName = "Qualcomm Snapdragon 460",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 610",
+                OperationMemory = 4,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                BatteryCapacity = 5000
+            };
+            var cameraOppoA53 = new Camera()
+            {
+                Id = 27,
+                Zoom = 2,
+                FrontResulution = 8,
+                MainResulution = 13,
+                AdditionalResulution = 2,
+                VideoRecorderResolution = "HD",
+                VideoFPS = 30,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash"
+                }
+            };
+            var screenOppoA53 = new Screen()
+            {
+                Id = 27,
+                Size = 6.5m,
+                ColorsQuantity = 16,
+                ScreenType = "LCD",
+                HorizontalResolution = 1600,
+                VerticalResolution = 720
+            };
+            var oppoA53 = new MobilePhone()
+            {
+                Id = 27,
+                Brand = "Oppo",
+                Name = "A53",
+                Price = 1000,
+                ShortDescription = "Nunc eget sapien quis eros semper tincidunt." +
+                " Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut.",
+                Description = "Nunc eget sapien quis eros semper tincidunt. " +
+                "Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut. " +
+                "Phasellus vehicula sed risus vitae aliquet. Sed neque metus, " +
+                "sollicitudin blandit venenatis hendrerit, pulvinar at diam." +
+                " Fusce blandit eu arcu vitae aliquet. " +
+                "Donec placerat at felis in convallis. " +
+                "Nam tristique neque sed dolor pharetra, sed vestibulum nulla varius." +
+                " Phasellus non diam nunc. Cras dignissim scelerisque tortor," +
+                " vel sodales massa ornare sed. Pellentesque consectetur nisl eros," +
+                " nec lobortis sem interdum sit amet.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Oppo/A53/Main.png",
+                FirstImage = "/Oppo/A53/First.png",
+                SecondImage = "/Oppo/A53/Second.png",
+                Hardware = hardwareOppoA53,
+                Camera = cameraOppoA53,
+                Multimedia = multimediaAndroid,
+                Screen = screenOppoA53,
+                BestSeller = false
+            };
+
+
             phones.Add(iPhone12);
             phones.Add(iPhone12Pro);
             phones.Add(iPhone12Mini);
@@ -1759,6 +1966,9 @@ namespace OnlineShop.Infrastructure
             phones.Add(nokia8);
             phones.Add(iPhone11);
             phones.Add(iPhoneSE);
+            phones.Add(reno4Pro);
+            phones.Add(reno4Lite);
+            phones.Add(oppoA53);
             
             return phones;
         }
