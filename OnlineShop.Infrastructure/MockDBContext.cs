@@ -1863,9 +1863,9 @@ namespace OnlineShop.Infrastructure
                 " nec lobortis sem interdum sit amet.",
                 ActiveStatus = true,
                 QuantityInStack = QuantityStatus.Full,
-                MainImage = "/Oppo/Reno4 Lite/Main.png",
-                FirstImage = "/Oppo/Reno4 Lite/First.png",
-                SecondImage = "/Oppo/Reno4 Lite/Second.png",
+                MainImage = "/OPPO/Reno4 Lite/Main.png",
+                FirstImage = "/OPPO/Reno4 Lite/First.png",
+                SecondImage = "/OPPO/Reno4 Lite/Second.png",
                 Hardware = hardwareReno4Lite,
                 Camera = cameraReno4Lite,
                 Multimedia = multimediaAndroid,
@@ -1931,9 +1931,9 @@ namespace OnlineShop.Infrastructure
                 " nec lobortis sem interdum sit amet.",
                 ActiveStatus = true,
                 QuantityInStack = QuantityStatus.Full,
-                MainImage = "/Oppo/A53/Main.png",
-                FirstImage = "/Oppo/A53/First.png",
-                SecondImage = "/Oppo/A53/Second.png",
+                MainImage = "/OPPO/A53/Main.png",
+                FirstImage = "/OPPO/A53/First.png",
+                SecondImage = "/OPPO/A53/Second.png",
                 Hardware = hardwareOppoA53,
                 Camera = cameraOppoA53,
                 Multimedia = multimediaAndroid,
@@ -1941,6 +1941,210 @@ namespace OnlineShop.Infrastructure
                 BestSeller = false
             };
 
+            var hardwareXcover = new Hardware()
+            {
+                Id = 28,
+                ProcessorName = "Exynos",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Mali-G71 MP2",
+                OperationMemory = 3,
+                MemorySpace = 32,
+                SimCardType = "Nano",
+                BatteryCapacity = 2800
+            };
+            var cameraXcover = new Camera()
+            {
+                Id = 28,
+                Zoom = 2,
+                FrontResulution = 5,
+                MainResulution = 16,
+                AdditionalResulution = 0,
+                VideoRecorderResolution = "HD",
+                VideoFPS = 30,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash"
+                }
+            };
+            var screenXcover = new Screen()
+            {
+                Id = 28,
+                Size = 5.0m,
+                ColorsQuantity = 16,
+                ScreenType = "PLS TFT LCD",
+                HorizontalResolution = 1280,
+                VerticalResolution = 720
+            };
+            var samsungXcover = new MobilePhone()
+            {
+                Id = 28,
+                Brand = "Samsung",
+                Name = "Galaxy Xcover 4",
+                Price = 1000,
+                ShortDescription = "Nunc eget sapien quis eros semper tincidunt." +
+                " Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut.",
+                Description = "Nunc eget sapien quis eros semper tincidunt. " +
+                "Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut. " +
+                "Phasellus vehicula sed risus vitae aliquet. Sed neque metus, " +
+                "sollicitudin blandit venenatis hendrerit, pulvinar at diam." +
+                " Fusce blandit eu arcu vitae aliquet. " +
+                "Donec placerat at felis in convallis. " +
+                "Nam tristique neque sed dolor pharetra, sed vestibulum nulla varius." +
+                " Phasellus non diam nunc. Cras dignissim scelerisque tortor," +
+                " vel sodales massa ornare sed. Pellentesque consectetur nisl eros," +
+                " nec lobortis sem interdum sit amet.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Samsung/Galaxy Xcover 4/Main.png",
+                FirstImage = "/Samsung/Galaxy Xcover 4/First.png",
+                SecondImage = "/Samsung/Galaxy Xcover 4/Second.png",
+                Hardware = hardwareXcover,
+                Camera = cameraXcover,
+                Multimedia = multimediaAndroid,
+                Screen = screenXcover,
+                BestSeller = false
+            };
+
+            var hardwareA71 = new Hardware()
+            {
+                Id = 29,
+                ProcessorName = "Qualcomm Snapdragon 730",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 618",
+                OperationMemory = 6,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                BatteryCapacity = 4500
+            };
+            var cameraA71 = new Camera()
+            {
+                Id = 29,
+                Zoom = 4,
+                FrontResulution = 32,
+                MainResulution = 64,
+                AdditionalResulution = 12,
+                VideoRecorderResolution = "4K",
+                VideoFPS = 30,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash"
+                }
+            };
+            var screenA71 = new Screen()
+            {
+                Id = 29,
+                Size = 6.7m,
+                ColorsQuantity = 16,
+                ScreenType = "FHD+ Super AMOLED",
+                HorizontalResolution = 2400,
+                VerticalResolution = 1080
+            };
+            var a71 = new MobilePhone()
+            {
+                Id = 29,
+                Brand = "Samsung",
+                Name = "Galaxy A71",
+                Price = 1900,
+                ShortDescription = "Nunc eget sapien quis eros semper tincidunt." +
+                " Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut.",
+                Description = "Nunc eget sapien quis eros semper tincidunt. " +
+                "Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut. " +
+                "Phasellus vehicula sed risus vitae aliquet. Sed neque metus, " +
+                "sollicitudin blandit venenatis hendrerit, pulvinar at diam." +
+                " Fusce blandit eu arcu vitae aliquet. " +
+                "Donec placerat at felis in convallis. " +
+                "Nam tristique neque sed dolor pharetra, sed vestibulum nulla varius." +
+                " Phasellus non diam nunc. Cras dignissim scelerisque tortor," +
+                " vel sodales massa ornare sed. Pellentesque consectetur nisl eros," +
+                " nec lobortis sem interdum sit amet.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Samsung/Galaxy A71/Main.png",
+                FirstImage = "/Samsung/Galaxy A71/First.png",
+                SecondImage = "/Samsung/Galaxy A71/Second.png",
+                Hardware = hardwareA71,
+                Camera = cameraA71,
+                Multimedia = multimediaAndroid,
+                Screen = screenA71,
+                BestSeller = false
+            };
+
+            var hardwareK52 = new Hardware()
+            {
+                Id = 30,
+                ProcessorName = "Helio P35 MT6765",
+                OperationSystem = "Android",
+                GraphicsProcessor = "IMG GE8320 680MHz",
+                OperationMemory = 4,
+                MemorySpace = 64,
+                SimCardType = "Nano",
+                BatteryCapacity = 4000
+            };
+            var cameraK52 = new Camera()
+            {
+                Id = 30,
+                Zoom = 2,
+                FrontResulution = 13,
+                MainResulution = 48,
+                AdditionalResulution = 5,
+                VideoRecorderResolution = "HD",
+                VideoFPS = 30,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash",
+                    "Google Lens"
+                }
+            };
+            var screenK52 = new Screen()
+            {
+                Id = 30,
+                Size = 6.6m,
+                ColorsQuantity = 16,
+                ScreenType = "HD+, ISP-LCD",
+                HorizontalResolution = 1600,
+                VerticalResolution = 720
+            };
+            var k52 = new MobilePhone()
+            {
+                Id = 30,
+                Brand = "LG",
+                Name = "K52",
+                Price = 1000,
+                ShortDescription = "Nunc eget sapien quis eros semper tincidunt." +
+                " Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut.",
+                Description = "Nunc eget sapien quis eros semper tincidunt. " +
+                "Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut. " +
+                "Phasellus vehicula sed risus vitae aliquet. Sed neque metus, " +
+                "sollicitudin blandit venenatis hendrerit, pulvinar at diam." +
+                " Fusce blandit eu arcu vitae aliquet. " +
+                "Donec placerat at felis in convallis. " +
+                "Nam tristique neque sed dolor pharetra, sed vestibulum nulla varius." +
+                " Phasellus non diam nunc. Cras dignissim scelerisque tortor," +
+                " vel sodales massa ornare sed. Pellentesque consectetur nisl eros," +
+                " nec lobortis sem interdum sit amet.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/LG/K52/Main.png",
+                FirstImage = "/LG/K52/First.png",
+                SecondImage = "/Lg/K52/Second.png",
+                Hardware = hardwareK52,
+                Camera = cameraK52,
+                Multimedia = multimediaAndroid,
+                Screen = screenK52,
+                BestSeller = false
+            };
 
             phones.Add(iPhone12);
             phones.Add(iPhone12Pro);
@@ -1969,6 +2173,9 @@ namespace OnlineShop.Infrastructure
             phones.Add(reno4Pro);
             phones.Add(reno4Lite);
             phones.Add(oppoA53);
+            phones.Add(samsungXcover);
+            phones.Add(a71);
+            phones.Add(k52);
             
             return phones;
         }
