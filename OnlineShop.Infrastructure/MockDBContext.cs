@@ -1032,6 +1032,428 @@ namespace OnlineShop.Infrastructure
                 BestSeller = false
             };
 
+            var hardwareXiaomi10Lite = new Hardware()
+            {
+                Id = 15,
+                ProcessorName = "Qualcomm Snapdragon 750G",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno™ GPU 619",
+                OperationMemory = 6,
+                MemorySpace = 64,
+                SimCardType = "Nano",
+                BatteryCapacity = 4820
+            };
+            var cameraXiaomi10Lite = new Camera()
+            {
+                Id = 15,
+                Zoom = 10,
+                FrontResulution = 16,
+                MainResulution = 64,
+                AdditionalResulution = 8,
+                VideoRecorderResolution = "4K",
+                VideoFPS = 30,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash",
+                    "Ultra-wide",
+                    "Deep view"
+                }
+            };
+            var screenXiaomi10Lite = new Screen()
+            {
+                Id = 15,
+                Size = 6.7m,
+                ColorsQuantity = 16,
+                ScreenType = "FHD+ DotDisplay 120 Hz IPS",
+                HorizontalResolution = 2400,
+                VerticalResolution = 1080
+            };
+            var xiaomi10Lite = new MobilePhone()
+            {
+                Id = 15,
+                Brand = "Xiaomi",
+                Name = "10T Lite",
+                Price = 1500,
+                ShortDescription = "Nunc eget sapien quis eros semper tincidunt." +
+                " Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut.",
+                Description = "Nunc eget sapien quis eros semper tincidunt. " +
+                "Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut. " +
+                "Phasellus vehicula sed risus vitae aliquet. Sed neque metus, " +
+                "sollicitudin blandit venenatis hendrerit, pulvinar at diam." +
+                " Fusce blandit eu arcu vitae aliquet. " +
+                "Donec placerat at felis in convallis. " +
+                "Nam tristique neque sed dolor pharetra, sed vestibulum nulla varius." +
+                " Phasellus non diam nunc. Cras dignissim scelerisque tortor," +
+                " vel sodales massa ornare sed. Pellentesque consectetur nisl eros," +
+                " nec lobortis sem interdum sit amet.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Xiaomi/Mi 10T Lite/Main.png",
+                FirstImage = "/Xiaomi/Mi 10T Lite/First.png",
+                SecondImage = "/Xiaomi/Mi 10T Lite/Second.png",
+                Hardware = hardwareXiaomi10Lite,
+                Camera = cameraXiaomi10Lite,
+                Multimedia = multimediaAndroid,
+                Screen = screenXiaomi10Lite,
+                BestSeller = false
+            };
+
+            var hardwareXiaomi10Pro = new Hardware()
+            {
+                Id = 16,
+                ProcessorName = "Qualcomm Snapdragon 865",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 650",
+                OperationMemory = 8,
+                MemorySpace = 256,
+                SimCardType = "Nano",
+                BatteryCapacity = 5000
+            };
+            var cameraXiaomi10Pro = new Camera()
+            {
+                Id = 16,
+                Zoom = 10,
+                FrontResulution = 20,
+                MainResulution = 108,
+                AdditionalResulution = 13,
+                VideoRecorderResolution = "4K",
+                VideoFPS = 120,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash",
+                    "Ultra-wide",
+                    "Deep view",
+                    "HMX"
+                }
+            };
+            var screenXiaomi10Pro = new Screen()
+            {
+                Id = 16,
+                Size = 6.7m,
+                ColorsQuantity = 16,
+                ScreenType = "FHD+ DotDisplay 144Hz IPS",
+                HorizontalResolution = 2440,
+                VerticalResolution = 1080
+            };
+            var xiaomi10Pro = new MobilePhone()
+            {
+                Id = 16,
+                Brand = "Xiaomi",
+                Name = "10T Pro",
+                Price = 2600,
+                ShortDescription = "Nunc eget sapien quis eros semper tincidunt." +
+                " Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut.",
+                Description = "Nunc eget sapien quis eros semper tincidunt. " +
+                "Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut. " +
+                "Phasellus vehicula sed risus vitae aliquet. Sed neque metus, " +
+                "sollicitudin blandit venenatis hendrerit, pulvinar at diam." +
+                " Fusce blandit eu arcu vitae aliquet. " +
+                "Donec placerat at felis in convallis. " +
+                "Nam tristique neque sed dolor pharetra, sed vestibulum nulla varius." +
+                " Phasellus non diam nunc. Cras dignissim scelerisque tortor," +
+                " vel sodales massa ornare sed. Pellentesque consectetur nisl eros," +
+                " nec lobortis sem interdum sit amet.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Xiaomi/Mi 10T Pro/Main.png",
+                FirstImage = "/Xiaomi/Mi 10T Pro/First.png",
+                SecondImage = "/Xiaomi/Mi 10T Pro/Second.png",
+                Hardware = hardwareXiaomi10Pro,
+                Camera = cameraXiaomi10Pro,
+                Multimedia = multimediaAndroid,
+                Screen = screenXiaomi10Pro,
+                BestSeller = false
+            };
+
+            var hardwareXiaomiRedmi = new Hardware()
+            {
+                Id = 17,
+                ProcessorName = "MediaTek Helio G85",
+                OperationSystem = "Android",
+                GraphicsProcessor = "ARM G52 MC2",
+                OperationMemory = 4,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                BatteryCapacity = 5020
+            };
+            var cameraXiaomiRedmi = new Camera()
+            {
+                Id = 17,
+                Zoom = 2,
+                FrontResulution = 13,
+                MainResulution = 48,
+                AdditionalResulution = 8,
+                VideoRecorderResolution = "2K",
+                VideoFPS = 60,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash"
+                }
+            };
+            var screenXiaomiRedmi = new Screen()
+            {
+                Id = 17,
+                Size = 6.7m,
+                ColorsQuantity = 16,
+                ScreenType = "FHD+ AMOLED",
+                HorizontalResolution = 2340,
+                VerticalResolution = 1080
+            };
+            var xiaomiRedmi = new MobilePhone()
+            {
+                Id = 17,
+                Brand = "Xiaomi",
+                Name = "Redmi Note 9",
+                Price = 700,
+                ShortDescription = "Nunc eget sapien quis eros semper tincidunt." +
+                " Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut.",
+                Description = "Nunc eget sapien quis eros semper tincidunt. " +
+                "Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut. " +
+                "Phasellus vehicula sed risus vitae aliquet. Sed neque metus, " +
+                "sollicitudin blandit venenatis hendrerit, pulvinar at diam." +
+                " Fusce blandit eu arcu vitae aliquet. " +
+                "Donec placerat at felis in convallis. " +
+                "Nam tristique neque sed dolor pharetra, sed vestibulum nulla varius." +
+                " Phasellus non diam nunc. Cras dignissim scelerisque tortor," +
+                " vel sodales massa ornare sed. Pellentesque consectetur nisl eros," +
+                " nec lobortis sem interdum sit amet.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Xiaomi/Redmi Note 9/Main.png",
+                FirstImage = "/Xiaomi/Redmi Note 9/First.png",
+                SecondImage = "/Xiaomi/Redmi Note 9/Second.png",
+                Hardware = hardwareXiaomiRedmi,
+                Camera = cameraXiaomiRedmi,
+                Multimedia = multimediaAndroid,
+                Screen = screenXiaomiRedmi,
+                BestSeller = false
+            };
+
+            var hardwareRazr = new Hardware()
+            {
+                Id = 18,
+                ProcessorName = "Qualcomm Snapdragon 765",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 620",
+                OperationMemory = 8,
+                MemorySpace = 256,
+                SimCardType = "Nano",
+                BatteryCapacity = 2800
+            };
+            var cameraRazr = new Camera()
+            {
+                Id = 18,
+                Zoom = 8,
+                FrontResulution = 20,
+                MainResulution = 48,
+                AdditionalResulution = 0,
+                VideoRecorderResolution = "4K",
+                VideoFPS = 30,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash",
+                    "Portrait",
+                    "Live filtr",
+                    "In motion",
+                    "Night mode"
+                }
+            };
+            var screenRazr = new Screen()
+            {
+                Id = 18,
+                Size = 6.2m,
+                ColorsQuantity = 16,
+                ScreenType = "pOLED",
+                HorizontalResolution = 2142,
+                VerticalResolution = 876
+            };
+            var razr = new MobilePhone()
+            {
+                Id = 18,
+                Brand = "Motorola ",
+                Name = "Razr",
+                Price = 6500,
+                ShortDescription = "Nunc eget sapien quis eros semper tincidunt." +
+                " Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut.",
+                Description = "Nunc eget sapien quis eros semper tincidunt. " +
+                "Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut. " +
+                "Phasellus vehicula sed risus vitae aliquet. Sed neque metus, " +
+                "sollicitudin blandit venenatis hendrerit, pulvinar at diam." +
+                " Fusce blandit eu arcu vitae aliquet. " +
+                "Donec placerat at felis in convallis. " +
+                "Nam tristique neque sed dolor pharetra, sed vestibulum nulla varius." +
+                " Phasellus non diam nunc. Cras dignissim scelerisque tortor," +
+                " vel sodales massa ornare sed. Pellentesque consectetur nisl eros," +
+                " nec lobortis sem interdum sit amet.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Motorola/Razr/Main.png",
+                FirstImage = "/Motorola/Razr/First.png",
+                SecondImage = "/Motorola/Razr/Second.png",
+                Hardware = hardwareRazr,
+                Camera = cameraRazr,
+                Multimedia = multimediaAndroid,
+                Screen = screenRazr,
+                BestSeller = false
+            };
+
+            var hardwareEdge = new Hardware()
+            {
+                Id = 19,
+                ProcessorName = "Qualcomm Snapdragon 765",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 620",
+                OperationMemory = 6,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                BatteryCapacity = 5000
+            };
+            var cameraEdge = new Camera()
+            {
+                Id = 19,
+                Zoom = 4,
+                FrontResulution = 25,
+                MainResulution = 64,
+                AdditionalResulution = 16,
+                VideoRecorderResolution = "4K",
+                VideoFPS = 30,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash",
+                    "Portrait",
+                    "In motion",
+                    "Night mode"
+                }
+            };
+            var screenEdge = new Screen()
+            {
+                Id = 19,
+                Size = 6.7m,
+                ColorsQuantity = 16,
+                ScreenType = "FHD+ OLED",
+                HorizontalResolution = 2340,
+                VerticalResolution = 1080
+            };
+            var edge = new MobilePhone()
+            {
+                Id = 19,
+                Brand = "Motorola ",
+                Name = "Edge",
+                Price = 2700,
+                ShortDescription = "Nunc eget sapien quis eros semper tincidunt." +
+                " Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut.",
+                Description = "Nunc eget sapien quis eros semper tincidunt. " +
+                "Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut. " +
+                "Phasellus vehicula sed risus vitae aliquet. Sed neque metus, " +
+                "sollicitudin blandit venenatis hendrerit, pulvinar at diam." +
+                " Fusce blandit eu arcu vitae aliquet. " +
+                "Donec placerat at felis in convallis. " +
+                "Nam tristique neque sed dolor pharetra, sed vestibulum nulla varius." +
+                " Phasellus non diam nunc. Cras dignissim scelerisque tortor," +
+                " vel sodales massa ornare sed. Pellentesque consectetur nisl eros," +
+                " nec lobortis sem interdum sit amet.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Motorola/Edge/Main.png",
+                FirstImage = "/Motorola/Edge/First.png",
+                SecondImage = "/Motorola/Edge/Second.png",
+                Hardware = hardwareEdge,
+                Camera = cameraEdge,
+                Multimedia = multimediaAndroid,
+                Screen = screenEdge,
+                BestSeller = false
+            };
+
+            var hardwareMoto = new Hardware()
+            {
+                Id = 20,
+                ProcessorName = "Qualcomm Snapdragon 765",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 620",
+                OperationMemory = 6,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                BatteryCapacity = 5000
+            };
+            var cameraMoto = new Camera()
+            {
+                Id = 20,
+                Zoom = 2,
+                FrontResulution = 16,
+                MainResulution = 48,
+                AdditionalResulution = 8,
+                VideoRecorderResolution = "HD",
+                VideoFPS = 60,
+                Functions = new List<string>()
+                {
+                    "Video Recorder",
+                    "Autofokus",
+                    "Flash",
+                    "Portrait",
+                    "Night mode"
+                }
+            };
+            var screenMoto = new Screen()
+            {
+                Id = 20,
+                Size = 6.7m,
+                ColorsQuantity = 16,
+                ScreenType = "FHD+ IPS CinemaVision",
+                HorizontalResolution = 2520,
+                VerticalResolution = 1080
+            };
+            var moto = new MobilePhone()
+            {
+                Id = 20,
+                Brand = "Motorola ",
+                Name = "Moto G",
+                Price = 1700,
+                ShortDescription = "Nunc eget sapien quis eros semper tincidunt." +
+                " Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut.",
+                Description = "Nunc eget sapien quis eros semper tincidunt. " +
+                "Proin rhoncus blandit diam, a vulputate augue tristique ut." +
+                " Vivamus tincidunt ligula purus, vel pellentesque nunc lacinia ut. " +
+                "Phasellus vehicula sed risus vitae aliquet. Sed neque metus, " +
+                "sollicitudin blandit venenatis hendrerit, pulvinar at diam." +
+                " Fusce blandit eu arcu vitae aliquet. " +
+                "Donec placerat at felis in convallis. " +
+                "Nam tristique neque sed dolor pharetra, sed vestibulum nulla varius." +
+                " Phasellus non diam nunc. Cras dignissim scelerisque tortor," +
+                " vel sodales massa ornare sed. Pellentesque consectetur nisl eros," +
+                " nec lobortis sem interdum sit amet.",
+                ActiveStatus = true,
+                QuantityInStack = QuantityStatus.Full,
+                MainImage = "/Motorola/Moto G/Main.png",
+                FirstImage = "/Motorola/Moto G/First.png",
+                SecondImage = "/Motorola/Moto G/Second.png",
+                Hardware = hardwareMoto,
+                Camera = cameraMoto,
+                Multimedia = multimediaAndroid,
+                Screen = screenMoto,
+                BestSeller = false
+            };
+
             phones.Add(iPhone12);
             phones.Add(iPhone12Pro);
             phones.Add(iPhone12Mini);
@@ -1046,7 +1468,13 @@ namespace OnlineShop.Infrastructure
             phones.Add(mate40Pro);
             phones.Add(sonyXperiaL4);
             phones.Add(sonyXperia10);
-            
+            phones.Add(xiaomi10Lite);
+            phones.Add(xiaomi10Pro);
+            phones.Add(xiaomiRedmi);
+            phones.Add(razr);
+            phones.Add(edge);
+            phones.Add(moto);
+
             return phones;
         }
 

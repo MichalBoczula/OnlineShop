@@ -8,7 +8,7 @@
     <div class="row">
         @foreach (var item in Model)
         {
-            <div class="col-lg-6">
+            <div class="col-lg-4 col-md-6">
                 <a asp-controller="MobilePhone" asp-action="Details" asp-route-mobilePhoneId="@item.Id">
                     <div class="card">
                         <img src="~/images/@item.MainImage" class="card-img-top" id="photo">
