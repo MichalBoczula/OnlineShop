@@ -15,7 +15,7 @@ namespace OnlineShop.Application.ViewModels.Camera
         public int AdditionalResulution;
         public string VideoRecorderResolution;
         public int VideoFPS;
-        public List<string> Functions;
+        public string Functions;
 
         public void Mapping(Profile profile)
         {
