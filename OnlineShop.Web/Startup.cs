@@ -14,7 +14,6 @@ using OnlineShop.Application.Services;
 using OnlineShop.Domain.Interfaces;
 using OnlineShop.Infrastructure;
 using OnlineShop.Infrastructure.Repositories;
-using OnlineShop.Web.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,11 +36,11 @@ namespace OnlineShop.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<DatabaseContext>();
 
             services.AddApplication();
             services.AddInfrastructure();

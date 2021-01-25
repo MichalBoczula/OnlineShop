@@ -13,8 +13,9 @@ namespace OnlineShop.Domain.Model
         public int AdditionalResulution { get; set; }
         public string VideoRecorderResolution { get; set; }
         public int VideoFPS { get; set; }
-        public List<string> Functions { get; set; }
-        public ICollection<MobilePhone> MobilePhones { get; set; }
+        public string Functions { get; set; }
+        public int MobilePhoneId { get; set; }
+        public MobilePhone MobilePhoneRef { get; set; }
 
     }
 }

@@ -1,23 +1,48 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using OnlineShop.Domain.Model;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Text;
 
 namespace OnlineShop.Infrastructure
 {
-    public class DatabaseContext : DbContext
+    public class DatabaseContext : IdentityDbContext
     {
         public DbSet<MobilePhone> MobilePhones { get; set; }
         public DbSet<Hardware> Hardwares { get; set; }
         public DbSet<Camera> Cameras { get; set; }
         public DbSet<Screen> Screens { get; set; }
-        public DbSet<Multimedia> Multimedias { get; set; }
 
-        public DatabaseContext([NotNullAttribute] DbContextOptions options) : base(options)
+        public DatabaseContext(DbContextOptions options) : base(options)
         {
+        }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            foreach (var prop in builder.Model.GetEntityTypes()
+                .SelectMany(t => t.GetProperties())
+                .Where(p => p.ClrType == typeof(decimal) || p.ClrType == typeof(decimal?)))
+            {
+                prop.SetColumnType("decimal(3,2)");
+            }
+
+            builder.Entity<MobilePhone>()
+                .HasOne(m => m.Camera)
+                .WithOne(c => c.MobilePhoneRef)
+                .HasForeignKey<Camera>(c => c.MobilePhoneId);
+            builder.Entity<MobilePhone>()
+                .HasOne(m => m.Hardware)
+                .WithOne(h => h.MobilePhoneRef)
+                .HasForeignKey<Hardware>(h => h.MobilePhoneId);
+            builder.Entity<MobilePhone>()
+                .HasOne(m => m.Screen)
+                .WithOne(s => s.MobilePhoneRef)
+                .HasForeignKey<Screen>(s => s.MobilePhoneId);
         }
     }
 }

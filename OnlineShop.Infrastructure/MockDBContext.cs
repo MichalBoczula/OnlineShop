@@ -38,12 +38,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 16,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash"
-                }
+                Functions = "Video Recorder;Autofokus;Flash"
             };
             var screeniPhone12 = new Screen()
             {
@@ -119,16 +114,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "HDR",
-                    "Dolby Vision",
-                    "Night Mode",
-                    "Deep Fusion"
-                }
+                Functions = "Video Recorder;Autofokus;Flash;HDR;Dolby Vision;Night Mode;Deep Fusion"
             };
             var screeniPhone12Pro = new Screen()
             {
@@ -193,16 +179,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "HDR",
-                    "Dolby Vision",
-                    "Night Mode",
-                    "Deep Fusion"
-                }
+                Functions = "Video Recorder;Autofokus;Flash;HDR;Dolby Vision;Night Mode;Deep Fusion"
             };
             var screeniPhone12Mini = new Screen()
             {
@@ -280,16 +257,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "Night Mode",
-                    "Gimbal",
-                    "AI CAM",
-                    "AR Stickers"
-                }
+                Functions = "Video Recorder;Autofokus;Flash;Night Mode;Gimbal;AI CAM;AR Stickers"
             };
             var screenLgWing = new Screen()
             {
@@ -354,15 +322,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 8,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "Night Mode",
-                    "AI CAM",
-                    "AR Stickers"
-                }
+                Functions = "Video Recorder;Autofokus;Flash;Night Mode;AI CAM;AR Stickers"
             };
             var screenLgVelvet = new Screen()
             {
@@ -427,14 +387,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 8,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "Night Mode",
-                    "HDR"
-                }
+                Functions = "Video Recorder;Autofokus;Flash;Night Mode;HDR"
             };
             var screenLgK61 = new Screen()
             {
@@ -499,12 +452,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 60,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash"
-                }
+                Functions = "Video Recorder;Autofokus;Flash"
             };
             var screenFold2 = new Screen()
             {
@@ -568,14 +516,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 60,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "HDR",
-                    "Dynamic Photo"
-                }
+                Functions = "Video Recorder;Autofokus;Flash;HDR;Dynamic Photo"
             };
             var screenFlip = new Screen()
             {
@@ -638,14 +579,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "HDR",
-                    "Dynamic Photo"
-                }
+                Functions = "Video Recorder;Autofokus;Flash;HDR;Dynamic Photo"
             };
             var screenS21 = new Screen()
             {
@@ -708,14 +642,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 30,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "HDR",
-                    "Dynamic Photo"
-                }
+                Functions = "Video Recorder;Autofokus;Flash;HDR;Dynamic Photo"
             };
             var screenA51 = new Screen()
             {
@@ -778,14 +705,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 8,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "HDR",
-                    "Deep Photo"
-                }
+                Functions = "Video Recorder;Autofokus; Flash;HDR;Deep Photo"
             };
             var screenMateXS = new Screen()
             {
@@ -848,14 +768,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 20,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "HDR",
-                    "Deep Photo 3D"
-                }
+                Functions = "Video Recorder;Autofokus;Flash;HDR:Deep Photo 3D"
             };
             var screenMate40Pro = new Screen()
             {
@@ -918,12 +831,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 5,
                 VideoRecorderResolution = "HD",
                 VideoFPS = 120,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash"
-                }
+                Functions = "Video Recorder;Autofokus;Flash"
             };
             var screenSonyL4 = new Screen()
             {
@@ -986,12 +894,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 8,
                 VideoRecorderResolution = "HD",
                 VideoFPS = 120,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash"
-                }
+                Functions = "Video Recorder;Autofokus;Flash"
             };
             var screenSony10 = new Screen()
             {
@@ -1054,14 +957,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 8,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 30,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "Ultra-wide",
-                    "Deep view"
-                }
+                Functions = "Video Recorder;Autofokus;Flash;Ultra-wide;Deep view"
             };
             var screenXiaomi10Lite = new Screen()
             {
@@ -1124,15 +1020,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 13,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "Ultra-wide",
-                    "Deep view",
-                    "HMX"
-                }
+                Functions = "Video Recorder;Autofokus;Flash;Ultra-wide;Deep view;HMX"
             };
             var screenXiaomi10Pro = new Screen()
             {
@@ -1195,12 +1083,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 8,
                 VideoRecorderResolution = "2K",
                 VideoFPS = 60,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash"
-                }
+                Functions = "Video Recorder;Autofokus;Flash"
             };
             var screenXiaomiRedmi = new Screen()
             {
@@ -1263,16 +1146,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 0,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 30,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "Portrait",
-                    "Live filtr",
-                    "In motion",
-                    "Night mode"
-                }
+                Functions = "Video Recorder;Autofokus;Flash;Portrait;Live filtr;In motion;Night mode"
             };
             var screenRazr = new Screen()
             {
@@ -1335,15 +1209,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 16,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 30,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "Portrait",
-                    "In motion",
-                    "Night mode"
-                }
+                Functions = "Video Recorder;Autofokus:Flash;Portrait;In motion;Night mode"
             };
             var screenEdge = new Screen()
             {
@@ -1406,14 +1272,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 8,
                 VideoRecorderResolution = "HD",
                 VideoFPS = 60,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "Portrait",
-                    "Night mode"
-                }
+                Functions = "Video Recorder;Autofokus;Flash;Portrait;Night mode"
             };
             var screenMoto = new Screen()
             {
@@ -1476,12 +1335,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 8,
                 VideoRecorderResolution = "HD",
                 VideoFPS = 60,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash"
-                }
+                Functions = "Video Recorder;Autofokus;Flash"
             };
             var screenNokia7 = new Screen()
             {
@@ -1544,15 +1398,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 60,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "Night mode",
-                    "Deep photo",
-                    "Live colors"
-                }
+                Functions = "Video Recorder;Autofokus;Flash;Night mode;Deep photo;Live colors"
             };
             var screenNokia8 = new Screen()
             {
@@ -1604,7 +1450,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 6,
                 MemorySpace = 64,
                 SimCardType = "Nano",
-                BatteryCapacity = 3110 
+                BatteryCapacity = 3110
             };
             var cameraIPhone11 = new Camera()
             {
@@ -1615,15 +1461,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "HD",
                 VideoFPS = 60,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "Night mode",
-                    "Deep photo",
-                    "Portrait"
-                }
+                Functions = "Video Recorder;Autofokus;Flash;Night mode;Deep photo;Portrait"
             };
             var screenIPhone11 = new Screen()
             {
@@ -1686,13 +1524,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 5,
                 VideoRecorderResolution = "HD",
                 VideoFPS = 30,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "Night mode",
-                }
+                Functions = "Video Recorder;Autofokus;Flash;Night mode",
             };
             var screenIPhoneSE = new Screen()
             {
@@ -1755,13 +1587,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 30,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "Night mode",
-                }
+                Functions = "Video Recorder;Autofokus;Flash;Night mode",
             };
             var screenReno4Pro = new Screen()
             {
@@ -1824,13 +1650,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 8,
                 VideoRecorderResolution = "HD",
                 VideoFPS = 60,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "Night mode",
-                }
+                Functions = "Video Recorder;Autofokus;Flash;Night mode"
             };
             var screenReno4Lite = new Screen()
             {
@@ -1893,12 +1713,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 2,
                 VideoRecorderResolution = "HD",
                 VideoFPS = 30,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash"
-                }
+                Functions = "Video Recorder;Autofokus;Flash"
             };
             var screenOppoA53 = new Screen()
             {
@@ -1961,12 +1776,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 0,
                 VideoRecorderResolution = "HD",
                 VideoFPS = 30,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash"
-                }
+                Functions = "Video Recorder;Autofokus;Flash"
             };
             var screenXcover = new Screen()
             {
@@ -2029,12 +1839,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 30,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash"
-                }
+                Functions = "Video Recorder;Autofokus;Flash"
             };
             var screenA71 = new Screen()
             {
@@ -2097,13 +1902,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 5,
                 VideoRecorderResolution = "HD",
                 VideoFPS = 30,
-                Functions = new List<string>()
-                {
-                    "Video Recorder",
-                    "Autofokus",
-                    "Flash",
-                    "Google Lens"
-                }
+                Functions = "Video Recorder;Autofokus;Flash;Google Lens"
             };
             var screenK52 = new Screen()
             {
@@ -2176,7 +1975,7 @@ namespace OnlineShop.Infrastructure
             phones.Add(samsungXcover);
             phones.Add(a71);
             phones.Add(k52);
-            
+
             return phones;
         }
 

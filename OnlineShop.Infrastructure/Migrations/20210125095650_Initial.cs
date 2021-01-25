@@ -1,10 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
-using System;
 
-namespace OnlineShop.Web.Data.Migrations
+namespace OnlineShop.Infrastructure.Migrations
 {
-    public partial class CreateIdentitySchema : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,11 +47,30 @@ namespace OnlineShop.Web.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Multimedia",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    USBType = table.Column<string>(nullable: true),
+                    Bluetooth = table.Column<bool>(nullable: false),
+                    NFC = table.Column<bool>(nullable: false),
+                    FingerPrintReader = table.Column<bool>(nullable: false),
+                    LTE = table.Column<bool>(nullable: false),
+                    GPS = table.Column<bool>(nullable: false),
+                    WiFiCalling = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Multimedia", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     RoleId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -73,7 +91,7 @@ namespace OnlineShop.Web.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -153,6 +171,113 @@ namespace OnlineShop.Web.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "MobilePhones",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Brand = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    Price = table.Column<double>(nullable: false),
+                    MainImage = table.Column<string>(nullable: true),
+                    FirstImage = table.Column<string>(nullable: true),
+                    SecondImage = table.Column<string>(nullable: true),
+                    ThirdImage = table.Column<string>(nullable: true),
+                    ShortDescription = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    ActiveStatus = table.Column<bool>(nullable: false),
+                    BestSeller = table.Column<bool>(nullable: false),
+                    QuantityInStack = table.Column<int>(nullable: false),
+                    MultimediaId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MobilePhones", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_MobilePhones_Multimedia_MultimediaId",
+                        column: x => x.MultimediaId,
+                        principalTable: "Multimedia",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Cameras",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Zoom = table.Column<int>(nullable: false),
+                    FrontResulution = table.Column<int>(nullable: false),
+                    MainResulution = table.Column<int>(nullable: false),
+                    AdditionalResulution = table.Column<int>(nullable: false),
+                    VideoRecorderResolution = table.Column<string>(nullable: true),
+                    VideoFPS = table.Column<int>(nullable: false),
+                    Functions = table.Column<string>(nullable: true),
+                    MobilePhoneId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cameras", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Cameras_MobilePhones_MobilePhoneId",
+                        column: x => x.MobilePhoneId,
+                        principalTable: "MobilePhones",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Hardwares",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProcessorName = table.Column<string>(nullable: true),
+                    OperationSystem = table.Column<string>(nullable: true),
+                    GraphicsProcessor = table.Column<string>(nullable: true),
+                    OperationMemory = table.Column<int>(nullable: false),
+                    MemorySpace = table.Column<int>(nullable: false),
+                    SimCardType = table.Column<string>(nullable: true),
+                    BatteryCapacity = table.Column<int>(nullable: false),
+                    MobilePhoneId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Hardwares", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Hardwares_MobilePhones_MobilePhoneId",
+                        column: x => x.MobilePhoneId,
+                        principalTable: "MobilePhones",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Screens",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Size = table.Column<decimal>(nullable: false),
+                    ColorsQuantity = table.Column<int>(nullable: false),
+                    ScreenType = table.Column<string>(nullable: true),
+                    HorizontalResolution = table.Column<int>(nullable: false),
+                    VerticalResolution = table.Column<int>(nullable: false),
+                    MobilePhoneId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Screens", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Screens_MobilePhones_MobilePhoneId",
+                        column: x => x.MobilePhoneId,
+                        principalTable: "MobilePhones",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -191,6 +316,29 @@ namespace OnlineShop.Web.Data.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Cameras_MobilePhoneId",
+                table: "Cameras",
+                column: "MobilePhoneId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Hardwares_MobilePhoneId",
+                table: "Hardwares",
+                column: "MobilePhoneId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MobilePhones_MultimediaId",
+                table: "MobilePhones",
+                column: "MultimediaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Screens_MobilePhoneId",
+                table: "Screens",
+                column: "MobilePhoneId",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -211,10 +359,25 @@ namespace OnlineShop.Web.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Cameras");
+
+            migrationBuilder.DropTable(
+                name: "Hardwares");
+
+            migrationBuilder.DropTable(
+                name: "Screens");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "MobilePhones");
+
+            migrationBuilder.DropTable(
+                name: "Multimedia");
         }
     }
 }

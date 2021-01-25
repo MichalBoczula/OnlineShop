@@ -14,7 +14,6 @@ namespace OnlineShop.Domain.Model
         public bool LTE { get; set; }
         public bool GPS { get; set; }
         public bool WiFiCalling { get; set; }
-
         public ICollection<MobilePhone> MobilePhones { get; set; }
     }
 }
