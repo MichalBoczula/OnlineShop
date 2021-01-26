@@ -27,7 +27,8 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 4,
                 MemorySpace = 64,
                 SimCardType = "Nano",
-                BatteryCapacity = 2500
+                BatteryCapacity = 2500,
+                MobilePhoneId = 1
             };
             var cameraiPhone12 = new Camera()
             {
@@ -38,7 +39,8 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 16,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
-                Functions = "Video Recorder;Autofokus;Flash"
+                Functions = "Video Recorder;Autofokus;Flash",
+                MobilePhoneId = 1
             };
             var screeniPhone12 = new Screen()
             {
@@ -47,7 +49,8 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "OLED Super Retina XDR",
                 HorizontalResolution = 2532,
-                VerticalResolution = 1170
+                VerticalResolution = 1170,
+                MobilePhoneId = 1
             };
             var multimediaApple = new Multimedia()
             {
@@ -103,7 +106,8 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 6,
                 MemorySpace = 128,
                 SimCardType = "Nano",
-                BatteryCapacity = 2775
+                BatteryCapacity = 2775,
+                MobilePhoneId = 2
             };
             var cameraiPhone12Pro = new Camera()
             {
@@ -114,6 +118,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
+                MobilePhoneId = 2,
                 Functions = "Video Recorder;Autofokus;Flash;HDR;Dolby Vision;Night Mode;Deep Fusion"
             };
             var screeniPhone12Pro = new Screen()
@@ -123,7 +128,8 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "Super Retina XDR",
                 HorizontalResolution = 2532,
-                VerticalResolution = 1170
+                VerticalResolution = 1170,
+                MobilePhoneId = 2
             };
             var iPhone12Pro = new MobilePhone()
             {
@@ -168,6 +174,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 4,
                 MemorySpace = 64,
                 SimCardType = "Nano",
+                MobilePhoneId = 3,
                 BatteryCapacity = 2775
             };
             var cameraiPhone12Mini = new Camera()
@@ -179,6 +186,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
+                MobilePhoneId = 3,
                 Functions = "Video Recorder;Autofokus;Flash;HDR;Dolby Vision;Night Mode;Deep Fusion"
             };
             var screeniPhone12Mini = new Screen()
@@ -188,6 +196,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "Super Retina XDR",
                 HorizontalResolution = 2340,
+                MobilePhoneId = 3,
                 VerticalResolution = 1080
             };
             var iPhone12Mini = new MobilePhone()
@@ -246,6 +255,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 8,
                 MemorySpace = 128,
                 SimCardType = "Nano",
+                MobilePhoneId = 4,
                 BatteryCapacity = 4000
             };
             var cameraLgWing = new Camera()
@@ -257,6 +267,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
+                MobilePhoneId = 4,
                 Functions = "Video Recorder;Autofokus;Flash;Night Mode;Gimbal;AI CAM;AR Stickers"
             };
             var screenLgWing = new Screen()
@@ -266,6 +277,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "FHD+ P-OLED FullVision",
                 HorizontalResolution = 2460,
+                MobilePhoneId = 4,
                 VerticalResolution = 1080
             };
             var lgWing = new MobilePhone()
@@ -311,6 +323,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 6,
                 MemorySpace = 128,
                 SimCardType = "Nano",
+                MobilePhoneId = 5,
                 BatteryCapacity = 4300
             };
             var cameraLgVelvet = new Camera()
@@ -322,6 +335,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 8,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
+                MobilePhoneId = 5,
                 Functions = "Video Recorder;Autofokus;Flash;Night Mode;AI CAM;AR Stickers"
             };
             var screenLgVelvet = new Screen()
@@ -331,6 +345,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "FHD+ OLED FullVision",
                 HorizontalResolution = 2460,
+                MobilePhoneId = 5,
                 VerticalResolution = 1080
             };
             var lgVelvet = new MobilePhone()
@@ -376,6 +391,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 4,
                 MemorySpace = 128,
                 SimCardType = "Nano",
+                MobilePhoneId = 6,
                 BatteryCapacity = 4000
             };
             var cameraLgK61 = new Camera()
@@ -387,6 +403,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 8,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
+                MobilePhoneId = 6,
                 Functions = "Video Recorder;Autofokus;Flash;Night Mode;HDR"
             };
             var screenLgK61 = new Screen()
@@ -396,6 +413,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "FHD+ IPS",
                 HorizontalResolution = 2340,
+                MobilePhoneId = 6,
                 VerticalResolution = 1080
             };
             var lgK61 = new MobilePhone()
@@ -441,6 +459,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 12,
                 MemorySpace = 256,
                 SimCardType = "Nano",
+                MobilePhoneId = 7,
                 BatteryCapacity = 4500
             };
             var cameraFold2 = new Camera()
@@ -452,6 +471,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 60,
+                MobilePhoneId = 7,
                 Functions = "Video Recorder;Autofokus;Flash"
             };
             var screenFold2 = new Screen()
@@ -461,6 +481,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "Dynamic AMOLED 2X",
                 HorizontalResolution = 2208,
+                MobilePhoneId = 7,
                 VerticalResolution = 1768
             };
             var fold2 = new MobilePhone()
@@ -505,6 +526,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 8,
                 MemorySpace = 256,
                 SimCardType = "Nano",
+                MobilePhoneId = 8,
                 BatteryCapacity = 3300
             };
             var cameraFlip = new Camera()
@@ -516,6 +538,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 60,
+                MobilePhoneId = 8,
                 Functions = "Video Recorder;Autofokus;Flash;HDR;Dynamic Photo"
             };
             var screenFlip = new Screen()
@@ -525,6 +548,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "Dynamic AMOLED & Super AMOLED",
                 HorizontalResolution = 2636,
+                MobilePhoneId = 8,
                 VerticalResolution = 1080
             };
             var flip = new MobilePhone()
@@ -568,6 +592,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 8,
                 MemorySpace = 256,
                 SimCardType = "Nano",
+                MobilePhoneId = 9,
                 BatteryCapacity = 4000
             };
             var cameraS21 = new Camera()
@@ -579,6 +604,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
+                MobilePhoneId = 9,
                 Functions = "Video Recorder;Autofokus;Flash;HDR;Dynamic Photo"
             };
             var screenS21 = new Screen()
@@ -588,6 +614,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "Dynamic AMOLED 2X, 120Hz, HDR10+",
                 HorizontalResolution = 2400,
+                MobilePhoneId = 9,
                 VerticalResolution = 1080
             };
             var s21 = new MobilePhone()
@@ -631,6 +658,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 4,
                 MemorySpace = 128,
                 SimCardType = "Nano",
+                MobilePhoneId = 10,
                 BatteryCapacity = 4000
             };
             var cameraA51 = new Camera()
@@ -642,6 +670,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 30,
+                MobilePhoneId = 10,
                 Functions = "Video Recorder;Autofokus;Flash;HDR;Dynamic Photo"
             };
             var screenA51 = new Screen()
@@ -651,6 +680,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "FHD+ Super AMOLED",
                 HorizontalResolution = 2400,
+                MobilePhoneId = 10,
                 VerticalResolution = 1080
             };
             var a51 = new MobilePhone()
@@ -694,6 +724,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 8,
                 MemorySpace = 512,
                 SimCardType = "Nano",
+                MobilePhoneId = 11,
                 BatteryCapacity = 4500
             };
             var cameraMateXS = new Camera()
@@ -705,6 +736,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 8,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
+                MobilePhoneId = 11,
                 Functions = "Video Recorder;Autofokus; Flash;HDR;Deep Photo"
             };
             var screenMateXS = new Screen()
@@ -714,6 +746,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "OLED",
                 HorizontalResolution = 2480,
+                MobilePhoneId = 11,
                 VerticalResolution = 1148
             };
             var mateXS = new MobilePhone()
@@ -757,6 +790,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 8,
                 MemorySpace = 256,
                 SimCardType = "Nano",
+                MobilePhoneId = 12,
                 BatteryCapacity = 4500
             };
             var cameraMate40Pro = new Camera()
@@ -768,6 +802,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 20,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
+                MobilePhoneId = 12,
                 Functions = "Video Recorder;Autofokus;Flash;HDR:Deep Photo 3D"
             };
             var screenMate40Pro = new Screen()
@@ -777,6 +812,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "FHD+ OLED",
                 HorizontalResolution = 2772,
+                MobilePhoneId = 12,
                 VerticalResolution = 1344
             };
             var mate40Pro = new MobilePhone()
@@ -820,6 +856,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 3,
                 MemorySpace = 64,
                 SimCardType = "Nano",
+                MobilePhoneId = 13,
                 BatteryCapacity = 3580
             };
             var cameraSonyL4 = new Camera()
@@ -831,6 +868,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 5,
                 VideoRecorderResolution = "HD",
                 VideoFPS = 120,
+                MobilePhoneId = 13,
                 Functions = "Video Recorder;Autofokus;Flash"
             };
             var screenSonyL4 = new Screen()
@@ -840,6 +878,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "TFT LCD",
                 HorizontalResolution = 1680,
+                MobilePhoneId = 13,
                 VerticalResolution = 720
             };
             var sonyXperiaL4 = new MobilePhone()
@@ -883,6 +922,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 4,
                 MemorySpace = 128,
                 SimCardType = "Nano",
+                MobilePhoneId = 14,
                 BatteryCapacity = 3600
             };
             var cameraSony10 = new Camera()
@@ -894,6 +934,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 8,
                 VideoRecorderResolution = "HD",
                 VideoFPS = 120,
+                MobilePhoneId = 14,
                 Functions = "Video Recorder;Autofokus;Flash"
             };
             var screenSony10 = new Screen()
@@ -903,6 +944,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "OLED",
                 HorizontalResolution = 2520,
+                MobilePhoneId = 14,
                 VerticalResolution = 1080
             };
             var sonyXperia10 = new MobilePhone()
@@ -946,6 +988,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 6,
                 MemorySpace = 64,
                 SimCardType = "Nano",
+                MobilePhoneId = 15,
                 BatteryCapacity = 4820
             };
             var cameraXiaomi10Lite = new Camera()
@@ -957,6 +1000,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 8,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 30,
+                MobilePhoneId = 15,
                 Functions = "Video Recorder;Autofokus;Flash;Ultra-wide;Deep view"
             };
             var screenXiaomi10Lite = new Screen()
@@ -966,6 +1010,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "FHD+ DotDisplay 120 Hz IPS",
                 HorizontalResolution = 2400,
+                MobilePhoneId = 15,
                 VerticalResolution = 1080
             };
             var xiaomi10Lite = new MobilePhone()
@@ -1009,6 +1054,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 8,
                 MemorySpace = 256,
                 SimCardType = "Nano",
+                MobilePhoneId = 16,
                 BatteryCapacity = 5000
             };
             var cameraXiaomi10Pro = new Camera()
@@ -1020,6 +1066,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 13,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 120,
+                MobilePhoneId = 16,
                 Functions = "Video Recorder;Autofokus;Flash;Ultra-wide;Deep view;HMX"
             };
             var screenXiaomi10Pro = new Screen()
@@ -1029,6 +1076,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "FHD+ DotDisplay 144Hz IPS",
                 HorizontalResolution = 2440,
+                MobilePhoneId = 16,
                 VerticalResolution = 1080
             };
             var xiaomi10Pro = new MobilePhone()
@@ -1072,6 +1120,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 4,
                 MemorySpace = 128,
                 SimCardType = "Nano",
+                MobilePhoneId = 17,
                 BatteryCapacity = 5020
             };
             var cameraXiaomiRedmi = new Camera()
@@ -1083,6 +1132,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 8,
                 VideoRecorderResolution = "2K",
                 VideoFPS = 60,
+                MobilePhoneId = 17,
                 Functions = "Video Recorder;Autofokus;Flash"
             };
             var screenXiaomiRedmi = new Screen()
@@ -1092,6 +1142,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "FHD+ AMOLED",
                 HorizontalResolution = 2340,
+                MobilePhoneId = 17,
                 VerticalResolution = 1080
             };
             var xiaomiRedmi = new MobilePhone()
@@ -1135,6 +1186,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 8,
                 MemorySpace = 256,
                 SimCardType = "Nano",
+                MobilePhoneId = 18,
                 BatteryCapacity = 2800
             };
             var cameraRazr = new Camera()
@@ -1146,6 +1198,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 0,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 30,
+                MobilePhoneId = 18,
                 Functions = "Video Recorder;Autofokus;Flash;Portrait;Live filtr;In motion;Night mode"
             };
             var screenRazr = new Screen()
@@ -1155,6 +1208,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "pOLED",
                 HorizontalResolution = 2142,
+                MobilePhoneId = 18,
                 VerticalResolution = 876
             };
             var razr = new MobilePhone()
@@ -1198,6 +1252,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 6,
                 MemorySpace = 128,
                 SimCardType = "Nano",
+                MobilePhoneId = 19,
                 BatteryCapacity = 5000
             };
             var cameraEdge = new Camera()
@@ -1209,6 +1264,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 16,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 30,
+                MobilePhoneId = 19,
                 Functions = "Video Recorder;Autofokus:Flash;Portrait;In motion;Night mode"
             };
             var screenEdge = new Screen()
@@ -1218,6 +1274,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "FHD+ OLED",
                 HorizontalResolution = 2340,
+                MobilePhoneId = 19,
                 VerticalResolution = 1080
             };
             var edge = new MobilePhone()
@@ -1261,6 +1318,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 6,
                 MemorySpace = 128,
                 SimCardType = "Nano",
+                MobilePhoneId = 20,
                 BatteryCapacity = 5000
             };
             var cameraMoto = new Camera()
@@ -1272,6 +1330,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 8,
                 VideoRecorderResolution = "HD",
                 VideoFPS = 60,
+                MobilePhoneId = 20,
                 Functions = "Video Recorder;Autofokus;Flash;Portrait;Night mode"
             };
             var screenMoto = new Screen()
@@ -1281,6 +1340,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "FHD+ IPS CinemaVision",
                 HorizontalResolution = 2520,
+                MobilePhoneId = 20,
                 VerticalResolution = 1080
             };
             var moto = new MobilePhone()
@@ -1324,6 +1384,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 4,
                 MemorySpace = 64,
                 SimCardType = "Nano",
+                MobilePhoneId = 21,
                 BatteryCapacity = 3500
             };
             var cameraNokia7 = new Camera()
@@ -1335,6 +1396,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 8,
                 VideoRecorderResolution = "HD",
                 VideoFPS = 60,
+                MobilePhoneId = 21,
                 Functions = "Video Recorder;Autofokus;Flash"
             };
             var screenNokia7 = new Screen()
@@ -1344,6 +1406,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "IPS TFT",
                 HorizontalResolution = 2340,
+                MobilePhoneId = 21,
                 VerticalResolution = 1080
             };
             var nokia7 = new MobilePhone()
@@ -1387,6 +1450,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 8,
                 MemorySpace = 128,
                 SimCardType = "Nano",
+                MobilePhoneId = 22,
                 BatteryCapacity = 4500
             };
             var cameraNokia8 = new Camera()
@@ -1398,6 +1462,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 60,
+                MobilePhoneId = 22,
                 Functions = "Video Recorder;Autofokus;Flash;Night mode;Deep photo;Live colors"
             };
             var screenNokia8 = new Screen()
@@ -1407,6 +1472,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "FHD+ LCD with PureDisplay",
                 HorizontalResolution = 2400,
+                MobilePhoneId = 22,
                 VerticalResolution = 1080
             };
             var nokia8 = new MobilePhone()
@@ -1450,6 +1516,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 6,
                 MemorySpace = 64,
                 SimCardType = "Nano",
+                MobilePhoneId = 23,
                 BatteryCapacity = 3110
             };
             var cameraIPhone11 = new Camera()
@@ -1461,6 +1528,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "HD",
                 VideoFPS = 60,
+                MobilePhoneId = 23,
                 Functions = "Video Recorder;Autofokus;Flash;Night mode;Deep photo;Portrait"
             };
             var screenIPhone11 = new Screen()
@@ -1470,6 +1538,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "Liquid Retina HD",
                 HorizontalResolution = 1792,
+                MobilePhoneId = 23,
                 VerticalResolution = 828
             };
             var iPhone11 = new MobilePhone()
@@ -1513,6 +1582,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 4,
                 MemorySpace = 64,
                 SimCardType = "Nano",
+                MobilePhoneId = 24,
                 BatteryCapacity = 1821
             };
             var cameraIPhoneSE = new Camera()
@@ -1524,6 +1594,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 5,
                 VideoRecorderResolution = "HD",
                 VideoFPS = 30,
+                MobilePhoneId = 24,
                 Functions = "Video Recorder;Autofokus;Flash;Night mode",
             };
             var screenIPhoneSE = new Screen()
@@ -1533,6 +1604,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "Retina HD IPS",
                 HorizontalResolution = 1334,
+                MobilePhoneId = 24,
                 VerticalResolution = 750
             };
             var iPhoneSE = new MobilePhone()
@@ -1576,6 +1648,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 12,
                 MemorySpace = 256,
                 SimCardType = "Nano",
+                MobilePhoneId = 25,
                 BatteryCapacity = 4000
             };
             var cameraReno4Pro = new Camera()
@@ -1587,6 +1660,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 30,
+                MobilePhoneId = 25,
                 Functions = "Video Recorder;Autofokus;Flash;Night mode",
             };
             var screenReno4Pro = new Screen()
@@ -1596,6 +1670,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "AMOLED HDR10+",
                 HorizontalResolution = 2400,
+                MobilePhoneId = 25,
                 VerticalResolution = 1080
             };
             var reno4Pro = new MobilePhone()
@@ -1639,6 +1714,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 8,
                 MemorySpace = 128,
                 SimCardType = "Nano",
+                MobilePhoneId = 26,
                 BatteryCapacity = 4000
             };
             var cameraReno4Lite = new Camera()
@@ -1650,6 +1726,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 8,
                 VideoRecorderResolution = "HD",
                 VideoFPS = 60,
+                MobilePhoneId = 26,
                 Functions = "Video Recorder;Autofokus;Flash;Night mode"
             };
             var screenReno4Lite = new Screen()
@@ -1659,6 +1736,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "AMOLED",
                 HorizontalResolution = 2400,
+                MobilePhoneId = 26,
                 VerticalResolution = 1080
             };
             var reno4Lite = new MobilePhone()
@@ -1702,6 +1780,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 4,
                 MemorySpace = 128,
                 SimCardType = "Nano",
+                MobilePhoneId = 27,
                 BatteryCapacity = 5000
             };
             var cameraOppoA53 = new Camera()
@@ -1713,6 +1792,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 2,
                 VideoRecorderResolution = "HD",
                 VideoFPS = 30,
+                MobilePhoneId = 27,
                 Functions = "Video Recorder;Autofokus;Flash"
             };
             var screenOppoA53 = new Screen()
@@ -1722,6 +1802,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "LCD",
                 HorizontalResolution = 1600,
+                MobilePhoneId = 27,
                 VerticalResolution = 720
             };
             var oppoA53 = new MobilePhone()
@@ -1765,6 +1846,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 3,
                 MemorySpace = 32,
                 SimCardType = "Nano",
+                MobilePhoneId = 28,
                 BatteryCapacity = 2800
             };
             var cameraXcover = new Camera()
@@ -1776,6 +1858,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 0,
                 VideoRecorderResolution = "HD",
                 VideoFPS = 30,
+                MobilePhoneId = 28,
                 Functions = "Video Recorder;Autofokus;Flash"
             };
             var screenXcover = new Screen()
@@ -1785,6 +1868,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "PLS TFT LCD",
                 HorizontalResolution = 1280,
+                MobilePhoneId = 28,
                 VerticalResolution = 720
             };
             var samsungXcover = new MobilePhone()
@@ -1828,6 +1912,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 6,
                 MemorySpace = 128,
                 SimCardType = "Nano",
+                MobilePhoneId = 29,
                 BatteryCapacity = 4500
             };
             var cameraA71 = new Camera()
@@ -1839,6 +1924,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 12,
                 VideoRecorderResolution = "4K",
                 VideoFPS = 30,
+                MobilePhoneId = 29,
                 Functions = "Video Recorder;Autofokus;Flash"
             };
             var screenA71 = new Screen()
@@ -1848,6 +1934,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "FHD+ Super AMOLED",
                 HorizontalResolution = 2400,
+                MobilePhoneId = 29,
                 VerticalResolution = 1080
             };
             var a71 = new MobilePhone()
@@ -1891,6 +1978,7 @@ namespace OnlineShop.Infrastructure
                 OperationMemory = 4,
                 MemorySpace = 64,
                 SimCardType = "Nano",
+                MobilePhoneId = 30,
                 BatteryCapacity = 4000
             };
             var cameraK52 = new Camera()
@@ -1902,6 +1990,7 @@ namespace OnlineShop.Infrastructure
                 AdditionalResulution = 5,
                 VideoRecorderResolution = "HD",
                 VideoFPS = 30,
+                MobilePhoneId = 30,
                 Functions = "Video Recorder;Autofokus;Flash;Google Lens"
             };
             var screenK52 = new Screen()
@@ -1911,6 +2000,7 @@ namespace OnlineShop.Infrastructure
                 ColorsQuantity = 16,
                 ScreenType = "HD+, ISP-LCD",
                 HorizontalResolution = 1600,
+                MobilePhoneId = 30,
                 VerticalResolution = 720
             };
             var k52 = new MobilePhone()
