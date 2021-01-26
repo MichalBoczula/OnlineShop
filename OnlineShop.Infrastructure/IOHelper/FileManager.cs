@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -12,27 +13,22 @@ namespace OnlineShop.Infrastructure.IOHelper
 
         public FileManager()
         {
-            path = "..\\..\\..\\OnlineShop.Web\\wwwroot\\seed\\TextFile2.txt";
+            path = ".\\Seed\\TextFile2.txt";
         }
 
         public void WriteDataToCSV<T>(IList<T> data)
         {
-            if (!IsFileExist())
+            using (var writer = File.CreateText(path))
+            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {
-                CreateFile();
+                csv.WriteHeader<T>();
+                csv.NextRecord();
+                foreach (var record in data)
+                {
+                    csv.WriteRecord(record);
+                    csv.NextRecord();
+                }
             }
-
-            //using (var writer = new StreamWriter(path))
-            //using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
-            //{
-            //    csv.WriteHeader<T>();
-            //    csv.NextRecord();
-            //    foreach (var record in data)
-            //    {
-            //        csv.WriteRecord(record);
-            //        csv.NextRecord();
-            //    }
-            //}
         }
 
         public void CreateFile()
