@@ -1,39 +1,26 @@
 ﻿using CsvHelper;
+using CsvHelper.Configuration;
 using OnlineShop.Domain.ModelForCSV;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace OnlineShop.Infrastructure.IOHelper
 {
     public class FileManager
     {
-        public StringBuilder path { get; set; }
+        public string Path { get; set; }
 
         public void WriteDataToCSV<T>(IList<T> data)
         {
-            if (data[0] is CameraCSV)
-            {
-                path.Append("\\Seed\\Camera.csv");
-            }
-            else if (data[0] is HardwareCSV)
-            {
-                path.Append("\\Seed\\Hardware.csv");
-            }
-            else if (data[0] is ScreenCSV)
-            {
-                path.Append("\\Seed\\Screen.csv");
-            }
-            else if (data[0] is MobilePhoneCSV)
-            {
-                path.Append("\\Seed\\MobilePhone.csv");
-            }
+            var pathToFile = SetFileRelatedToDataType(data);
 
-            CheckIsFileExists<T>();
+            CheckIsFileExists<T>(pathToFile);
 
-            using (var stream = File.Open(path.ToString(), FileMode.Append))
+            using (var stream = File.Open(pathToFile, FileMode.Append))
             using (var writer = new StreamWriter(stream))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {
@@ -45,17 +32,66 @@ namespace OnlineShop.Infrastructure.IOHelper
             }
         }
 
-        public void CheckIsFileExists<T>()
+        public IList<T> ReadDataFromCSV<T>(string path, IList<T> result)
         {
-            if (!File.Exists(path.ToString()))
+            var config = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
-                using (var writer = File.CreateText(path.ToString()))
+                PrepareHeaderForMatch = (string header, int index) => header.ToLower(),
+                HasHeaderRecord = true
+            };
+
+            if (File.Exists(path))
+            {
+                using (var reader = new StreamReader(path))
+                using (var csv = new CsvReader(reader, config))
+                {
+                    while (csv.Read())
+                    {
+                        var value = csv.GetRecord<T>();
+                        result.Add(value);
+                    }
+                }
+                return result;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public void CheckIsFileExists<T>(string pathToFile)
+        {
+            if (!File.Exists(pathToFile))
+            {
+                using (var writer = File.CreateText(pathToFile))
                 using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
                     csv.WriteHeader<T>();
                     csv.NextRecord();
                 }
             }
+        }
+
+        private string SetFileRelatedToDataType<T>(IList<T> data)
+        {
+            var relatedPath = new StringBuilder(Path);
+            if (data is List<CameraCSV>)
+            {
+                relatedPath.Append("\\Seed\\Camera.csv");
+            }
+            else if (data is List<HardwareCSV>)
+            {
+                relatedPath.Append("\\Seed\\Hardware.csv");
+            }
+            else if (data is List<ScreenCSV>)
+            {
+                relatedPath.Append("\\Seed\\Screen.csv");
+            }
+            else if (data is List<MobilePhoneCSV>)
+            {
+                relatedPath.Append("\\Seed\\MobilePhone.csv");
+            }
+            return relatedPath.ToString();
         }
     }
 }

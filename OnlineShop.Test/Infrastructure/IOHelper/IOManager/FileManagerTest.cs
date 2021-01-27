@@ -7,69 +7,18 @@ using FluentAssertions;
 using OnlineShop.Domain.Model;
 using System.IO;
 using OnlineShop.Domain.ModelForCSV;
+using System.Linq;
 
 namespace OnlineShop.Test.Infrastructure.IOHelper.IOManager
 {
     public class FileManagerTest
     {
         [Fact]
-        public void AddHardwareToFile()
-        {
-            //Arrange
-            var list = new List<HardwareCSV>();
-            var hardwareiPhone12 = new HardwareCSV()
-            {
-                Id = 1,
-                ProcessorName = "A14 Bionic",
-                OperationSystem = "iOS",
-                GraphicsProcessor = "A14 Bionic",
-                OperationMemory = 4,
-                MemorySpace = 64,
-                SimCardType = "Nano",
-                BatteryCapacity = 2500,
-                MobilePhoneId = 1
-            };
-            list.Add(hardwareiPhone12);
-            var fileManager = new FileManager()
-            {
-                path = new StringBuilder("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper")
-            };
-            //Act
-            fileManager.WriteDataToCSV<HardwareCSV>(list);
-            //Assert
-        }
-
-        [Fact]
-        public void AddScreenToFile()
-        {
-            //Arrange
-            var list = new List<ScreenCSV>();
-            var screeniPhone12 = new ScreenCSV()
-            {
-                Id = 1,
-                Size = 6.1m,
-                ColorsQuantity = 16,
-                ScreenType = "OLED Super Retina XDR",
-                HorizontalResolution = 2532,
-                VerticalResolution = 1170,
-                MobilePhoneId = 1
-            };
-            list.Add(screeniPhone12);
-            var fileManager = new FileManager()
-            {
-                path = new StringBuilder("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper")
-            };
-            //Act
-            fileManager.WriteDataToCSV<ScreenCSV>(list);
-            //Assert
-
-        }
-
-        [Fact]
         public void AddCameraToFile()
         {
             //Arrange
             var list = new List<CameraCSV>();
+            var result = new List<CameraCSV>();
             var cameraiPhone12 = new CameraCSV()
             {
                 Id = 1,
@@ -85,12 +34,80 @@ namespace OnlineShop.Test.Infrastructure.IOHelper.IOManager
             list.Add(cameraiPhone12);
             var fileManager = new FileManager()
             {
-                path = new StringBuilder("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper")
+                Path = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper"
             };
             //Act
             fileManager.WriteDataToCSV<CameraCSV>(list);
+            fileManager.ReadDataFromCSV<CameraCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Camera.csv", result);
             //Assert
+            result.Should().NotBeEmpty();
+            result.Count.Should().Be(1);
+            //Clean Up
+            File.Delete("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Camera.csv");
+        }
 
+        [Fact]
+        public void AddHardwareToFile()
+        {
+            //Arrange
+            var list = new List<HardwareCSV>();
+            var result = new List<HardwareCSV>();
+            var hardwareiPhone12 = new HardwareCSV()
+            {
+                Id = 1,
+                ProcessorName = "A14 Bionic",
+                OperationSystem = "iOS",
+                GraphicsProcessor = "A14 Bionic",
+                OperationMemory = 4,
+                MemorySpace = 64,
+                SimCardType = "Nano",
+                BatteryCapacity = 2500,
+                MobilePhoneId = 1
+            };
+            list.Add(hardwareiPhone12);
+            var fileManager = new FileManager()
+            {
+                Path = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper"
+            };
+            //Act
+            fileManager.WriteDataToCSV<HardwareCSV>(list);
+            fileManager.ReadDataFromCSV<HardwareCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Hardware.csv", result);
+            //Assert
+            result.Should().NotBeEmpty();
+            result.Count.Should().Be(1);
+            //Clean Up
+            File.Delete("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Hardware.csv");
+        }
+
+        [Fact]
+        public void AddScreenToFile()
+        {
+            //Arrange
+            var list = new List<ScreenCSV>();
+            var result = new List<ScreenCSV>();
+            var screeniPhone12 = new ScreenCSV()
+            {
+                Id = 1,
+                Size = 6.1m,
+                ColorsQuantity = 16,
+                ScreenType = "OLED Super Retina XDR",
+                HorizontalResolution = 2532,
+                VerticalResolution = 1170,
+                MobilePhoneId = 1
+            };
+            list.Add(screeniPhone12);
+            var fileManager = new FileManager()
+            {
+                Path = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper"
+            };
+            //Act
+            fileManager.WriteDataToCSV<ScreenCSV>(list);
+            fileManager.ReadDataFromCSV<ScreenCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Screen.csv", result);
+            //Assert
+            result.Should().NotBeEmpty();
+            result.Count.Should().Be(1);
+            //Clean Up
+            File.Delete("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Screen.csv");
         }
 
         [Fact]
@@ -98,6 +115,7 @@ namespace OnlineShop.Test.Infrastructure.IOHelper.IOManager
         {
             //Arrange
             var list = new List<MobilePhoneCSV>();
+            var result = new List<MobilePhoneCSV>();
             var iPhone12 = new MobilePhoneCSV()
             {
                 Id = 1,
@@ -130,13 +148,121 @@ namespace OnlineShop.Test.Infrastructure.IOHelper.IOManager
             list.Add(iPhone12);
             var fileManager = new FileManager()
             {
-                path = new StringBuilder("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper")
+                Path = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper"
             };
             //Act
             fileManager.WriteDataToCSV<MobilePhoneCSV>(list);
+            fileManager.ReadDataFromCSV<MobilePhoneCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\MobilePhone.csv", result);
             //Assert
-
+            result.Should().NotBeEmpty();
+            result.Count.Should().Be(1);
+            //Clean Up
+            File.Delete("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\MobilePhone.csv");
         }
 
+        [Fact]
+        public void AppendScreenToFile()
+        {
+            //Arrange
+            var list = new List<ScreenCSV>();
+            var result = new List<ScreenCSV>();
+            var screen1 = new ScreenCSV()
+            {
+                Id = 1,
+                Size = 6.1m,
+                ColorsQuantity = 16,
+                ScreenType = "OLED Super Retina XDR",
+                HorizontalResolution = 2532,
+                VerticalResolution = 1170,
+                MobilePhoneId = 1
+            };
+            var screen2 = new ScreenCSV()
+            {
+                Id = 2,
+                Size = 6.1m,
+                ColorsQuantity = 16,
+                ScreenType = "OLED Super Retina XDR",
+                HorizontalResolution = 2532,
+                VerticalResolution = 1170,
+                MobilePhoneId = 1
+            };
+            list.Add(screen1);
+            var fileManager = new FileManager()
+            {
+                Path = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper"
+            };
+            fileManager.WriteDataToCSV<ScreenCSV>(list);
+            list.RemoveAt(0);
+            list.Add(screen2);
+            //Act
+            fileManager.WriteDataToCSV<ScreenCSV>(list);
+            fileManager.ReadDataFromCSV<ScreenCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Screen.csv", result);
+            //Assert
+            result.Should().NotBeEmpty();
+            result.Count.Should().Be(2);
+            result[0].Id.Should().Be(1);
+            result[1].Id.Should().Be(2);
+            //Clean Up
+            File.Delete("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Screen.csv");
+        }
+
+        [Fact]
+        public void ReadManyHardwaresFromFile()
+        {
+            //Arrange
+            var list = new List<HardwareCSV>();
+            var result = new List<HardwareCSV>();
+            var hard1 = new HardwareCSV()
+            {
+                Id = 1,
+                ProcessorName = "A14 Bionic",
+                OperationSystem = "iOS",
+                GraphicsProcessor = "A14 Bionic",
+                OperationMemory = 4,
+                MemorySpace = 64,
+                SimCardType = "Nano",
+                BatteryCapacity = 2500,
+                MobilePhoneId = 1
+            };
+            var hard2 = new HardwareCSV()
+            {
+                Id = 2,
+                ProcessorName = "A14 Bionic",
+                OperationSystem = "iOS",
+                GraphicsProcessor = "A14 Bionic",
+                OperationMemory = 4,
+                MemorySpace = 64,
+                SimCardType = "Nano",
+                BatteryCapacity = 2500,
+                MobilePhoneId = 1
+            };
+            var hard3 = new HardwareCSV()
+            {
+                Id = 3,
+                ProcessorName = "A14 Bionic",
+                OperationSystem = "iOS",
+                GraphicsProcessor = "A14 Bionic",
+                OperationMemory = 4,
+                MemorySpace = 64,
+                SimCardType = "Nano",
+                BatteryCapacity = 2500,
+                MobilePhoneId = 1
+            };
+            list.Add(hard1);
+            list.Add(hard2);
+            list.Add(hard3);
+            var fileManager = new FileManager()
+            {
+                Path = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper"
+            };
+            fileManager.WriteDataToCSV<HardwareCSV>(list);
+            //Act
+            fileManager.ReadDataFromCSV<HardwareCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Hardware.csv", result);
+            //Assert
+            result.Should().NotBeEmpty();
+            result.Count.Should().Be(3);
+            //Clean up
+            File.Delete("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Hardware.csv");
+        }
     }
 }
