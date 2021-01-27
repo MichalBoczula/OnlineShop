@@ -91,6 +91,10 @@ namespace OnlineShop.Infrastructure.IOHelper
             {
                 relatedPath.Append("\\Seed\\MobilePhone.csv");
             }
+            else if (data is List<MultimediaCSV>)
+            {
+                relatedPath.Append("\\Seed\\Multimedia.csv");
+            }
             return relatedPath.ToString();
         }
     }

@@ -1,6 +1,9 @@
 ﻿using OnlineShop.Domain.Model;
+using OnlineShop.Domain.ModelForCSV;
+using OnlineShop.Infrastructure.IOHelper;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace OnlineShop.Infrastructure
@@ -244,7 +247,6 @@ namespace OnlineShop.Infrastructure
                 GPS = true,
                 WiFiCalling = false
             };
-
 
             var hardwareLgWing = new Hardware()
             {
@@ -514,7 +516,6 @@ namespace OnlineShop.Infrastructure
                 Multimedia = multimediaAndroid,
                 Screen = screenFold2,
                 BestSeller = true
-
             };
 
             var hardwareFlip = new Hardware()
@@ -2068,8 +2069,6 @@ namespace OnlineShop.Infrastructure
 
             return phones;
         }
-
-
 
         public List<MobilePhone> GetMobiles()
         {

@@ -1,0 +1,3 @@
+Id,USBType,Bluetooth,NFC,FingerPrintReader,LTE,GPS,WiFiCalling
+1,Lighting,True,True,True,True,True,False
+2,USB C,True,True,True,True,True,False

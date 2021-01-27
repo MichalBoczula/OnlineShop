@@ -14,7 +14,6 @@ namespace OnlineShop.Domain.ModelForCSV
         public string MainImage { get; set; }
         public string FirstImage { get; set; }
         public string SecondImage { get; set; }
-        public string ThirdImage { get; set; }
         public string ShortDescription { get; set; }
         public string Description { get; set; }
         public bool ActiveStatus { get; set; }
