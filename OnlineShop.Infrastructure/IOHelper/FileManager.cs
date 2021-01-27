@@ -1,4 +1,5 @@
 ﻿using CsvHelper;
+using OnlineShop.Domain.ModelForCSV;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -9,20 +10,33 @@ namespace OnlineShop.Infrastructure.IOHelper
 {
     public class FileManager
     {
-        public string path { get; set; }
-
-        public FileManager()
-        {
-            path = ".\\Seed\\TextFile2.txt";
-        }
+        public StringBuilder path { get; set; }
 
         public void WriteDataToCSV<T>(IList<T> data)
         {
-            using (var writer = File.CreateText(path))
+            if (data[0] is CameraCSV)
+            {
+                path.Append("\\Seed\\Camera.csv");
+            }
+            else if (data[0] is HardwareCSV)
+            {
+                path.Append("\\Seed\\Hardware.csv");
+            }
+            else if (data[0] is ScreenCSV)
+            {
+                path.Append("\\Seed\\Screen.csv");
+            }
+            else if (data[0] is MobilePhoneCSV)
+            {
+                path.Append("\\Seed\\MobilePhone.csv");
+            }
+
+            CheckIsFileExists<T>();
+
+            using (var stream = File.Open(path.ToString(), FileMode.Append))
+            using (var writer = new StreamWriter(stream))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {
-                csv.WriteHeader<T>();
-                csv.NextRecord();
                 foreach (var record in data)
                 {
                     csv.WriteRecord(record);
@@ -31,14 +45,17 @@ namespace OnlineShop.Infrastructure.IOHelper
             }
         }
 
-        public void CreateFile()
+        public void CheckIsFileExists<T>()
         {
-            File.Create(path);
-        }
-
-        public bool IsFileExist()
-        {
-            return File.Exists(path);
+            if (!File.Exists(path.ToString()))
+            {
+                using (var writer = File.CreateText(path.ToString()))
+                using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    csv.WriteHeader<T>();
+                    csv.NextRecord();
+                }
+            }
         }
     }
 }

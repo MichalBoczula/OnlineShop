@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OnlineShop.Domain.Model
+namespace OnlineShop.Domain.ModelForCSV
 {
-    public class Screen
+    public class ScreenCSV
     {
         public int Id { get; set; }
         public decimal Size { get; set; }
@@ -13,7 +13,5 @@ namespace OnlineShop.Domain.Model
         public int HorizontalResolution { get; set; }
         public int VerticalResolution { get; set; }
         public int MobilePhoneId { get; set; }
-        public MobilePhone MobilePhoneRef { get; set; }
-
     }
 }
