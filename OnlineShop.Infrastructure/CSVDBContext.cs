@@ -11,433 +11,47 @@ namespace OnlineShop.Infrastructure
     public class CSVDBContext
     {
         private readonly FileManager fileManager;
+        private readonly string generalPath;
+        private readonly string cameraPath;
+        private readonly string hardwarePath;
+        private readonly string screenPath;
+        private readonly string mobilePhonePath;
+        private readonly string multimediaPath;
 
         public CSVDBContext()
         {
+            generalPath = "..\\OnlineShop.Infrastructure\\IOHelper";
+            cameraPath = "..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Camera.csv";
+            hardwarePath = "..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Hardware.csv";
+            screenPath = "..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Screen.csv";
+            mobilePhonePath = "..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\MobilePhone.csv";
+            multimediaPath = "..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Multimedia.csv";
+
+
             fileManager = new FileManager()
             {
-                Path = "..\\OnlineShop.Infrastructure\\IOHelper"
+                Path = generalPath
             };
-            fileManager = new FileManager()
-            {
-                Path = "..\\OnlineShop.Infrastructure\\IOHelper"
-            };
-            if (!File.Exists("..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Camera.csv"))
+            if (!File.Exists(cameraPath))
             {
                 fileManager.WriteDataToCSV(GetCamerasToCSV());
             }
-            if (!File.Exists("..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Hardware.csv"))
+            if (!File.Exists(hardwarePath))
             {
                 fileManager.WriteDataToCSV(GetHardwaresToCSV());
             }
-            if (!File.Exists("..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Screen.csv"))
+            if (!File.Exists(screenPath))
             {
                 fileManager.WriteDataToCSV(GetScreensToCSV());
             }
-            if (!File.Exists("..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\MobilePhone.csv"))
+            if (!File.Exists(mobilePhonePath))
             {
                 fileManager.WriteDataToCSV(GetMobilePhonesToCSV());
             }
-            if (!File.Exists("..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Multimedia.csv"))
+            if (!File.Exists(multimediaPath))
             {
                 fileManager.WriteDataToCSV(GetMultimediaToCSV());
             }
-        }
-
-        private List<HardwareCSV> GetHardwaresToCSV()
-        {
-            var list = new List<HardwareCSV>();
-            var hardwareiPhone12 = new HardwareCSV()
-            {
-                Id = 1,
-                ProcessorName = "A14 Bionic",
-                OperationSystem = "iOS",
-                GraphicsProcessor = "A14 Bionic",
-                OperationMemory = 4,
-                MemorySpace = 64,
-                SimCardType = "Nano",
-                BatteryCapacity = 2500,
-                MobilePhoneId = 1
-            };
-            var hardwareiPhone12Pro = new HardwareCSV()
-            {
-                Id = 2,
-                ProcessorName = "A14 Bionic",
-                OperationSystem = "iOS",
-                GraphicsProcessor = "A14 Bionic",
-                OperationMemory = 6,
-                MemorySpace = 128,
-                SimCardType = "Nano",
-                BatteryCapacity = 2775,
-                MobilePhoneId = 2
-            };
-            var hardwareiPhone12Mini = new HardwareCSV()
-            {
-                Id = 3,
-                ProcessorName = "A14 Bionic",
-                OperationSystem = "iOS",
-                GraphicsProcessor = "A14 Bionic",
-                OperationMemory = 4,
-                MemorySpace = 64,
-                SimCardType = "Nano",
-                MobilePhoneId = 3,
-                BatteryCapacity = 2775
-            };
-            var hardwareLgWing = new HardwareCSV()
-            {
-                Id = 4,
-                ProcessorName = "Qualcomm Snapdragon 765G",
-                OperationSystem = "Android",
-                GraphicsProcessor = "Adreno 620 GPU",
-                OperationMemory = 8,
-                MemorySpace = 128,
-                SimCardType = "Nano",
-                MobilePhoneId = 4,
-                BatteryCapacity = 4000
-            };
-            var hardwareLgVelvet = new HardwareCSV()
-            {
-                Id = 5,
-                ProcessorName = "Qualcomm Snapdragon 765G",
-                OperationSystem = "Android",
-                GraphicsProcessor = "Adreno 620 GPU",
-                OperationMemory = 6,
-                MemorySpace = 128,
-                SimCardType = "Nano",
-                MobilePhoneId = 5,
-                BatteryCapacity = 4300
-            };
-            var hardwareLgK61 = new HardwareCSV()
-            {
-                Id = 6,
-                ProcessorName = "MediaTek Helio P35",
-                OperationSystem = "Android",
-                GraphicsProcessor = "IMG GE8320 680MHz",
-                OperationMemory = 4,
-                MemorySpace = 128,
-                SimCardType = "Nano",
-                MobilePhoneId = 6,
-                BatteryCapacity = 4000
-            };
-            var hardwareFold2 = new HardwareCSV()
-            {
-                Id = 7,
-                ProcessorName = "Qualcomm",
-                OperationSystem = "Android",
-                GraphicsProcessor = "Adreno 650",
-                OperationMemory = 12,
-                MemorySpace = 256,
-                SimCardType = "Nano",
-                MobilePhoneId = 7,
-                BatteryCapacity = 4500
-            };
-            var hardwareFlip = new HardwareCSV()
-            {
-                Id = 8,
-                ProcessorName = "Snapdragon 865+",
-                OperationSystem = "Android",
-                GraphicsProcessor = "Adreno 650",
-                OperationMemory = 8,
-                MemorySpace = 256,
-                SimCardType = "Nano",
-                MobilePhoneId = 8,
-                BatteryCapacity = 3300
-            };
-            var hardwareS21 = new HardwareCSV()
-            {
-                Id = 9,
-                ProcessorName = "Exynos",
-                OperationSystem = "Android",
-                GraphicsProcessor = "Mali G78 MP14",
-                OperationMemory = 8,
-                MemorySpace = 256,
-                SimCardType = "Nano",
-                MobilePhoneId = 9,
-                BatteryCapacity = 4000
-            };
-            var hardwareA51 = new HardwareCSV()
-            {
-                Id = 10,
-                ProcessorName = "Exynos 9611",
-                OperationSystem = "Android",
-                GraphicsProcessor = "Mali G72 MP3",
-                OperationMemory = 4,
-                MemorySpace = 128,
-                SimCardType = "Nano",
-                MobilePhoneId = 10,
-                BatteryCapacity = 4000
-            };
-            var hardwareMateXS = new HardwareCSV()
-            {
-                Id = 11,
-                ProcessorName = "Kirin 990 5G",
-                OperationSystem = "Android",
-                GraphicsProcessor = "Kirin 990 5G",
-                OperationMemory = 8,
-                MemorySpace = 512,
-                SimCardType = "Nano",
-                MobilePhoneId = 11,
-                BatteryCapacity = 4500
-            };
-            var hardwareMate40Pro = new HardwareCSV()
-            {
-                Id = 12,
-                ProcessorName = "Kirin 9000",
-                OperationSystem = "Android",
-                GraphicsProcessor = "Kirin 9000",
-                OperationMemory = 8,
-                MemorySpace = 256,
-                SimCardType = "Nano",
-                MobilePhoneId = 12,
-                BatteryCapacity = 4500
-            };
-            var hardwareSonyL4 = new HardwareCSV()
-            {
-                Id = 13,
-                ProcessorName = "MediaTek MT6762",
-                OperationSystem = "Android",
-                GraphicsProcessor = "IMG GE8320",
-                OperationMemory = 3,
-                MemorySpace = 64,
-                SimCardType = "Nano",
-                MobilePhoneId = 13,
-                BatteryCapacity = 3580
-            };
-            var hardwareSony10 = new HardwareCSV()
-            {
-                Id = 14,
-                ProcessorName = "Qualcomm Snapdragon 665",
-                OperationSystem = "Android",
-                GraphicsProcessor = "Adreno 610",
-                OperationMemory = 4,
-                MemorySpace = 128,
-                SimCardType = "Nano",
-                MobilePhoneId = 14,
-                BatteryCapacity = 3600
-            };
-            var hardwareXiaomi10Lite = new HardwareCSV()
-            {
-                Id = 15,
-                ProcessorName = "Qualcomm Snapdragon 750G",
-                OperationSystem = "Android",
-                GraphicsProcessor = "Adreno™ GPU 619",
-                OperationMemory = 6,
-                MemorySpace = 64,
-                SimCardType = "Nano",
-                MobilePhoneId = 15,
-                BatteryCapacity = 4820
-            };
-            var hardwareXiaomi10Pro = new HardwareCSV()
-            {
-                Id = 16,
-                ProcessorName = "Qualcomm Snapdragon 865",
-                OperationSystem = "Android",
-                GraphicsProcessor = "Adreno 650",
-                OperationMemory = 8,
-                MemorySpace = 256,
-                SimCardType = "Nano",
-                MobilePhoneId = 16,
-                BatteryCapacity = 5000
-            };
-            var hardwareXiaomiRedmi = new HardwareCSV()
-            {
-                Id = 17,
-                ProcessorName = "MediaTek Helio G85",
-                OperationSystem = "Android",
-                GraphicsProcessor = "ARM G52 MC2",
-                OperationMemory = 4,
-                MemorySpace = 128,
-                SimCardType = "Nano",
-                MobilePhoneId = 17,
-                BatteryCapacity = 5020
-            };
-            var hardwareRazr = new HardwareCSV()
-            {
-                Id = 18,
-                ProcessorName = "Qualcomm Snapdragon 765",
-                OperationSystem = "Android",
-                GraphicsProcessor = "Adreno 620",
-                OperationMemory = 8,
-                MemorySpace = 256,
-                SimCardType = "Nano",
-                MobilePhoneId = 18,
-                BatteryCapacity = 2800
-            };
-            var hardwareEdge = new HardwareCSV()
-            {
-                Id = 19,
-                ProcessorName = "Qualcomm Snapdragon 765",
-                OperationSystem = "Android",
-                GraphicsProcessor = "Adreno 620",
-                OperationMemory = 6,
-                MemorySpace = 128,
-                SimCardType = "Nano",
-                MobilePhoneId = 19,
-                BatteryCapacity = 5000
-            };
-            var hardwareMoto = new HardwareCSV()
-            {
-                Id = 20,
-                ProcessorName = "Qualcomm Snapdragon 765",
-                OperationSystem = "Android",
-                GraphicsProcessor = "Adreno 620",
-                OperationMemory = 6,
-                MemorySpace = 128,
-                SimCardType = "Nano",
-                MobilePhoneId = 20,
-                BatteryCapacity = 5000
-            };
-            var hardwareNokia7 = new HardwareCSV()
-            {
-                Id = 21,
-                ProcessorName = "Qualcomm Snapdragon 660",
-                OperationSystem = "Android",
-                GraphicsProcessor = "Adreno 512",
-                OperationMemory = 4,
-                MemorySpace = 64,
-                SimCardType = "Nano",
-                MobilePhoneId = 21,
-                BatteryCapacity = 3500
-            };
-            var hardwareNokia8 = new HardwareCSV()
-            {
-                Id = 22,
-                ProcessorName = "Qualcomm Snapdragon 765G",
-                OperationSystem = "Android",
-                GraphicsProcessor = "Adreno 620",
-                OperationMemory = 8,
-                MemorySpace = 128,
-                SimCardType = "Nano",
-                MobilePhoneId = 22,
-                BatteryCapacity = 4500
-            };
-            var hardwareIPhone11 = new HardwareCSV()
-            {
-                Id = 23,
-                ProcessorName = "A13 Bionic",
-                OperationSystem = "Android",
-                GraphicsProcessor = "A13 Bionic",
-                OperationMemory = 6,
-                MemorySpace = 64,
-                SimCardType = "Nano",
-                MobilePhoneId = 23,
-                BatteryCapacity = 3110
-            };
-            var hardwareIPhoneSE = new HardwareCSV()
-            {
-                Id = 24,
-                ProcessorName = "A13 Bionic",
-                OperationSystem = "Android",
-                GraphicsProcessor = "A13 Bionic",
-                OperationMemory = 4,
-                MemorySpace = 64,
-                SimCardType = "Nano",
-                MobilePhoneId = 24,
-                BatteryCapacity = 1821
-            };
-            var hardwareReno4Pro = new HardwareCSV()
-            {
-                Id = 25,
-                ProcessorName = "Qualcomm Snapdragon 765 5G",
-                OperationSystem = "Android",
-                GraphicsProcessor = "Adreno 620",
-                OperationMemory = 12,
-                MemorySpace = 256,
-                SimCardType = "Nano",
-                MobilePhoneId = 25,
-                BatteryCapacity = 4000
-            };
-            var hardwareReno4Lite = new HardwareCSV()
-            {
-                Id = 26,
-                ProcessorName = "MediaTek Helio P95",
-                OperationSystem = "Android",
-                GraphicsProcessor = "PowerVR GM9446",
-                OperationMemory = 8,
-                MemorySpace = 128,
-                SimCardType = "Nano",
-                MobilePhoneId = 26,
-                BatteryCapacity = 4000
-            };
-            var hardwareOppoA53 = new HardwareCSV()
-            {
-                Id = 27,
-                ProcessorName = "Qualcomm Snapdragon 460",
-                OperationSystem = "Android",
-                GraphicsProcessor = "Adreno 610",
-                OperationMemory = 4,
-                MemorySpace = 128,
-                SimCardType = "Nano",
-                MobilePhoneId = 27,
-                BatteryCapacity = 5000
-            };
-            var hardwareXcover = new HardwareCSV()
-            {
-                Id = 28,
-                ProcessorName = "Exynos",
-                OperationSystem = "Android",
-                GraphicsProcessor = "Mali-G71 MP2",
-                OperationMemory = 3,
-                MemorySpace = 32,
-                SimCardType = "Nano",
-                MobilePhoneId = 28,
-                BatteryCapacity = 2800
-            };
-            var hardwareA71 = new HardwareCSV()
-            {
-                Id = 29,
-                ProcessorName = "Qualcomm Snapdragon 730",
-                OperationSystem = "Android",
-                GraphicsProcessor = "Adreno 618",
-                OperationMemory = 6,
-                MemorySpace = 128,
-                SimCardType = "Nano",
-                MobilePhoneId = 29,
-                BatteryCapacity = 4500
-            };
-            var hardwareK52 = new HardwareCSV()
-            {
-                Id = 30,
-                ProcessorName = "Helio P35 MT6765",
-                OperationSystem = "Android",
-                GraphicsProcessor = "IMG GE8320 680MHz",
-                OperationMemory = 4,
-                MemorySpace = 64,
-                SimCardType = "Nano",
-                MobilePhoneId = 30,
-                BatteryCapacity = 4000
-            };
-            list.Add(hardwareiPhone12);
-            list.Add(hardwareiPhone12Pro);
-            list.Add(hardwareiPhone12Mini);
-            list.Add(hardwareLgWing);
-            list.Add(hardwareLgVelvet);
-            list.Add(hardwareLgK61);
-            list.Add(hardwareFold2);
-            list.Add(hardwareFlip);
-            list.Add(hardwareS21);
-            list.Add(hardwareA51);
-            list.Add(hardwareMateXS);
-            list.Add(hardwareMate40Pro);
-            list.Add(hardwareSonyL4);
-            list.Add(hardwareSony10);
-            list.Add(hardwareXiaomi10Lite);
-            list.Add(hardwareXiaomi10Pro);
-            list.Add(hardwareXiaomiRedmi);
-            list.Add(hardwareRazr);
-            list.Add(hardwareEdge);
-            list.Add(hardwareMoto);
-            list.Add(hardwareNokia7);
-            list.Add(hardwareNokia8);
-            list.Add(hardwareIPhone11);
-            list.Add(hardwareIPhoneSE);
-            list.Add(hardwareReno4Pro);
-            list.Add(hardwareReno4Lite);
-            list.Add(hardwareOppoA53);
-            list.Add(hardwareXcover);
-            list.Add(hardwareA71);
-            list.Add(hardwareK52);
-            return list;
         }
 
         private List<CameraCSV> GetCamerasToCSV()
@@ -833,6 +447,402 @@ namespace OnlineShop.Infrastructure
             list.Add(cameraXcover);
             list.Add(cameraA71);
             list.Add(cameraK52);
+            return list;
+        }
+
+        private List<HardwareCSV> GetHardwaresToCSV()
+        {
+            var list = new List<HardwareCSV>();
+            var hardwareiPhone12 = new HardwareCSV()
+            {
+                Id = 1,
+                ProcessorName = "A14 Bionic",
+                OperationSystem = "iOS",
+                GraphicsProcessor = "A14 Bionic",
+                OperationMemory = 4,
+                MemorySpace = 64,
+                SimCardType = "Nano",
+                BatteryCapacity = 2500,
+                MobilePhoneId = 1
+            };
+            var hardwareiPhone12Pro = new HardwareCSV()
+            {
+                Id = 2,
+                ProcessorName = "A14 Bionic",
+                OperationSystem = "iOS",
+                GraphicsProcessor = "A14 Bionic",
+                OperationMemory = 6,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                BatteryCapacity = 2775,
+                MobilePhoneId = 2
+            };
+            var hardwareiPhone12Mini = new HardwareCSV()
+            {
+                Id = 3,
+                ProcessorName = "A14 Bionic",
+                OperationSystem = "iOS",
+                GraphicsProcessor = "A14 Bionic",
+                OperationMemory = 4,
+                MemorySpace = 64,
+                SimCardType = "Nano",
+                MobilePhoneId = 3,
+                BatteryCapacity = 2775
+            };
+            var hardwareLgWing = new HardwareCSV()
+            {
+                Id = 4,
+                ProcessorName = "Qualcomm Snapdragon 765G",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 620 GPU",
+                OperationMemory = 8,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                MobilePhoneId = 4,
+                BatteryCapacity = 4000
+            };
+            var hardwareLgVelvet = new HardwareCSV()
+            {
+                Id = 5,
+                ProcessorName = "Qualcomm Snapdragon 765G",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 620 GPU",
+                OperationMemory = 6,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                MobilePhoneId = 5,
+                BatteryCapacity = 4300
+            };
+            var hardwareLgK61 = new HardwareCSV()
+            {
+                Id = 6,
+                ProcessorName = "MediaTek Helio P35",
+                OperationSystem = "Android",
+                GraphicsProcessor = "IMG GE8320 680MHz",
+                OperationMemory = 4,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                MobilePhoneId = 6,
+                BatteryCapacity = 4000
+            };
+            var hardwareFold2 = new HardwareCSV()
+            {
+                Id = 7,
+                ProcessorName = "Qualcomm",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 650",
+                OperationMemory = 12,
+                MemorySpace = 256,
+                SimCardType = "Nano",
+                MobilePhoneId = 7,
+                BatteryCapacity = 4500
+            };
+            var hardwareFlip = new HardwareCSV()
+            {
+                Id = 8,
+                ProcessorName = "Snapdragon 865+",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 650",
+                OperationMemory = 8,
+                MemorySpace = 256,
+                SimCardType = "Nano",
+                MobilePhoneId = 8,
+                BatteryCapacity = 3300
+            };
+            var hardwareS21 = new HardwareCSV()
+            {
+                Id = 9,
+                ProcessorName = "Exynos",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Mali G78 MP14",
+                OperationMemory = 8,
+                MemorySpace = 256,
+                SimCardType = "Nano",
+                MobilePhoneId = 9,
+                BatteryCapacity = 4000
+            };
+            var hardwareA51 = new HardwareCSV()
+            {
+                Id = 10,
+                ProcessorName = "Exynos 9611",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Mali G72 MP3",
+                OperationMemory = 4,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                MobilePhoneId = 10,
+                BatteryCapacity = 4000
+            };
+            var hardwareMateXS = new HardwareCSV()
+            {
+                Id = 11,
+                ProcessorName = "Kirin 990 5G",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Kirin 990 5G",
+                OperationMemory = 8,
+                MemorySpace = 512,
+                SimCardType = "Nano",
+                MobilePhoneId = 11,
+                BatteryCapacity = 4500
+            };
+            var hardwareMate40Pro = new HardwareCSV()
+            {
+                Id = 12,
+                ProcessorName = "Kirin 9000",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Kirin 9000",
+                OperationMemory = 8,
+                MemorySpace = 256,
+                SimCardType = "Nano",
+                MobilePhoneId = 12,
+                BatteryCapacity = 4500
+            };
+            var hardwareSonyL4 = new HardwareCSV()
+            {
+                Id = 13,
+                ProcessorName = "MediaTek MT6762",
+                OperationSystem = "Android",
+                GraphicsProcessor = "IMG GE8320",
+                OperationMemory = 3,
+                MemorySpace = 64,
+                SimCardType = "Nano",
+                MobilePhoneId = 13,
+                BatteryCapacity = 3580
+            };
+            var hardwareSony10 = new HardwareCSV()
+            {
+                Id = 14,
+                ProcessorName = "Qualcomm Snapdragon 665",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 610",
+                OperationMemory = 4,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                MobilePhoneId = 14,
+                BatteryCapacity = 3600
+            };
+            var hardwareXiaomi10Lite = new HardwareCSV()
+            {
+                Id = 15,
+                ProcessorName = "Qualcomm Snapdragon 750G",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno™ GPU 619",
+                OperationMemory = 6,
+                MemorySpace = 64,
+                SimCardType = "Nano",
+                MobilePhoneId = 15,
+                BatteryCapacity = 4820
+            };
+            var hardwareXiaomi10Pro = new HardwareCSV()
+            {
+                Id = 16,
+                ProcessorName = "Qualcomm Snapdragon 865",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 650",
+                OperationMemory = 8,
+                MemorySpace = 256,
+                SimCardType = "Nano",
+                MobilePhoneId = 16,
+                BatteryCapacity = 5000
+            };
+            var hardwareXiaomiRedmi = new HardwareCSV()
+            {
+                Id = 17,
+                ProcessorName = "MediaTek Helio G85",
+                OperationSystem = "Android",
+                GraphicsProcessor = "ARM G52 MC2",
+                OperationMemory = 4,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                MobilePhoneId = 17,
+                BatteryCapacity = 5020
+            };
+            var hardwareRazr = new HardwareCSV()
+            {
+                Id = 18,
+                ProcessorName = "Qualcomm Snapdragon 765",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 620",
+                OperationMemory = 8,
+                MemorySpace = 256,
+                SimCardType = "Nano",
+                MobilePhoneId = 18,
+                BatteryCapacity = 2800
+            };
+            var hardwareEdge = new HardwareCSV()
+            {
+                Id = 19,
+                ProcessorName = "Qualcomm Snapdragon 765",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 620",
+                OperationMemory = 6,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                MobilePhoneId = 19,
+                BatteryCapacity = 5000
+            };
+            var hardwareMoto = new HardwareCSV()
+            {
+                Id = 20,
+                ProcessorName = "Qualcomm Snapdragon 765",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 620",
+                OperationMemory = 6,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                MobilePhoneId = 20,
+                BatteryCapacity = 5000
+            };
+            var hardwareNokia7 = new HardwareCSV()
+            {
+                Id = 21,
+                ProcessorName = "Qualcomm Snapdragon 660",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 512",
+                OperationMemory = 4,
+                MemorySpace = 64,
+                SimCardType = "Nano",
+                MobilePhoneId = 21,
+                BatteryCapacity = 3500
+            };
+            var hardwareNokia8 = new HardwareCSV()
+            {
+                Id = 22,
+                ProcessorName = "Qualcomm Snapdragon 765G",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 620",
+                OperationMemory = 8,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                MobilePhoneId = 22,
+                BatteryCapacity = 4500
+            };
+            var hardwareIPhone11 = new HardwareCSV()
+            {
+                Id = 23,
+                ProcessorName = "A13 Bionic",
+                OperationSystem = "Android",
+                GraphicsProcessor = "A13 Bionic",
+                OperationMemory = 6,
+                MemorySpace = 64,
+                SimCardType = "Nano",
+                MobilePhoneId = 23,
+                BatteryCapacity = 3110
+            };
+            var hardwareIPhoneSE = new HardwareCSV()
+            {
+                Id = 24,
+                ProcessorName = "A13 Bionic",
+                OperationSystem = "Android",
+                GraphicsProcessor = "A13 Bionic",
+                OperationMemory = 4,
+                MemorySpace = 64,
+                SimCardType = "Nano",
+                MobilePhoneId = 24,
+                BatteryCapacity = 1821
+            };
+            var hardwareReno4Pro = new HardwareCSV()
+            {
+                Id = 25,
+                ProcessorName = "Qualcomm Snapdragon 765 5G",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 620",
+                OperationMemory = 12,
+                MemorySpace = 256,
+                SimCardType = "Nano",
+                MobilePhoneId = 25,
+                BatteryCapacity = 4000
+            };
+            var hardwareReno4Lite = new HardwareCSV()
+            {
+                Id = 26,
+                ProcessorName = "MediaTek Helio P95",
+                OperationSystem = "Android",
+                GraphicsProcessor = "PowerVR GM9446",
+                OperationMemory = 8,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                MobilePhoneId = 26,
+                BatteryCapacity = 4000
+            };
+            var hardwareOppoA53 = new HardwareCSV()
+            {
+                Id = 27,
+                ProcessorName = "Qualcomm Snapdragon 460",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 610",
+                OperationMemory = 4,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                MobilePhoneId = 27,
+                BatteryCapacity = 5000
+            };
+            var hardwareXcover = new HardwareCSV()
+            {
+                Id = 28,
+                ProcessorName = "Exynos",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Mali-G71 MP2",
+                OperationMemory = 3,
+                MemorySpace = 32,
+                SimCardType = "Nano",
+                MobilePhoneId = 28,
+                BatteryCapacity = 2800
+            };
+            var hardwareA71 = new HardwareCSV()
+            {
+                Id = 29,
+                ProcessorName = "Qualcomm Snapdragon 730",
+                OperationSystem = "Android",
+                GraphicsProcessor = "Adreno 618",
+                OperationMemory = 6,
+                MemorySpace = 128,
+                SimCardType = "Nano",
+                MobilePhoneId = 29,
+                BatteryCapacity = 4500
+            };
+            var hardwareK52 = new HardwareCSV()
+            {
+                Id = 30,
+                ProcessorName = "Helio P35 MT6765",
+                OperationSystem = "Android",
+                GraphicsProcessor = "IMG GE8320 680MHz",
+                OperationMemory = 4,
+                MemorySpace = 64,
+                SimCardType = "Nano",
+                MobilePhoneId = 30,
+                BatteryCapacity = 4000
+            };
+            list.Add(hardwareiPhone12);
+            list.Add(hardwareiPhone12Pro);
+            list.Add(hardwareiPhone12Mini);
+            list.Add(hardwareLgWing);
+            list.Add(hardwareLgVelvet);
+            list.Add(hardwareLgK61);
+            list.Add(hardwareFold2);
+            list.Add(hardwareFlip);
+            list.Add(hardwareS21);
+            list.Add(hardwareA51);
+            list.Add(hardwareMateXS);
+            list.Add(hardwareMate40Pro);
+            list.Add(hardwareSonyL4);
+            list.Add(hardwareSony10);
+            list.Add(hardwareXiaomi10Lite);
+            list.Add(hardwareXiaomi10Pro);
+            list.Add(hardwareXiaomiRedmi);
+            list.Add(hardwareRazr);
+            list.Add(hardwareEdge);
+            list.Add(hardwareMoto);
+            list.Add(hardwareNokia7);
+            list.Add(hardwareNokia8);
+            list.Add(hardwareIPhone11);
+            list.Add(hardwareIPhoneSE);
+            list.Add(hardwareReno4Pro);
+            list.Add(hardwareReno4Lite);
+            list.Add(hardwareOppoA53);
+            list.Add(hardwareXcover);
+            list.Add(hardwareA71);
+            list.Add(hardwareK52);
             return list;
         }
 
@@ -2060,5 +2070,39 @@ namespace OnlineShop.Infrastructure
             return list;
         }
 
+        public List<CameraCSV> RetriveCamerasFromCSV()
+        {
+            var list = new List<CameraCSV>();
+            fileManager.ReadDataFromCSV(cameraPath, list);
+            return list;
+        }
+
+        public List<HardwareCSV> RetriveHardwaresFromCSV()
+        {
+            var list = new List<HardwareCSV>();
+            fileManager.ReadDataFromCSV(hardwarePath, list);
+            return list;
+        }
+
+        public List<ScreenCSV> RetriveScreensFromCSV()
+        {
+            var list = new List<ScreenCSV>();
+            fileManager.ReadDataFromCSV(screenPath, list);
+            return list;
+        }
+
+        public List<MobilePhoneCSV> RetriveMobilePhonesFromCSV()
+        {
+            var list = new List<MobilePhoneCSV>();
+            fileManager.ReadDataFromCSV(mobilePhonePath, list);
+            return list;
+        }
+
+        public List<MultimediaCSV> RetriveMultimediasFromCSV()
+        {
+            var list = new List<MultimediaCSV>();
+            fileManager.ReadDataFromCSV(multimediaPath, list);
+            return list;
+        }
     }
 }
