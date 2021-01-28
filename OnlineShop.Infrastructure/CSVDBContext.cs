@@ -10,23 +10,22 @@ namespace OnlineShop.Infrastructure
 {
     public class CSVDBContext
     {
-        private readonly FileManager fileManager;
-        private readonly string generalPath;
-        private readonly string cameraPath;
-        private readonly string hardwarePath;
-        private readonly string screenPath;
-        private readonly string mobilePhonePath;
-        private readonly string multimediaPath;
+        public FileManager fileManager;
+        public string generalPath;
+        public string cameraPath;
+        public string hardwarePath;
+        public string screenPath;
+        public string mobilePhonePath;
+        public string multimediaPath;
 
         public CSVDBContext()
         {
             generalPath = "..\\OnlineShop.Infrastructure\\IOHelper";
-            cameraPath = "..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Camera.csv";
-            hardwarePath = "..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Hardware.csv";
-            screenPath = "..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Screen.csv";
-            mobilePhonePath = "..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\MobilePhone.csv";
-            multimediaPath = "..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Multimedia.csv";
-
+            cameraPath = $"{generalPath}\\Seed\\Camera.csv";
+            hardwarePath = $"{generalPath}\\Seed\\Hardware.csv";
+            screenPath = $"{generalPath}\\Seed\\Screen.csv";
+            mobilePhonePath = $"{generalPath}\\Seed\\MobilePhone.csv";
+            multimediaPath = $"{generalPath}\\Seed\\Multimedia.csv";
 
             fileManager = new FileManager()
             {
@@ -52,6 +51,26 @@ namespace OnlineShop.Infrastructure
             {
                 fileManager.WriteDataToCSV(GetMultimediaToCSV());
             }
+        }
+
+#nullable enable
+        //Constructors for tests
+        public CSVDBContext(string? cameraPath,
+                            string? hardwarePath,
+                            string? screenPath,
+                            string? mobilePhonePath,
+                            string? multimediaPath)
+        {
+            generalPath = "..\\OnlineShop.Infrastructure\\IOHelper";
+            this.cameraPath = cameraPath;
+            this.hardwarePath = hardwarePath;
+            this.screenPath = screenPath;
+            this.mobilePhonePath = mobilePhonePath;
+            this.multimediaPath = multimediaPath;
+            fileManager = new FileManager()
+            {
+                Path = generalPath
+            };
         }
 
         private List<CameraCSV> GetCamerasToCSV()
@@ -2105,4 +2124,5 @@ namespace OnlineShop.Infrastructure
             return list;
         }
     }
+
 }
