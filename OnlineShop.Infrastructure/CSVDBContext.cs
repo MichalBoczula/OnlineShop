@@ -18,6 +18,10 @@ namespace OnlineShop.Infrastructure
         public string mobilePhonePath;
         public string multimediaPath;
 
+
+        /// <summary>
+        /// Constructor with default path and automatically invoke CreateCSVFiles method.
+        /// </summary>
         public CSVDBContext()
         {
             generalPath = "..\\OnlineShop.Infrastructure\\IOHelper";
@@ -26,51 +30,49 @@ namespace OnlineShop.Infrastructure
             screenPath = $"{generalPath}\\Seed\\Screen.csv";
             mobilePhonePath = $"{generalPath}\\Seed\\MobilePhone.csv";
             multimediaPath = $"{generalPath}\\Seed\\Multimedia.csv";
+            fileManager = new FileManager(generalPath);
+            CreateCSVFiles();
+        }
 
-            fileManager = new FileManager()
-            {
-                Path = generalPath
-            };
-            if (!File.Exists(cameraPath))
+        public void CreateCSVFiles()
+        {
+            if (!String.IsNullOrEmpty(cameraPath) && !File.Exists(cameraPath))
             {
                 fileManager.WriteDataToCSV(GetCamerasToCSV());
             }
-            if (!File.Exists(hardwarePath))
+            if (!String.IsNullOrEmpty(hardwarePath) && !File.Exists(hardwarePath))
             {
                 fileManager.WriteDataToCSV(GetHardwaresToCSV());
             }
-            if (!File.Exists(screenPath))
+            if (!String.IsNullOrEmpty(screenPath) && !File.Exists(screenPath))
             {
                 fileManager.WriteDataToCSV(GetScreensToCSV());
             }
-            if (!File.Exists(mobilePhonePath))
+            if (!String.IsNullOrEmpty(mobilePhonePath) && !File.Exists(mobilePhonePath))
             {
                 fileManager.WriteDataToCSV(GetMobilePhonesToCSV());
             }
-            if (!File.Exists(multimediaPath))
+            if (!String.IsNullOrEmpty(multimediaPath) && !File.Exists(multimediaPath))
             {
                 fileManager.WriteDataToCSV(GetMultimediaToCSV());
             }
         }
 
 #nullable enable
-        //Constructors for tests
         public CSVDBContext(string? cameraPath,
                             string? hardwarePath,
                             string? screenPath,
                             string? mobilePhonePath,
-                            string? multimediaPath)
+                            string? multimediaPath,
+                            FileManager fileManager)
         {
-            generalPath = "..\\OnlineShop.Infrastructure\\IOHelper";
             this.cameraPath = cameraPath;
             this.hardwarePath = hardwarePath;
             this.screenPath = screenPath;
             this.mobilePhonePath = mobilePhonePath;
             this.multimediaPath = multimediaPath;
-            fileManager = new FileManager()
-            {
-                Path = generalPath
-            };
+            this.fileManager = fileManager;
+            this.generalPath = fileManager.Path;
         }
 
         private List<CameraCSV> GetCamerasToCSV()

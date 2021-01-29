@@ -14,6 +14,11 @@ namespace OnlineShop.Infrastructure.IOHelper
     {
         public string Path { get; set; }
 
+        public FileManager(string path)
+        {
+            Path = path;
+        }
+
         public void WriteDataToCSV<T>(IList<T> data)
         {
             var pathToFile = SetFileRelatedToDataType(data);

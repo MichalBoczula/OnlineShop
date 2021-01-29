@@ -32,10 +32,7 @@ namespace OnlineShop.Test.Infrastructure.IOHelper.IOManager
                 MobilePhoneId = 1
             };
             list.Add(cameraiPhone12);
-            var fileManager = new FileManager()
-            {
-                Path = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper"
-            };
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper");
             //Act
             fileManager.WriteDataToCSV<CameraCSV>(list);
             fileManager.ReadDataFromCSV<CameraCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Camera.csv", result);
@@ -65,10 +62,7 @@ namespace OnlineShop.Test.Infrastructure.IOHelper.IOManager
                 MobilePhoneId = 1
             };
             list.Add(hardwareiPhone12);
-            var fileManager = new FileManager()
-            {
-                Path = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper"
-            };
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper");
             //Act
             fileManager.WriteDataToCSV<HardwareCSV>(list);
             fileManager.ReadDataFromCSV<HardwareCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Hardware.csv", result);
@@ -96,10 +90,7 @@ namespace OnlineShop.Test.Infrastructure.IOHelper.IOManager
                 MobilePhoneId = 1
             };
             list.Add(screeniPhone12);
-            var fileManager = new FileManager()
-            {
-                Path = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper"
-            };
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper");
             //Act
             fileManager.WriteDataToCSV<ScreenCSV>(list);
             fileManager.ReadDataFromCSV<ScreenCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Screen.csv", result);
@@ -146,10 +137,7 @@ namespace OnlineShop.Test.Infrastructure.IOHelper.IOManager
                 BestSeller = true
             };
             list.Add(iPhone12);
-            var fileManager = new FileManager()
-            {
-                Path = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper"
-            };
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper");
             //Act
             fileManager.WriteDataToCSV<MobilePhoneCSV>(list);
             fileManager.ReadDataFromCSV<MobilePhoneCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\MobilePhone.csv", result);
@@ -187,10 +175,7 @@ namespace OnlineShop.Test.Infrastructure.IOHelper.IOManager
                 MobilePhoneId = 1
             };
             list.Add(screen1);
-            var fileManager = new FileManager()
-            {
-                Path = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper"
-            };
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper");
             fileManager.WriteDataToCSV<ScreenCSV>(list);
             list.RemoveAt(0);
             list.Add(screen2);
@@ -251,10 +236,7 @@ namespace OnlineShop.Test.Infrastructure.IOHelper.IOManager
             list.Add(hard1);
             list.Add(hard2);
             list.Add(hard3);
-            var fileManager = new FileManager()
-            {
-                Path = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper"
-            };
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper");
             fileManager.WriteDataToCSV<HardwareCSV>(list);
             //Act
             fileManager.ReadDataFromCSV<HardwareCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Hardware.csv", result);

@@ -4,6 +4,7 @@ using OnlineShop.Infrastructure;
 using OnlineShop.Infrastructure.IOHelper;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using Xunit;
 
@@ -14,22 +15,26 @@ namespace OnlineShop.Test.Infrastructure
         [Fact]
         public void RetriveCamerasFromCSVTest()
         {
-            var cameraPath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Camera.csv";
             //Arrange
-            var cSVDBContext = new CSVDBContext(cameraPath, null, null, null, null);
+            var cameraPath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Camera.csv";
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper");
+            var cSVDBContext = new CSVDBContext(cameraPath, null, null, null, null, fileManager);
+            cSVDBContext.CreateCSVFiles();
             //Act
             var list = cSVDBContext.RetriveCamerasFromCSV();
             //Assert
             list.Should().HaveCount(30);
             list.Should().BeOfType<List<CameraCSV>>();
+            File.Delete(cameraPath);
         }
 
         [Fact]
         public void RetriveCamerasFromCSVTestWrongPathToFile()
         {
-            var cameraPath = "OnlineShop.Infrastructure\\IOHelper\\Seed\\Camera.csv";
             //Arrange
-            var cSVDBContext = new CSVDBContext(cameraPath, null, null, null, null);
+            var cameraPath = "OnlineShop.Infrastructure\\IOHelper\\Seed\\Camera.csv";
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper");
+            var cSVDBContext = new CSVDBContext(cameraPath, null, null, null, null, fileManager);
             //Act
             var list = cSVDBContext.RetriveCamerasFromCSV();
             //Assert
@@ -40,53 +45,93 @@ namespace OnlineShop.Test.Infrastructure
         [Fact]
         public void RetriveHardwaresFromCSVTest()
         {
-            var hardwarePath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Hardware.csv";
             //Arrange
-            var cSVDBContext = new CSVDBContext(null, hardwarePath, null, null, null);
+            var hardwarePath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Hardware.csv";
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper");
+            var cSVDBContext = new CSVDBContext(null, hardwarePath, null, null, null, fileManager);
+            cSVDBContext.CreateCSVFiles();
             //Act
             var list = cSVDBContext.RetriveHardwaresFromCSV();
             //Assert
             list.Should().HaveCount(30);
             list.Should().BeOfType<List<HardwareCSV>>();
+            File.Delete(hardwarePath);
         }
 
         [Fact]
         public void RetriveScreensFromCSV()
         {
-            var screenPath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Screen.csv";
             //Arrange
-            var cSVDBContext = new CSVDBContext(null, null, screenPath, null, null);
+            var screenPath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Screen.csv";
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper");
+            var cSVDBContext = new CSVDBContext(null, null, screenPath, null, null, fileManager);
+            cSVDBContext.CreateCSVFiles();
             //Act
             var list = cSVDBContext.RetriveScreensFromCSV();
             //Assert
             list.Should().HaveCount(30);
             list.Should().BeOfType<List<ScreenCSV>>();
+            File.Delete(screenPath);
         }
 
         [Fact]
         public void RetriveMobilePhonesFromCSV()
         {
-            var mobilePhonePath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\MobilePhone.csv";
             //Arrange
-            var cSVDBContext = new CSVDBContext(null, null, null, mobilePhonePath, null);
+            var mobilePhonePath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\MobilePhone.csv";
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper");
+            var cSVDBContext = new CSVDBContext(null, null, null, mobilePhonePath, null, fileManager);
+            cSVDBContext.CreateCSVFiles();
             //Act
             var list = cSVDBContext.RetriveMobilePhonesFromCSV();
             //Assert
             list.Should().HaveCount(30);
             list.Should().BeOfType<List<MobilePhoneCSV>>();
+            File.Delete(mobilePhonePath);
         }
 
         [Fact]
         public void RetriveMultimediasFromCSVTest()
         {
-            var multimediaPath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Multimedia.csv";
             //Arrange
-            var cSVDBContext = new CSVDBContext(null, null, null, null, multimediaPath);
+            var multimediaPath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Multimedia.csv";
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper");
+            var cSVDBContext = new CSVDBContext(null, null, null, null, multimediaPath, fileManager);
+            cSVDBContext.CreateCSVFiles();
             //Act
             var list = cSVDBContext.RetriveMultimediasFromCSV();
             //Assert
             list.Should().HaveCount(2);
             list.Should().BeOfType<List<MultimediaCSV>>();
+            File.Delete(multimediaPath);
+        }
+
+        [Fact]
+        public void CreateCSVFilesTest()
+        {
+            //Arrange
+            var cameraPath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Camera.csv";
+            var hardwarePath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Hardware.csv";
+            var screenPath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Screen.csv";
+            var mobilePhonePath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\MobilePhone.csv";
+            var multimediaPath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Multimedia.csv";
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper");
+            var cSVDBContext = new CSVDBContext(cameraPath, hardwarePath, screenPath, mobilePhonePath, multimediaPath, fileManager);
+            //Act
+            cSVDBContext.CreateCSVFiles();
+            //Assert
+            File.Exists(cameraPath).Should().BeTrue();
+            File.Exists(hardwarePath).Should().BeTrue();
+            File.Exists(screenPath).Should().BeTrue();
+            File.Exists(mobilePhonePath).Should().BeTrue();
+            File.Exists(multimediaPath).Should().BeTrue();
+            //Clean Up
+            cSVDBContext.CreateCSVFiles();
+            File.Delete(cameraPath);
+            File.Delete(hardwarePath);
+            File.Delete(screenPath);
+            File.Delete(mobilePhonePath);
+            File.Delete(multimediaPath);
         }
     }
 }
