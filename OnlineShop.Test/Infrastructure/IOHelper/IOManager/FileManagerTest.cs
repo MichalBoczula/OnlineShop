@@ -32,15 +32,15 @@ namespace OnlineShop.Test.Infrastructure.IOHelper.IOManager
                 MobilePhoneId = 1
             };
             list.Add(cameraiPhone12);
-            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper");
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper");
             //Act
             fileManager.WriteDataToCSV<CameraCSV>(list);
-            fileManager.ReadDataFromCSV<CameraCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Camera.csv", result);
+            fileManager.ReadDataFromCSV<CameraCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\Camera.csv", result);
             //Assert
             result.Should().NotBeEmpty();
             result.Count.Should().Be(1);
             //Clean Up
-            File.Delete("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Camera.csv");
+            File.Delete("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\Camera.csv");
         }
 
         [Fact]
@@ -62,15 +62,15 @@ namespace OnlineShop.Test.Infrastructure.IOHelper.IOManager
                 MobilePhoneId = 1
             };
             list.Add(hardwareiPhone12);
-            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper");
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper");
             //Act
             fileManager.WriteDataToCSV<HardwareCSV>(list);
-            fileManager.ReadDataFromCSV<HardwareCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Hardware.csv", result);
+            fileManager.ReadDataFromCSV<HardwareCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\Hardware.csv", result);
             //Assert
             result.Should().NotBeEmpty();
             result.Count.Should().Be(1);
             //Clean Up
-            File.Delete("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Hardware.csv");
+            File.Delete("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\Hardware.csv");
         }
 
         [Fact]
@@ -90,15 +90,15 @@ namespace OnlineShop.Test.Infrastructure.IOHelper.IOManager
                 MobilePhoneId = 1
             };
             list.Add(screeniPhone12);
-            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper");
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper");
             //Act
             fileManager.WriteDataToCSV<ScreenCSV>(list);
-            fileManager.ReadDataFromCSV<ScreenCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Screen.csv", result);
+            fileManager.ReadDataFromCSV<ScreenCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\Screen.csv", result);
             //Assert
             result.Should().NotBeEmpty();
             result.Count.Should().Be(1);
             //Clean Up
-            File.Delete("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Screen.csv");
+            File.Delete("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\Screen.csv");
         }
 
         [Fact]
@@ -137,15 +137,15 @@ namespace OnlineShop.Test.Infrastructure.IOHelper.IOManager
                 BestSeller = true
             };
             list.Add(iPhone12);
-            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper");
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper");
             //Act
             fileManager.WriteDataToCSV<MobilePhoneCSV>(list);
-            fileManager.ReadDataFromCSV<MobilePhoneCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\MobilePhone.csv", result);
+            fileManager.ReadDataFromCSV<MobilePhoneCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\MobilePhone.csv", result);
             //Assert
             result.Should().NotBeEmpty();
             result.Count.Should().Be(1);
             //Clean Up
-            File.Delete("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\MobilePhone.csv");
+            File.Delete("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\MobilePhone.csv");
         }
 
         [Fact]
@@ -175,20 +175,20 @@ namespace OnlineShop.Test.Infrastructure.IOHelper.IOManager
                 MobilePhoneId = 1
             };
             list.Add(screen1);
-            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper");
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper");
             fileManager.WriteDataToCSV<ScreenCSV>(list);
             list.RemoveAt(0);
             list.Add(screen2);
             //Act
             fileManager.WriteDataToCSV<ScreenCSV>(list);
-            fileManager.ReadDataFromCSV<ScreenCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Screen.csv", result);
+            fileManager.ReadDataFromCSV<ScreenCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\Screen.csv", result);
             //Assert
             result.Should().NotBeEmpty();
             result.Count.Should().Be(2);
             result[0].Id.Should().Be(1);
             result[1].Id.Should().Be(2);
             //Clean Up
-            File.Delete("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Screen.csv");
+            File.Delete("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\Screen.csv");
         }
 
         [Fact]
@@ -236,15 +236,15 @@ namespace OnlineShop.Test.Infrastructure.IOHelper.IOManager
             list.Add(hard1);
             list.Add(hard2);
             list.Add(hard3);
-            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper");
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper");
             fileManager.WriteDataToCSV<HardwareCSV>(list);
             //Act
-            fileManager.ReadDataFromCSV<HardwareCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Hardware.csv", result);
+            fileManager.ReadDataFromCSV<HardwareCSV>("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\Hardware.csv", result);
             //Assert
             result.Should().NotBeEmpty();
             result.Count.Should().Be(3);
             //Clean up
-            File.Delete("..\\..\\..\\..\\OnlineShop.Infrastructure\\IOHelper\\Seed\\Hardware.csv");
+            File.Delete("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\Hardware.csv");
         }
     }
 }

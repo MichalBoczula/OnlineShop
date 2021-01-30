@@ -82,23 +82,23 @@ namespace OnlineShop.Infrastructure.IOHelper
             var relatedPath = new StringBuilder(Path);
             if (data is List<CameraCSV>)
             {
-                relatedPath.Append("\\Seed\\Camera.csv");
+                relatedPath.Append("\\CSVSeed\\Camera.csv");
             }
             else if (data is List<HardwareCSV>)
             {
-                relatedPath.Append("\\Seed\\Hardware.csv");
+                relatedPath.Append("\\CSVSeed\\Hardware.csv");
             }
             else if (data is List<ScreenCSV>)
             {
-                relatedPath.Append("\\Seed\\Screen.csv");
+                relatedPath.Append("\\CSVSeed\\Screen.csv");
             }
             else if (data is List<MobilePhoneCSV>)
             {
-                relatedPath.Append("\\Seed\\MobilePhone.csv");
+                relatedPath.Append("\\CSVSeed\\MobilePhone.csv");
             }
             else if (data is List<MultimediaCSV>)
             {
-                relatedPath.Append("\\Seed\\Multimedia.csv");
+                relatedPath.Append("\\CSVSeed\\Multimedia.csv");
             }
             return relatedPath.ToString();
         }

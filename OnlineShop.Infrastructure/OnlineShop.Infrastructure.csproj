@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20210130185426_TestSeed.cs" />
+    <Compile Remove="Migrations\20210130185426_TestSeed.Designer.cs" />
+    <Compile Remove="Migrations\20210130185909_TestSeed.cs" />
+    <Compile Remove="Migrations\20210130185909_TestSeed.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CsvHelper" Version="21.2.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
@@ -20,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="IOHelper\Seed\" />
+    <Folder Include="Helper\CSVSeed\" />
   </ItemGroup>
 
 </Project>
