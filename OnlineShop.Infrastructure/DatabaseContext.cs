@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using OnlineShop.Domain.Model;
+using OnlineShop.Infrastructure.Helper.DBSeed;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -43,6 +44,8 @@ namespace OnlineShop.Infrastructure
                 .HasOne(m => m.Screen)
                 .WithOne(s => s.MobilePhoneRef)
                 .HasForeignKey<Screen>(s => s.MobilePhoneId);
+
+            builder.InitializeSeedInDb();
         }
     }
 }
