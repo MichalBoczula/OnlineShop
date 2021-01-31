@@ -8,11 +8,11 @@ using System.Text;
 
 namespace OnlineShop.Infrastructure
 {
-    public class MockDBContext
+    public class InMemoryDBContext
     {
         private readonly List<MobilePhone> mobilePhones;
 
-        public MockDBContext()
+        public InMemoryDBContext()
         {
             mobilePhones = new List<MobilePhone>();
             mobilePhones.AddRange(Seed());

@@ -1,4 +1,5 @@
-﻿using OnlineShop.Domain.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using OnlineShop.Domain.Interfaces;
 using OnlineShop.Domain.Model;
 using System;
 using System.Collections.Generic;
@@ -9,31 +10,34 @@ namespace OnlineShop.Infrastructure.Repositories
 {
     public class MobileRepository : IMobileRepository
     {
-        private readonly MockDBContext _mockDBContext;
+        private readonly DatabaseContext context;
 
-        public MobileRepository()
+        public MobileRepository(DatabaseContext context)
         {
-            _mockDBContext = new MockDBContext();
+            this.context = context;
         }
 
         public IQueryable<MobilePhone> GetAllActiveMobiles()
         {
-            return _mockDBContext.GetMobiles()
+            return context.MobilePhones
                                  .Where(m => m.ActiveStatus == true)
                                  .AsQueryable();
         }
 
         public IQueryable<MobilePhone> GetBestSellers()
         {
-            return _mockDBContext.GetMobiles()
+            return context.MobilePhones
                                  .Where(m => m.BestSeller == true)
                                  .AsQueryable();
         }
 
         public MobilePhone GetMobileById(int mobilePhoneId)
         {
-            return _mockDBContext.GetMobiles()
-                                 .FirstOrDefault(m => m.Id == mobilePhoneId);
+            return context.MobilePhones.Include(c => c.Camera)
+                                       .Include(h => h.Hardware)
+                                       .Include(f => f.Multimedia)
+                                       .Include(s => s.Screen)
+                                       .FirstOrDefault(m => m.Id == mobilePhoneId);
         }
     }
 }

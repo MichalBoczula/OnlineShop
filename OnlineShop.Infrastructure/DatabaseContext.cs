@@ -44,8 +44,14 @@ namespace OnlineShop.Infrastructure
                 .HasOne(m => m.Screen)
                 .WithOne(s => s.MobilePhoneRef)
                 .HasForeignKey<Screen>(s => s.MobilePhoneId);
+            builder.Entity<MobilePhone>()
+                .HasOne(m => m.Multimedia)
+                .WithMany(f => f.MobilePhones)
+                .HasForeignKey(m => m.MultimediaId);
+            builder.Entity<MobilePhone>()
+                .Property(m => m.MultimediaId).IsRequired(false);
 
-            builder.InitializeSeedInDb();
+            DataSeed.InitializeSeedInDb(builder);
         }
     }
 }

@@ -10,7 +10,7 @@ using OnlineShop.Infrastructure;
 namespace OnlineShop.Infrastructure.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20210130182137_ModifiedMobilePhoneEntity")]
+    [Migration("20210131125509_ModifiedMobilePhoneEntity")]
     partial class ModifiedMobilePhoneEntity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -267,8 +267,8 @@ namespace OnlineShop.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long>("BatteryCapacity")
-                        .HasColumnType("bigint");
+                    b.Property<int>("BatteryCapacity")
+                        .HasColumnType("int");
 
                     b.Property<string>("GraphicsProcessor")
                         .HasColumnType("nvarchar(max)");

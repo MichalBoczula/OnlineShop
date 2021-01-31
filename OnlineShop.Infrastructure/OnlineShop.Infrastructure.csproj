@@ -9,6 +9,12 @@
     <Compile Remove="Migrations\20210130185426_TestSeed.Designer.cs" />
     <Compile Remove="Migrations\20210130185909_TestSeed.cs" />
     <Compile Remove="Migrations\20210130185909_TestSeed.Designer.cs" />
+    <Compile Remove="Migrations\20210131121428_MobilePhoneUpdate.cs" />
+    <Compile Remove="Migrations\20210131121428_MobilePhoneUpdate.Designer.cs" />
+    <Compile Remove="Migrations\20210131123404_MobilePhoneUpdate2.cs" />
+    <Compile Remove="Migrations\20210131123404_MobilePhoneUpdate2.Designer.cs" />
+    <Compile Remove="Migrations\20210131124420_MobilePhoneUpdate.cs" />
+    <Compile Remove="Migrations\20210131124420_MobilePhoneUpdate.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
