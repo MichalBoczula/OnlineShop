@@ -30,22 +30,25 @@ namespace OnlineShop.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<List<MobileForListVM>> GetMobilePhonesForList()
+        public async Task<List<MobilePhoneForListVM>> GetMobilePhonesForList()
         {
             var mobilesForListVm = await _repository.GetAllActiveMobilePhones()
-              .ProjectTo<MobileForListVM>(_mapper.ConfigurationProvider)
+              .ProjectTo<MobilePhoneForListVM>(_mapper.ConfigurationProvider)
               .ToListAsync();
             return mobilesForListVm;
         }
 
-        public async Task<MobileDetailsVM> GetMobilePhoneDetails(int mobilePhonesId)
+        public async Task<MobilePhoneDetailsVM> GetMobilePhoneDetails(int mobilePhonesId)
         {
             var mobile = await _repository.GetMobilePhoneById(mobilePhonesId);
-            var mobileDetailsVM = _mapper.Map<MobileDetailsVM>(mobile);
-            mobileDetailsVM.Camera = GetCameraVM(mobile);
-            mobileDetailsVM.Hardware = GetHardwareVM(mobile);
-            mobileDetailsVM.Screen = GetScreenVM(mobile);
-            mobileDetailsVM.Multimedia = GetMultimediaVM(mobile);
+            var mobileDetailsVM = _mapper.Map<MobilePhoneDetailsVM>(mobile);
+            if (mobile != null)
+            {
+                mobileDetailsVM.Camera = GetCameraVM(mobile);
+                mobileDetailsVM.Hardware = GetHardwareVM(mobile);
+                mobileDetailsVM.Screen = GetScreenVM(mobile);
+                mobileDetailsVM.Multimedia = GetMultimediaVM(mobile);
+            }
             return mobileDetailsVM;
         }
         public async Task<List<MobilePhoneForHomeVM>> GetMobilePhonesForHome()
@@ -56,13 +59,13 @@ namespace OnlineShop.Application.Services
             return mobilePhones;
         }
 
-        private ScreenVM GetScreenVM(MobilePhone mobile) => _mapper.Map<ScreenVM>(mobile.Screen);
+        public ScreenVM GetScreenVM(MobilePhone mobile) => _mapper.Map<ScreenVM>(mobile.Screen);
 
-        private HardwareVM GetHardwareVM(MobilePhone mobile) => _mapper.Map<HardwareVM>(mobile.Hardware);
+        public HardwareVM GetHardwareVM(MobilePhone mobile) => _mapper.Map<HardwareVM>(mobile.Hardware);
 
-        private CameraVM GetCameraVM(MobilePhone mobile) => _mapper.Map<CameraVM>(mobile.Camera);
-
-        private MultimediaVM GetMultimediaVM(MobilePhone mobile) => _mapper.Map<MultimediaVM>(mobile.Multimedia);
+        public CameraVM GetCameraVM(MobilePhone mobile) => _mapper.Map<CameraVM>(mobile.Camera);
+       
+        public MultimediaVM GetMultimediaVM(MobilePhone mobile) => _mapper.Map<MultimediaVM>(mobile.Multimedia);
 
     }
 }

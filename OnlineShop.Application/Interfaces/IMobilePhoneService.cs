@@ -9,8 +9,8 @@ namespace OnlineShop.Application.Interfaces
 {
     public interface IMobilePhoneService
     {
-        Task<List<MobileForListVM>> GetMobilePhonesForList();
-        Task<MobileDetailsVM> GetMobilePhoneDetails(int mobileId);
+        Task<List<MobilePhoneForListVM>> GetMobilePhonesForList();
+        Task<MobilePhoneDetailsVM> GetMobilePhoneDetails(int mobileId);
         Task<List<MobilePhoneForHomeVM>> GetMobilePhonesForHome();
     }
 }

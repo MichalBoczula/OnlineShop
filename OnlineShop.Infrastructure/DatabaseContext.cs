@@ -17,10 +17,6 @@ namespace OnlineShop.Infrastructure
         public DbSet<Camera> Cameras { get; set; }
         public DbSet<Screen> Screens { get; set; }
 
-        public DatabaseContext()
-        {
-
-        }
         public DatabaseContext(DbContextOptions options) : base(options)
         {
         }

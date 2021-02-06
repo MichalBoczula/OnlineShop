@@ -7,7 +7,7 @@ using System.Text;
 
 namespace OnlineShop.Application.ViewModels.Mobile
 {
-    public class MobileForListVM : IMapFrom<MobilePhone>
+    public class MobilePhoneForListVM : IMapFrom<MobilePhone>
     {
         public int Id;
         public string Brand;
@@ -18,7 +18,7 @@ namespace OnlineShop.Application.ViewModels.Mobile
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<MobilePhone, MobileForListVM>();
+            profile.CreateMap<MobilePhone, MobilePhoneForListVM>();
         }
     }
 }

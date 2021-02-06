@@ -11,7 +11,7 @@ using System.Text;
 
 namespace OnlineShop.Application.ViewModels.Mobile
 {
-    public class MobileDetailsVM : IMapFrom<MobilePhone>
+    public class MobilePhoneDetailsVM : IMapFrom<MobilePhone>
     {
         public int Id;
         public string Brand;
@@ -20,7 +20,6 @@ namespace OnlineShop.Application.ViewModels.Mobile
         public string MainImage;
         public string FirstImage;
         public string SecondImage;
-        public string ThirdImage;
         public string Description;
         public QuantityStatus QuantityInStack;
         public CameraVM Camera;
@@ -30,7 +29,7 @@ namespace OnlineShop.Application.ViewModels.Mobile
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<MobilePhone, MobileDetailsVM>()
+            profile.CreateMap<MobilePhone, MobilePhoneDetailsVM>()
                 .ForMember(m => m.Camera, opt => opt.Ignore())
                 .ForMember(m => m.Screen, opt => opt.Ignore())
                 .ForMember(m => m.Hardware, opt => opt.Ignore())

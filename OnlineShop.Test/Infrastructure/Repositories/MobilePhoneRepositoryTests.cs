@@ -2,10 +2,12 @@
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using OnlineShop.Application.ViewModels.Mobile;
 using OnlineShop.Domain.Model;
 using OnlineShop.Infrastructure;
 using OnlineShop.Infrastructure.Repositories;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
@@ -29,7 +31,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
         private IServiceProvider BuildInMemoryDBProvider()
         {
             var services = new ServiceCollection();
-            services.AddDbContext<DatabaseContext>(opt => opt.UseInMemoryDatabase(databaseName: "InMemoryTest"),
+            services.AddDbContext<DatabaseContext>(opt => opt.UseInMemoryDatabase(databaseName: $"InMemoryTest{Guid.NewGuid()}"),
                 ServiceLifetime.Scoped,
                 ServiceLifetime.Scoped);
 
