@@ -13,10 +13,10 @@ namespace OnlineShop.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IMobileService _mobileService;
+        private readonly IMobilePhoneService _mobileService;
 
         public HomeController(ILogger<HomeController> logger,
-                              IMobileService mobileService = null)
+                              IMobilePhoneService mobileService = null)
         {
             _logger = logger;
             _mobileService = mobileService;
@@ -24,7 +24,7 @@ namespace OnlineShop.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var model = await _mobileService.GetMobilesForHome();
+            var model = await _mobileService.GetMobilePhonesForHome();
             return View(model);
         }
 

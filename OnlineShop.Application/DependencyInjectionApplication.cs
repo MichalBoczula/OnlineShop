@@ -13,7 +13,7 @@ namespace OnlineShop.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection service)
         {
-            service.AddTransient<IMobileService, MobileService>();
+            service.AddTransient<IMobilePhoneService, MobilePhoneService>();
             service.AddAutoMapper(Assembly.GetExecutingAssembly());
             return service;
         }

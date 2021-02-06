@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Domain.Interfaces
 {
-    public interface IMobileRepository
+    public interface IMobilePhoneRepository
     {
-        IQueryable<MobilePhone> GetAllActiveMobiles();
+        IQueryable<MobilePhone> GetAllActiveMobilePhones();
         IQueryable<MobilePhone> GetBestSellers();
-        Task<MobilePhone> GetMobileById(int mobilePhoneId);
+        Task<MobilePhone> GetMobilePhoneById(int mobilePhoneId);
     }
 }

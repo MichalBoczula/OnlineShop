@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Infrastructure.Repositories
 {
-    public class MobileRepository : IMobileRepository
+    public class MobilePhoneRepository : IMobilePhoneRepository
     {
         private readonly DatabaseContext context;
 
-        public MobileRepository(DatabaseContext context)
+        public MobilePhoneRepository(DatabaseContext context)
         {
             this.context = context;
         }
 
-        public IQueryable<MobilePhone> GetAllActiveMobiles()
+        public IQueryable<MobilePhone> GetAllActiveMobilePhones()
         {
             return context.MobilePhones
                                  .Where(m => m.ActiveStatus == true)
@@ -32,7 +32,7 @@ namespace OnlineShop.Infrastructure.Repositories
                                  .AsQueryable();
         }
 
-        public async Task<MobilePhone> GetMobileById(int mobilePhoneId)
+        public async Task<MobilePhone> GetMobilePhoneById(int mobilePhoneId)
         {
             var result = await context.MobilePhones.Include(c => c.Camera)
                                        .Include(h => h.Hardware)

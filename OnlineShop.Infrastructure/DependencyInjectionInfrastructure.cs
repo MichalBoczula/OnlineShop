@@ -11,7 +11,7 @@ namespace OnlineShop.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection service)
         {
-            service.AddTransient<IMobileRepository, MobileRepository>();
+            service.AddTransient<IMobilePhoneRepository, MobilePhoneRepository>();
             return service;
         }
     }

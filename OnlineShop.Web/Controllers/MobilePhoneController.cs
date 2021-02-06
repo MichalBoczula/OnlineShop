@@ -13,24 +13,24 @@ namespace OnlineShop.Web.Controllers
     public class MobilePhoneController : Controller
     {
         private readonly ILogger<MobilePhoneController> _logger;
-        private readonly IMobileService _mobileService;
+        private readonly IMobilePhoneService _mobileService;
 
         public MobilePhoneController(ILogger<MobilePhoneController> logger,
-                                     IMobileService mobileService)
+                                     IMobilePhoneService mobileService)
         {
             _logger = logger;
             _mobileService = mobileService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var model = _mobileService.GetMobilesForList();
+            var model = await _mobileService.GetMobilePhonesForList();
             return View(model);
         }
 
-        public IActionResult Details(int mobilePhoneId)
+        public async Task<IActionResult> Details(int mobilePhoneId)
         {
-            var model = _mobileService.GetDetails(mobilePhoneId);
+            var model = await _mobileService.GetMobilePhoneDetails(mobilePhoneId);
             return View(model);
         }
     }

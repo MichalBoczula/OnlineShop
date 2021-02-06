@@ -19,28 +19,28 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Application.Services
 {
-    public class MobileService : IMobileService
+    public class MobilePhoneService : IMobilePhoneService
     {
-        private readonly IMobileRepository _repository;
+        private readonly IMobilePhoneRepository _repository;
         private readonly IMapper _mapper;
 
-        public MobileService(IMobileRepository repository, IMapper mapper)
+        public MobilePhoneService(IMobilePhoneRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
 
-        public async Task<List<MobileForListVM>> GetMobilesForList()
+        public async Task<List<MobileForListVM>> GetMobilePhonesForList()
         {
-            var mobilesForListVm = await _repository.GetAllActiveMobiles()
+            var mobilesForListVm = await _repository.GetAllActiveMobilePhones()
               .ProjectTo<MobileForListVM>(_mapper.ConfigurationProvider)
               .ToListAsync();
             return mobilesForListVm;
         }
 
-        public async Task<MobileDetailsVM> GetDetails(int mobilePhonesId)
+        public async Task<MobileDetailsVM> GetMobilePhoneDetails(int mobilePhonesId)
         {
-            var mobile = await _repository.GetMobileById(mobilePhonesId);
+            var mobile = await _repository.GetMobilePhoneById(mobilePhonesId);
             var mobileDetailsVM = _mapper.Map<MobileDetailsVM>(mobile);
             mobileDetailsVM.Camera = GetCameraVM(mobile);
             mobileDetailsVM.Hardware = GetHardwareVM(mobile);
@@ -48,7 +48,7 @@ namespace OnlineShop.Application.Services
             mobileDetailsVM.Multimedia = GetMultimediaVM(mobile);
             return mobileDetailsVM;
         }
-        public async Task<List<MobilePhoneForHomeVM>> GetMobilesForHome()
+        public async Task<List<MobilePhoneForHomeVM>> GetMobilePhonesForHome()
         {
             var mobilePhones = await _repository.GetBestSellers()
                                           .ProjectTo<MobilePhoneForHomeVM>(_mapper.ConfigurationProvider)
@@ -56,30 +56,13 @@ namespace OnlineShop.Application.Services
             return mobilePhones;
         }
 
-        public int AddNewMobile(NewMobileVM newMobile)
-        {
-            throw new NotImplementedException();
-        }
+        private ScreenVM GetScreenVM(MobilePhone mobile) => _mapper.Map<ScreenVM>(mobile.Screen);
 
-        private ScreenVM GetScreenVM(MobilePhone mobile)
-        {
-            return _mapper.Map<ScreenVM>(mobile.Screen);
-        }
+        private HardwareVM GetHardwareVM(MobilePhone mobile) => _mapper.Map<HardwareVM>(mobile.Hardware);
 
-        private HardwareVM GetHardwareVM(MobilePhone mobile)
-        {
-            return _mapper.Map<HardwareVM>(mobile.Hardware);
-        }
+        private CameraVM GetCameraVM(MobilePhone mobile) => _mapper.Map<CameraVM>(mobile.Camera);
 
-        private CameraVM GetCameraVM(MobilePhone mobile)
-        {
-            return _mapper.Map<CameraVM>(mobile.Camera);
-        }
-
-        private MultimediaVM GetMultimediaVM(MobilePhone mobile)
-        {
-            return _mapper.Map<MultimediaVM>(mobile.Multimedia);
-        }
+        private MultimediaVM GetMultimediaVM(MobilePhone mobile) => _mapper.Map<MultimediaVM>(mobile.Multimedia);
 
     }
 }
