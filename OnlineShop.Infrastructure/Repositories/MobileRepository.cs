@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace OnlineShop.Infrastructure.Repositories
 {
@@ -31,13 +32,14 @@ namespace OnlineShop.Infrastructure.Repositories
                                  .AsQueryable();
         }
 
-        public MobilePhone GetMobileById(int mobilePhoneId)
+        public async Task<MobilePhone> GetMobileById(int mobilePhoneId)
         {
-            return context.MobilePhones.Include(c => c.Camera)
+            var result = await context.MobilePhones.Include(c => c.Camera)
                                        .Include(h => h.Hardware)
                                        .Include(f => f.Multimedia)
                                        .Include(s => s.Screen)
-                                       .FirstOrDefault(m => m.Id == mobilePhoneId);
+                                       .FirstOrDefaultAsync(m => m.Id == mobilePhoneId);
+            return result;
         }
     }
 }

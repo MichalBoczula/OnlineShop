@@ -51,7 +51,7 @@ namespace OnlineShop.Infrastructure
             builder.Entity<MobilePhone>()
                 .Property(m => m.MultimediaId).IsRequired(false);
 
-            DataSeed.InitializeSeedInDb(builder);
+            builder.InitializeSeedInDb();
         }
     }
 }

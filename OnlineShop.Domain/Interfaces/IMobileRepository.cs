@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace OnlineShop.Domain.Interfaces
 {
@@ -10,6 +11,6 @@ namespace OnlineShop.Domain.Interfaces
     {
         IQueryable<MobilePhone> GetAllActiveMobiles();
         IQueryable<MobilePhone> GetBestSellers();
-        MobilePhone GetMobileById(int mobilePhoneId);
+        Task<MobilePhone> GetMobileById(int mobilePhoneId);
     }
 }

@@ -3,14 +3,15 @@ using OnlineShop.Application.ViewModels.Mobile;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace OnlineShop.Application.Interfaces
 {
     public interface IMobileService
     {
-        List<MobileForListVM> GetMobilesForList();
-        MobileDetailsVM GetDetails(int mobileId);
+        Task<List<MobileForListVM>> GetMobilesForList();
+        Task<MobileDetailsVM> GetDetails(int mobileId);
         int AddNewMobile(NewMobileVM newMobile);
-        List<MobilePhoneForHomeVM> GetMobilesForHome();
+        Task<List<MobilePhoneForHomeVM>> GetMobilesForHome();
     }
 }

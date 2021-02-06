@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Microsoft.EntityFrameworkCore;
 using OnlineShop.Application.Interfaces;
 using OnlineShop.Application.ViewModels;
 using OnlineShop.Application.ViewModels.Camera;
@@ -13,6 +14,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+
 
 namespace OnlineShop.Application.Services
 {
@@ -27,17 +30,17 @@ namespace OnlineShop.Application.Services
             _mapper = mapper;
         }
 
-        public List<MobileForListVM> GetMobilesForList()
+        public async Task<List<MobileForListVM>> GetMobilesForList()
         {
-            var mobilesForListVm = _repository.GetAllActiveMobiles()
-                .ProjectTo<MobileForListVM>(_mapper.ConfigurationProvider)
-                .ToList();
+            var mobilesForListVm = await _repository.GetAllActiveMobiles()
+              .ProjectTo<MobileForListVM>(_mapper.ConfigurationProvider)
+              .ToListAsync();
             return mobilesForListVm;
         }
 
-        public MobileDetailsVM GetDetails(int mobilePhonesId)
+        public async Task<MobileDetailsVM> GetDetails(int mobilePhonesId)
         {
-            var mobile = _repository.GetMobileById(mobilePhonesId);
+            var mobile = await _repository.GetMobileById(mobilePhonesId);
             var mobileDetailsVM = _mapper.Map<MobileDetailsVM>(mobile);
             mobileDetailsVM.Camera = GetCameraVM(mobile);
             mobileDetailsVM.Hardware = GetHardwareVM(mobile);
@@ -45,11 +48,11 @@ namespace OnlineShop.Application.Services
             mobileDetailsVM.Multimedia = GetMultimediaVM(mobile);
             return mobileDetailsVM;
         }
-        public List<MobilePhoneForHomeVM> GetMobilesForHome()
+        public async Task<List<MobilePhoneForHomeVM>> GetMobilesForHome()
         {
-            var mobilePhones = _repository.GetBestSellers()
+            var mobilePhones = await _repository.GetBestSellers()
                                           .ProjectTo<MobilePhoneForHomeVM>(_mapper.ConfigurationProvider)
-                                          .ToList();
+                                          .ToListAsync();
             return mobilePhones;
         }
 
