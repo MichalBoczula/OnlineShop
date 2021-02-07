@@ -45,6 +45,15 @@ namespace OnlineShop.Web
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.Configure<IdentityOptions>(opt =>
+            {
+                opt.Password.RequireDigit = true;
+                opt.Password.RequiredLength = 8;
+                opt.Password.RequireLowercase = true;
+                opt.Password.RequireUppercase = true;
+                opt.SignIn.RequireConfirmedEmail = false;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
