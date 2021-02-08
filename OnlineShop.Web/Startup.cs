@@ -14,6 +14,7 @@ using OnlineShop.Application.Services;
 using OnlineShop.Domain.Interfaces;
 using OnlineShop.Infrastructure;
 using OnlineShop.Infrastructure.Repositories;
+using OnlineShop.Web.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +43,11 @@ namespace OnlineShop.Web
 
             services.AddApplication();
             services.AddInfrastructure();
+
+            services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
+
+            services.AddHttpContextAccessor();
+            services.AddSession();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -72,6 +78,7 @@ namespace OnlineShop.Web
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseRouting();
 

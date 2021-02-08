@@ -16,6 +16,7 @@ namespace OnlineShop.Infrastructure
         public DbSet<Hardware> Hardwares { get; set; }
         public DbSet<Camera> Cameras { get; set; }
         public DbSet<Screen> Screens { get; set; }
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
 
         public DatabaseContext(DbContextOptions options) : base(options)
         {
