@@ -23,9 +23,9 @@
     transition: all linear 0.2s;
 }
 
-.nav-item:hover {
-    font-weight: 700;
-}
+    .nav-item:hover {
+        font-weight: 700;
+    }
 
 .fa-mobile-alt {
     margin-right: 10px;
@@ -261,6 +261,83 @@ a:hover {
     }
 
 .w-100 {
-    width: auto!important;
+    width: auto !important;
     max-width: 100%;
 }
+
+/*MobilePhone Details*/
+/*####################################################################################################################################################
+####################################################################################################################################################
+####################################################################################################################################################*/
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #000;
+}
+
+.table td, .table th {
+    border-top: none;
+}
+
+tr {
+    vertical-align: bottom;
+    border-bottom: 2px solid #212529;
+}
+
+.tfoot {
+    border-bottom: none;
+}
+
+.total {
+    text-align: right;
+}
+
+.totalP {
+    margin: 0;
+    margin-right: 50px;
+    font-size: 20px;
+}
+
+.table-image-continer {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#table-image {
+    height:100%;
+}
+
+tbody td {
+    font-size: 20px;
+}
+
+.action-td {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.action-th {
+    text-align: center; 
+}
+
+@media (max-width: 600px) {
+    .table-image-continer {
+        height: 150px;
+    }
+
+    tbody td {
+        font-size: 15px;
+    }
+    
+    .totalP {
+        font-size: 17px;
+    }
+
+    .action-td {
+        display: flex;
+        flex-direction: column;
+    }
+}
+

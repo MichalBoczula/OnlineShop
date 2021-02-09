@@ -1,0 +1,72 @@
+﻿@model OnlineShop.Web.Helper.ViewModel.ShoppingCartVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="details-container" id="list">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Photo
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Price
+                </th>
+                <th class="action-th">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ShoppingCart.Items)
+            {
+                <tr class="table-row">
+                    <td>
+                        <figure class="table-image-continer">
+                            <img class="d-block w-100" id="table-image" src="~/images/@item.MobilePhone.MainImage">
+                        </figure>
+                    </td>
+                    <td>
+                        @item.MobilePhone.Name
+                    </td>
+                    <td>
+                        @item.Quantity
+                    </td>
+                    <td>
+                        @{var price = item.Quantity * item.MobilePhone.Price;}
+                        @price
+                    </td>
+                    <td class="action-td">
+                        <a  asp-controller="MobilePhone" asp-action="Details" asp-route-mobilePhoneId="@item.MobilePhone.Id">
+                            <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Details</p>
+                        </a>
+                        <a asp-controller="ShoppingCart" asp-action="RemoveItem" asp-route-mobileId="@item.MobilePhone.Id">
+                            <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Remove</p>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr class="tfoot">
+                <td colspan="5" class="total">
+                    <p class="totalP">
+                        Total Price: @Model.Total
+                    </p>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+</div>
+
+

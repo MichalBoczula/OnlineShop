@@ -53,6 +53,7 @@ namespace OnlineShop.Web.Helper
                     MobilePhone = mobilePhone,
                     Quantity = 1
                 };
+                await _context.ShoppingCartItems.AddAsync(item);
             }
             else
             {
@@ -61,10 +62,10 @@ namespace OnlineShop.Web.Helper
             await _context.SaveChangesAsync();
         }
 
-        public async Task<int> RemoveFromCart(MobilePhone mobilePhone)
+        public async Task<int> RemoveFromCart(int mobilePhoneId)
         {
             var item = await _context.ShoppingCartItems
-                .FirstOrDefaultAsync(i => i.MobilePhone.Id == mobilePhone.Id && i.ShoppingCartId == ShoppingCartId);
+                .FirstOrDefaultAsync(i => i.MobilePhone.Id == mobilePhoneId && i.ShoppingCartId == ShoppingCartId);
             var change = 0;
             if (item != null)
             {
