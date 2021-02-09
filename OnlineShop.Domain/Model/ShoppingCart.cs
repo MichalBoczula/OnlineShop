@@ -7,7 +7,7 @@ namespace OnlineShop.Domain.Model
     public class ShoppingCart
     {
         public int Id { get; set; }
-        public string UserId { get; set; }
         public ICollection<CartItem> Items { get; set; }
+        public string UserId { get; set; }
     }
 }

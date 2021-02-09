@@ -29,7 +29,7 @@ namespace OnlineShop.Web.Helper
         {
             ISession session = services.GetRequiredService<IHttpContextAccessor>()?
                 .HttpContext.Session;
-
+            
             var context = services.GetService<DatabaseContext>();
 
             string cartId = session.GetString("CartId") ?? Guid.NewGuid().ToString();
