@@ -15,6 +15,8 @@
     <Compile Remove="Migrations\20210131123404_MobilePhoneUpdate2.Designer.cs" />
     <Compile Remove="Migrations\20210131124420_MobilePhoneUpdate.cs" />
     <Compile Remove="Migrations\20210131124420_MobilePhoneUpdate.Designer.cs" />
+    <Compile Remove="Migrations\20210209202653_ShoppingCartAdded.cs" />
+    <Compile Remove="Migrations\20210209202653_ShoppingCartAdded.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

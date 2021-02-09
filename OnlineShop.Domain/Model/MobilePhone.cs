@@ -18,7 +18,7 @@ namespace OnlineShop.Domain.Model
         public bool ActiveStatus { get; set; }
         public bool BestSeller { get; set; }
         public QuantityStatus QuantityInStack { get; set; }
-        public int? MultimediaId { get; set; }
+        public int MultimediaId { get; set; }
         public Camera Camera { get; set; }
         public Screen Screen { get; set; }
         public Hardware Hardware { get; set; }

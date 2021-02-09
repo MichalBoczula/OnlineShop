@@ -17,6 +17,8 @@ namespace OnlineShop.Infrastructure
         public DbSet<Camera> Cameras { get; set; }
         public DbSet<Screen> Screens { get; set; }
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+        public DbSet<CartItem> CartItems{ get; set; }
 
         public DatabaseContext(DbContextOptions options) : base(options)
         {
@@ -49,8 +51,9 @@ namespace OnlineShop.Infrastructure
                 .HasOne(m => m.Multimedia)
                 .WithMany(f => f.MobilePhones)
                 .HasForeignKey(m => m.MultimediaId);
-            builder.Entity<MobilePhone>()
-                .Property(m => m.MultimediaId).IsRequired(false);
+            //builder.Entity<MobilePhone>()
+            //    .Property(m => m.MultimediaId).IsRequired(false);
+
 
             builder.InitializeSeedInDb();
         }
