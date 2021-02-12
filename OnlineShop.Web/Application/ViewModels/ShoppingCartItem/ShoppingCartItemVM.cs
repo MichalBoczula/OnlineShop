@@ -8,7 +8,7 @@ using System.Text;
 
 namespace OnlineShop.Web.Application.ViewModels.ShoppingCartItem
 {
-    public class ShoppingCartItemVM : IMapFrom<OnlineShop.Web.Models.Entity.ShoppingCartItem>
+    public class ShoppingCartItemVM : IMapFrom<OnlineShop.Web.Models.Entity.ShoppingCartMobilePhone>
     {
         public int Id { get; set; }
         public MobilePhoneDetailsVM MobilePhone { get; set; }
@@ -17,7 +17,7 @@ namespace OnlineShop.Web.Application.ViewModels.ShoppingCartItem
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap< OnlineShop.Web.Models.Entity.ShoppingCartItem, ShoppingCartItemVM>();
+            profile.CreateMap< OnlineShop.Web.Models.Entity.ShoppingCartMobilePhone, ShoppingCartItemVM>();
         }
     }
 }

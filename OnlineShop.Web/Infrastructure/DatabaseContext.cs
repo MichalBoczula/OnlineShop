@@ -10,13 +10,9 @@ using System.Text;
 
 namespace OnlineShop.Web.Infrastructure
 {
-    public class DatabaseContext : IdentityDbContext
+    public class DatabaseContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<MobilePhone> MobilePhones { get; set; }
-        public DbSet<Hardware> Hardwares { get; set; }
-        public DbSet<Camera> Cameras { get; set; }
-        public DbSet<Screen> Screens { get; set; }
-        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
 
         public DatabaseContext(DbContextOptions options) : base(options)
         {
@@ -49,17 +45,16 @@ namespace OnlineShop.Web.Infrastructure
                 .HasOne(m => m.Multimedia)
                 .WithMany(f => f.MobilePhones)
                 .HasForeignKey(m => m.MultimediaId);
-            //builder.Entity<MobilePhone>()
-            //    .Property(m => m.MultimediaId).IsRequired(false);
-            //builder.Entity<ApplicationUser>()
-            //    .HasOne(u => u.ShoppingCart)
-            //    .WithOne(sc => sc.ApplicationUser)
-            //    .HasForeignKey()
+            builder.Entity<ShoppingCart>()
+                .HasMany(sc => sc.Items)
+                .WithOne(i => i.ShoppingCartRef)
+                .HasForeignKey(i => i.ShoppingCartId);
+            builder.Entity<ShoppingCartMobilePhone>()
+                .HasKey(k => new { k.ShoppingCartId, k.MobilePhoneId });
             builder.Entity<ApplicationUser>()
                 .HasOne(u => u.ShoppingCart)
                 .WithOne(sc => sc.ApplicationUser)
                 .HasForeignKey<ApplicationUser>(u => u.ShoppingCardId);
-            builder.InitializeSeedInDb();
         }
     }
 }

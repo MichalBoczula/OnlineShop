@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using OnlineShop.Web.Helper;
 using OnlineShop.Web.Infrastructure;
 using OnlineShop.Web.Models;
 using System;
@@ -40,8 +39,6 @@ namespace OnlineShop.Web
 
             services.AddApplication();
             services.AddInfrastructure();
-
-            services.AddScoped<ShoppingCartGenerator>(sp => ShoppingCartGenerator.GetCart(sp));
 
             services.AddHttpContextAccessor();
             services.AddSession();

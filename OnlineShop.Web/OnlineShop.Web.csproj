@@ -28,7 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\Migrations\" />
     <Folder Include="wwwroot\images\Apple\iPhone 12\" />
   </ItemGroup>
 
