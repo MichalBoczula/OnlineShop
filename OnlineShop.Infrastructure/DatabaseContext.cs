@@ -51,7 +51,14 @@ namespace OnlineShop.Infrastructure
                 .HasForeignKey(m => m.MultimediaId);
             //builder.Entity<MobilePhone>()
             //    .Property(m => m.MultimediaId).IsRequired(false);
-
+            //builder.Entity<ApplicationUser>()
+            //    .HasOne(u => u.ShoppingCart)
+            //    .WithOne(sc => sc.ApplicationUser)
+            //    .HasForeignKey()
+            builder.Entity<ApplicationUser>()
+                .HasOne(u => u.ShoppingCart)
+                .WithOne(sc => sc.ApplicationUser)
+                .HasForeignKey<ApplicationUser>(u => u.ShoppingCardId);
             builder.InitializeSeedInDb();
         }
     }

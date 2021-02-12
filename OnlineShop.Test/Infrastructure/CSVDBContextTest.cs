@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
-using OnlineShop.Domain.ModelForCSV;
-using OnlineShop.Infrastructure;
-using OnlineShop.Infrastructure.IOHelper;
+using OnlineShop.Web.Infrastructure;
+using OnlineShop.Web.Infrastructure.Helper;
+using OnlineShop.Web.Models.ModelForCSV;
 using System;
 using System.Collections.Generic;
 using System.IO;

@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using OnlineShop.Application.Interfaces;
-using OnlineShop.Domain.Model;
-using OnlineShop.Infrastructure.Repositories;
+using OnlineShop.Web.Application.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

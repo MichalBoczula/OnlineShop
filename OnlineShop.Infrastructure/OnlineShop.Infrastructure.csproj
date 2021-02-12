@@ -35,10 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OnlineShop.Domain\OnlineShop.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Helper\CSVSeed\" />
   </ItemGroup>
 

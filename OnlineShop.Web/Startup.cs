@@ -8,13 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using OnlineShop.Application;
-using OnlineShop.Application.Interfaces;
-using OnlineShop.Application.Services;
-using OnlineShop.Domain.Interfaces;
-using OnlineShop.Infrastructure;
-using OnlineShop.Infrastructure.Repositories;
 using OnlineShop.Web.Helper;
+using OnlineShop.Web.Infrastructure;
+using OnlineShop.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,13 +24,14 @@ namespace OnlineShop.Web
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-    }
+        }
 
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -44,7 +41,7 @@ namespace OnlineShop.Web
             services.AddApplication();
             services.AddInfrastructure();
 
-            services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
+            services.AddScoped<ShoppingCartGenerator>(sp => ShoppingCartGenerator.GetCart(sp));
 
             services.AddHttpContextAccessor();
             services.AddSession();

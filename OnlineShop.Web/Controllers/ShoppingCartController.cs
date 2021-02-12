@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OnlineShop.Application.Interfaces;
 using OnlineShop.Web.Helper;
 using OnlineShop.Web.Helper.ViewModel;
 using System;
@@ -11,9 +10,9 @@ namespace OnlineShop.Web.Controllers
 {
     public class ShoppingCartController : Controller
     {
-        private readonly ShoppingCart _shoppingCart;
+        private readonly ShoppingCartGenerator _shoppingCart;
 
-        public ShoppingCartController(ShoppingCart shoppingCart)
+        public ShoppingCartController(ShoppingCartGenerator shoppingCart)
         {
             _shoppingCart = shoppingCart;
         }

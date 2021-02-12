@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using OnlineShop.Infrastructure;
 
 [assembly: HostingStartup(typeof(OnlineShop.Web.Areas.Identity.IdentityHostingStartup))]
 namespace OnlineShop.Web.Areas.Identity

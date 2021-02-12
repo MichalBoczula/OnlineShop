@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
-using OnlineShop.Infrastructure.IOHelper;
 using FluentAssertions;
-using OnlineShop.Domain.Model;
 using System.IO;
-using OnlineShop.Domain.ModelForCSV;
 using System.Linq;
+using OnlineShop.Web.Infrastructure.Helper;
+using OnlineShop.Web.Models.Entity;
+using OnlineShop.Web.Models.ModelForCSV;
 
 namespace OnlineShop.Test.Infrastructure.IOHelper.IOManager
 {

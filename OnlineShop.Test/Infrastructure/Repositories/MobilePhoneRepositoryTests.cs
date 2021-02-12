@@ -2,10 +2,9 @@
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using OnlineShop.Application.ViewModels.Mobile;
-using OnlineShop.Domain.Model;
-using OnlineShop.Infrastructure;
-using OnlineShop.Infrastructure.Repositories;
+using OnlineShop.Web.Infrastructure;
+using OnlineShop.Web.Infrastructure.Repositories;
+using OnlineShop.Web.Models.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;

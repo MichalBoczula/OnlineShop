@@ -8,6 +8,6 @@ namespace OnlineShop.Domain.Model
     {
         public int Id { get; set; }
         public ICollection<CartItem> Items { get; set; }
-        public string UserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }

@@ -2,11 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using OnlineShop.Application.Interfaces;
-using OnlineShop.Application.ViewModels.Mobile;
-using OnlineShop.Application.ViewModels.ShoppingCartItem;
-using OnlineShop.Domain.Model;
-using OnlineShop.Infrastructure;
+using OnlineShop.Web.Infrastructure;
+using OnlineShop.Web.Models.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,18 +11,18 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Web.Helper
 {
-    public class ShoppingCart
+    public class ShoppingCartGenerator
     {
         public string ShoppingCartId { get; set; }
         public List<ShoppingCartItem> Items { get; set; }
         private readonly DatabaseContext _context;
 
-        private ShoppingCart(DatabaseContext context)
+        private ShoppingCartGenerator(DatabaseContext context)
         {
             _context = context;
         }
 
-        public static ShoppingCart GetCart(IServiceProvider services)
+        public static ShoppingCartGenerator GetCart(IServiceProvider services)
         {
             ISession session = services.GetRequiredService<IHttpContextAccessor>()?
                 .HttpContext.Session;
@@ -36,7 +33,7 @@ namespace OnlineShop.Web.Helper
 
             session.SetString("CartId", cartId);
 
-            return new ShoppingCart(context) { ShoppingCartId = cartId };
+            return new ShoppingCartGenerator(context) { ShoppingCartId = cartId };
         }
 
         public async Task AddItemToCart(int mobileId)
