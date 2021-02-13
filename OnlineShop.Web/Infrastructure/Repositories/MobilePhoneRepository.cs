@@ -34,12 +34,11 @@ namespace OnlineShop.Web.Infrastructure.Repositories
 
         public async Task<MobilePhone> GetMobilePhoneById(int mobilePhoneId)
         {
-            var result = await context.MobilePhones.Include(c => c.Camera)
+            return await context.MobilePhones.Include(c => c.Camera)
                                        .Include(h => h.Hardware)
                                        .Include(f => f.Multimedia)
                                        .Include(s => s.Screen)
                                        .FirstOrDefaultAsync(m => m.Id == mobilePhoneId);
-            return result;
         }
     }
 }

@@ -14,6 +14,7 @@ using OnlineShop.Web.Infrastructure.Repositories;
 using OnlineShop.Web.Models.Entity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -240,6 +241,7 @@ namespace OnlineShop.Test.Application.Services
 
                 dbContext.Add(iPhone12);
                 dbContext.SaveChanges();
+
                 var configuration = new MapperConfiguration(cfg =>
                 {
                     cfg.CreateMap<MobilePhone, MobilePhoneDetailsVM>();

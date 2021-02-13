@@ -16,8 +16,8 @@ namespace OnlineShop.Test.Infrastructure
         public void RetriveCamerasFromCSVTest()
         {
             //Arrange
-            var cameraPath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\Camera.csv";
-            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper");
+            var cameraPath = "..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper";
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper");
             var cSVDBContext = new CSVDBContext(cameraPath, null, null, null, null, fileManager);
             cSVDBContext.CreateCSVFiles();
             //Act
@@ -32,8 +32,8 @@ namespace OnlineShop.Test.Infrastructure
         public void RetriveCamerasFromCSVTestWrongPathToFile()
         {
             //Arrange
-            var cameraPath = "OnlineShop.Infrastructure\\Helper\\CSVSeed\\Camera.csv";
-            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper");
+            var cameraPath = "..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper\\CSVSeed\\Camera.csv";
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper");
             var cSVDBContext = new CSVDBContext(cameraPath, null, null, null, null, fileManager);
             //Act
             var list = cSVDBContext.RetriveCamerasFromCSV();
@@ -46,8 +46,8 @@ namespace OnlineShop.Test.Infrastructure
         public void RetriveHardwaresFromCSVTest()
         {
             //Arrange
-            var hardwarePath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\Hardware.csv";
-            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper");
+            var hardwarePath = "..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper\\CSVSeed\\Hardware.csv";
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper");
             var cSVDBContext = new CSVDBContext(null, hardwarePath, null, null, null, fileManager);
             cSVDBContext.CreateCSVFiles();
             //Act
@@ -62,8 +62,8 @@ namespace OnlineShop.Test.Infrastructure
         public void RetriveScreensFromCSV()
         {
             //Arrange
-            var screenPath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\Screen.csv";
-            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper");
+            var screenPath = "..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper\\CSVSeed\\Screen.csv";
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper");
             var cSVDBContext = new CSVDBContext(null, null, screenPath, null, null, fileManager);
             cSVDBContext.CreateCSVFiles();
             //Act
@@ -78,8 +78,8 @@ namespace OnlineShop.Test.Infrastructure
         public void RetriveMobilePhonesFromCSV()
         {
             //Arrange
-            var mobilePhonePath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\MobilePhone.csv";
-            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper");
+            var mobilePhonePath = "..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper\\CSVSeed\\MobilePhone.csv";
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper");
             var cSVDBContext = new CSVDBContext(null, null, null, mobilePhonePath, null, fileManager);
             cSVDBContext.CreateCSVFiles();
             //Act
@@ -94,8 +94,8 @@ namespace OnlineShop.Test.Infrastructure
         public void RetriveMultimediasFromCSVTest()
         {
             //Arrange
-            var multimediaPath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\Multimedia.csv";
-            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper");
+            var multimediaPath = "..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper\\CSVSeed\\Multimedia.csv";
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper");
             var cSVDBContext = new CSVDBContext(null, null, null, null, multimediaPath, fileManager);
             cSVDBContext.CreateCSVFiles();
             //Act
@@ -110,12 +110,12 @@ namespace OnlineShop.Test.Infrastructure
         public void CreateCSVFilesTest()
         {
             //Arrange
-            var cameraPath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\Camera.csv";
-            var hardwarePath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\Hardware.csv";
-            var screenPath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\Screen.csv";
-            var mobilePhonePath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\MobilePhone.csv";
-            var multimediaPath = "..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper\\CSVSeed\\Multimedia.csv";
-            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Infrastructure\\Helper");
+            var cameraPath = "..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper\\CSVSeed\\Camera.csv";
+            var hardwarePath = "..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper\\CSVSeed\\Hardware.csv";
+            var screenPath = "..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper\\CSVSeed\\Screen.csv";
+            var mobilePhonePath = "..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper\\CSVSeed\\MobilePhone.csv";
+            var multimediaPath = "..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper\\CSVSeed\\Multimedia.csv";
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper");
             var cSVDBContext = new CSVDBContext(cameraPath, hardwarePath, screenPath, mobilePhonePath, multimediaPath, fileManager);
             //Act
             cSVDBContext.CreateCSVFiles();

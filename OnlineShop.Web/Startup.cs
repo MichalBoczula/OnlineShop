@@ -8,8 +8,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using OnlineShop.Web.Application;
+using OnlineShop.Web.Application.Interfaces;
+using OnlineShop.Web.Application.Services;
 using OnlineShop.Web.Infrastructure;
+using OnlineShop.Web.Infrastructure.Repositories;
 using OnlineShop.Web.Models;
+using OnlineShop.Web.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,8 +42,9 @@ namespace OnlineShop.Web
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<DatabaseContext>();
 
-            services.AddApplication();
-            services.AddInfrastructure();
+            services.AddTransient<IMobilePhoneService, MobilePhoneService>();
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddTransient<IMobilePhoneRepository, MobilePhoneRepository>();
 
             services.AddHttpContextAccessor();
             services.AddSession();

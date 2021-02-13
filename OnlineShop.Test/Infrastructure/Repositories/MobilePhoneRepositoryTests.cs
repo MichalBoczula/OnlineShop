@@ -346,7 +346,8 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                     MainImage = "/Apple/iPhone 12/Main.png",
                     FirstImage = "/Apple/iPhone 12/First.png",
                     SecondImage = "/Apple/iPhone 12/Second.png",
-                    BestSeller = true
+                    BestSeller = true,
+                    MultimediaId = 1
                 });
                 dbContext.Add(new MobilePhone()
                 {
@@ -361,7 +362,8 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                     MainImage = "/LG/Wing/Main.png",
                     FirstImage = "/LG/Wing/First.png",
                     SecondImage = "/LG/Wing/Second.png",
-                    BestSeller = true
+                    BestSeller = true,
+                    MultimediaId = 1
                 });
                 dbContext.SaveChanges();
 

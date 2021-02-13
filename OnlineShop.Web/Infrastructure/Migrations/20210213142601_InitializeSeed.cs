@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace OnlineShop.Infrastructure.Migrations
+namespace OnlineShop.Web.Infrastructure.Migrations
 {
-    public partial class InitializeSeedInDB : Migration
+    public partial class InitializeSeed : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,7 +54,7 @@ namespace OnlineShop.Infrastructure.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Cameras",
+                table: "Camera",
                 columns: new[] { "Id", "AdditionalResulution", "FrontResulution", "Functions", "MainResulution", "MobilePhoneId", "VideoFPS", "VideoRecorderResolution", "Zoom" },
                 values: new object[,]
                 {
@@ -91,7 +91,7 @@ namespace OnlineShop.Infrastructure.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Hardwares",
+                table: "Hardware",
                 columns: new[] { "Id", "BatteryCapacity", "GraphicsProcessor", "MemorySpace", "MobilePhoneId", "OperationMemory", "OperationSystem", "ProcessorName", "SimCardType" },
                 values: new object[,]
                 {
@@ -128,7 +128,7 @@ namespace OnlineShop.Infrastructure.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Screens",
+                table: "Screen",
                 columns: new[] { "Id", "ColorsQuantity", "HorizontalResolution", "MobilePhoneId", "ScreenType", "Size", "VerticalResolution" },
                 values: new object[,]
                 {
@@ -168,452 +168,452 @@ namespace OnlineShop.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 1);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 2);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 3);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 4);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 5);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 6);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 7);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 8);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 9);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 10);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 11);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 12);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 13);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 14);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 15);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 16);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 17);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 18);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 19);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 20);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 21);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 22);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 23);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 24);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 25);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 26);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 27);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 28);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 29);
 
             migrationBuilder.DeleteData(
-                table: "Cameras",
+                table: "Camera",
                 keyColumn: "Id",
                 keyValue: 30);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 1);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 2);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 3);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 4);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 5);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 6);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 7);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 8);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 9);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 10);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 11);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 12);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 13);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 14);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 15);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 16);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 17);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 18);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 19);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 20);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 21);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 22);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 23);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 24);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 25);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 26);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 27);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 28);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 29);
 
             migrationBuilder.DeleteData(
-                table: "Hardwares",
+                table: "Hardware",
                 keyColumn: "Id",
                 keyValue: 30);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 1);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 2);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 3);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 4);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 5);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 6);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 7);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 8);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 9);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 10);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 11);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 12);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 13);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 14);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 15);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 16);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 17);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 18);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 19);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 20);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 21);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 22);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 23);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 24);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 25);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 26);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 27);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 28);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 29);
 
             migrationBuilder.DeleteData(
-                table: "Screens",
+                table: "Screen",
                 keyColumn: "Id",
                 keyValue: 30);
 
