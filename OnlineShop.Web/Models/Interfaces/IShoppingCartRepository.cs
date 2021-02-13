@@ -8,10 +8,15 @@ namespace OnlineShop.Web.Models.Interfaces
 {
     public interface IShoppingCartRepository
     {
-        Task GetShoppingCart();
-        Task AddItemToCart(int mobilePhoneId);
-        Task<int> RemoveItemFromCart(int mobilePhoneId);
-        Task DeleteAllItems();
-        Task<double> CountTotal();
+        Task<ShoppingCart> GetShoppingCart();
+
+        Task RemoveItemFromCart(ShoppingCart shoppingCart, int mobilePhoneId);
+
+        Task DeleteAllItems(ShoppingCart shoppingCart);
+
+        Task<double> CountTotal(ShoppingCart shoppingCart);
+
+        Task AddItemToCart(ShoppingCart shoppingCart, int mobilePhoneId);
+
     }
 }

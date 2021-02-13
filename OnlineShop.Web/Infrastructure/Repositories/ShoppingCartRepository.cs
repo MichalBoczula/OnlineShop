@@ -15,7 +15,6 @@ namespace OnlineShop.Web.Infrastructure.Repositories
         private readonly DatabaseContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private ShoppingCart memoryShoppingCart;
 
         public ShoppingCartRepository(DatabaseContext context,
                                       UserManager<ApplicationUser> userManager,
@@ -26,7 +25,7 @@ namespace OnlineShop.Web.Infrastructure.Repositories
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task GetShoppingCart()
+        public async Task<ShoppingCart> GetShoppingCart()
         {
             var loggedUser = _httpContextAccessor.HttpContext.User;
             var user = await _userManager.GetUserAsync(loggedUser);
@@ -36,27 +35,44 @@ namespace OnlineShop.Web.Infrastructure.Repositories
              .ThenInclude(i => i.Items)
              .FirstOrDefaultAsync(u => u.Id == user.Id);
 
-            memoryShoppingCart = applicationUser.ShoppingCart;
+            return applicationUser.ShoppingCart;
         }
 
-        public Task<int> RemoveItemFromCart(int mobilePhoneId)
+        public async Task RemoveItemFromCart(ShoppingCart shoppingCart, int mobilePhoneId)
         {
-            throw new NotImplementedException();
+            var item = await _context.ShoppingCartMobilePhones
+                .FirstOrDefaultAsync(sc => sc.ShoppingCartId == shoppingCart.Id
+                    && sc.MobilePhoneId == mobilePhoneId);
+            _context.ShoppingCartMobilePhones.Remove(item);
+            await _context.SaveChangesAsync();
         }
 
-        public Task DeleteAllItems()
+        public async Task DeleteAllItems(ShoppingCart shoppingCart)
         {
-            throw new NotImplementedException();
+            var list = await _context.ShoppingCartMobilePhones
+                .Where(sc => sc.ShoppingCartId == shoppingCart.Id).ToListAsync();
+            _context.ShoppingCartMobilePhones.RemoveRange(list);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<double> CountTotal()
+        public async Task<double> CountTotal(ShoppingCart shoppingCart)
         {
-            throw new NotImplementedException();
+            return await _context.ShoppingCartMobilePhones
+                .Where(sc => sc.ShoppingCartId == shoppingCart.Id)
+                .Select(i => i.MobilePhoneRef.Price * i.Quantity)
+                .SumAsync();
         }
 
-        public Task AddItemToCart(int mobilePhoneId)
+        public async Task AddItemToCart(ShoppingCart shoppingCart, int mobilePhoneId)
         {
-            throw new NotImplementedException();
+            var item = await _context.MobilePhones.FirstOrDefaultAsync(m => m.Id == mobilePhoneId);
+            var shoppingCartItem = new ShoppingCartMobilePhone()
+            {
+                ShoppingCartId = shoppingCart.Id,
+                MobilePhoneId = item.Id
+            };
+            await _context.AddAsync(shoppingCartItem);
+            await _context.SaveChangesAsync();
         }
     }
 }

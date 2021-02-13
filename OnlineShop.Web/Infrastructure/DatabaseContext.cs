@@ -13,6 +13,7 @@ namespace OnlineShop.Web.Infrastructure
     public class DatabaseContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<MobilePhone> MobilePhones { get; set; }
+        public DbSet<ShoppingCartMobilePhone> ShoppingCartMobilePhones { get; set; }
 
         public DatabaseContext(DbContextOptions options) : base(options)
         {
