@@ -14,6 +14,7 @@ using OnlineShop.Web.Application.Services;
 using OnlineShop.Web.Infrastructure;
 using OnlineShop.Web.Infrastructure.Repositories;
 using OnlineShop.Web.Models;
+using OnlineShop.Web.Models.Entity;
 using OnlineShop.Web.Models.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -39,7 +40,7 @@ namespace OnlineShop.Web
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<DatabaseContext>();
 
             services.AddTransient<IMobilePhoneService, MobilePhoneService>();

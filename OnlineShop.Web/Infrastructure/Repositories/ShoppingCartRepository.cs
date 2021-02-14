@@ -25,15 +25,20 @@ namespace OnlineShop.Web.Infrastructure.Repositories
             _httpContextAccessor = httpContextAccessor;
         }
 
+        public ShoppingCartRepository(DatabaseContext context)
+        {
+            _context = context;
+        }
+
         public async Task<ShoppingCart> GetShoppingCart()
         {
             var loggedUser = _httpContextAccessor.HttpContext.User;
-            var user = await _userManager.GetUserAsync(loggedUser);
+            var userId = _userManager.GetUserId(loggedUser);
 
-            var applicationUser  = await _context.Users
+            var applicationUser = await _context.Users
              .Include(sc => sc.ShoppingCart)
              .ThenInclude(i => i.Items)
-             .FirstOrDefaultAsync(u => u.Id == user.Id);
+             .FirstOrDefaultAsync(u => u.Id == userId);
 
             return applicationUser.ShoppingCart;
         }
@@ -43,7 +48,14 @@ namespace OnlineShop.Web.Infrastructure.Repositories
             var item = await _context.ShoppingCartMobilePhones
                 .FirstOrDefaultAsync(sc => sc.ShoppingCartId == shoppingCart.Id
                     && sc.MobilePhoneId == mobilePhoneId);
-            _context.ShoppingCartMobilePhones.Remove(item);
+            if (item.Quantity > 1)
+            {
+                item.Quantity--;
+            }
+            else
+            {
+                _context.ShoppingCartMobilePhones.Remove(item);
+            }
             await _context.SaveChangesAsync();
         }
 
@@ -65,13 +77,26 @@ namespace OnlineShop.Web.Infrastructure.Repositories
 
         public async Task AddItemToCart(ShoppingCart shoppingCart, int mobilePhoneId)
         {
-            var item = await _context.MobilePhones.FirstOrDefaultAsync(m => m.Id == mobilePhoneId);
-            var shoppingCartItem = new ShoppingCartMobilePhone()
+           var cartItem =  shoppingCart.Items
+                .FirstOrDefault(i => i.MobilePhoneId == mobilePhoneId && shoppingCart.Id == i.ShoppingCartId);
+            if(cartItem != null)
             {
-                ShoppingCartId = shoppingCart.Id,
-                MobilePhoneId = item.Id
-            };
-            await _context.AddAsync(shoppingCartItem);
+                cartItem.Quantity++;
+            }
+            else
+            {
+                var item = await _context.MobilePhones
+                .FirstOrDefaultAsync(m => m.Id == mobilePhoneId);
+                var shoppingCartItem = new ShoppingCartMobilePhone()
+                {
+                    ShoppingCartId = shoppingCart.Id,
+                    MobilePhoneId = item.Id,
+                    Quantity = 1
+                };
+                cartItem = shoppingCartItem;
+                shoppingCart.Items.Add(cartItem);
+            }
+            _context.Update(shoppingCart);
             await _context.SaveChangesAsync();
         }
     }

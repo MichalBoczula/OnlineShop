@@ -11,5 +11,6 @@ namespace OnlineShop.Web.Models.Entity
     {
         public int ShoppingCardId{ get; set; }
         public ShoppingCart ShoppingCart{ get; set; }
+
     }
 }
