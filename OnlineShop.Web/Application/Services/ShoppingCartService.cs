@@ -40,6 +40,7 @@ namespace OnlineShop.Web.Application.Services
 
         public async Task AddItemToShoppingCart(int mobilePhoneId)
         {
+            await GetShoppingCart();
             await _repository.AddItemToCart(shoppingCart, mobilePhoneId);
         }
 
