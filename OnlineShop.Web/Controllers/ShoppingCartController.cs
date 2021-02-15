@@ -18,13 +18,8 @@ namespace OnlineShop.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var items = await _service.RetriveItems();
-            //var ViewModel = new ShoppingCartVM
-            //{
-            //    ShoppingCart = _shoppingCart,
-            //    Total = await _shoppingCart.CountTotal()
-            //};
-            return View();
+            var items = await _service.RetriveShopppingCart();
+            return View(items);
         }
 
         public async Task<RedirectToActionResult> AddItem(int mobileId)

@@ -40,12 +40,14 @@ namespace OnlineShop.Web
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<DatabaseContext>();
 
-            services.AddTransient<IMobilePhoneService, MobilePhoneService>();
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddTransient<IMobilePhoneRepository, MobilePhoneRepository>();
+            services.AddTransient<IShoppingCartRepository, ShoppingCartRepository>();
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddTransient<IMobilePhoneService, MobilePhoneService>();
+            services.AddTransient<IShoppingCartService, ShoppingCartService>();
 
             services.AddHttpContextAccessor();
             services.AddSession();

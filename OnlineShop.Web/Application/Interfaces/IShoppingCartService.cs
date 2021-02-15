@@ -1,4 +1,5 @@
-﻿using OnlineShop.Web.Models.Entity;
+﻿using OnlineShop.Web.Application.ViewModels.ShoppingCart;
+using OnlineShop.Web.Models.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace OnlineShop.Web.Application.Interfaces
     {
         Task GetShoppingCart();
 
-        Task<List<ShoppingCartMobilePhone>> RetriveItems();
+        Task<ShoppingCartVM> RetriveShopppingCart();
 
         Task AddItemToShoppingCart(int mobilePhoneId);
 

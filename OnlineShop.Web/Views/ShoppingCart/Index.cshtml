@@ -1,4 +1,4 @@
-﻿@*@model OnlineShop.Web.Helper.ViewModel.ShoppingCartVM
+﻿@model OnlineShop.Web.Application.ViewModels.ShoppingCart.ShoppingCartVM
 
 @{
     ViewData["Title"] = "Index";
@@ -27,29 +27,29 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.ShoppingCart.Items)
+            @foreach (var item in Model.Items)
             {
                 <tr class="table-row">
                     <td>
                         <figure class="table-image-continer">
-                            <img class="d-block w-100" id="table-image" src="~/images/@item.MobilePhone.MainImage">
+                            <img class="d-block w-100" id="table-image" src="~/images/@item.MobilePhoneRef.MainImage">
                         </figure>
                     </td>
                     <td>
-                        @item.MobilePhone.Name
+                        @item.MobilePhoneRef.Name
                     </td>
                     <td>
                         @item.Quantity
                     </td>
                     <td>
-                        @{var price = item.Quantity * item.MobilePhone.Price;}
+                        @{var price = item.Quantity * item.MobilePhoneRef.Price;}
                         @price
                     </td>
                     <td class="action-td">
-                        <a  asp-controller="MobilePhone" asp-action="Details" asp-route-mobilePhoneId="@item.MobilePhone.Id">
+                        <a  asp-controller="MobilePhone" asp-action="Details" asp-route-mobilePhoneId="@item.MobilePhoneRef.Id">
                             <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Details</p>
                         </a>
-                        <a asp-controller="ShoppingCart" asp-action="RemoveItem" asp-route-mobileId="@item.MobilePhone.Id">
+                        <a asp-controller="ShoppingCart" asp-action="RemoveItem" asp-route-mobileId="@item.MobilePhoneRef.Id">
                             <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Remove</p>
                         </a>
                     </td>
@@ -67,6 +67,6 @@
         </tfoot>
     </table>
 
-</div>*@
+</div>
 
 

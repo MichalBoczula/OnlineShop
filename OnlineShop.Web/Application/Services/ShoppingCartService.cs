@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using OnlineShop.Web.Application.Interfaces;
+using OnlineShop.Web.Application.ViewModels.ShoppingCart;
 using OnlineShop.Web.Models.Entity;
 using OnlineShop.Web.Models.Interfaces;
 using System;
@@ -26,11 +27,16 @@ namespace OnlineShop.Web.Application.Services
             shoppingCart = await _repository.GetShoppingCart();
         }
 
-        public async Task<List<ShoppingCartMobilePhone>> RetriveItems()
+        public async Task<ShoppingCartVM> RetriveShopppingCart()
         {
             await GetShoppingCart();
-            return shoppingCart.Items.ToList();
-        }
+            var VM = new ShoppingCartVM()
+            {
+                Items = shoppingCart.Items.ToList(),
+                Total = await GetTotal()
+            };
+            return VM;
+    }
 
         public async Task AddItemToShoppingCart(int mobilePhoneId)
         {
