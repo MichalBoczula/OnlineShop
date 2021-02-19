@@ -9,7 +9,7 @@ namespace OnlineShop.Web.Models.Entity
 {
     public class ApplicationUser : IdentityUser
     {
-        public int ShoppingCardId{ get; set; }
+        public string ShoppingCardId{ get; set; }
         public ShoppingCart ShoppingCart{ get; set; }
 
     }

@@ -199,8 +199,8 @@ namespace OnlineShop.Web.Infrastructure.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ShoppingCardId")
-                        .HasColumnType("int");
+                    b.Property<string>("ShoppingCardId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
@@ -220,7 +220,8 @@ namespace OnlineShop.Web.Infrastructure.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.HasIndex("ShoppingCardId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[ShoppingCardId] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -1953,10 +1954,8 @@ namespace OnlineShop.Web.Infrastructure.Migrations
 
             modelBuilder.Entity("OnlineShop.Web.Models.Entity.ShoppingCart", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -1965,8 +1964,8 @@ namespace OnlineShop.Web.Infrastructure.Migrations
 
             modelBuilder.Entity("OnlineShop.Web.Models.Entity.ShoppingCartMobilePhone", b =>
                 {
-                    b.Property<int>("ShoppingCartId")
-                        .HasColumnType("int");
+                    b.Property<string>("ShoppingCartId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("MobilePhoneId")
                         .HasColumnType("int");
@@ -2036,9 +2035,7 @@ namespace OnlineShop.Web.Infrastructure.Migrations
                 {
                     b.HasOne("OnlineShop.Web.Models.Entity.ShoppingCart", "ShoppingCart")
                         .WithOne("ApplicationUser")
-                        .HasForeignKey("OnlineShop.Web.Models.Entity.ApplicationUser", "ShoppingCardId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OnlineShop.Web.Models.Entity.ApplicationUser", "ShoppingCardId");
                 });
 
             modelBuilder.Entity("OnlineShop.Web.Models.Entity.Camera", b =>

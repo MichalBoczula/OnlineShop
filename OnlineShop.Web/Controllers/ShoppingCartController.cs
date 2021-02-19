@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using OnlineShop.Web.Application.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Web.Controllers
 {
+    [Authorize]
     public class ShoppingCartController : Controller
     {
         private readonly IShoppingCartService _service;

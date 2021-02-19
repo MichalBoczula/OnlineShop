@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Infrastructure\Migrations\20210212181758_InitialCreate.cs" />
-    <Compile Remove="Infrastructure\Migrations\20210212181758_InitialCreate.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="Infrastructure\Helper\CSVSeed\Camera.csv" />
   </ItemGroup>
 

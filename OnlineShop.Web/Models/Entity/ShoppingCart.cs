@@ -11,7 +11,7 @@ namespace OnlineShop.Web.Models.Entity
             Items = new List<ShoppingCartMobilePhone>();
         }
 
-        public int Id { get; set; }
+        public string Id { get; set; }
         public ICollection<ShoppingCartMobilePhone> Items { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
     }

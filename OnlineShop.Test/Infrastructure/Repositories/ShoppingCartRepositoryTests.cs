@@ -85,13 +85,13 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 //Arrange
                 var shoppingCart = new ShoppingCart()
                 {
-                    Id = 1,
+                    Id = "1",
                     Items = new List<ShoppingCartMobilePhone>()
                 };
                 var item = new ShoppingCartMobilePhone()
                 {
                     MobilePhoneId = 1,
-                    ShoppingCartId = 1,
+                    ShoppingCartId = "1",
                     Quantity = 1
                 };
                 shoppingCart.Items.Add(item);
@@ -128,13 +128,13 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 //Arrange
                 var shoppingCart = new ShoppingCart()
                 {
-                    Id = 1,
+                    Id = "1",
                     Items = new List<ShoppingCartMobilePhone>()
                 };
                 var item = new ShoppingCartMobilePhone()
                 {
                     MobilePhoneId = 1,
-                    ShoppingCartId = 1,
+                    ShoppingCartId = "1",
                     Quantity = 2
                 };
                 shoppingCart.Items.Add(item);
@@ -171,19 +171,19 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 //Arrange
                 var shoppingCart = new ShoppingCart()
                 {
-                    Id = 1,
+                    Id = "1",
                     Items = new List<ShoppingCartMobilePhone>()
                 };
                 var item = new ShoppingCartMobilePhone()
                 {
                     MobilePhoneId = 1,
-                    ShoppingCartId = 1,
+                    ShoppingCartId = "1",
                     Quantity = 2
                 };
                 var item2 = new ShoppingCartMobilePhone()
                 {
                     MobilePhoneId = 2,
-                    ShoppingCartId = 1,
+                    ShoppingCartId = "1",
                     Quantity = 1
                 };
                 shoppingCart.Items.Add(item);
@@ -221,7 +221,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 //Arrange
                 var shoppingCart = new ShoppingCart()
                 {
-                    Id = 1,
+                    Id = "1",
                     Items = new List<ShoppingCartMobilePhone>()
                 };
                 var user = new ApplicationUser()
@@ -257,13 +257,13 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 //Arrange
                 var shoppingCart = new ShoppingCart()
                 {
-                    Id = 1,
+                    Id = "1",
                     Items = new List<ShoppingCartMobilePhone>()
                 };
                 var item = new ShoppingCartMobilePhone()
                 {
                     MobilePhoneId = 1,
-                    ShoppingCartId = 1,
+                    ShoppingCartId = "1",
                     Quantity = 1
                 };
                 shoppingCart.Items.Add(item);
@@ -300,13 +300,13 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 //Arrange
                 var shoppingCart = new ShoppingCart()
                 {
-                    Id = 1,
+                    Id = "1",
                     Items = new List<ShoppingCartMobilePhone>()
                 };
                 var item = new ShoppingCartMobilePhone()
                 {
                     MobilePhoneId = 1,
-                    ShoppingCartId = 1,
+                    ShoppingCartId = "1",
                     Quantity = 2
                 };
                 shoppingCart.Items.Add(item);
@@ -344,19 +344,19 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 //Arrange
                 var shoppingCart = new ShoppingCart()
                 {
-                    Id = 1,
+                    Id = "1",
                     Items = new List<ShoppingCartMobilePhone>()
                 };
                 var item = new ShoppingCartMobilePhone()
                 {
                     MobilePhoneId = 1,
-                    ShoppingCartId = 1,
+                    ShoppingCartId = "1",
                     Quantity = 1
                 };
                 var item2 = new ShoppingCartMobilePhone()
                 {
                     MobilePhoneId = 2,
-                    ShoppingCartId = 1,
+                    ShoppingCartId = "1",
                     Quantity = 1
                 };
                 shoppingCart.Items.Add(item);
@@ -395,19 +395,19 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 //Arrange
                 var shoppingCart = new ShoppingCart()
                 {
-                    Id = 1,
+                    Id = "1",
                     Items = new List<ShoppingCartMobilePhone>()
                 };
                 var item = new ShoppingCartMobilePhone()
                 {
                     MobilePhoneId = 1,
-                    ShoppingCartId = 1,
+                    ShoppingCartId = "1",
                     Quantity = 1
                 };
                 var item2 = new ShoppingCartMobilePhone()
                 {
                     MobilePhoneId = 2,
-                    ShoppingCartId = 1,
+                    ShoppingCartId = "1",
                     Quantity = 1
                 };
                 shoppingCart.Items.Add(item);
@@ -446,7 +446,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 //Arrange
                 var shoppingCart = new ShoppingCart()
                 {
-                    Id = 1,
+                    Id = "1",
                     Items = new List<ShoppingCartMobilePhone>()
                 };
                 var user = new ApplicationUser()
@@ -488,7 +488,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 //Arrange
                 var shoppingCart = new ShoppingCart()
                 {
-                    Id = 1,
+                    Id = "1",
                     Items = new List<ShoppingCartMobilePhone>()
                 };
                 var user = new ApplicationUser()
@@ -503,7 +503,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 var item = new ShoppingCartMobilePhone()
                 {
                     MobilePhoneId = 1,
-                    ShoppingCartId = 1,
+                    ShoppingCartId = "1",
                     Quantity = 1
                 };
                 shoppingCart.Items.Add(item);
@@ -537,7 +537,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 //Arrange
                 var shoppingCart = new ShoppingCart()
                 {
-                    Id = 1,
+                    Id = "1",
                     Items = new List<ShoppingCartMobilePhone>()
                 };
                 var user = new ApplicationUser()
@@ -552,7 +552,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 var item = new ShoppingCartMobilePhone()
                 {
                     MobilePhoneId = 1,
-                    ShoppingCartId = 1,
+                    ShoppingCartId = "1",
                     Quantity = 1
                 };
                 shoppingCart.Items.Add(item);
@@ -587,7 +587,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 //Arrange
                 var shoppingCart = new ShoppingCart()
                 {
-                    Id = 1,
+                    Id = "1",
                     Items = new List<ShoppingCartMobilePhone>()
                 };
                 var user = new ApplicationUser()
@@ -624,7 +624,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 //Arrange
                 var shoppingCart = new ShoppingCart()
                 {
-                    Id = 1,
+                    Id = "1",
                     Items = new List<ShoppingCartMobilePhone>()
                 };
                 var user = new ApplicationUser()
@@ -640,7 +640,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 var item = new ShoppingCartMobilePhone()
                 {
                     MobilePhoneId = 1,
-                    ShoppingCartId = 1,
+                    ShoppingCartId = "1",
                     Quantity = 1
                 };
                 shoppingCart.Items.Add(item);
@@ -675,7 +675,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 //Arrange
                 var shoppingCart = new ShoppingCart()
                 {
-                    Id = 1,
+                    Id = "1",
                     Items = new List<ShoppingCartMobilePhone>()
                 };
                 var user = new ApplicationUser()
@@ -696,13 +696,13 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 var item = new ShoppingCartMobilePhone()
                 {
                     MobilePhoneId = 1,
-                    ShoppingCartId = 1,
+                    ShoppingCartId = "1",
                     Quantity = 1
                 };
                 var item2 = new ShoppingCartMobilePhone()
                 {
                     MobilePhoneId = 2,
-                    ShoppingCartId = 1,
+                    ShoppingCartId = "1",
                     Quantity = 1
                 };
                 shoppingCart.Items.Add(item);
@@ -740,7 +740,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 //Arrange
                 var shoppingCart = new ShoppingCart()
                 {
-                    Id = 1,
+                    Id = "1",
                     Items = new List<ShoppingCartMobilePhone>()
                 };
                 var user = new ApplicationUser()
@@ -761,13 +761,13 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 var item = new ShoppingCartMobilePhone()
                 {
                     MobilePhoneId = 1,
-                    ShoppingCartId = 1,
+                    ShoppingCartId = "1",
                     Quantity = 5
                 };
                 var item2 = new ShoppingCartMobilePhone()
                 {
                     MobilePhoneId = 2,
-                    ShoppingCartId = 1,
+                    ShoppingCartId = "1",
                     Quantity = 2
                 };
                 shoppingCart.Items.Add(item);

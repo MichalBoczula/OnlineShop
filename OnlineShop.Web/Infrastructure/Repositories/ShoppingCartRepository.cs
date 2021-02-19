@@ -38,8 +38,22 @@ namespace OnlineShop.Web.Infrastructure.Repositories
             var applicationUser = await _context.Users
              .Include(sc => sc.ShoppingCart)
              .ThenInclude(i => i.Items)
+             .ThenInclude(m => m.MobilePhoneRef)
              .FirstOrDefaultAsync(u => u.Id == userId);
 
+            if (applicationUser.ShoppingCart == null)
+            {
+                var sc = new ShoppingCart()
+                {
+                    Id = Guid.NewGuid().ToString()
+                };
+                applicationUser.ShoppingCart = sc;
+                applicationUser.ShoppingCardId = sc.Id;
+                _context.Update(applicationUser);
+                await _context.AddAsync(sc);
+                await _context.SaveChangesAsync();
+            }
+            
             return applicationUser.ShoppingCart;
         }
 

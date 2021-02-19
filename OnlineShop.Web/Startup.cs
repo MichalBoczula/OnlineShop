@@ -40,7 +40,7 @@ namespace OnlineShop.Web
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>()
                 .AddEntityFrameworkStores<DatabaseContext>();
 
             services.AddTransient<IMobilePhoneRepository, MobilePhoneRepository>();
