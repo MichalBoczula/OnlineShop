@@ -77,6 +77,34 @@ namespace OnlineShop.Test.Infrastructure.Repositories
         }
 
         [Fact]
+        public async Task GetShoppingCart_NoShoppingCart()
+        {
+            var serviceProvider = BuildInMemoryDBProvider();
+            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
+            {
+                //Arrange
+                var user = new ApplicationUser()
+                {
+                    Id = "1"
+                };
+                dbContext.Add(user);
+                await dbContext.SaveChangesAsync();
+                var mockHttpContextAccessor = new Mock<IHttpContextAccessor>();
+                mockHttpContextAccessor.Object.HttpContext = new DefaultHttpContext();
+                var claims = new ClaimsPrincipal();
+                mockHttpContextAccessor.Setup(x => x.HttpContext.User).Returns(claims);
+                List<ApplicationUser> _users = new List<ApplicationUser>();
+                var userManager = MockUserManager<ApplicationUser>(_users).Object;
+                var shoppingCartRepository = new ShoppingCartRepository(dbContext, userManager, mockHttpContextAccessor.Object);
+                //Act
+                var sc = await shoppingCartRepository.GetShoppingCart();
+                //Assert
+                sc.Should().BeOfType<ShoppingCart>();
+                sc.Should().NotBeNull();
+            }
+        }
+
+        [Fact]
         public async Task DeleteAllItems_OneItem()
         {
             var serviceProvider = BuildInMemoryDBProvider();

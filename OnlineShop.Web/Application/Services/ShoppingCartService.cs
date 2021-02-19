@@ -13,13 +13,11 @@ namespace OnlineShop.Web.Application.Services
     public class ShoppingCartService : IShoppingCartService
     {
         private readonly IShoppingCartRepository _repository;
-        private readonly IMapper _mapper;
         private ShoppingCart shoppingCart;
 
-        public ShoppingCartService(IShoppingCartRepository repository, IMapper mapper)
+        public ShoppingCartService(IShoppingCartRepository repository)
         {
             _repository = repository;
-            _mapper = mapper;
         }
 
         public async Task GetShoppingCart()
