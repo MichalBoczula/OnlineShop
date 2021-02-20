@@ -44,11 +44,13 @@ namespace OnlineShop.Web.Application.Services
 
         public async Task DeleteAllItems()
         {
+            await GetShoppingCart();
             await _repository.DeleteAllItems(shoppingCart);
         }
 
         public async Task RemoveItemFromCart(int mobilePhoneId)
         {
+            await GetShoppingCart();
             await _repository.RemoveItemFromCart(shoppingCart, mobilePhoneId);
         }
 

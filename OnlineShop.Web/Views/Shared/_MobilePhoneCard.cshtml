@@ -1,0 +1,21 @@
+﻿@model MobilePhoneForListVM
+
+<div class="col-lg-4 col-md-6">
+    <a asp-controller="MobilePhone" asp-action="Details" asp-route-mobilePhoneId="@Model.Id">
+        <div class="card">
+            <img src="~/images/@Model.MainImage" class="card-img-top" id="photo">
+            <div class="card-body">
+                <div class="title-container">
+                    <h3 id="brand" class="card-title">@Html.DisplayFor(modelItem => Model.Brand)</h3>
+                    <h3 id="model" class="card-title">@Html.DisplayFor(modelItem => Model.Name)</h3>
+                </div>
+                <h4 id="price" class="card-text">@Html.DisplayFor(modelItem => Model.Price) <span class="price-currency">zl</span></h4>
+                <p class="card-text">@Html.DisplayFor(modelItem => Model.ShortDescription)</p>
+            </div>
+            <div class="hover-msg">
+                <i class="fas fa-mouse fa-3x" id="mouse-icon"></i>
+                <h4 class="hover-msg-msg">Click for more</h4>
+            </div>
+        </div>
+    </a>
+</div>

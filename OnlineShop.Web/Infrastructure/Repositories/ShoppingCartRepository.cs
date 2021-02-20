@@ -41,6 +41,11 @@ namespace OnlineShop.Web.Infrastructure.Repositories
              .ThenInclude(m => m.MobilePhoneRef)
              .FirstOrDefaultAsync(u => u.Id == userId);
 
+            if (applicationUser == null)
+            {
+                return null;
+            }
+
             if (applicationUser.ShoppingCart == null)
             {
                 var sc = new ShoppingCart()

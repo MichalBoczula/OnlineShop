@@ -27,21 +27,19 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="MobilePhone" asp-action="Index">Offer</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="ShoppingCart" asp-action="Index">Cart</a>
-                        </li>
+                        @await Component.InvokeAsync("ShoppingCartItems")
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
 
     <footer class="border-top footer text-muted" id="footer">
         <div class="container">
-            &copy; 2020 - OnlineShop.Web 
+            &copy; 2020 - OnlineShop.Web
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

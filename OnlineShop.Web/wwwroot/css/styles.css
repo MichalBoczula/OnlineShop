@@ -23,12 +23,16 @@
     transition: all linear 0.2s;
 }
 
-    .nav-item:hover {
-        font-weight: 700;
-    }
+.nav-item:hover {
+    font-weight: 700;
+}
 
 .fa-mobile-alt {
     margin-right: 10px;
+}
+
+.fa-shopping-cart {
+    font-size: 25px;
 }
 /*MobilePhone Index*/
 /*####################################################################################################################################################
@@ -357,6 +361,7 @@ tbody td {
     justify-content: center;
     padding-top: 20px;
     padding-bottom: 20px;
+    margin-top: 90px;
 }
 
 #login-form {
@@ -364,6 +369,7 @@ tbody td {
     justify-content: center;
     padding-top: 20px;
     padding-bottom: 20px;
+    margin-top: 90px;
 }
 
 #email-form {
@@ -378,9 +384,6 @@ tbody td {
 #account-manage {
     padding-top: 20px;
     padding-bottom: 20px;
-}
-
-.pb-3 {
     margin-top: 90px;
 }
 
@@ -390,6 +393,10 @@ tbody td {
 
 #tfa-form {
     padding: 20px;
+}
+
+#tfa-form-container {
+    margin-top: 90px;
 }
 
 #account-settings-title {

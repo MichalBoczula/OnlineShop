@@ -54,7 +54,10 @@ namespace OnlineShop.Web
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddHttpContextAccessor();
-            services.AddSession();
+            services.AddSession(opt =>
+            {
+                opt.IdleTimeout = TimeSpan.FromMinutes(20);
+            });
 
             services.AddControllersWithViews();
             services.AddRazorPages();
