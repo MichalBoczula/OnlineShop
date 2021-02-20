@@ -433,3 +433,19 @@ tbody td {
     justify-content: center;
     align-items: center;
 }
+
+#tfa-config-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#tfa-disable,
+#tfa-reset-codes,
+#tfa-reset-auth {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
