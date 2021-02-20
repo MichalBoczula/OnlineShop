@@ -41,8 +41,8 @@ namespace OnlineShop.Web.Infrastructure.Helper
         {
             var config = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
-                PrepareHeaderForMatch = (string header, int index) => header.ToLower(),
-                HasHeaderRecord = true
+                //PrepareHeaderForMatch = (string header, int index) => header.ToLower(),
+                //HasHeaderRecord = true
             };
 
             if (File.Exists(path))

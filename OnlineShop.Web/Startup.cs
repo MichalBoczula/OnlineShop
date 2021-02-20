@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +13,7 @@ using OnlineShop.Web.Application;
 using OnlineShop.Web.Application.Interfaces;
 using OnlineShop.Web.Application.Services;
 using OnlineShop.Web.Infrastructure;
+using OnlineShop.Web.Infrastructure.Helper.EmailSender;
 using OnlineShop.Web.Infrastructure.Repositories;
 using OnlineShop.Web.Models;
 using OnlineShop.Web.Models.Entity;
@@ -49,6 +51,8 @@ namespace OnlineShop.Web
             services.AddTransient<IMobilePhoneService, MobilePhoneService>();
             services.AddTransient<IShoppingCartService, ShoppingCartService>();
 
+            services.AddTransient<IEmailSender, EmailSender>();
+
             services.AddHttpContextAccessor();
             services.AddSession();
 
@@ -61,7 +65,6 @@ namespace OnlineShop.Web
                 opt.Password.RequiredLength = 8;
                 opt.Password.RequireLowercase = true;
                 opt.Password.RequireUppercase = true;
-                opt.SignIn.RequireConfirmedEmail = false;
             });
         }
 
