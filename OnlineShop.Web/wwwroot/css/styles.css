@@ -265,7 +265,7 @@ a:hover {
     max-width: 100%;
 }
 
-/*MobilePhone Details*/
+/*ShoppingCart*/
 /*####################################################################################################################################################
 ####################################################################################################################################################
 ####################################################################################################################################################*/
@@ -339,5 +339,68 @@ tbody td {
         display: flex;
         flex-direction: column;
     }
+}
+
+/**Account-Manage/
+/*####################################################################################################################################################
+####################################################################################################################################################
+####################################################################################################################################################*/
+
+.account-manage-form {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+#register-form 
+{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#login-form 
+{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#email-form 
+{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#account-manage 
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.pb-3
+{
+    margin-top: 90px;
+}
+
+.view-data 
+{
+    margin-left: 0;
+}
+
+#tfa-form 
+{
+    padding: 20px;
+}
+
+#account-settings-title
+{
+    margin-left: 20px;
 }
 
