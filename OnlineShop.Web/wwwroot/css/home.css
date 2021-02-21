@@ -4,7 +4,8 @@
 }
 
 #footer,
-#nav {
+#nav,
+#dropdown {
     display: none;
 }
 
@@ -148,7 +149,7 @@
 }
 
 
-@keyframes test{
+@keyframes test {
     0% {
         opacity: 0;
         transform: translateX(100px);

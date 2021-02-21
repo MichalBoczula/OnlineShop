@@ -10,6 +10,7 @@ namespace OnlineShop.Web.Models.Interfaces
     public interface IMobilePhoneRepository
     {
         IQueryable<MobilePhone> GetAllActiveMobilePhones();
+        IQueryable<MobilePhone> GetFilteredMobilePhones(string filter);
         IQueryable<MobilePhone> GetBestSellers();
         Task<MobilePhone> GetMobilePhoneById(int mobilePhoneId);
     }

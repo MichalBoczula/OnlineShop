@@ -37,6 +37,14 @@ namespace OnlineShop.Web.Application.Services
             return mobilesForListVm;
         }
 
+        public async Task<List<MobilePhoneForListVM>> GetFilteredMobilePhones(string filter)
+        {
+            var mobilesForListVm = await _repository.GetFilteredMobilePhones(filter)
+              .ProjectTo<MobilePhoneForListVM>(_mapper.ConfigurationProvider)
+              .ToListAsync();
+            return mobilesForListVm;
+        }
+
         public async Task<MobilePhoneDetailsVM> GetMobilePhoneDetails(int mobilePhonesId)
         {
             var mobile = await _repository.GetMobilePhoneById(mobilePhonesId);

@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Infrastructure\Migrations\20210221002112_ToAlliPhoneAdded.cs" />
+    <Compile Remove="Infrastructure\Migrations\20210221002112_ToAlliPhoneAdded.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Infrastructure\Helper\CSVSeed\Camera.csv" />
   </ItemGroup>
 

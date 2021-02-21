@@ -37,7 +37,7 @@ namespace OnlineShop.Test.Application.Services
         public async Task GetMobilePhonesForHomeTest_DBEmpty()
         {
             var service = BuildInMemoryDBProvider();
-            using (var dbContext =  service.GetService<DatabaseContext>())
+            using (var dbContext = service.GetService<DatabaseContext>())
             {
                 var configuration = new MapperConfiguration(cfg =>
                 {
@@ -195,6 +195,207 @@ namespace OnlineShop.Test.Application.Services
         }
 
         [Fact]
+        public async Task GetFilteredMobilePhonesTest_ShouldGetTwoObjectsWithAndroid()
+        {
+            var service = BuildInMemoryDBProvider();
+            using (var dbContext = service.GetService<DatabaseContext>())
+            {
+                //Arrange
+                var hardwareiPhone12 = new Hardware()
+                {
+                    Id = 1,
+                    ProcessorName = "A14 Bionic",
+                    OperationSystem = "iOS",
+                    GraphicsProcessor = "A14 Bionic",
+                    OperationMemory = 4,
+                    MemorySpace = 64,
+                    SimCardType = "Nano",
+                    BatteryCapacity = 2500,
+                    MobilePhoneId = 1
+                };
+                dbContext.Add(new MobilePhone()
+                {
+                    Id = 1,
+                    Brand = "Apple",
+                    Name = "iPhone 12",
+                    Price = 3000,
+                    ShortDescription = "short",
+                    Description = "Description",
+                    ActiveStatus = true,
+                    QuantityInStack = QuantityStatus.Full,
+                    MainImage = "/Apple/iPhone 12/Main.png",
+                    FirstImage = "/Apple/iPhone 12/First.png",
+                    SecondImage = "/Apple/iPhone 12/Second.png",
+                    BestSeller = true,
+                    Hardware = new Hardware()
+                    {
+                        Id = 1,
+                        OperationSystem = "iOS",
+                        MobilePhoneId = 1
+                    }
+                });
+                dbContext.Add(new MobilePhone()
+                {
+                    Id = 4,
+                    Brand = "LG",
+                    Name = "Wing 5G",
+                    Price = 4500,
+                    ShortDescription = "short",
+                    Description = "Description",
+                    ActiveStatus = true,
+                    QuantityInStack = QuantityStatus.Full,
+                    MainImage = "/LG/Wing/Main.png",
+                    FirstImage = "/LG/Wing/First.png",
+                    SecondImage = "/LG/Wing/Second.png",
+                    BestSeller = true,
+                    Hardware = new Hardware()
+                    {
+                        Id = 2,
+                        OperationSystem = "Android",
+                        MobilePhoneId = 4
+                    }
+                });
+                dbContext.Add(new MobilePhone()
+                {
+                    Id = 24,
+                    Brand = "Apple",
+                    Name = "iPhone SE",
+                    Price = 2100,
+                    ShortDescription = "short",
+                    Description = "Description",
+                    ActiveStatus = true,
+                    QuantityInStack = QuantityStatus.Full,
+                    MainImage = "/Apple/iPhone SE/Main.png",
+                    FirstImage = "/Apple/iPhone SE/First.png",
+                    SecondImage = "/Apple/iPhone SE/Second.png",
+                    BestSeller = true,
+                    Hardware = new Hardware()
+                    {
+                        Id = 3,
+                        OperationSystem = "Android",
+                        MobilePhoneId = 24
+                    }
+                });
+
+                dbContext.SaveChanges();
+
+                var configuration = new MapperConfiguration(cfg =>
+                {
+                    cfg.CreateMap<MobilePhone, MobilePhoneForListVM>();
+                });
+                var mapper = new Mapper(configuration);
+                var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
+                var mobilePhoneService = new MobilePhoneService(mobilePhoneRepository, mapper);
+                //Act 
+                var result = await mobilePhoneService.GetFilteredMobilePhones("Android");
+                //Assert
+                result.Should().HaveCount(2);
+                result.Should().BeOfType<List<MobilePhoneForListVM>>();
+            }
+        }
+
+        [Fact]
+        public async Task GetFilteredMobilePhonesTest_ShouldGetOneObjectsWithIOS()
+        {
+            var service = BuildInMemoryDBProvider();
+            using (var dbContext = service.GetService<DatabaseContext>())
+            {
+                //Arrange
+                var hardwareiPhone12 = new Hardware()
+                {
+                    Id = 1,
+                    ProcessorName = "A14 Bionic",
+                    OperationSystem = "iOS",
+                    GraphicsProcessor = "A14 Bionic",
+                    OperationMemory = 4,
+                    MemorySpace = 64,
+                    SimCardType = "Nano",
+                    BatteryCapacity = 2500,
+                    MobilePhoneId = 1
+                };
+                dbContext.Add(new MobilePhone()
+                {
+                    Id = 1,
+                    Brand = "Apple",
+                    Name = "iPhone 12",
+                    Price = 3000,
+                    ShortDescription = "short",
+                    Description = "Description",
+                    ActiveStatus = true,
+                    QuantityInStack = QuantityStatus.Full,
+                    MainImage = "/Apple/iPhone 12/Main.png",
+                    FirstImage = "/Apple/iPhone 12/First.png",
+                    SecondImage = "/Apple/iPhone 12/Second.png",
+                    BestSeller = true,
+                    Hardware = new Hardware()
+                    {
+                        Id = 1,
+                        OperationSystem = "iOS",
+                        MobilePhoneId = 1
+                    }
+                });
+                dbContext.Add(new MobilePhone()
+                {
+                    Id = 4,
+                    Brand = "LG",
+                    Name = "Wing 5G",
+                    Price = 4500,
+                    ShortDescription = "short",
+                    Description = "Description",
+                    ActiveStatus = true,
+                    QuantityInStack = QuantityStatus.Full,
+                    MainImage = "/LG/Wing/Main.png",
+                    FirstImage = "/LG/Wing/First.png",
+                    SecondImage = "/LG/Wing/Second.png",
+                    BestSeller = true,
+                    Hardware = new Hardware()
+                    {
+                        Id = 2,
+                        OperationSystem = "Android",
+                        MobilePhoneId = 4
+                    }
+                });
+                dbContext.Add(new MobilePhone()
+                {
+                    Id = 24,
+                    Brand = "Apple",
+                    Name = "iPhone SE",
+                    Price = 2100,
+                    ShortDescription = "short",
+                    Description = "Description",
+                    ActiveStatus = true,
+                    QuantityInStack = QuantityStatus.Full,
+                    MainImage = "/Apple/iPhone SE/Main.png",
+                    FirstImage = "/Apple/iPhone SE/First.png",
+                    SecondImage = "/Apple/iPhone SE/Second.png",
+                    BestSeller = true,
+                    Hardware = new Hardware()
+                    {
+                        Id = 3,
+                        OperationSystem = "Android",
+                        MobilePhoneId = 24
+                    }
+                });
+
+                dbContext.SaveChanges();
+
+                var configuration = new MapperConfiguration(cfg =>
+                {
+                    cfg.CreateMap<MobilePhone, MobilePhoneForListVM>();
+                });
+                var mapper = new Mapper(configuration);
+                var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
+                var mobilePhoneService = new MobilePhoneService(mobilePhoneRepository, mapper);
+                //Act 
+                var result = await mobilePhoneService.GetFilteredMobilePhones("iOS");
+                //Assert
+                result.Should().HaveCount(1);
+                result.Should().BeOfType<List<MobilePhoneForListVM>>();
+            }
+        }
+
+
+        [Fact]
         public async Task GetMobilePhonesForListTest_EmptyDB()
         {
             var service = BuildInMemoryDBProvider();
@@ -326,7 +527,7 @@ namespace OnlineShop.Test.Application.Services
                 result.Should().BeOfType<CameraVM>();
             }
         }
-        
+
         [Fact]
         public void GetCameraVMTest_Null()
         {
@@ -414,7 +615,7 @@ namespace OnlineShop.Test.Application.Services
             }
         }
 
-         [Fact]
+        [Fact]
         public void GetHardwareVM_Null()
         {
             var service = BuildInMemoryDBProvider();
@@ -499,7 +700,7 @@ namespace OnlineShop.Test.Application.Services
                 result.Should().BeOfType<MultimediaVM>();
             }
         }
-        
+
         [Fact]
         public void GetMultimediaVM_Null()
         {

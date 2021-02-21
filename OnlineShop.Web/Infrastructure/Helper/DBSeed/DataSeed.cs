@@ -45,6 +45,7 @@ namespace OnlineShop.Web.Infrastructure.Helper.DBSeed
                 VideoFPS = 120,
                 MobilePhoneId = 3,
                 Functions = "Video Recorder;Autofokus;Flash;HDR;Dolby Vision;Night Mode;Deep Fusion"
+                
             };
             var cameraLgWing = new Camera()
             {
@@ -639,7 +640,7 @@ namespace OnlineShop.Web.Infrastructure.Helper.DBSeed
             {
                 Id = 23,
                 ProcessorName = "A13 Bionic",
-                OperationSystem = "Android",
+                OperationSystem = "iOS",
                 GraphicsProcessor = "A13 Bionic",
                 OperationMemory = 6,
                 MemorySpace = 64,
@@ -651,7 +652,7 @@ namespace OnlineShop.Web.Infrastructure.Helper.DBSeed
             {
                 Id = 24,
                 ProcessorName = "A13 Bionic",
-                OperationSystem = "Android",
+                OperationSystem = "iOS",
                 GraphicsProcessor = "A13 Bionic",
                 OperationMemory = 4,
                 MemorySpace = 64,

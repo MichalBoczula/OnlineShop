@@ -38,6 +38,40 @@ namespace OnlineShop.Test.Infrastructure.Repositories
         }
 
         [Fact]
+        public void GetFilteredMobilePhonesTest_GetIOSPhones()
+        {
+            var serviceProvider = BuildSqliteDBProvider();
+            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
+            {
+                //Arrange
+                dbContext.Database.OpenConnection();
+                dbContext.Database.EnsureCreated();
+                var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
+                //Act
+                var result = mobilePhoneRepository.GetFilteredMobilePhones("iOS");
+                //Assert
+                result.Should().HaveCount(5);
+            }
+        }
+
+        [Fact]
+        public void GetFilteredMobilePhonesTest_GetAndroidPhones()
+        {
+            var serviceProvider = BuildSqliteDBProvider();
+            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
+            {
+                //Arrange
+                dbContext.Database.OpenConnection();
+                dbContext.Database.EnsureCreated();
+                var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
+                //Act
+                var result = mobilePhoneRepository.GetFilteredMobilePhones("Android");
+                //Assert
+                result.Should().HaveCount(25);
+            }
+        }
+
+        [Fact]
         public void GetAllActiveMobilePhonesTest()
         {
             var serviceProvider = BuildSqliteDBProvider();

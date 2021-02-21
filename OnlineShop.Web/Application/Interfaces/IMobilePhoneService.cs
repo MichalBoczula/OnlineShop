@@ -10,6 +10,7 @@ namespace OnlineShop.Web.Application.Interfaces
     {
         Task<List<MobilePhoneForListVM>> GetMobilePhonesForList();
         Task<MobilePhoneDetailsVM> GetMobilePhoneDetails(int mobileId);
+        Task<List<MobilePhoneForListVM>> GetFilteredMobilePhones(string filter);
         Task<List<MobilePhoneForHomeVM>> GetMobilePhonesForHome();
     }
 }
