@@ -1,4 +1,5 @@
 ﻿using OnlineShop.Web.Application.ViewModels.Mobile;
+using OnlineShop.Web.Models.Filters;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +11,7 @@ namespace OnlineShop.Web.Application.Interfaces
     {
         Task<List<MobilePhoneForListVM>> GetMobilePhonesForList();
         Task<MobilePhoneDetailsVM> GetMobilePhoneDetails(int mobileId);
-        Task<List<MobilePhoneForListVM>> GetFilteredMobilePhones(string filter);
+        Task<List<MobilePhoneForListVM>> GetFilteredMobilePhones(Filters filters);
         Task<List<MobilePhoneForHomeVM>> GetMobilePhonesForHome();
     }
 }

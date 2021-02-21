@@ -1,0 +1,97 @@
+﻿.navbar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 0%;
+    width: 0%;
+}
+
+.navbar-links-container {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 0%;
+    font-size: 20px;
+    transition: all linear 0.3s;
+}
+
+.navbar-link {
+    padding: 20px;
+    overflow: hidden;
+    transition: all linear 0.3s;
+}
+
+    .navbar-link:first-of-type {
+        margin-top: 50px;
+    }
+
+    .navbar-link:hover {
+        transform: translateX(50px);
+        font-weight: 900;
+    }
+
+.divider {
+    border-top: 3px solid #bbb;
+}
+
+.bar {
+    height: 6px;
+    width: 30px;
+    background-color: black;
+    border-radius: 10px;
+    transition: all linear 0.3s;
+    background-color: black;
+    box-shadow: 4px 4px 4px var(--mainDark);
+}
+
+    .bar:not(:first-of-type) {
+        margin-top: 6px;
+    }
+
+.navbar-btn {
+    position: fixed;
+    width: 60px;
+    top: 0;
+    padding: 20px;
+    z-index: 4;
+    height: 60px;
+}
+
+    .navbar-btn:hover .bar {
+        background-color: blue
+    }
+
+    .navbar-btn:hover {
+        cursor: pointer;
+    }
+
+.active .bar1 {
+    width: 20px;
+    transform: rotate(-45deg) translate(-8px, 2px);
+}
+
+.active .bar3 {
+    width: 20px;
+    transform: rotate(45deg) translate(-8px, -2px);
+}
+
+.navbar-links-container-active {
+    width: 100%;
+}
+
+.navbar-container-active {
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+}
+
+@media (min-width: 1200px) {
+    .navbar-links-container-active {
+        width: 30%;
+    }
+}

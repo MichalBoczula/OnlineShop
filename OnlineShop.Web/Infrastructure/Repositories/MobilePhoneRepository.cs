@@ -26,13 +26,6 @@ namespace OnlineShop.Web.Infrastructure.Repositories
                                  .AsQueryable();
         }
 
-        public IQueryable<MobilePhone> GetFilteredMobilePhones(string filter)
-        {
-            return context.MobilePhones
-                                 .Where(m => m.ActiveStatus == true && m.Hardware.OperationSystem == filter)
-                                 .AsQueryable();
-        }
-
         public IQueryable<MobilePhone> RetriveFilteredMobilePhones(Filters filters)
         {
             var query = context.MobilePhones

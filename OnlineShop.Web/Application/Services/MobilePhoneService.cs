@@ -8,6 +8,7 @@ using OnlineShop.Web.Application.ViewModels.Mobile;
 using OnlineShop.Web.Application.ViewModels.Multimedia;
 using OnlineShop.Web.Application.ViewModels.Screen;
 using OnlineShop.Web.Models.Entity;
+using OnlineShop.Web.Models.Filters;
 using OnlineShop.Web.Models.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -37,9 +38,9 @@ namespace OnlineShop.Web.Application.Services
             return mobilesForListVm;
         }
 
-        public async Task<List<MobilePhoneForListVM>> GetFilteredMobilePhones(string filter)
+        public async Task<List<MobilePhoneForListVM>> GetFilteredMobilePhones(Filters filters)
         {
-            var mobilesForListVm = await _repository.GetFilteredMobilePhones(filter)
+            var mobilesForListVm = await _repository.RetriveFilteredMobilePhones(filters)
               .ProjectTo<MobilePhoneForListVM>(_mapper.ConfigurationProvider)
               .ToListAsync();
             return mobilesForListVm;

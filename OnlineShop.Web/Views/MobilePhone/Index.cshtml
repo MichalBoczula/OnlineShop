@@ -3,6 +3,31 @@
 @{
     ViewData["Title"] = "Index";
 }
+<head>
+    <link href='@(Url.Content("~/css/filters.css") + "?v=" + Guid.NewGuid().ToString())' rel='stylesheet' type='text/css' />
+</head>
+
+<div class="navbar-btn" id="navBtn">
+    <div class='bar bar1'></div>
+    <div class='bar bar2'></div>
+    <div class='bar bar3'></div>
+</div>
+
+<section class="navbar-container">
+    <section class="navbar-links-container">
+        <a href="#home" class="navbar-link">a</a>
+        <div class="divider"></div>
+        <a href="#about" class="navbar-link">b</a>
+        <div class="divider"></div>
+        <a href="#service" class="navbar-link">c</a>
+        <div class="divider"></div>
+        <a href="#offers" class="navbar-link">d</a>
+        <div class="divider"></div>
+        <a href="#gallery" class="navbar-link">e</a>
+        <div class="divider"></div>
+        <a href="#newsletter" class="navbar-link">f</a>
+    </section>
+</section>
 
 <div class="container" id="list">
     <div class="row">
@@ -13,3 +38,4 @@
     </div>
 </div>
 
+<script src="~/js/filters.js" asp-append-version="true"></script>

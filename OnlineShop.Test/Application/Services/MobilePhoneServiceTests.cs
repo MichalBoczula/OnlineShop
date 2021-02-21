@@ -12,6 +12,7 @@ using OnlineShop.Web.Application.ViewModels.Screen;
 using OnlineShop.Web.Infrastructure;
 using OnlineShop.Web.Infrastructure.Repositories;
 using OnlineShop.Web.Models.Entity;
+using OnlineShop.Web.Models.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -286,8 +287,10 @@ namespace OnlineShop.Test.Application.Services
                 var mapper = new Mapper(configuration);
                 var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
                 var mobilePhoneService = new MobilePhoneService(mobilePhoneRepository, mapper);
+                var filters = new Filters();
+                filters.OperationSystem = "Android";
                 //Act 
-                var result = await mobilePhoneService.GetFilteredMobilePhones("Android");
+                var result = await mobilePhoneService.GetFilteredMobilePhones(filters);
                 //Assert
                 result.Should().HaveCount(2);
                 result.Should().BeOfType<List<MobilePhoneForListVM>>();
@@ -386,8 +389,10 @@ namespace OnlineShop.Test.Application.Services
                 var mapper = new Mapper(configuration);
                 var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
                 var mobilePhoneService = new MobilePhoneService(mobilePhoneRepository, mapper);
+                var filters = new Filters();
+                filters.OperationSystem = "iOS";
                 //Act 
-                var result = await mobilePhoneService.GetFilteredMobilePhones("iOS");
+                var result = await mobilePhoneService.GetFilteredMobilePhones(filters);
                 //Assert
                 result.Should().HaveCount(1);
                 result.Should().BeOfType<List<MobilePhoneForListVM>>();
