@@ -26,12 +26,6 @@ namespace OnlineShop.Web.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Index(string filter)
-        {
-            var model = await _mobileService.GetFilteredMobilePhones(filter);
-            return View(model);
-        }
-
         public async Task<IActionResult> Details(int mobilePhoneId)
         {
             var model = await _mobileService.GetMobilePhoneDetails(mobilePhoneId);

@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using OnlineShop.Web.Infrastructure;
 using OnlineShop.Web.Infrastructure.Repositories;
 using OnlineShop.Web.Models.Entity;
+using OnlineShop.Web.Models.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,36 +39,280 @@ namespace OnlineShop.Test.Infrastructure.Repositories
         }
 
         [Fact]
-        public void GetFilteredMobilePhonesTest_GetIOSPhones()
+        public void RetriveFilteredMobilePhonesTest_RetriveApple()
         {
             var serviceProvider = BuildSqliteDBProvider();
             using (var dbContext = serviceProvider.GetService<DatabaseContext>())
             {
                 //Arrange
+                var filters = new Filters();
+                filters.Brands.Add("Apple");
                 dbContext.Database.OpenConnection();
                 dbContext.Database.EnsureCreated();
                 var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
                 //Act
-                var result = mobilePhoneRepository.GetFilteredMobilePhones("iOS");
+                var result = mobilePhoneRepository.RetriveFilteredMobilePhones(filters);
                 //Assert
                 result.Should().HaveCount(5);
             }
         }
 
         [Fact]
-        public void GetFilteredMobilePhonesTest_GetAndroidPhones()
+        public void RetriveFilteredMobilePhonesTest_RetriveAppleAndSony()
         {
             var serviceProvider = BuildSqliteDBProvider();
             using (var dbContext = serviceProvider.GetService<DatabaseContext>())
             {
                 //Arrange
+                var filters = new Filters();
+                filters.Brands.Add("Apple");
+                filters.Brands.Add("Sony");
                 dbContext.Database.OpenConnection();
                 dbContext.Database.EnsureCreated();
                 var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
                 //Act
-                var result = mobilePhoneRepository.GetFilteredMobilePhones("Android");
+                var result = mobilePhoneRepository.RetriveFilteredMobilePhones(filters);
+                //Assert
+                result.Should().HaveCount(7);
+            }
+        }
+
+        [Fact]
+        public void RetriveFilteredMobilePhonesTest_FiltredByScreenSize()
+        {
+            var serviceProvider = BuildSqliteDBProvider();
+            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
+            {
+                //Arrange
+                var filters = new Filters();
+                filters.ScreenSize = 6.8m;
+                dbContext.Database.OpenConnection();
+                dbContext.Database.EnsureCreated();
+                var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
+                //Act
+                var result = mobilePhoneRepository.RetriveFilteredMobilePhones(filters);
+                //Assert
+                result.Should().HaveCount(4);
+            }
+        }
+
+        [Fact]
+        public void RetriveFilteredMobilePhonesTest_FiltredByMemorySpace()
+        {
+            var serviceProvider = BuildSqliteDBProvider();
+            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
+            {
+                //Arrange
+                var filters = new Filters();
+                filters.MemorySpace = 256;
+                dbContext.Database.OpenConnection();
+                dbContext.Database.EnsureCreated();
+                var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
+                //Act
+                var result = mobilePhoneRepository.RetriveFilteredMobilePhones(filters);
+                //Assert
+                result.Should().HaveCount(8);
+            }
+        }
+
+        [Fact]
+        public void RetriveFilteredMobilePhonesTest_FiltredByOperationMemory()
+        {
+            var serviceProvider = BuildSqliteDBProvider();
+            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
+            {
+                //Arrange
+                var filters = new Filters();
+                filters.OperationMemory = 12;
+                dbContext.Database.OpenConnection();
+                dbContext.Database.EnsureCreated();
+                var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
+                //Act
+                var result = mobilePhoneRepository.RetriveFilteredMobilePhones(filters);
+                //Assert
+                result.Should().HaveCount(2);
+            }
+        }
+
+        [Fact]
+        public void RetriveFilteredMobilePhonesTest_FiltredByCameraMainResolution()
+        {
+            var serviceProvider = BuildSqliteDBProvider();
+            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
+            {
+                //Arrange
+                var filters = new Filters();
+                filters.MainResolution = 64;
+                dbContext.Database.OpenConnection();
+                dbContext.Database.EnsureCreated();
+                var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
+                //Act
+                var result = mobilePhoneRepository.RetriveFilteredMobilePhones(filters);
+                //Assert
+                result.Should().HaveCount(7);
+            }
+        }
+
+        [Fact]
+        public void RetriveFilteredMobilePhonesTest_FiltredByCameraFrontResolution()
+        {
+            var serviceProvider = BuildSqliteDBProvider();
+            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
+            {
+                //Arrange
+                var filters = new Filters();
+                filters.FrontResolution = 32;
+                dbContext.Database.OpenConnection();
+                dbContext.Database.EnsureCreated();
+                var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
+                //Act
+                var result = mobilePhoneRepository.RetriveFilteredMobilePhones(filters);
+                //Assert
+                result.Should().HaveCount(5);
+            }
+        }
+
+        [Fact]
+        public void RetriveFilteredMobilePhonesTest_FiltredByLowerPrice()
+        {
+            var serviceProvider = BuildSqliteDBProvider();
+            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
+            {
+                //Arrange
+                var filters = new Filters();
+                filters.LowerPrice = 4000;
+                dbContext.Database.OpenConnection();
+                dbContext.Database.EnsureCreated();
+                var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
+                //Act
+                var result = mobilePhoneRepository.RetriveFilteredMobilePhones(filters);
+                //Assert
+                result.Should().HaveCount(7);
+            }
+        }
+
+        [Fact]
+        public void RetriveFilteredMobilePhonesTest_FiltredByMaxPrice()
+        {
+            var serviceProvider = BuildSqliteDBProvider();
+            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
+            {
+                //Arrange
+                var filters = new Filters();
+                filters.MaxPrice = 4000;
+                dbContext.Database.OpenConnection();
+                dbContext.Database.EnsureCreated();
+                var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
+                //Act
+                var result = mobilePhoneRepository.RetriveFilteredMobilePhones(filters);
+                //Assert
+                result.Should().HaveCount(23);
+            }
+        }
+
+        [Fact]
+        public void RetriveFilteredMobilePhonesTest_GetIOSPhones()
+        {
+            var serviceProvider = BuildSqliteDBProvider();
+            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
+            {
+                //Arrange
+                var filters = new Filters();
+                filters.OperationSystem = "iOS";
+                dbContext.Database.OpenConnection();
+                dbContext.Database.EnsureCreated();
+                var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
+                //Act
+                var result = mobilePhoneRepository.RetriveFilteredMobilePhones(filters);
+                //Assert
+                result.Should().HaveCount(5);
+            }
+        }
+
+        [Fact]
+        public void RetriveFilteredMobilePhonesTest_GetAndroidPhones()
+        {
+            var serviceProvider = BuildSqliteDBProvider();
+            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
+            {
+                //Arrange
+                var filters = new Filters();
+                filters.OperationSystem = "Android";
+                dbContext.Database.OpenConnection();
+                dbContext.Database.EnsureCreated();
+                var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
+                //Act
+                var result = mobilePhoneRepository.RetriveFilteredMobilePhones(filters);
                 //Assert
                 result.Should().HaveCount(25);
+            }
+        }
+
+        [Fact]
+        public void RetriveFilteredMobilePhonesTest_WithManyFilters()
+        {
+            var serviceProvider = BuildSqliteDBProvider();
+            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
+            {
+                //Arrange
+                var filters = new Filters();
+                filters.LowerPrice = 4000;
+                filters.Brands.Add("Apple");
+                filters.Brands.Add("Samsung");
+                dbContext.Database.OpenConnection();
+                dbContext.Database.EnsureCreated();
+                var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
+                //Act
+                var result = mobilePhoneRepository.RetriveFilteredMobilePhones(filters);
+                //Assert
+                result.Should().HaveCount(3);
+            }
+        }
+
+        [Fact]
+        public void RetriveFilteredMobilePhonesTest_WithManyFiltersSecondTest()
+        {
+            var serviceProvider = BuildSqliteDBProvider();
+            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
+            {
+                //Arrange
+                var filters = new Filters();
+                filters.OperationMemory = 8; 
+                filters.MemorySpace = 64; 
+                filters.LowerPrice = 2000; 
+                filters.MaxPrice = 4000; 
+                dbContext.Database.OpenConnection();
+                dbContext.Database.EnsureCreated();
+                var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
+                //Act
+                var result = mobilePhoneRepository.RetriveFilteredMobilePhones(filters);
+                //Assert
+                result.Should().HaveCount(4);
+            }
+        }
+
+        [Fact]
+        public void RetriveFilteredMobilePhonesTest_WithManyFiltersThirdTest()
+        {
+            var serviceProvider = BuildSqliteDBProvider();
+            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
+            {
+                //Arrange
+                var filters = new Filters();
+                filters.OperationMemory = 6;
+                filters.MemorySpace = 32;
+                filters.Brands.Add("Apple");
+                filters.Brands.Add("Xiaomi");
+                filters.Brands.Add("Nokia");
+                filters.Brands.Add("Motorola");
+                filters.MaxPrice = 3000;
+                dbContext.Database.OpenConnection();
+                dbContext.Database.EnsureCreated();
+                var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
+                //Act
+                var result = mobilePhoneRepository.RetriveFilteredMobilePhones(filters);
+                //Assert
+                result.Should().HaveCount(3);
             }
         }
 
