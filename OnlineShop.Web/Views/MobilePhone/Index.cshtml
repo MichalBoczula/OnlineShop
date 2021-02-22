@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MobilePhoneForListVM>
+﻿@model MobilePhoneAndFiltersVM
 
 @{
     ViewData["Title"] = "Index";
@@ -7,11 +7,11 @@
     <link href='@(Url.Content("~/css/filters.css") + "?v=" + Guid.NewGuid().ToString())' rel='stylesheet' type='text/css' />
 </head>
 
-@await Component.InvokeAsync("FiltersForm")
+<partial name="_Filters" model="@Model.Filters" />
 
 <div class="container" id="list">
     <div class="row">
-        @foreach (var item in Model)
+        @foreach (var item in Model.MobilePhoneVMs)
         {
             <partial name="_MobilePhoneCard" model="item" />
         }

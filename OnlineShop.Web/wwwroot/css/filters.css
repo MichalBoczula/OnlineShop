@@ -1,4 +1,4 @@
-﻿.navbar-container {
+﻿.form-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -6,7 +6,7 @@
     width: 0%;
 }
 
-.navbar-links-container {
+.form-link-container {
     position: fixed;
     top: 0;
     height: 100%;
@@ -20,19 +20,14 @@
     transition: all linear 0.3s;
 }
 
-.navbar-link {
+.form {
     padding: 20px;
     overflow: hidden;
     transition: all linear 0.3s;
 }
 
-    .navbar-link:first-of-type {
+    .form:first-of-type {
         margin-top: 50px;
-    }
-
-    .navbar-link:hover {
-        transform: translateX(50px);
-        font-weight: 900;
     }
 
 .divider {
@@ -53,7 +48,7 @@
         margin-top: 6px;
     }
 
-.navbar-btn {
+.form-btn {
     position: fixed;
     width: 60px;
     top: 0;
@@ -62,11 +57,11 @@
     height: 60px;
 }
 
-    .navbar-btn:hover .bar {
+    .form-btn:hover .bar {
         background-color: blue
     }
 
-    .navbar-btn:hover {
+    .form-btn:hover {
         cursor: pointer;
     }
 
@@ -80,18 +75,31 @@
     transform: rotate(45deg) translate(-8px, -2px);
 }
 
-.navbar-links-container-active {
+.form-link-container-active {
     width: 100%;
 }
 
-.navbar-container-active {
+.form-container-active {
     height: 100%;
     width: 100%;
     z-index: 2;
 }
 
 @media (min-width: 1200px) {
-    .navbar-links-container-active {
+    .form-link-container-active {
         width: 30%;
+    }
+}
+
+.form-item {
+    display: flex;
+    justify-content: space-around;
+}
+
+@media (max-width: 768px) {
+    .form-btn {
+        width: 50px;
+        padding: 10px;
+        height: 50px;
     }
 }

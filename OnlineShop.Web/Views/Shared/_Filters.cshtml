@@ -1,21 +1,80 @@
-﻿<div class="navbar-btn" id="navBtn">
+﻿@model OnlineShop.Web.Models.Filters.Filters
+
+<div class="form-btn" id="formBtn">
     <div class='bar bar1'></div>
     <div class='bar bar2'></div>
     <div class='bar bar3'></div>
 </div>
 
-<section class="navbar-container">
-    <section class="navbar-links-container">
-        <a href="#home" class="navbar-link">a</a>
-        <div class="divider"></div>
-        <a href="#about" class="navbar-link">b</a>
-        <div class="divider"></div>
-        <a href="#service" class="navbar-link">c</a>
-        <div class="divider"></div>
-        <a href="#offers" class="navbar-link">d</a>
-        <div class="divider"></div>
-        <a href="#gallery" class="navbar-link">e</a>
-        <div class="divider"></div>
-        <a href="#newsletter" class="navbar-link">f</a>
+<section class="form-container">
+    <section class="form-link-container">
+        <form asp-action="Index" asp-controller="MobilePhone" method="post" class="form">
+            <p>Operation System</p>
+            <div class="form-item">
+                <div>
+                    <input asp-for="OperationSystem" type="radio" value="0" id="OperationSystem" checked="checked" />
+                    <label for="OperationSystem">All</label>
+                </div>
+                <div>
+                    <input asp-for="OperationSystem" type="radio" value="Android" id="Android" />
+                    <label for="Android">Android</label>
+                </div>
+                <div>
+                    <input asp-for="OperationSystem" type="radio" value="iOS" id="iOS" />
+                    <label for="iOS">iOS</label>
+                </div>
+            </div>
+            <p>Operation Memory</p>
+            <div class="form-item">
+                <div>
+                    <input asp-for="OperationMemory" type="radio" value="0" id="OperationMemory" checked="checked" />
+                    <label for="OperationMemory">All</label>
+                </div>
+                <div>
+                    <input asp-for="OperationMemory" type="radio" value="4" id="4" />
+                    <label for="4">4</label>
+                </div>
+                <div>
+                    <input asp-for="OperationMemory" type="radio" value="6" id="6" />
+                    <label for="6">6</label>
+                </div>
+                <div>
+                    <input asp-for="OperationMemory" type="radio" value="8" id="8" />
+                    <label for="8">8</label>
+                </div>
+                <div>
+                    <input asp-for="OperationMemory" type="radio" value="12" id="12" />
+                    <label for="12">12</label>
+                </div>
+            </div>
+            <p>Memory Space</p>
+            <div class="form-item">
+                <div>
+                    <input asp-for="MemorySpace" type="radio" value="0" id="MemorySpace" checked="checked" />
+                    <label for="MemorySpace">All</label>
+                </div>
+                <div>
+                    <input asp-for="MemorySpace" type="radio" value="64" id="64" />
+                    <label for="64">64</label>
+                </div>
+                <div>
+                    <input asp-for="MemorySpace" type="radio" value="128" id="128" />
+                    <label for="128">128</label>
+                </div>
+                <div>
+                    <input asp-for="MemorySpace" type="radio" value="256" id="256" />
+                    <label for="256">256</label>
+                </div>
+                <div>
+                    <input asp-for="MemorySpace" type="radio" value="512" id="512" />
+                    <label for="512">512</label>
+                </div>
+            </div>
+            <br><br>
+            <input type="submit">
+        </form>
     </section>
 </section>
+
+<input type="radio" id="dewey" name="drone" value="dewey">
+<label for="dewey">Dewey</label>

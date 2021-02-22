@@ -24,9 +24,9 @@
     transition: all linear 0.2s;
 }
 
-.nav-item:hover {
-    font-weight: 700;
-}
+    .nav-item:hover {
+        font-weight: 700;
+    }
 
 .fa-mobile-alt {
     margin-right: 10px;
@@ -41,6 +41,15 @@
     top: 90px;
 }
 
+#nav-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 50px;
+}
+
+.navbar-toggler {
+    justify-self: flex-end;
+}
 /*MobilePhone Index*/
 /*####################################################################################################################################################
 ####################################################################################################################################################

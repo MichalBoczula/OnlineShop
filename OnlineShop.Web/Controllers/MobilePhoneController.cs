@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OnlineShop.Web.Application.Interfaces;
+using OnlineShop.Web.Application.ViewModels.Mobile;
+using OnlineShop.Web.Models.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +25,24 @@ namespace OnlineShop.Web.Controllers
         public async Task<IActionResult> Index()
         {
             var model = await _mobileService.GetMobilePhonesForList();
-            return View(model);
+            var VM = new MobilePhoneAndFiltersVM()
+            {
+                Filters = new Filters(),
+                MobilePhoneVMs = model
+            };
+            return View(VM);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(Filters filters)
+        {
+            var model = await _mobileService.GetFilteredMobilePhones(filters);
+            var VM = new MobilePhoneAndFiltersVM()
+            {
+                Filters = filters,
+                MobilePhoneVMs = model
+            };
+            return View(VM);
         }
 
         public async Task<IActionResult> Details(int mobilePhoneId)
