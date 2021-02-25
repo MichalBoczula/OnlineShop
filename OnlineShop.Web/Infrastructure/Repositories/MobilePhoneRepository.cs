@@ -46,12 +46,12 @@ namespace OnlineShop.Web.Infrastructure.Repositories
                 query = query.Include(c => c.Camera);
                 query = query.Where(m => m.Camera.FrontResulution >= filters.FrontResolution);
             }
-            if (filters.MemorySpace != 0)
+            if (filters.MemorySpace != 0 && filters.MemorySpace != null)
             {
                 query = query.Include(h => h.Hardware);
                 query = query.Where(m => m.Hardware.MemorySpace >= filters.MemorySpace);
             }
-            if (filters.OperationMemory != 0)
+            if (filters.OperationMemory != 0 && filters.OperationMemory != null)
             {
                 query = query.Include(h => h.Hardware);
                 query = query.Where(m => m.Hardware.OperationMemory >= filters.OperationMemory);
@@ -60,7 +60,7 @@ namespace OnlineShop.Web.Infrastructure.Repositories
             //{
             //    query = query.Where(m => filters.LowerPrice   m.Price);
             //}
-            if (filters.MaxPrice != null && filters.MaxPrice != null)
+            if (filters.MinPrice != null && filters.MaxPrice != null)
             {
                 if (filters.MaxPrice > filters.MinPrice)
                 {

@@ -11,18 +11,52 @@
         <form asp-action="Index" asp-controller="MobilePhone" method="post" class="form">
             <p class="filters-label">Brands</p>
             <div class="form-item">
-                <div>
-                    <input asp-for="Brands.Apple" type="checkbox" value="Apple" id="Brands.Apple" checked="checked" />
-                    <label class="filters-label" for="Brands.Apple">Apple</label>
+                <div class="filters-brands-container">
+                    <div>
+                        <input asp-for="Brands.Apple" type="checkbox" id="Brands.Apple" />
+                        <label class="filters-label" for="Brands.Apple">Apple</label>
+                    </div>
+                    <div>
+                        <input asp-for="Brands.Huawei" type="checkbox" id="Brands.Huawei" />
+                        <label class="filters-label" for="Brands.Huawei">Huawei</label>
+                    </div>
+                    <div>
+                        <input asp-for="Brands.LG" type="checkbox" id="Brands.LG" />
+                        <label class="filters-label" for="Brands.LG">LG</label>
+                    </div>
+
                 </div>
-                <div>
-                    <input asp-for="Brands.Huawei" type="checkbox" value="Huawei" id="Brands.Huawei" checked="checked" />
-                    <label class="filters-label" for="Brands.Huawei">Brands.Huawei</label>
+
+                <div class="filters-brands-container">
+                    <div>
+                        <input asp-for="Brands.Motorola" type="checkbox" id="Brands.Motorola" />
+                        <label class="filters-label" for="Brands.Motorola">Motorola</label>
+                        <div>
+                            <input asp-for="Brands.Nokia" type="checkbox" id="Brands.Nokia" />
+                            <label class="filters-label" for="Brands.Nokia">Nokia</label>
+                        </div>
+                        <div>
+                            <input asp-for="Brands.Oppo" type="checkbox" id="Brands.Oppo" />
+                            <label class="filters-label" for="Brands.Oppo">Oppo</label>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <input asp-for="Brands.LG" type="checkbox" value="LG" id="Brands.LG" checked="checked" />
-                    <label class="filters-label" for="Brands.LG">LG</label>
+
+                <div class="filters-brands-container">
+                    <div>
+                        <input asp-for="Brands.Samsung" type="checkbox" id="Brands.Samsung" />
+                        <label class="filters-label" for="Brands.Samsung">Samsung</label>
+                    </div>
+                    <div>
+                        <input asp-for="Brands.Sony" type="checkbox" id="Brands.Sony" />
+                        <label class="filters-label" for="Brands.Sony">Sony</label>
+                    </div>
+                    <div>
+                        <input asp-for="Brands.Xiaomi" type="checkbox" id="Brands.Xiaomi" />
+                        <label class="filters-label" for="Brands.Xiaomi">Xiaomi</label>
+                    </div>
                 </div>
+
             </div>
             <p class="filters-label">Operation System</p>
             <div class="form-item">

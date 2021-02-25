@@ -105,6 +105,12 @@
     margin-bottom: 5px;
 }
 
+.filters-brands-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 @media (max-width: 768px) {
     .form-btn {
         width: 50px;
