@@ -46,7 +46,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
             {
                 //Arrange
                 var filters = new Filters();
-                filters.Brands.Add("Apple");
+                filters.Brands.Apple = true;
                 dbContext.Database.OpenConnection();
                 dbContext.Database.EnsureCreated();
                 var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
@@ -65,8 +65,8 @@ namespace OnlineShop.Test.Infrastructure.Repositories
             {
                 //Arrange
                 var filters = new Filters();
-                filters.Brands.Add("Apple");
-                filters.Brands.Add("Sony");
+                filters.Brands.Apple = true;
+                filters.Brands.Sony = true;
                 dbContext.Database.OpenConnection();
                 dbContext.Database.EnsureCreated();
                 var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
@@ -74,25 +74,6 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 var result = mobilePhoneRepository.RetriveFilteredMobilePhones(filters);
                 //Assert
                 result.Should().HaveCount(7);
-            }
-        }
-
-        [Fact]
-        public void RetriveFilteredMobilePhonesTest_FiltredByScreenSize()
-        {
-            var serviceProvider = BuildSqliteDBProvider();
-            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
-            {
-                //Arrange
-                var filters = new Filters();
-                filters.ScreenSize = 6.8m;
-                dbContext.Database.OpenConnection();
-                dbContext.Database.EnsureCreated();
-                var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
-                //Act
-                var result = mobilePhoneRepository.RetriveFilteredMobilePhones(filters);
-                //Assert
-                result.Should().HaveCount(4);
             }
         }
 
@@ -180,7 +161,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
             {
                 //Arrange
                 var filters = new Filters();
-                filters.LowerPrice = 4000;
+                filters.MinPrice = 4000;
                 dbContext.Database.OpenConnection();
                 dbContext.Database.EnsureCreated();
                 var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
@@ -256,9 +237,9 @@ namespace OnlineShop.Test.Infrastructure.Repositories
             {
                 //Arrange
                 var filters = new Filters();
-                filters.LowerPrice = 4000;
-                filters.Brands.Add("Apple");
-                filters.Brands.Add("Samsung");
+                filters.MinPrice = 4000;
+                filters.Brands.Apple = true;
+                filters.Brands.Samsung = true;
                 dbContext.Database.OpenConnection();
                 dbContext.Database.EnsureCreated();
                 var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
@@ -277,10 +258,10 @@ namespace OnlineShop.Test.Infrastructure.Repositories
             {
                 //Arrange
                 var filters = new Filters();
-                filters.OperationMemory = 8; 
-                filters.MemorySpace = 64; 
-                filters.LowerPrice = 2000; 
-                filters.MaxPrice = 4000; 
+                filters.OperationMemory = 8;
+                filters.MemorySpace = 64;
+                filters.MinPrice = 2000;
+                filters.MaxPrice = 4000;
                 dbContext.Database.OpenConnection();
                 dbContext.Database.EnsureCreated();
                 var mobilePhoneRepository = new MobilePhoneRepository(dbContext);
@@ -301,10 +282,10 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 var filters = new Filters();
                 filters.OperationMemory = 6;
                 filters.MemorySpace = 32;
-                filters.Brands.Add("Apple");
-                filters.Brands.Add("Xiaomi");
-                filters.Brands.Add("Nokia");
-                filters.Brands.Add("Motorola");
+                filters.Brands.Apple = true;
+                filters.Brands.Xiaomi = true;
+                filters.Brands.Nokia = true;
+                filters.Brands.Motorola = true;
                 filters.MaxPrice = 3000;
                 dbContext.Database.OpenConnection();
                 dbContext.Database.EnsureCreated();

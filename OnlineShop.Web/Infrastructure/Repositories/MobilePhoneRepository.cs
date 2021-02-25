@@ -30,52 +30,109 @@ namespace OnlineShop.Web.Infrastructure.Repositories
         {
             var query = context.MobilePhones
                                  .Where(m => m.ActiveStatus == true);
-
-            if (!String.IsNullOrEmpty(filters.OperationSystem))
+            
+            if (!String.IsNullOrEmpty(filters.OperationSystem) && !(filters.OperationSystem == "All"))
             {
                 query = query.Include(h => h.Hardware);
                 query = query.Where(m => m.Hardware.OperationSystem == filters.OperationSystem);
             }
-            if (filters.MainResolution != null)
+            if (filters.MainResolution != 0 && filters.MainResolution != null)
             {
                 query = query.Include(c => c.Camera);
                 query = query.Where(m => m.Camera.MainResulution >= filters.MainResolution);
             }
-            if (filters.FrontResolution != null)
+            if (filters.FrontResolution != 0 && filters.FrontResolution != null)
             {
                 query = query.Include(c => c.Camera);
                 query = query.Where(m => m.Camera.FrontResulution >= filters.FrontResolution);
             }
-            if (filters.MemorySpace != null)
+            if (filters.MemorySpace != 0)
             {
                 query = query.Include(h => h.Hardware);
                 query = query.Where(m => m.Hardware.MemorySpace >= filters.MemorySpace);
             }
-            if (filters.OperationMemory != null)
+            if (filters.OperationMemory != 0)
             {
                 query = query.Include(h => h.Hardware);
                 query = query.Where(m => m.Hardware.OperationMemory >= filters.OperationMemory);
             }
-            if (filters.LowerPrice != null)
+            //if (filters.LowerPrice != null)
+            //{
+            //    query = query.Where(m => filters.LowerPrice   m.Price);
+            //}
+            if (filters.MaxPrice != null && filters.MaxPrice != null)
             {
-                query = query.Where(m => m.Price >= filters.LowerPrice);
+                if (filters.MaxPrice > filters.MinPrice)
+                {
+                    query = query.Where(m => m.Price >= filters.MinPrice && m.Price <= filters.MaxPrice);
+                }
+                else
+                {
+                    query = query.Where(m => m.Price >= filters.MinPrice);
+                }
             }
-            if (filters.MaxPrice != null)
+            else if (filters.MaxPrice != null && filters.MinPrice == null)
             {
                 query = query.Where(m => m.Price <= filters.MaxPrice);
             }
-            if (filters.ScreenSize != null)
+            else if (filters.MaxPrice == null && filters.MinPrice != null)
             {
-                query = query.Include(s => s.Screen);
-                query = query.Where(m => m.Screen.Size >= filters.ScreenSize);
+                query = query.Where(m => m.Price >= filters.MinPrice);
             }
-            if (filters.Brands.Count > 0)
+
+            var listOFBrands = CreateListOfBrands(filters);
+
+            if (listOFBrands.Count > 0)
             {
-                query = query.Where(m => filters.Brands.Any(x => x == m.Brand));
+                query = query.Where(m => listOFBrands.Any(x => x == m.Brand));
             }
 
             return query.AsQueryable();
         }
+
+
+        private List<string> CreateListOfBrands(Filters filters)
+        {
+            var listOFBrands = new List<string>();
+            if (filters.Brands.Apple)
+            {
+                listOFBrands.Add("Apple");
+            }
+            if (filters.Brands.Huawei)
+            {
+                listOFBrands.Add("Huawei");
+            }
+            if (filters.Brands.LG)
+            {
+                listOFBrands.Add("LG");
+            }
+            if (filters.Brands.Motorola)
+            {
+                listOFBrands.Add("Motorola");
+            }
+            if (filters.Brands.Nokia)
+            {
+                listOFBrands.Add("Nokia");
+            }
+            if (filters.Brands.Oppo)
+            {
+                listOFBrands.Add("Oppo");
+            }
+            if (filters.Brands.Samsung)
+            {
+                listOFBrands.Add("Samsung");
+            }
+            if (filters.Brands.Sony)
+            {
+                listOFBrands.Add("Sony");
+            }
+            if (filters.Brands.Xiaomi)
+            {
+                listOFBrands.Add("Xiaomi");
+            }
+            return listOFBrands;
+        }
+
 
         public IQueryable<MobilePhone> GetBestSellers()
         {

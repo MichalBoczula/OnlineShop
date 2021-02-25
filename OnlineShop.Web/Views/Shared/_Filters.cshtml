@@ -6,68 +6,132 @@
     <div class='bar bar3'></div>
 </div>
 
-<section class="form-container">
+<section class="form-container filters">
     <section class="form-link-container">
         <form asp-action="Index" asp-controller="MobilePhone" method="post" class="form">
-            <p>Operation System</p>
+            <p class="filters-label">Brands</p>
             <div class="form-item">
                 <div>
-                    <input asp-for="OperationSystem" type="radio" value="0" id="OperationSystem" checked="checked" />
-                    <label for="OperationSystem">All</label>
+                    <input asp-for="Brands.Apple" type="checkbox" value="Apple" id="Brands.Apple" checked="checked" />
+                    <label class="filters-label" for="Brands.Apple">Apple</label>
+                </div>
+                <div>
+                    <input asp-for="Brands.Huawei" type="checkbox" value="Huawei" id="Brands.Huawei" checked="checked" />
+                    <label class="filters-label" for="Brands.Huawei">Brands.Huawei</label>
+                </div>
+                <div>
+                    <input asp-for="Brands.LG" type="checkbox" value="LG" id="Brands.LG" checked="checked" />
+                    <label class="filters-label" for="Brands.LG">LG</label>
+                </div>
+            </div>
+            <p class="filters-label">Operation System</p>
+            <div class="form-item">
+                <div>
+                    <input asp-for="OperationSystem" type="radio" value="All" id="OperationSystem" checked="checked" />
+                    <label class="filters-label" for="OperationSystem">All</label>
                 </div>
                 <div>
                     <input asp-for="OperationSystem" type="radio" value="Android" id="Android" />
-                    <label for="Android">Android</label>
+                    <label class="filters-label" for="Android">Android</label>
                 </div>
                 <div>
                     <input asp-for="OperationSystem" type="radio" value="iOS" id="iOS" />
-                    <label for="iOS">iOS</label>
+                    <label class="filters-label" for="iOS">iOS</label>
                 </div>
             </div>
-            <p>Operation Memory</p>
+            <p class="filters-label">Operation Memory</p>
             <div class="form-item">
                 <div>
                     <input asp-for="OperationMemory" type="radio" value="0" id="OperationMemory" checked="checked" />
-                    <label for="OperationMemory">All</label>
+                    <label class="filters-label" for="OperationMemory">All</label>
                 </div>
                 <div>
                     <input asp-for="OperationMemory" type="radio" value="4" id="4" />
-                    <label for="4">4</label>
+                    <label class="filters-label" for="4">4</label>
                 </div>
                 <div>
                     <input asp-for="OperationMemory" type="radio" value="6" id="6" />
-                    <label for="6">6</label>
+                    <label class="filters-label" for="6">6</label>
                 </div>
                 <div>
                     <input asp-for="OperationMemory" type="radio" value="8" id="8" />
-                    <label for="8">8</label>
+                    <label class="filters-label" for="8">8</label>
                 </div>
                 <div>
                     <input asp-for="OperationMemory" type="radio" value="12" id="12" />
-                    <label for="12">12</label>
+                    <label class="filters-label" for="12">12</label>
                 </div>
             </div>
-            <p>Memory Space</p>
+            <p class="filters-label">Memory Space</p>
             <div class="form-item">
                 <div>
                     <input asp-for="MemorySpace" type="radio" value="0" id="MemorySpace" checked="checked" />
-                    <label for="MemorySpace">All</label>
+                    <label class="filters-label" for="MemorySpace">All</label>
                 </div>
                 <div>
                     <input asp-for="MemorySpace" type="radio" value="64" id="64" />
-                    <label for="64">64</label>
+                    <label class="filters-label" for="64">64</label>
                 </div>
                 <div>
                     <input asp-for="MemorySpace" type="radio" value="128" id="128" />
-                    <label for="128">128</label>
+                    <label class="filters-label" for="128">128</label>
                 </div>
                 <div>
                     <input asp-for="MemorySpace" type="radio" value="256" id="256" />
-                    <label for="256">256</label>
+                    <label class="filters-label" for="256">256</label>
                 </div>
                 <div>
                     <input asp-for="MemorySpace" type="radio" value="512" id="512" />
-                    <label for="512">512</label>
+                    <label class="filters-label" for="512">512</label>
+                </div>
+            </div>
+            <p class="filters-label">Main Camera Resolution</p>
+            <div class="form-item">
+                <div>
+                    <input asp-for="MainResolution" type="radio" value="0" id="MainResolution" checked="checked" />
+                    <label class="filters-label" for="MainResolution">All</label>
+                </div>
+                <div>
+                    <input asp-for="MainResolution" type="radio" value="36" id="36" />
+                    <label class="filters-label" for="36">36 Mpix</label>
+                </div>
+                <div>
+                    <input asp-for="MainResolution" type="radio" value="48" id="48" />
+                    <label class="filters-label" for="48">48 Mpix</label>
+                </div>
+                <div>
+                    <input asp-for="MainResolution" type="radio" value="60" id="60" />
+                    <label class="filters-label" for="60">60 Mpix</label>
+                </div>
+            </div>
+            <p class="filters-label">Front Camera Resolution</p>
+            <div class="form-item">
+                <div>
+                    <input asp-for="FrontResolution" type="radio" value="0" id="FrontResolution" checked="checked" />
+                    <label class="filters-label" for="MainResolution">All</label>
+                </div>
+                <div>
+                    <input asp-for="FrontResolution" type="radio" value="12" id="12" />
+                    <label class="filters-label" for="12">12 Mpix</label>
+                </div>
+                <div>
+                    <input asp-for="FrontResolution" type="radio" value="24" id="24" />
+                    <label class="filters-label" for="24">24 Mpix</label>
+                </div>
+                <div>
+                    <input asp-for="FrontResolution" type="radio" value="36" id="36" />
+                    <label class="filters-label" for="36">36 Mpix</label>
+                </div>
+            </div>
+            <p class="filters-label">Price</p>
+            <div class="form-item">
+                <div>
+                    <label class="filters-label" for="MinPrice">From</label>
+                    <input asp-for="MinPrice" type="number" value="MinPrice" id="MinPrice" class="num-input" />
+                </div>
+                <div>
+                    <label class="filters-label" for="MaxPrice">To</label>
+                    <input asp-for="MaxPrice" type="number" value="MaxPrice" id="MaxPrice" class="num-input" />
                 </div>
             </div>
             <br><br>

@@ -9,14 +9,13 @@ namespace OnlineShop.Web.Models.Filters
     {
         public Filters()
         {
-            Brands = new List<string>();
+            Brands = new Brands();
         }
 
-        public List<string> Brands { get; set; }
-        public int? LowerPrice { get; set; }
+        public Brands Brands { get; set; }
+        public int? MinPrice { get; set; }
         public int? MaxPrice { get; set; }
         public string OperationSystem{ get; set; }
-        public decimal? ScreenSize { get; set; }
         public int? OperationMemory { get; set; }
         public int? MemorySpace { get; set; }
         public int? MainResolution { get; set; }
