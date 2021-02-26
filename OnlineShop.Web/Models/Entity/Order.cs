@@ -18,5 +18,6 @@ namespace OnlineShop.Web.Models.Entity
         public ApplicationUser ApplicationUserRef { get; set; }
         public int  ShippingAddressId { get; set; }
         public ShippingAddress  ShippingAddressRef { get; set; }
+        public string OrderNumber { get; set; }
     }
 }

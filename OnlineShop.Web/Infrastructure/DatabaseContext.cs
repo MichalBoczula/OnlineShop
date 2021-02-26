@@ -14,6 +14,9 @@ namespace OnlineShop.Web.Infrastructure
     {
         public DbSet<MobilePhone> MobilePhones { get; set; }
         public DbSet<ShoppingCartMobilePhone> ShoppingCartMobilePhones { get; set; }
+        public DbSet<Order> Orders{ get; set; }
+        public DbSet<OrderMobilePhone> OrderMobilePhones { get; set; }
+        public DbSet<ApplicationUserOrder> ApplicationUserOrders { get; set; }
 
         public DatabaseContext(DbContextOptions options) : base(options)
         {
