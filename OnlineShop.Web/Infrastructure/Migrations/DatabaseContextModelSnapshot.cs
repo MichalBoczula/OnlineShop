@@ -234,12 +234,9 @@ namespace OnlineShop.Web.Infrastructure.Migrations
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<string>("OrderRefId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("ApplicationUserId", "OrderId");
 
-                    b.HasIndex("OrderRefId");
+                    b.HasIndex("OrderId");
 
                     b.ToTable("ApplicationUserOrder");
                 });
@@ -1637,8 +1634,10 @@ namespace OnlineShop.Web.Infrastructure.Migrations
 
             modelBuilder.Entity("OnlineShop.Web.Models.Entity.Order", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
@@ -1664,17 +1663,12 @@ namespace OnlineShop.Web.Infrastructure.Migrations
                     b.Property<int>("MobilePhoneId")
                         .HasColumnType("int");
 
-                    b.Property<string>("OrderRefId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.HasKey("OrderId", "MobilePhoneId");
 
                     b.HasIndex("MobilePhoneId");
-
-                    b.HasIndex("OrderRefId");
 
                     b.ToTable("OrderMobilePhone");
                 });
@@ -2142,7 +2136,9 @@ namespace OnlineShop.Web.Infrastructure.Migrations
 
                     b.HasOne("OnlineShop.Web.Models.Entity.Order", "OrderRef")
                         .WithMany()
-                        .HasForeignKey("OrderRefId");
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("OnlineShop.Web.Models.Entity.Camera", b =>
@@ -2192,8 +2188,10 @@ namespace OnlineShop.Web.Infrastructure.Migrations
                         .IsRequired();
 
                     b.HasOne("OnlineShop.Web.Models.Entity.Order", "OrderRef")
-                        .WithMany()
-                        .HasForeignKey("OrderRefId");
+                        .WithMany("Items")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("OnlineShop.Web.Models.Entity.Screen", b =>

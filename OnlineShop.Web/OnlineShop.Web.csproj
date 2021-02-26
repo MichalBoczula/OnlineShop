@@ -9,6 +9,8 @@
   <ItemGroup>
     <Compile Remove="Infrastructure\Migrations\20210221002112_ToAlliPhoneAdded.cs" />
     <Compile Remove="Infrastructure\Migrations\20210221002112_ToAlliPhoneAdded.Designer.cs" />
+    <Compile Remove="Infrastructure\Migrations\20210226023942_AddedModelsForOrderAction.cs" />
+    <Compile Remove="Infrastructure\Migrations\20210226023942_AddedModelsForOrderAction.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
