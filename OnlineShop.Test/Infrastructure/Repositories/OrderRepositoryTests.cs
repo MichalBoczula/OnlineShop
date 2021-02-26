@@ -78,10 +78,6 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 //Act
                 var result = await orderRepository.AddOrder(shoppingCart, 1);
                 //Assert
-                dbContext.ApplicationUserOrders
-                    .FirstOrDefaultAsync(i => i.ApplicationUserId == "1" && i.OrderId == result)
-                    .Should()
-                    .NotBeNull();
                 dbContext.Orders
                     .FirstOrDefaultAsync(o => o.Id == result)
                     .Should()
@@ -122,5 +118,220 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 result.Should().Be(-1);
             }
         }
+
+        [Fact]
+        public async Task GetOrders_OneOrder()
+        {
+            var serviceProvider = BuildInMemoryDBProvider();
+            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
+            {
+                //Arrange
+                var user = new ApplicationUser()
+                {
+                    Id = "1",
+                };
+                var order = new Order()
+                {
+                    Id = 1,
+                    Items = new List<OrderMobilePhone>(),
+                    ApplicationUserId = user.Id
+                };
+                var item = new OrderMobilePhone()
+                {
+                    MobilePhoneId = 1,
+                    OrderId = 1,
+                    Quantity = 2
+                };
+                var item2 = new OrderMobilePhone()
+                {
+                    MobilePhoneId = 2,
+                    OrderId = 1,
+                    Quantity = 1
+                };
+                order.Items.Add(item);
+                order.Items.Add(item2);
+                dbContext.Add(order);
+                dbContext.Add(user);
+                await dbContext.SaveChangesAsync();
+                var mockHttpContextAccessor = new Mock<IHttpContextAccessor>();
+                mockHttpContextAccessor.Object.HttpContext = new DefaultHttpContext();
+                var claims = new ClaimsPrincipal();
+                mockHttpContextAccessor.Setup(x => x.HttpContext.User).Returns(claims);
+                List<ApplicationUser> _users = new List<ApplicationUser>();
+                var userManager = MockUserManager<ApplicationUser>(_users).Object;
+                var orderRepository = new OrderRepository(dbContext);
+                //Act
+                var result = await orderRepository.GetOrders(user.Id).ToListAsync();
+                //Assert
+                result.Should().HaveCount(1);
+                result[0].Items.Should().HaveCount(2);
+                result[0].ApplicationUserId.Should().Be(user.Id);
+            }
+        }
+
+        [Fact]
+        public async Task GetOrders_ManyOrders()
+        {
+            var serviceProvider = BuildInMemoryDBProvider();
+            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
+            {
+                //Arrange
+                var user = new ApplicationUser()
+                {
+                    Id = "1",
+                };
+                var order = new Order()
+                {
+                    Id = 1,
+                    Items = new List<OrderMobilePhone>(),
+                    ApplicationUserId = user.Id
+                };
+                var order2 = new Order()
+                {
+                    Id = 2,
+                    Items = new List<OrderMobilePhone>(),
+                    ApplicationUserId = user.Id
+                };
+                var item = new OrderMobilePhone()
+                {
+                    MobilePhoneId = 1,
+                    OrderId = 1,
+                    Quantity = 2
+                };
+                var item2 = new OrderMobilePhone()
+                {
+                    MobilePhoneId = 2,
+                    OrderId = 1,
+                    Quantity = 1
+                };
+                order.Items.Add(item);
+                order2.Items.Add(item2);
+                dbContext.Add(order);
+                dbContext.Add(order2);
+                dbContext.Add(user);
+                await dbContext.SaveChangesAsync();
+                var mockHttpContextAccessor = new Mock<IHttpContextAccessor>();
+                mockHttpContextAccessor.Object.HttpContext = new DefaultHttpContext();
+                var claims = new ClaimsPrincipal();
+                mockHttpContextAccessor.Setup(x => x.HttpContext.User).Returns(claims);
+                List<ApplicationUser> _users = new List<ApplicationUser>();
+                var userManager = MockUserManager<ApplicationUser>(_users).Object;
+                var orderRepository = new OrderRepository(dbContext);
+                //Act
+                var result = await orderRepository.GetOrders(user.Id).ToListAsync();
+                //Assert
+                result.Should().HaveCount(2);
+                result[0].Items.Should().HaveCount(1);
+                result[1].Items.Should().HaveCount(1);
+                result[0].ApplicationUserId.Should().Be(user.Id);
+                result[1].ApplicationUserId.Should().Be(user.Id);
+            }
+        }
+
+
+        [Fact]
+        public async Task GetOrders_NoOrders()
+        {
+            var serviceProvider = BuildInMemoryDBProvider();
+            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
+            {
+                //Arrange
+                var user = new ApplicationUser()
+                {
+                    Id = "1",
+                };
+                dbContext.Add(user);
+                await dbContext.SaveChangesAsync();
+                var mockHttpContextAccessor = new Mock<IHttpContextAccessor>();
+                mockHttpContextAccessor.Object.HttpContext = new DefaultHttpContext();
+                var claims = new ClaimsPrincipal();
+                mockHttpContextAccessor.Setup(x => x.HttpContext.User).Returns(claims);
+                List<ApplicationUser> _users = new List<ApplicationUser>();
+                var userManager = MockUserManager<ApplicationUser>(_users).Object;
+                var orderRepository = new OrderRepository(dbContext);
+                //Act
+                var result = await orderRepository.GetOrders(user.Id).ToListAsync();
+                //Assert
+                result.Should().HaveCount(0);
+            }
+        }
+
+        [Fact]
+        public async Task GetOrderById_Success()
+        {
+            var serviceProvider = BuildInMemoryDBProvider();
+            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
+            {
+                //Arrange
+                var user = new ApplicationUser()
+                {
+                    Id = "1",
+                };
+                var order = new Order()
+                {
+                    Id = 1,
+                    Items = new List<OrderMobilePhone>(),
+                    ApplicationUserId = user.Id
+                };
+                var item = new OrderMobilePhone()
+                {
+                    MobilePhoneId = 1,
+                    OrderId = 1,
+                    Quantity = 2
+                };
+                var item2 = new OrderMobilePhone()
+                {
+                    MobilePhoneId = 2,
+                    OrderId = 1,
+                    Quantity = 1
+                };
+                order.Items.Add(item);
+                order.Items.Add(item2);
+                dbContext.Add(order);
+                dbContext.Add(user);
+                await dbContext.SaveChangesAsync();
+                var mockHttpContextAccessor = new Mock<IHttpContextAccessor>();
+                mockHttpContextAccessor.Object.HttpContext = new DefaultHttpContext();
+                var claims = new ClaimsPrincipal();
+                mockHttpContextAccessor.Setup(x => x.HttpContext.User).Returns(claims);
+                List<ApplicationUser> _users = new List<ApplicationUser>();
+                var userManager = MockUserManager<ApplicationUser>(_users).Object;
+                var orderRepository = new OrderRepository(dbContext);
+                //Act
+                var result = await orderRepository.GetOrderbyId(order.Id);
+                //Assert
+                result.Should().BeOfType<Order>();
+                result.Items.Should().HaveCount(2);
+                result.ApplicationUserId.Should().Be(user.Id);
+            }
+        }
+
+        [Fact]
+        public async Task GetOrderById_NoOrder()
+        {
+            var serviceProvider = BuildInMemoryDBProvider();
+            using (var dbContext = serviceProvider.GetService<DatabaseContext>())
+            {
+                //Arrange
+                var user = new ApplicationUser()
+                {
+                    Id = "1",
+                };
+                dbContext.Add(user);
+                await dbContext.SaveChangesAsync();
+                var mockHttpContextAccessor = new Mock<IHttpContextAccessor>();
+                mockHttpContextAccessor.Object.HttpContext = new DefaultHttpContext();
+                var claims = new ClaimsPrincipal();
+                mockHttpContextAccessor.Setup(x => x.HttpContext.User).Returns(claims);
+                List<ApplicationUser> _users = new List<ApplicationUser>();
+                var userManager = MockUserManager<ApplicationUser>(_users).Object;
+                var orderRepository = new OrderRepository(dbContext);
+                //Act
+                var result = await orderRepository.GetOrderbyId(1);
+                //Assert
+                result.Should().BeNull();
+            }
+        }
+
     }
 }

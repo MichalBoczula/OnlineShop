@@ -10,9 +10,9 @@ namespace OnlineShop.Web.Models.Interfaces
     {
         Task<int> AddOrder(ShoppingCart shoppingCart, int shippingAddressId);
 
-        Task<List<Order>> GetOrders(string userId);
+        IQueryable<Order> GetOrders(string userId);
 
-        Task<Order> GetOrderbyId(string orderNumber);
+        Task<Order> GetOrderbyId(int orderId);
 
     }
 }

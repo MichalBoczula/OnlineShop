@@ -1,4 +1,5 @@
-﻿using OnlineShop.Web.Models.Entity;
+﻿using Microsoft.EntityFrameworkCore;
+using OnlineShop.Web.Models.Entity;
 using OnlineShop.Web.Models.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -43,24 +44,19 @@ namespace OnlineShop.Web.Infrastructure.Repositories
             }
             _context.Update(order);
             await _context.SaveChangesAsync();
-            var userOrder = new ApplicationUserOrder()
-            {
-                OrderId = order.Id,
-                ApplicationUserId = userId
-            };
-            await _context.AddAsync(userOrder);
-            await _context.SaveChangesAsync();
             return order.Id;
         }
 
-        public async Task<List<Order>> GetOrders(string userId)
+        public IQueryable<Order> GetOrders(string userId)
         {
-            throw new NotImplementedException();
+            return _context.Orders.Where(o => o.ApplicationUserId == userId).AsQueryable();
         }
 
-        public async Task<Order> GetOrderbyId(string orderNumber)
+        public async Task<Order> GetOrderbyId(int orderId)
         {
-            throw new NotImplementedException();
+            return await _context.Orders
+                .Include(o => o.Items)
+                .FirstOrDefaultAsync(o => o.Id == orderId);
         }
     }
 }
