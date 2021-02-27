@@ -4,11 +4,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
+using OnlineShop.Web.Application.ViewModels.ShoppingCart;
 using OnlineShop.Web.Infrastructure;
 using OnlineShop.Web.Infrastructure.Repositories;
 using OnlineShop.Web.Models.Entity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -68,6 +70,10 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 };
                 dbContext.Add(user);
                 await dbContext.SaveChangesAsync();
+                var shoppingCartVM = new ShoppingCartVM()
+                {
+                    Items = shoppingCart.Items.ToList(),
+                };
                 var mockHttpContextAccessor = new Mock<IHttpContextAccessor>();
                 mockHttpContextAccessor.Object.HttpContext = new DefaultHttpContext();
                 var claims = new ClaimsPrincipal();
@@ -76,7 +82,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 var userManager = MockUserManager<ApplicationUser>(_users).Object;
                 var orderRepository = new OrderRepository(dbContext);
                 //Act
-                var result = await orderRepository.AddOrder(shoppingCart, 1);
+                var result = await orderRepository.AddOrder(shoppingCartVM, user.Id, 1);
                 //Assert
                 dbContext.Orders
                     .FirstOrDefaultAsync(o => o.Id == result)
@@ -87,7 +93,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
         }
 
         [Fact]
-        public async Task AddOrder_Fail()
+        public async Task AddOrder_FailEmptyShoppingCart()
         {
             var serviceProvider = BuildInMemoryDBProvider();
             using (var dbContext = serviceProvider.GetService<DatabaseContext>())
@@ -105,6 +111,10 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 };
                 dbContext.Add(user);
                 await dbContext.SaveChangesAsync();
+                var shoppingCartVM = new ShoppingCartVM()
+                {
+                    Items = shoppingCart.Items.ToList(),
+                };
                 var mockHttpContextAccessor = new Mock<IHttpContextAccessor>();
                 mockHttpContextAccessor.Object.HttpContext = new DefaultHttpContext();
                 var claims = new ClaimsPrincipal();
@@ -113,7 +123,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 var userManager = MockUserManager<ApplicationUser>(_users).Object;
                 var orderRepository = new OrderRepository(dbContext);
                 //Act
-                var result = await orderRepository.AddOrder(shoppingCart, 1);
+                var result = await orderRepository.AddOrder(shoppingCartVM, user.Id, 1);
                 //Assert
                 result.Should().Be(-1);
             }

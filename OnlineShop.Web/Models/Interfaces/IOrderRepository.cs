@@ -1,4 +1,5 @@
-﻿using OnlineShop.Web.Models.Entity;
+﻿using OnlineShop.Web.Application.ViewModels.ShoppingCart;
+using OnlineShop.Web.Models.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace OnlineShop.Web.Models.Interfaces
 {
     public interface IOrderRepository
     {
-        Task<int> AddOrder(ShoppingCart shoppingCart, int shippingAddressId);
+        Task<int> AddOrder(ShoppingCartVM shoppingCartVM, string userId, int shippingAddressId);
 
         IQueryable<Order> GetOrders(string userId);
 

@@ -46,7 +46,7 @@
                         @price
                     </td>
                     <td class="action-td">
-                        <a  asp-controller="MobilePhone" asp-action="Details" asp-route-mobilePhoneId="@item.MobilePhoneRef.Id">
+                        <a asp-controller="MobilePhone" asp-action="Details" asp-route-mobilePhoneId="@item.MobilePhoneRef.Id">
                             <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Details</p>
                         </a>
                         <a asp-controller="ShoppingCart" asp-action="RemoveItem" asp-route-mobileId="@item.MobilePhoneRef.Id">
@@ -70,3 +70,7 @@
 </div>
 
 
+
+<a asp-controller="Order" asp-action="Index" asp-route-mobileId="@Model">
+    <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Remove</p>
+</a>

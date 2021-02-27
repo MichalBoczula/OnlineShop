@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OnlineShop.Web.Application.ViewModels.ShoppingCart;
 using OnlineShop.Web.Models.Entity;
 using OnlineShop.Web.Models.Interfaces;
 using System;
@@ -17,20 +18,18 @@ namespace OnlineShop.Web.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<int> AddOrder(ShoppingCart shoppingCart, int shippingAddressId)
+        public async Task<int> AddOrder(ShoppingCartVM shoppingCartVM, string userId, int shippingAddressId)
         {
-            if (shoppingCart.Items.Count == 0) return -1;
-            var userId = shoppingCart.ApplicationUser.Id;
+            if (shoppingCartVM.Items.Count == 0) return -1;
             var order = new Order()
             {
                 ApplicationUserId = userId,
-                ApplicationUserRef = shoppingCart.ApplicationUser,
                 OrderNumber = Guid.NewGuid().ToString(),
                 ShippingAddressId = shippingAddressId
             };
             await _context.AddAsync(order);
             await _context.SaveChangesAsync();
-            foreach (var item in shoppingCart.Items)
+            foreach (var item in shoppingCartVM.Items)
             {
                 var orderItem = new OrderMobilePhone()
                 {
