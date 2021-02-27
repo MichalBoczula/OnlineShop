@@ -22,6 +22,11 @@ namespace OnlineShop.Web.Infrastructure
         {
         }
 
+        public DatabaseContext()
+        {
+
+        }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

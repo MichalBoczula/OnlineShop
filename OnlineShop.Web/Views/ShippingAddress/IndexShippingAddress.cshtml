@@ -1,0 +1,59 @@
+﻿@model List<OnlineShop.Web.Application.ViewModels.ShippingAddress.ShippingAddressVM>
+
+<div class="details-container" id="list">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    City
+                </th>
+                <th>
+                    PostalCode
+                </th>
+                <th>
+                    Street
+                </th>
+                <th>
+                    HouseNumber
+                </th>
+                <th>
+                    FlatNumber
+                </th>
+                <th class="action-th">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var address in Model)
+            {
+                <tr class="table-row">
+                    <td>
+                        @address.City
+                    </td>
+                    <td>
+                        @address.PostalCode
+                    </td>
+                    <td>
+                        @address.Street
+                    </td>
+                    <td>
+                        @address.HouseNumber
+
+                    </td>
+                    <td>
+                        @address.FlatNumber
+                    </td>
+                    <td class="action-td">
+                        <a asp-controller="ShippingAddress" asp-action="Details" asp-route-shippingAddressId="@address.Id">
+                            <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Details</p>
+                        </a>
+                        <a asp-controller="ShippingAddress" asp-action="Delete" asp-route-shippingAddressId="@address.Id">
+                            <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Remove</p>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

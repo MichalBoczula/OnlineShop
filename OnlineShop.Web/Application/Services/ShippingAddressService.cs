@@ -38,11 +38,12 @@ namespace OnlineShop.Web.Application.Services
             await _repo.AddShippingAddress(shippingAddress);
         }
 
-        public async Task<List<ShippingAddressVM>> GetShippingAddresses(string userId)
+        public async Task<List<ShippingAddressVM>> GetShippingAddresses()
         {
+            var userId = GetUserId();
             var list = await _repo.GetShippingAddresses(userId)
-                .ProjectTo<ShippingAddressVM>(_mapper.ConfigurationProvider)
-                .ToListAsync();
+                                  .ProjectTo<ShippingAddressVM>(_mapper.ConfigurationProvider)
+                                  .ToListAsync();
             return list;
         }
 
@@ -66,11 +67,17 @@ namespace OnlineShop.Web.Application.Services
 
         private ShippingAddress MapVMToEntityAndAssingUserId(ShippingAddressVM shippingAddressVM)
         {
-            var loggedUser = _httpContextAccessor.HttpContext.User;
-            var userId = _userManager.GetUserId(loggedUser);
+            var userId = GetUserId();
             var shippingAddress = _mapper.Map<ShippingAddress>(shippingAddressVM);
             shippingAddress.ApplicationUserId = userId;
             return shippingAddress;
+        }
+
+        private string GetUserId()
+        {
+            var loggedUser = _httpContextAccessor.HttpContext.User;
+            var userId = _userManager.GetUserId(loggedUser);
+            return userId;
         }
 
     }

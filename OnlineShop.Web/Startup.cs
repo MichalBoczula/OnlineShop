@@ -53,7 +53,7 @@ namespace OnlineShop.Web
             services.AddTransient<IMobilePhoneService, MobilePhoneService>(); 
             services.AddTransient<IShoppingCartService, ShoppingCartService>();
             services.AddTransient<IOrderService, OrderService>();
-            services.AddTransient<IShippingAddressService, IShippingAddressService>();
+            services.AddTransient<IShippingAddressService, ShippingAddressService>();
 
             services.AddTransient<IEmailSender, EmailSender>();
 

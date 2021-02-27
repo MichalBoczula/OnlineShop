@@ -27,19 +27,19 @@ namespace OnlineShop.Web.Controllers
         public async Task<RedirectToActionResult> AddItem(int mobileId)
         {
             await _service.AddItemToShoppingCart(mobileId);
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexShippingAddress");
         }
 
         public async Task<RedirectToActionResult> RemoveItem(int mobileId)
         {
             await _service.RemoveItemFromCart(mobileId);
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexShippingAddress");
         }
 
         public async Task<RedirectToActionResult> ClearCart()
         {
             await _service.DeleteAllItems();
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexShippingAddress");
         }
     }
 }

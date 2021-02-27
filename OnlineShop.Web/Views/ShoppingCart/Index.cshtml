@@ -1,9 +1,6 @@
 ﻿@model OnlineShop.Web.Application.ViewModels.ShoppingCart.ShoppingCartVM
-
-@{
-    ViewData["Title"] = "Index";
-}
-
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
 
 <div class="details-container" id="list">
     <table class="table">
@@ -71,6 +68,6 @@
 
 
 
-<a asp-controller="Order" asp-action="Index" asp-route-mobileId="@Model">
-    <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Remove</p>
+<a asp-controller="ShippingAddress" asp-action="IndexShippingAddress">
+    <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>GOGOGO</p>
 </a>

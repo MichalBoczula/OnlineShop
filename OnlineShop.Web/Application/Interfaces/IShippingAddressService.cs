@@ -11,7 +11,7 @@ namespace OnlineShop.Web.Application.Interfaces
     {
         Task AddShippingAddress(ShippingAddressVM shippingAddressVM);
 
-        Task<List<ShippingAddressVM>> GetShippingAddresses(string userId);
+        Task<List<ShippingAddressVM>> GetShippingAddresses();
 
         Task<ShippingAddressVM> GetShippingAddressById(int shippingAddressId);
 
