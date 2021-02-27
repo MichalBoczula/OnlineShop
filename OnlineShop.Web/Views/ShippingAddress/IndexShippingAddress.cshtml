@@ -4,56 +4,82 @@
     <table class="table">
         <thead>
             <tr>
-                <th>
+                <th class="shipping-address-th">
                     City
                 </th>
-                <th>
-                    PostalCode
+                <th class="shipping-address-th">
+                    Postal Code
                 </th>
-                <th>
+                <th class="shipping-address-th">
                     Street
                 </th>
-                <th>
-                    HouseNumber
+                <th class="shipping-address-th">
+                    House Number
                 </th>
-                <th>
-                    FlatNumber
+                <th class="shipping-address-th">
+                    Flat Number
                 </th>
-                <th class="action-th">
+                <th class="action-th shipping-address-th">
                     Actions
                 </th>
             </tr>
         </thead>
-        <tbody>
-            @foreach (var address in Model)
-            {
-                <tr class="table-row">
-                    <td>
-                        @address.City
-                    </td>
-                    <td>
-                        @address.PostalCode
-                    </td>
-                    <td>
-                        @address.Street
-                    </td>
-                    <td>
-                        @address.HouseNumber
+        @if (Model.Count > 0)
+        {
+            <tbody>
+                @foreach (var address in Model)
+                {
+                    <tr class="table-row">
+                        <td>
+                            @address.City
+                        </td>
+                        <td>
+                            @address.PostalCode
+                        </td>
+                        <td>
+                            @address.Street
+                        </td>
+                        <td>
+                            @address.HouseNumber
 
-                    </td>
-                    <td>
-                        @address.FlatNumber
-                    </td>
-                    <td class="action-td">
-                        <a asp-controller="ShippingAddress" asp-action="Details" asp-route-shippingAddressId="@address.Id">
-                            <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Details</p>
-                        </a>
-                        <a asp-controller="ShippingAddress" asp-action="Delete" asp-route-shippingAddressId="@address.Id">
-                            <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Remove</p>
+                        </td>
+                        <td>
+                            @address.FlatNumber
+                        </td>
+                        <td class="action-td">
+                            <a asp-controller="ShippingAddress" asp-action="Details" asp-route-shippingAddressId="@address.Id">
+                                <div class="btn btn-primary action-btn">
+                                    <p class="action-desc">Details</p>
+                                </div>
+                            </a>
+                            <a asp-controller="ShippingAddress" asp-action="Delete" asp-route-shippingAddressId="@address.Id">
+                                <div  class="btn btn-primary action-btn">
+                                    <p class="action-desc">Remove</p>
+                                </div>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        }
+        else
+        {
+            <tfoot>
+                <tr class="tfoot">
+                    <td colspan="6" class="shipping-address-summary">
+                        <p class="shipping-address-p">
+                            You don't have any shipping address.
+                        </p>
+                        <a asp-controller="ShippingAddress" asp-action="AddShippingAddress">
+                            <p class="shipping-address-p">
+                                Add New One
+                            </p>
                         </a>
                     </td>
                 </tr>
-            }
-        </tbody>
+            </tfoot>
+        }
+
     </table>
 </div>

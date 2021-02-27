@@ -342,7 +342,43 @@ tbody td {
     text-align: center;
 }
 
-@media (max-width: 600px) {
+.check-out {
+    border-radius: 20px;
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.check-out-container {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+    .check-out-container:hover .return-btn {
+        font-weight: 700;
+        border-width: 0 12px 12px 0;
+    }
+
+    .check-out-container:hover .return-desc {
+        font-weight: 700;
+    }
+
+
+    .return-btn:hover {
+        border-width: 0 12px 12px 0;
+    }
+
+#check-id-btn {
+    margin: 0;
+}
+
+@media (max-width: 770px) {
     .table-image-continer {
         height: 150px;
     }
@@ -359,13 +395,35 @@ tbody td {
         display: flex;
         flex-direction: column;
     }
+
+    .return-desc {
+        font-size: 13px;
+    }
+
+    .return-btn {
+        padding: 3px;
+        margin: 5px;
+        border-width: 0 6px 6px 0;
+    }
+
+    .return-desc:hover {
+        font-weight: 500;
+    }
+
+    .return-btn:hover {
+        border-width: 0 7px 7px 0;
+    }
+}
+
+.check-out:hover .check-out-btn {
+    font-weight: 700;
+    transition: all linear 0.2s;
 }
 
 /**Account-Manage/
 /*####################################################################################################################################################
 ####################################################################################################################################################
 ####################################################################################################################################################*/
-
 .account-manage-form {
     display: flex;
     justify-content: center;
@@ -471,4 +529,83 @@ tbody td {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+/**ShippingAddress/
+/*####################################################################################################################################################
+####################################################################################################################################################
+####################################################################################################################################################*/
+
+.shipping-address-th {
+    font-size:15px;
+}
+
+.shipping-address-p {
+    text-align: center;
+    margin: auto;
+    font-weight: 500;
+}
+
+@media (max-width: 770px) {
+    .shipping-address-th {
+        font-size: 10px;
+    }
+
+    .action-btn:first-of-type {
+       margin-bottom: 10px;
+    }
+
+}
+
+.form-input-container {
+    background-color: white;
+    width: 70%;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 90px;
+    padding: 20px;
+}
+
+.form-row {
+    display: flex;
+    justify-content:center;
+}
+
+.form-shipping-input {
+    border: none;
+    border-bottom: solid black 2px;
+    border-radius: 0;
+    background-color: lightgray;
+}
+
+.action-btn {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    transition: all linear 0.2s;
+}
+
+.action-desc {
+    margin: 0;
+    transition: all linear 0.2s;
+}
+
+.action-btn:hover .action-desc {
+    font-weight: 700;
+}
+
+.action-btn:hover {
+    background-color: #023E8A;
+}
+
+#shipping-address-icon {
+    margin-right: 10px;
+}
+
+#back-link:hover {
+    font-weight: 700;
+    transition: all linear 0.2s;
 }

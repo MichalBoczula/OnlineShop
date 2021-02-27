@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShop.Web.Application.Interfaces;
+using OnlineShop.Web.Application.ViewModels.ShippingAddress;
 using OnlineShop.Web.Models.Entity;
 using System;
 using System.Collections.Generic;
@@ -29,14 +30,26 @@ namespace OnlineShop.Web.Controllers
             return View();
         }
 
-        public ActionResult Create()
+        public IActionResult AddShippingAddress()
         {
             return View();
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> AddShippingAddress(ShippingAddressCreateAndModifyVM ShippingAddressAddVM)
+        {
+            await _service.AddShippingAddress(ShippingAddressAddVM);
+            return RedirectToAction(nameof(IndexShippingAddress));
+        }
+
+        public async Task<IActionResult> Edit(int shippingAddressId)
+        {
+            var VM = await _service.GetShippingAddressById(shippingAddressId);
+            return View(VM);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit()
         {
             try
             {
@@ -48,42 +61,11 @@ namespace OnlineShop.Web.Controllers
             }
         }
 
-        public ActionResult Edit(int id)
+        public async Task<IActionResult> Delete (int shippingAddressId)
         {
-            return View();
+            await _service.RemoveShippingAddress(shippingAddressId);
+            return RedirectToAction(nameof(IndexShippingAddress));
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(IndexShippingAddress));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        public ActionResult Delete(int shippingAddressId)
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(IndexShippingAddress));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

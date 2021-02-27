@@ -1,6 +1,4 @@
 ﻿@model OnlineShop.Web.Application.ViewModels.ShoppingCart.ShoppingCartVM
-@using Microsoft.AspNetCore.Identity
-@inject UserManager<ApplicationUser> UserManager
 
 <div class="details-container" id="list">
     <table class="table">
@@ -44,7 +42,7 @@
                     </td>
                     <td class="action-td">
                         <a asp-controller="MobilePhone" asp-action="Details" asp-route-mobilePhoneId="@item.MobilePhoneRef.Id">
-                            <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Details</p>
+                            <p id="details-btn" class="return-desc"><span class="return-btn" aria-hidden="true"></span>Details</p>
                         </a>
                         <a asp-controller="ShoppingCart" asp-action="RemoveItem" asp-route-mobileId="@item.MobilePhoneRef.Id">
                             <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Remove</p>
@@ -67,7 +65,10 @@
 </div>
 
 
-
-<a asp-controller="ShippingAddress" asp-action="IndexShippingAddress">
-    <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>GOGOGO</p>
-</a>
+<div class="check-out-container">
+    <a asp-controller="ShippingAddress" asp-action="IndexShippingAddress">
+        <div class="check-out" >
+            <p class="check-out-btn" id="check-id-btn">Check Out <i class="fas fa-arrow-circle-right"></i></p>
+        </div>
+    </a>
+</div>
