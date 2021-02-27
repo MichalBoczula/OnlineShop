@@ -48,10 +48,12 @@ namespace OnlineShop.Web
             services.AddTransient<IMobilePhoneRepository, MobilePhoneRepository>();
             services.AddTransient<IShoppingCartRepository, ShoppingCartRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddTransient<IShippingAddressRepository, ShippingAddressRepository>();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddTransient<IMobilePhoneService, MobilePhoneService>(); 
             services.AddTransient<IShoppingCartService, ShoppingCartService>();
             services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IShippingAddressService, IShippingAddressService>();
 
             services.AddTransient<IEmailSender, EmailSender>();
 

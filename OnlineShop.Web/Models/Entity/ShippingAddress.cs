@@ -18,5 +18,6 @@ namespace OnlineShop.Web.Models.Entity
 #nullable enable
         public string? FlatNumber { get; set; }
 #nullable disable
+
     }
 }
