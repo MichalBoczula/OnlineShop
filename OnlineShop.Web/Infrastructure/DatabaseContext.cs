@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
+using OnlineShop.Web.Application.ViewModels.Order;
 
 namespace OnlineShop.Web.Infrastructure
 {
@@ -83,5 +84,6 @@ namespace OnlineShop.Web.Infrastructure
 
             builder.InitializeSeedInDb();
         }
+
     }
 }

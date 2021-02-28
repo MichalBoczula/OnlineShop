@@ -11,6 +11,8 @@
     <Compile Remove="Infrastructure\Migrations\20210221002112_ToAlliPhoneAdded.Designer.cs" />
     <Compile Remove="Infrastructure\Migrations\20210226023942_AddedModelsForOrderAction.cs" />
     <Compile Remove="Infrastructure\Migrations\20210226023942_AddedModelsForOrderAction.Designer.cs" />
+    <Compile Remove="Infrastructure\Migrations\20210228021900_OrderModelUP.cs" />
+    <Compile Remove="Infrastructure\Migrations\20210228021900_OrderModelUP.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

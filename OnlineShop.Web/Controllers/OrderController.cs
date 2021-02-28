@@ -6,6 +6,7 @@ using OnlineShop.Web.Application.Services;
 using OnlineShop.Web.Application.ViewModels.Order;
 using OnlineShop.Web.Application.ViewModels.ShoppingCart;
 using OnlineShop.Web.Models.Entity;
+using OnlineShop.Web.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,28 +17,16 @@ namespace OnlineShop.Web.Controllers
     public class OrderController : Controller
     {
         private readonly IOrderService _service;
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IHttpContextAccessor _httpContextAccessor;
 
-
-        public OrderController(IOrderService service, UserManager<ApplicationUser> userManager, IHttpContextAccessor httpContextAccessor)
+        public OrderController(IOrderService service)
         {
             _service = service;
-            _userManager = userManager;
-            _httpContextAccessor = httpContextAccessor;
         }
 
-        public IActionResult Index(ShoppingCartVM shoppingCart)
+        public async Task<IActionResult> OrderSummary(int shippingAddressId)
         {
-            var loggedUser = _httpContextAccessor.HttpContext.User;
-            var userId = _userManager.GetUserId(loggedUser);
-            var model = new OrderVM()
-            {
-                ShoppingCartVM = shoppingCart,
-                UserId = userId
-            };
-            return View(model);
+            var VM = await _service.GetOrderDetails(shippingAddressId);
+            return View(VM);
         }
-
     }
 }

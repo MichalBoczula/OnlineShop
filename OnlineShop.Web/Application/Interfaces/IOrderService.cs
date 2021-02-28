@@ -9,5 +9,7 @@ namespace OnlineShop.Web.Application.Interfaces
     public interface IOrderService
     {
         Task AddOrder(OrderVM orderVM);
+
+        Task<OrderVM> GetOrderDetails(int shippingAddressId);
     }
 }
