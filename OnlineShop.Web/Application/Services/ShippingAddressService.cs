@@ -32,7 +32,7 @@ namespace OnlineShop.Web.Application.Services
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task AddShippingAddress(ShippingAddressCreateAndModifyVM shippingAddressAddVM)
+        public async Task AddShippingAddress(ShippingAddressCreateVM shippingAddressAddVM)
         {
             var shippingAddress = MapVMToEntityAndAssingUserId(shippingAddressAddVM);
             await _repo.AddShippingAddress(shippingAddress);
@@ -73,7 +73,7 @@ namespace OnlineShop.Web.Application.Services
             return shippingAddress;
         }
 
-        private ShippingAddress MapVMToEntityAndAssingUserId(ShippingAddressCreateAndModifyVM shippingAddressVM)
+        private ShippingAddress MapVMToEntityAndAssingUserId(ShippingAddressCreateVM shippingAddressVM)
         {
             var userId = GetUserId();
             var shippingAddress = _mapper.Map<ShippingAddress>(shippingAddressVM);

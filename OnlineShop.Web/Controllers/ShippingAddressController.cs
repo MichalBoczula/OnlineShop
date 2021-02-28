@@ -25,43 +25,32 @@ namespace OnlineShop.Web.Controllers
             return View(VM);
         }
 
-        public ActionResult Details(int shippingAddressId)
-        {
-            return View();
-        }
-
         public IActionResult AddShippingAddress()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddShippingAddress(ShippingAddressCreateAndModifyVM ShippingAddressAddVM)
+        public async Task<IActionResult> AddShippingAddress(ShippingAddressCreateVM ShippingAddressAddVM)
         {
             await _service.AddShippingAddress(ShippingAddressAddVM);
             return RedirectToAction(nameof(IndexShippingAddress));
         }
 
-        public async Task<IActionResult> Edit(int shippingAddressId)
+        public async Task<IActionResult> EditShippingAddress(int shippingAddressId)
         {
             var VM = await _service.GetShippingAddressById(shippingAddressId);
             return View(VM);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit()
+        public async Task<IActionResult> EditShippingAddress(ShippingAddressVM shippingAddressVM)
         {
-            try
-            {
-                return RedirectToAction(nameof(IndexShippingAddress));
-            }
-            catch
-            {
-                return View();
-            }
+            await _service.UpdateShippingAddress(shippingAddressVM);
+            return RedirectToAction(nameof(IndexShippingAddress));
         }
 
-        public async Task<IActionResult> Delete (int shippingAddressId)
+        public async Task<IActionResult> DeleteShippingAddress (int shippingAddressId)
         {
             await _service.RemoveShippingAddress(shippingAddressId);
             return RedirectToAction(nameof(IndexShippingAddress));

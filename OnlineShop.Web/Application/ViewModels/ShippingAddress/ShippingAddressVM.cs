@@ -10,18 +10,18 @@ namespace OnlineShop.Web.Application.ViewModels.ShippingAddress
 {
     public class ShippingAddressVM : IMapFrom<Models.Entity.ShippingAddress>
     {
-        public int Id;
-        public string PostalCode;
-        public string City;
-        public string Street;
-        public string HouseNumber;
+        public int Id { get; set; }
+        public string PostalCode { get; set; }
+        public string City { get; set; }
+        public string Street { get; set; }
+        public string HouseNumber { get; set; }
 #nullable enable
-        public string? FlatNumber;
+        public string? FlatNumber { get; set; }
 #nullable disable
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Models.Entity.ShippingAddress, ShippingAddressVM>();
+            profile.CreateMap<Models.Entity.ShippingAddress, ShippingAddressVM>().ReverseMap();
         }
     }
 }

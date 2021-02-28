@@ -1,31 +1,34 @@
-﻿@model OnlineShop.Web.Application.ViewModels.ShippingAddress.ShippingAddressCreateVM
+﻿@model OnlineShop.Web.Application.ViewModels.ShippingAddress.ShippingAddressVM
 <div class="form-input-container">
     <div class="row form-row">
         <div class="col-lg-6">
-            <form asp-controller="ShippingAddress" asp-action="AddShippingAddress" method="post">
+            <form asp-controller="ShippingAddress" asp-action="EditShippingAddress" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
-                    <input asp-for="PostalCode" id="PostalCode"  class="form-control form-shipping-input" placeholder="Postal Code..."/>
+                    <input  type="hidden" asp-for="Id" id="Id" class="form-control form-shipping-input" value="@Model.Id" />
+                </div>
+                <div class="form-group">
+                    <input asp-for="PostalCode" id="PostalCode" class="form-control form-shipping-input" value="@Model.PostalCode" />
                     <span asp-validation-for="PostalCode" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <input asp-for="City" id="City"  class="form-control form-shipping-input" placeholder="City..."/>
+                    <input asp-for="City" id="City" class="form-control form-shipping-input" value="@Model.City" />
                     <span asp-validation-for="City" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <input asp-for="Street" id="Street"  class="form-control form-shipping-input" placeholder="Street..."/>
+                    <input asp-for="Street" id="Street" class="form-control form-shipping-input" value="@Model.Street" />
                     <span asp-validation-for="Street" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <input asp-for="HouseNumber"  id="HouseNumber" class="form-control form-shipping-input" placeholder="House Number..."/>
+                    <input asp-for="HouseNumber" id="HouseNumber" class="form-control form-shipping-input" value="@Model.HouseNumber" />
                     <span asp-validation-for="HouseNumber" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <input asp-for="FlatNumber"  id="FlatNumber" class="form-control form-shipping-input" placeholder="Flat Number..."/>
+                    <input asp-for="FlatNumber" id="FlatNumber" class="form-control form-shipping-input" value="@Model.FlatNumber" />
                     <span asp-validation-for="FlatNumber" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <input type="submit" value="Update" class="btn btn-primary" />
                 </div>
             </form>
         </div>

@@ -1,9 +1,16 @@
 ﻿@model List<OnlineShop.Web.Application.ViewModels.ShippingAddress.ShippingAddressVM>
 
 <div class="details-container" id="list">
+    <div class="shipping-address-title">
+        <p>Choose delivery address</p>
+    </div>
+
     <table class="table">
         <thead>
             <tr>
+                <th class="shipping-address-th">
+                    Choose
+                </th>
                 <th class="shipping-address-th">
                     City
                 </th>
@@ -31,6 +38,13 @@
                 {
                     <tr class="table-row">
                         <td>
+                            <a asp-controller="ShippingAddress" asp-action="EditShippingAddress" asp-route-shippingAddressId="@address.Id" >
+                                <div class="btn btn-primary choose-shipping-address-btn">
+                                    <i class="far fa-hand-pointer"></i>
+                                </div>
+                            </a>
+                        </td>
+                        <td>
                             @address.City
                         </td>
                         <td>
@@ -46,14 +60,14 @@
                         <td>
                             @address.FlatNumber
                         </td>
-                        <td class="action-td">
-                            <a asp-controller="ShippingAddress" asp-action="Details" asp-route-shippingAddressId="@address.Id">
+                        <td class="action-td" id="action-shipping-address">
+                            <a asp-controller="ShippingAddress" asp-action="EditShippingAddress" asp-route-shippingAddressId="@address.Id">
                                 <div class="btn btn-primary action-btn">
-                                    <p class="action-desc">Details</p>
+                                    <p class="action-desc">Update</p>
                                 </div>
                             </a>
-                            <a asp-controller="ShippingAddress" asp-action="Delete" asp-route-shippingAddressId="@address.Id">
-                                <div  class="btn btn-primary action-btn">
+                            <a asp-controller="ShippingAddress" asp-action="DeleteShippingAddress" asp-route-shippingAddressId="@address.Id">
+                                <div class="btn btn-primary action-btn">
                                     <p class="action-desc">Remove</p>
                                 </div>
                             </a>
@@ -82,4 +96,14 @@
         }
 
     </table>
+</div>
+
+<div class="add-shipping-address-btn-container">
+    <a asp-controller="ShippingAddress" asp-action="AddShippingAddress">
+        <div class="add-shipping-address-btn">
+            <p class="shipping-address-p">
+                Add New One
+            </p>
+        </div>
+    </a>
 </div>

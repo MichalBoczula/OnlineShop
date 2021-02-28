@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Web.Application.ViewModels.ShippingAddress
 {
-    public class ShippingAddressCreateAndModifyVM : IMapFrom<Models.Entity.ShippingAddress>
+    public class ShippingAddressCreateVM : IMapFrom<Models.Entity.ShippingAddress>
     {
         public string PostalCode { get; set; }
         public string City { get; set; }
@@ -19,7 +19,7 @@ namespace OnlineShop.Web.Application.ViewModels.ShippingAddress
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Models.Entity.ShippingAddress, ShippingAddressCreateAndModifyVM>().ReverseMap();
+            profile.CreateMap<Models.Entity.ShippingAddress, ShippingAddressCreateVM>().ReverseMap();
         }
     }
 }

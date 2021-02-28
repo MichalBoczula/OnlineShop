@@ -546,17 +546,6 @@ tbody td {
     font-weight: 500;
 }
 
-@media (max-width: 770px) {
-    .shipping-address-th {
-        font-size: 10px;
-    }
-
-    .action-btn:first-of-type {
-       margin-bottom: 10px;
-    }
-
-}
-
 .form-input-container {
     background-color: white;
     width: 70%;
@@ -608,4 +597,70 @@ tbody td {
 #back-link:hover {
     font-weight: 700;
     transition: all linear 0.2s;
+}
+
+.shipping-address-title p{
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.add-shipping-address-btn-container {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.add-shipping-address-btn {
+    border-radius: 20px;
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    transition: all linear 0.2s;
+}
+
+    .add-shipping-address-btn:hover {
+        background-color: #0366d6;
+        color: white;
+    }
+
+#form-back-btn:hover {
+    transition: all linear 0.2s;
+}
+
+#form-back-btn:hover {
+    font-weight: 700;
+}
+
+.choose-shipping-address-btn {
+    transition: all linear 0.2s;
+    border: solid #0366d6 3px;
+}
+
+    .choose-shipping-address-btn:hover {
+        background-color: white;
+        color: #0366d6;
+    }
+
+
+@media (max-width: 770px) {
+    .shipping-address-th {
+        font-size: 10px;
+    }
+
+    .action-btn:first-of-type {
+        margin-bottom: 10px;
+    }
+
+    .action-btn {
+        width: 100%;
+    }
+
+    #action-shipping-address {
+        padding: 5px;
+    }
 }

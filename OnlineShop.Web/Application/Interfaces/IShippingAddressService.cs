@@ -9,7 +9,7 @@ namespace OnlineShop.Web.Application.Interfaces
 {
     public interface IShippingAddressService
     {
-        Task AddShippingAddress(ShippingAddressCreateAndModifyVM shippingAddressAddVM);
+        Task AddShippingAddress(ShippingAddressCreateVM shippingAddressAddVM);
 
         Task<List<ShippingAddressVM>> GetShippingAddresses();
 
