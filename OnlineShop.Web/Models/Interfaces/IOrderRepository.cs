@@ -9,7 +9,7 @@ namespace OnlineShop.Web.Models.Interfaces
 {
     public interface IOrderRepository
     {
-        Task<int> AddOrder(ShoppingCartVM shoppingCartVM, string userId, int shippingAddressId);
+        Task<string> AddOrder(ShoppingCartVM shoppingCartVM, string userId, int shippingAddressId);
 
         IQueryable<Order> GetOrders(string userId);
 

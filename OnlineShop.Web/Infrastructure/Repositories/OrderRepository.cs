@@ -18,9 +18,9 @@ namespace OnlineShop.Web.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<int> AddOrder(ShoppingCartVM shoppingCartVM, string userId, int shippingAddressId)
+        public async Task<string> AddOrder(ShoppingCartVM shoppingCartVM, string userId, int shippingAddressId)
         {
-            if (shoppingCartVM.Items.Count == 0) return -1;
+            if (shoppingCartVM.Items.Count == 0) return "";
             var order = new Order()
             {
                 ApplicationUserId = userId,
@@ -43,7 +43,7 @@ namespace OnlineShop.Web.Infrastructure.Repositories
             }
             _context.Update(order);
             await _context.SaveChangesAsync();
-            return order.Id;
+            return order.OrderNumber;
         }
 
         public IQueryable<Order> GetOrders(string userId)

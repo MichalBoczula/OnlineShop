@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShop.Web.Application.Interfaces;
 using OnlineShop.Web.Application.ViewModels.ShippingAddress;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Web.Controllers
 {
+    [Authorize]
     public class ShippingAddressController : Controller
     {
         private readonly IShippingAddressService _service;

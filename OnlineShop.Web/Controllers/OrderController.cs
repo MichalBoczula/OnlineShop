@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShop.Web.Application.Interfaces;
@@ -15,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Web.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly IOrderService _service;
@@ -27,8 +29,21 @@ namespace OnlineShop.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> OrderSummary(ShippingAddressVM shippingAddressVM)
         {
-            var VM = await _service.GetOrderDetails(shippingAddressVM.Id);
-            return View(VM);
+            var orderVM = await _service.GetOrderDetails(shippingAddressVM.Id);
+            return View(orderVM);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Finalize(OrderVM orderVM)
+        {
+            var model = await _service.GetOrderDetails(orderVM.ShippingAddressVM.Id);
+            await _service.AddOrder(model);
+            return RedirectToAction("Summary");
+        }
+
+        public IActionResult Summary()
+        {
+            return View();
         }
     }
 }

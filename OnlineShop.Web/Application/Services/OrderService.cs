@@ -45,7 +45,7 @@ namespace OnlineShop.Web.Application.Services
             var shoppingCart = await _shoppingCartRepository.GetShoppingCart();
             var shoppingCartVM = _mapper.Map<ShoppingCartVM>(shoppingCart);
             shoppingCartVM.Total = await _shoppingCartRepository.CountTotal(shoppingCart);
-            var shippingAddressVM =  _mapper.Map<ShippingAddressVM>(
+            var shippingAddressVM = _mapper.Map<ShippingAddressVM>(
                      await _shippingAddressRepository.GetShippingAddressById(shippingAddressId)
                  );
             return new OrderVM()
@@ -63,9 +63,12 @@ namespace OnlineShop.Web.Application.Services
             return userId;
         }
 
-        public Task AddOrder(OrderVM orderVM)
+        public async Task<string> AddOrder(OrderVM orderVM)
         {
-            throw new NotImplementedException();
+            var result = await _repo.AddOrder(orderVM.ShoppingCartVM, orderVM.UserId, orderVM.ShippingAddressVM.Id);
+            var shoppingCart = await _shoppingCartRepository.GetShoppingCart();
+            await _shoppingCartRepository.DeleteAllItems(shoppingCart);
+            return result;
         }
     }
 }
