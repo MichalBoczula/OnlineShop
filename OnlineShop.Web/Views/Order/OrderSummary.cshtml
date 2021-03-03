@@ -1,0 +1,148 @@
+﻿@model OnlineShop.Web.Application.ViewModels.Order.OrderVM
+
+<div class="details-container" id="list">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Photo
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Price
+                </th>
+                <th class="action-th">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ShoppingCartVM.Items)
+            {
+                <tr class="table-row">
+                    <td>
+                        <figure class="table-image-continer">
+                            <img class="d-block w-100" id="table-image" src="~/images/@item.MobilePhoneRef.MainImage">
+                        </figure>
+                    </td>
+                    <td>
+                        @item.MobilePhoneRef.Name
+                    </td>
+                    <td>
+                        @item.Quantity
+                    </td>
+                    <td>
+                        @{var price = item.Quantity * item.MobilePhoneRef.Price;}
+                        @price
+                    </td>
+                    <td class="action-td">
+                        <a asp-controller="MobilePhone" asp-action="Details" asp-route-mobilePhoneId="@item.MobilePhoneRef.Id">
+                            <p id="details-btn" class="return-desc"><span class="return-btn" aria-hidden="true"></span>Details</p>
+                        </a>
+                        <a asp-controller="ShoppingCart" asp-action="RemoveItem" asp-route-mobileId="@item.MobilePhoneRef.Id">
+                            <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Remove</p>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr class="tfoot">
+                <td colspan="5" class="total">
+                    <p class="totalP">
+                        Total Price: @Model.ShoppingCartVM.Total
+                    </p>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+</div>
+
+<div class="details-container" id="list">
+    <div class="shipping-address-title">
+        <p>Choose delivery address</p>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="shipping-address-th">
+                    Choose
+                </th>
+                <th class="shipping-address-th">
+                    City
+                </th>
+                <th class="shipping-address-th">
+                    Postal Code
+                </th>
+                <th class="shipping-address-th">
+                    Street
+                </th>
+                <th class="shipping-address-th">
+                    House Number
+                </th>
+                <th class="shipping-address-th">
+                    Flat Number
+                </th>
+                <th class="action-th shipping-address-th">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-row">
+                <td>
+                    <a asp-controller="Order" asp-action="OrderSummary" asp-route-shippingAddress="@Model">
+                        <div class="btn btn-primary choose-shipping-address-btn">
+                            <i class="far fa-hand-pointer"></i>
+                        </div>
+                    </a>
+                </td>
+                <td>
+                    @Model.ShippingAddressVM.City
+                </td>
+                <td>
+                    @Model.ShippingAddressVM.PostalCode
+                </td>
+                <td>
+                    @Model.ShippingAddressVM.Street
+                </td>
+                <td>
+                    @Model.ShippingAddressVM.HouseNumber
+
+                </td>
+                <td>
+                    @Model.ShippingAddressVM.FlatNumber
+                </td>
+                <td class="action-td" id="action-shipping-address">
+                    <a asp-controller="ShippingAddress" asp-action="EditShippingAddress" asp-route-shippingAddressId="@Model.ShippingAddressVM.Id">
+                        <div class="btn btn-primary action-btn">
+                            <p class="action-desc">Update</p>
+                        </div>
+                    </a>
+                    <a asp-controller="ShippingAddress" asp-action="DeleteShippingAddress" asp-route-shippingAddressId="@Model.ShippingAddressVM.Id">
+                        <div class="btn btn-primary action-btn">
+                            <p class="action-desc">Remove</p>
+                        </div>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="check-out-container">
+    <a asp-controller="ShippingAddress" asp-action="IndexShippingAddress">
+        <div class="check-out">
+            <p class="check-out-btn" id="check-id-btn">Check Out <i class="fas fa-arrow-circle-right"></i></p>
+        </div>
+    </a>
+</div>
+

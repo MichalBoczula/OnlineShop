@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using OnlineShop.Web.Application.Interfaces;
 using OnlineShop.Web.Application.Services;
 using OnlineShop.Web.Application.ViewModels.Order;
+using OnlineShop.Web.Application.ViewModels.ShippingAddress;
 using OnlineShop.Web.Application.ViewModels.ShoppingCart;
 using OnlineShop.Web.Models.Entity;
 using OnlineShop.Web.Models.Interfaces;
@@ -23,9 +24,10 @@ namespace OnlineShop.Web.Controllers
             _service = service;
         }
 
-        public async Task<IActionResult> OrderSummary(int shippingAddressId)
+        [HttpPost]
+        public async Task<IActionResult> OrderSummary(ShippingAddressVM shippingAddressVM)
         {
-            var VM = await _service.GetOrderDetails(shippingAddressId);
+            var VM = await _service.GetOrderDetails(shippingAddressVM.Id);
             return View(VM);
         }
     }

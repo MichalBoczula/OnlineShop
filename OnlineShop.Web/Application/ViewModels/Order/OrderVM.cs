@@ -1,4 +1,5 @@
-﻿using OnlineShop.Web.Application.ViewModels.ShoppingCart;
+﻿using OnlineShop.Web.Application.ViewModels.ShippingAddress;
+using OnlineShop.Web.Application.ViewModels.ShoppingCart;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace OnlineShop.Web.Application.ViewModels.Order
     public class OrderVM
     {
         public string UserId { get; set; }
-        public int ShippingAddressId { get; set; }
+        public ShippingAddressVM ShippingAddressVM { get; set; }
         public ShoppingCartVM ShoppingCartVM { get; set; }
     }
 }

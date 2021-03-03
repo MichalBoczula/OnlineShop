@@ -1,4 +1,6 @@
 ﻿using OnlineShop.Web.Application.ViewModels.Order;
+using OnlineShop.Web.Application.ViewModels.ShippingAddress;
+using OnlineShop.Web.Models.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;

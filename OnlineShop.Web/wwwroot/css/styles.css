@@ -636,16 +636,24 @@ tbody td {
     font-weight: 700;
 }
 
+.fa-hand-pointer {
+    color: white;
+    transition: all linear 0.2s;
+}
+
 .choose-shipping-address-btn {
     transition: all linear 0.2s;
     border: solid #0366d6 3px;
+    background-color: #0366d6;
 }
 
     .choose-shipping-address-btn:hover {
         background-color: white;
-        color: #0366d6;
     }
 
+        .choose-shipping-address-btn:hover .fa-hand-pointer {
+            color: #0366d6;
+        }
 
 @media (max-width: 770px) {
     .shipping-address-th {
