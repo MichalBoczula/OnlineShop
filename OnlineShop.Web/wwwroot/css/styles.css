@@ -3,7 +3,7 @@
 ####################################################################################################################################################
 ####################################################################################################################################################*/
 .body {
-    background-image: url("../images/background.jpeg");
+    background-image: url("../images/layout.jpg");
     background-position: center;
     background-attachment: fixed;
 }
@@ -480,6 +480,7 @@ tbody td {
 #confirm-main-view {
     align-items: center;
     flex-direction: column;
+    margin-top: 90px;
 }
 
 .link-to-offer {

@@ -16,7 +16,7 @@ namespace OnlineShop.Web.Models.Entity
         public ICollection<OrderMobilePhone> Items { get; set; }
         public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUserRef { get; set; }
-        public int  ShippingAddressId { get; set; }
-        public ShippingAddress  ShippingAddressRef { get; set; }
+        public int ShippingAddressId { get; set; }
+        public ShippingAddress ShippingAddressRef { get; set; }
     }
 }

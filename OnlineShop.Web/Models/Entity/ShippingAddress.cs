@@ -10,7 +10,7 @@ namespace OnlineShop.Web.Models.Entity
         public int Id { get; set; }
         public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUserRef { get; set; }
-        public Order OrderRef { get; set; }
+        public ICollection<Order> Orders { get; set; }
         public string PostalCode { get; set; }
         public string City { get; set; }
         public string Street { get; set; }

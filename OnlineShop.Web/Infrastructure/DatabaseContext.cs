@@ -70,10 +70,10 @@ namespace OnlineShop.Web.Infrastructure
                 .HasMany(u => u.Orders)
                 .WithOne(o => o.ApplicationUserRef)
                 .HasForeignKey(o => o.ApplicationUserId);
-            builder.Entity<Order>()
-                .HasOne(o => o.ShippingAddressRef)
-                .WithOne(o => o.OrderRef)
-                .HasForeignKey<Order>(o => o.ShippingAddressId);
+            builder.Entity<ShippingAddress>()
+                .HasMany(sa => sa.Orders)
+                .WithOne(o => o.ShippingAddressRef)
+                .HasForeignKey(o => o.ShippingAddressId);
             builder.Entity<OrderMobilePhone>()
                 .HasKey(k => new { k.OrderId, k.MobilePhoneId });
 
