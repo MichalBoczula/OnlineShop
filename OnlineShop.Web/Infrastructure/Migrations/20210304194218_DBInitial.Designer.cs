@@ -10,8 +10,8 @@ using OnlineShop.Web.Infrastructure;
 namespace OnlineShop.Web.Infrastructure.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20210227195358_OrderModelsDone")]
-    partial class OrderModelsDone
+    [Migration("20210304194218_DBInitial")]
+    partial class DBInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1621,16 +1621,11 @@ namespace OnlineShop.Web.Infrastructure.Migrations
 
             modelBuilder.Entity("OnlineShop.Web.Models.Entity.Order", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("OrderNumber")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ShippingAddressId")
                         .HasColumnType("int");
@@ -1647,8 +1642,8 @@ namespace OnlineShop.Web.Infrastructure.Migrations
 
             modelBuilder.Entity("OnlineShop.Web.Models.Entity.OrderMobilePhone", b =>
                 {
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
+                    b.Property<string>("OrderId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("MobilePhoneId")
                         .HasColumnType("int");

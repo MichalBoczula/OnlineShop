@@ -88,7 +88,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                     .FirstOrDefaultAsync(o => o.Id == result)
                     .Should()
                     .NotBeNull();
-                result.Should().BeGreaterThan(0);
+                result.Should().NotBe("-1");
             }
         }
 
@@ -125,7 +125,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 //Act
                 var result = await orderRepository.AddOrder(shoppingCartVM, user.Id, 1);
                 //Assert
-                result.Should().Be(-1);
+                result.Should().Be("-1");
             }
         }
 
@@ -142,20 +142,20 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 };
                 var order = new Order()
                 {
-                    Id = 1,
+                    Id = "1",
                     Items = new List<OrderMobilePhone>(),
                     ApplicationUserId = user.Id
                 };
                 var item = new OrderMobilePhone()
                 {
                     MobilePhoneId = 1,
-                    OrderId = 1,
+                    OrderId = "1",
                     Quantity = 2
                 };
                 var item2 = new OrderMobilePhone()
                 {
                     MobilePhoneId = 2,
-                    OrderId = 1,
+                    OrderId = "1",
                     Quantity = 1
                 };
                 order.Items.Add(item);
@@ -192,26 +192,26 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 };
                 var order = new Order()
                 {
-                    Id = 1,
+                    Id = "1",
                     Items = new List<OrderMobilePhone>(),
                     ApplicationUserId = user.Id
                 };
                 var order2 = new Order()
                 {
-                    Id = 2,
+                    Id = "2",
                     Items = new List<OrderMobilePhone>(),
                     ApplicationUserId = user.Id
                 };
                 var item = new OrderMobilePhone()
                 {
                     MobilePhoneId = 1,
-                    OrderId = 1,
+                    OrderId = "1",
                     Quantity = 2
                 };
                 var item2 = new OrderMobilePhone()
                 {
                     MobilePhoneId = 2,
-                    OrderId = 1,
+                    OrderId = "1",
                     Quantity = 1
                 };
                 order.Items.Add(item);
@@ -279,20 +279,20 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 };
                 var order = new Order()
                 {
-                    Id = 1,
+                    Id = "1",
                     Items = new List<OrderMobilePhone>(),
                     ApplicationUserId = user.Id
                 };
                 var item = new OrderMobilePhone()
                 {
                     MobilePhoneId = 1,
-                    OrderId = 1,
+                    OrderId = "1",
                     Quantity = 2
                 };
                 var item2 = new OrderMobilePhone()
                 {
                     MobilePhoneId = 2,
-                    OrderId = 1,
+                    OrderId = "1",
                     Quantity = 1
                 };
                 order.Items.Add(item);
@@ -337,7 +337,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 var userManager = MockUserManager<ApplicationUser>(_users).Object;
                 var orderRepository = new OrderRepository(dbContext);
                 //Act
-                var result = await orderRepository.GetOrderbyId(1);
+                var result = await orderRepository.GetOrderbyId("1");
                 //Assert
                 result.Should().BeNull();
             }

@@ -20,11 +20,11 @@ namespace OnlineShop.Web.Infrastructure.Repositories
 
         public async Task<string> AddOrder(ShoppingCartVM shoppingCartVM, string userId, int shippingAddressId)
         {
-            if (shoppingCartVM.Items.Count == 0) return "";
+            if (shoppingCartVM.Items.Count == 0) return "-1";
             var order = new Order()
             {
                 ApplicationUserId = userId,
-                OrderNumber = Guid.NewGuid().ToString(),
+                Id = Guid.NewGuid().ToString(),
                 ShippingAddressId = shippingAddressId
             };
             await _context.AddAsync(order);
@@ -43,7 +43,7 @@ namespace OnlineShop.Web.Infrastructure.Repositories
             }
             _context.Update(order);
             await _context.SaveChangesAsync();
-            return order.OrderNumber;
+            return order.Id;
         }
 
         public IQueryable<Order> GetOrders(string userId)
@@ -51,7 +51,7 @@ namespace OnlineShop.Web.Infrastructure.Repositories
             return _context.Orders.Where(o => o.ApplicationUserId == userId).AsQueryable();
         }
 
-        public async Task<Order> GetOrderbyId(int orderId)
+        public async Task<Order> GetOrderbyId(string orderId)
         {
             return await _context.Orders
                 .Include(o => o.Items)

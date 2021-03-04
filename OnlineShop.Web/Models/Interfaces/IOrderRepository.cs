@@ -13,7 +13,7 @@ namespace OnlineShop.Web.Models.Interfaces
 
         IQueryable<Order> GetOrders(string userId);
 
-        Task<Order> GetOrderbyId(int orderId);
+        Task<Order> GetOrderbyId(string orderId);
 
     }
 }

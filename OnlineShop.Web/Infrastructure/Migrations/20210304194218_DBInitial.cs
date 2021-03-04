@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OnlineShop.Web.Infrastructure.Migrations
 {
-    public partial class Initial : Migration
+    public partial class DBInitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -320,6 +320,80 @@ namespace OnlineShop.Web.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ShippingAddresses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ApplicationUserId = table.Column<string>(nullable: true),
+                    PostalCode = table.Column<string>(nullable: true),
+                    City = table.Column<string>(nullable: true),
+                    Street = table.Column<string>(nullable: true),
+                    HouseNumber = table.Column<string>(nullable: true),
+                    FlatNumber = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ShippingAddresses", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ShippingAddresses_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Orders",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    ApplicationUserId = table.Column<string>(nullable: true),
+                    ShippingAddressId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orders", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Orders_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Orders_ShippingAddresses_ShippingAddressId",
+                        column: x => x.ShippingAddressId,
+                        principalTable: "ShippingAddresses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "OrderMobilePhones",
+                columns: table => new
+                {
+                    OrderId = table.Column<string>(nullable: false),
+                    MobilePhoneId = table.Column<int>(nullable: false),
+                    Quantity = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OrderMobilePhones", x => new { x.OrderId, x.MobilePhoneId });
+                    table.ForeignKey(
+                        name: "FK_OrderMobilePhones_MobilePhones_MobilePhoneId",
+                        column: x => x.MobilePhoneId,
+                        principalTable: "MobilePhones",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_OrderMobilePhones_Orders_OrderId",
+                        column: x => x.OrderId,
+                        principalTable: "Orders",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "Multimedia",
                 columns: new[] { "Id", "Bluetooth", "FingerPrintReader", "GPS", "LTE", "NFC", "USBType", "WiFiCalling" },
@@ -431,13 +505,13 @@ namespace OnlineShop.Web.Infrastructure.Migrations
                     { 22, 4500, "Adreno 620", 128, 22, 8, "Android", "Qualcomm Snapdragon 765G", "Nano" },
                     { 10, 4000, "Mali G72 MP3", 128, 10, 4, "Android", "Exynos 9611", "Nano" },
                     { 26, 4000, "PowerVR GM9446", 128, 26, 8, "Android", "MediaTek Helio P95", "Nano" },
-                    { 24, 1821, "A13 Bionic", 64, 24, 4, "Android", "A13 Bionic", "Nano" },
+                    { 24, 1821, "A13 Bionic", 64, 24, 4, "iOS", "A13 Bionic", "Nano" },
                     { 7, 4500, "Adreno 650", 256, 7, 12, "Android", "Qualcomm", "Nano" },
                     { 4, 4000, "Adreno 620 GPU", 128, 4, 8, "Android", "Qualcomm Snapdragon 765G", "Nano" },
                     { 11, 4500, "Kirin 990 5G", 512, 11, 8, "Android", "Kirin 990 5G", "Nano" },
                     { 27, 5000, "Adreno 610", 128, 27, 4, "Android", "Qualcomm Snapdragon 460", "Nano" },
                     { 12, 4500, "Kirin 9000", 256, 12, 8, "Android", "Kirin 9000", "Nano" },
-                    { 23, 3110, "A13 Bionic", 64, 23, 6, "Android", "A13 Bionic", "Nano" },
+                    { 23, 3110, "A13 Bionic", 64, 23, 6, "iOS", "A13 Bionic", "Nano" },
                     { 5, 4300, "Adreno 620 GPU", 128, 5, 6, "Android", "Qualcomm Snapdragon 765G", "Nano" }
                 });
 
@@ -542,10 +616,31 @@ namespace OnlineShop.Web.Infrastructure.Migrations
                 column: "MultimediaId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_OrderMobilePhones_MobilePhoneId",
+                table: "OrderMobilePhones",
+                column: "MobilePhoneId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_ApplicationUserId",
+                table: "Orders",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_ShippingAddressId",
+                table: "Orders",
+                column: "ShippingAddressId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Screen_MobilePhoneId",
                 table: "Screen",
                 column: "MobilePhoneId",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ShippingAddresses_ApplicationUserId",
+                table: "ShippingAddresses",
+                column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ShoppingCartMobilePhones_MobilePhoneId",
@@ -577,6 +672,9 @@ namespace OnlineShop.Web.Infrastructure.Migrations
                 name: "Hardware");
 
             migrationBuilder.DropTable(
+                name: "OrderMobilePhones");
+
+            migrationBuilder.DropTable(
                 name: "Screen");
 
             migrationBuilder.DropTable(
@@ -586,16 +684,22 @@ namespace OnlineShop.Web.Infrastructure.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "MobilePhones");
 
             migrationBuilder.DropTable(
-                name: "ShoppingCart");
+                name: "ShippingAddresses");
 
             migrationBuilder.DropTable(
                 name: "Multimedia");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "ShoppingCart");
         }
     }
 }
