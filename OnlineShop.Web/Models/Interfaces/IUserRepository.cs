@@ -10,5 +10,6 @@ namespace OnlineShop.Web.Models.Interfaces
     {
         Task<ApplicationUser> GetActualUser();
         Task<string> GetUserId();
+        Task<string> GetUserEmail();
     }
 }

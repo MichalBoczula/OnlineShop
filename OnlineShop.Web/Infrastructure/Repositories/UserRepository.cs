@@ -32,5 +32,11 @@ namespace OnlineShop.Web.Infrastructure.Repositories
             var user = await GetActualUser();
             return user.Id;
         }
+
+        public async Task<string> GetUserEmail()
+        {
+            var user = await GetActualUser();
+            return user.Email;
+        }
     }
 }

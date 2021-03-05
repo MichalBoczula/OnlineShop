@@ -2,6 +2,7 @@
 using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using OnlineShop.Web.Application.Interfaces;
 using OnlineShop.Web.Application.ViewModels.Order;
@@ -24,18 +25,21 @@ namespace OnlineShop.Web.Application.Services
         private readonly IShoppingCartRepository _shoppingCartRepository;
         private readonly IShippingAddressRepository _shippingAddressRepository;
         private readonly IUserRepository _userRepository;
+        private readonly IEmailSender _emailSender;
 
         public OrderService(IOrderRepository repo,
                             IMapper mapper,
                             IShoppingCartRepository shoppingCartRepository,
                             IShippingAddressRepository shippingAddressRepository,
-                            IUserRepository userRepository)
+                            IUserRepository userRepository,
+                            IEmailSender emailSender)
         {
             _repo = repo;
             _mapper = mapper;
             _shoppingCartRepository = shoppingCartRepository;
             _shippingAddressRepository = shippingAddressRepository;
             _userRepository = userRepository;
+            _emailSender = emailSender;
         }
 
 
@@ -76,6 +80,10 @@ namespace OnlineShop.Web.Application.Services
             var result = await _repo.AddOrder(orderVM.ShoppingCartVM, orderVM.UserId, orderVM.ShippingAddressVM.Id);
             var shoppingCart = await _shoppingCartRepository.GetShoppingCart();
             await _shoppingCartRepository.DeleteAllItems(shoppingCart);
+            if(result != "-1")
+            {
+                await SendOrderEMail(result);
+            }
             return result;
         }
 
@@ -85,6 +93,18 @@ namespace OnlineShop.Web.Application.Services
             return await _repo.GetOrders(userId)
                 .ProjectTo<OrderForSummaryListVM>(_mapper.ConfigurationProvider)
                 .ToListAsync();
+        }
+
+        private async Task SendOrderEMail(string orderId)
+        {
+            var subject = "Order";
+            var htmlMsg= $"Thank You for trust and order in our shop.\n" +
+                $"We will send product as fas as possible." +
+                $" Your order number: {orderId}.\n Regards Mobile Galactica Team";
+            await _emailSender.SendEmailAsync(
+                await _userRepository.GetUserEmail(),
+                subject,
+                htmlMsg);
         }
     }
 }
