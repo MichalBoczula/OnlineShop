@@ -20,5 +20,6 @@ namespace OnlineShop.Web.Models.Filters
         public int? MemorySpace { get; set; }
         public int? MainResolution { get; set; }
         public int? FrontResolution { get; set; }
+        public bool? OrderBy { get; set; }
     }
 }

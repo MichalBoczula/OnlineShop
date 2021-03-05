@@ -168,6 +168,17 @@
                     <input asp-for="MaxPrice" type="number" value="MaxPrice" id="MaxPrice" class="num-input" />
                 </div>
             </div>
+            <p class="filters-label">Order By Price</p>
+            <div class="form-item">
+                <div>
+                    <label class="filters-label" for="OrderBy">Asc</label>
+                    <input asp-for="OrderBy" type="radio" value="true" id="OrderBy" class="num-input" />
+                </div>
+                <div>
+                    <label class="filters-label" for="MaxPrice">Desc</label>
+                    <input asp-for="OrderBy" type="radio" value="false" id="OrderBy" class="num-input" />
+                </div>
+            </div>
             <br><br>
             <input type="submit">
         </form>

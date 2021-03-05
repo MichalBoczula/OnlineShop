@@ -43,6 +43,17 @@ namespace OnlineShop.Web.Application.Services
             var mobilesForListVm = await _repository.RetriveFilteredMobilePhones(filters)
               .ProjectTo<MobilePhoneForListVM>(_mapper.ConfigurationProvider)
               .ToListAsync();
+            if (filters.OrderBy.HasValue)
+            {
+                if (filters.OrderBy.Value)
+                {
+                    mobilesForListVm = mobilesForListVm.OrderBy(m => m.Price).ThenBy(m => m.Name).ToList();
+                }
+                else
+                {
+                    mobilesForListVm = mobilesForListVm.OrderByDescending(m => m.Price).ThenBy(m => m.Name).ToList();
+                }
+            }
             return mobilesForListVm;
         }
 
@@ -72,7 +83,7 @@ namespace OnlineShop.Web.Application.Services
         public HardwareVM GetHardwareVM(MobilePhone mobile) => _mapper.Map<HardwareVM>(mobile.Hardware);
 
         public CameraVM GetCameraVM(MobilePhone mobile) => _mapper.Map<CameraVM>(mobile.Camera);
-       
+
         public MultimediaVM GetMultimediaVM(MobilePhone mobile) => _mapper.Map<MultimediaVM>(mobile.Multimedia);
 
     }
