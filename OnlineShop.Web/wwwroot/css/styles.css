@@ -11,7 +11,7 @@
 #nav {
     position: fixed;
     width: 100%;
-    z-index: 4;
+    z-index: 6;
     top: 0;
 }
 
@@ -370,9 +370,9 @@ tbody td {
     }
 
 
-    .return-btn:hover {
-        border-width: 0 12px 12px 0;
-    }
+.return-btn:hover {
+    border-width: 0 12px 12px 0;
+}
 
 #check-id-btn {
     margin: 0;
@@ -538,7 +538,7 @@ tbody td {
 ####################################################################################################################################################*/
 
 .shipping-address-th {
-    font-size:15px;
+    font-size: 15px;
 }
 
 .shipping-address-p {
@@ -558,7 +558,7 @@ tbody td {
 
 .form-row {
     display: flex;
-    justify-content:center;
+    justify-content: center;
 }
 
 .form-shipping-input {
@@ -600,7 +600,7 @@ tbody td {
     transition: all linear 0.2s;
 }
 
-.shipping-address-title p{
+.shipping-address-title p {
     text-align: center;
     margin: 0;
     padding: 10px;
@@ -648,11 +648,39 @@ tbody td {
     background-color: #0366d6;
 }
 
+    .choose-shipping-address-btn:focus {
+        outline: none;
+    }
+
     .choose-shipping-address-btn:hover {
         background-color: white;
     }
 
         .choose-shipping-address-btn:hover .fa-hand-pointer {
+            color: #0366d6;
+        }
+
+.fa-exchange-alt {
+    color: white;
+    transition: all linear 0.2s;
+    font-size: 20px;
+}
+
+.change-shipping-address-btn {
+    transition: all linear 0.2s;
+    border: solid #0366d6 3px;
+    background-color: #0366d6;
+}
+
+    .change-shipping-address-btn:focus {
+        outline: none;
+    }
+
+    .change-shipping-address-btn:hover {
+        background-color: white;
+    }
+
+        .change-shipping-address-btn:hover .fa-exchange-alt {
             color: #0366d6;
         }
 
@@ -672,4 +700,37 @@ tbody td {
     #action-shipping-address {
         padding: 5px;
     }
+}
+
+/**Order/
+/*####################################################################################################################################################
+####################################################################################################################################################
+####################################################################################################################################################*/
+
+#summary-container {
+    margin-top: 90px;
+}
+
+.summary-info {
+    text-align: center;
+    padding: 10px;
+}
+
+#orders-container {
+    margin-top: 90px;
+}
+
+#check-out-btn {
+    background-color: transparent;
+    border: none;
+    color: #0366d6;
+}
+
+.fa-truck {
+    transition: all ease-in 0.5s;
+}
+
+.check-out:hover .fa-truck {
+    transform: translateX(80px);
+    opacity: 0;
 }

@@ -8,6 +8,7 @@ namespace OnlineShop.Web.Models.Interfaces
 {
     public interface IUserRepository
     {
-        Task<ApplicationUser> GetActualLoggedInUser();
+        Task<ApplicationUser> GetActualUser();
+        Task<string> GetUserId();
     }
 }

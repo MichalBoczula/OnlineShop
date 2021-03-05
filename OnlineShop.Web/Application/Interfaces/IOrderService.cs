@@ -11,6 +11,7 @@ namespace OnlineShop.Web.Application.Interfaces
     public interface IOrderService
     {
         Task<string> AddOrder(OrderVM orderVM);
-        Task<OrderVM> GetOrderDetails(int shippingAddressId);
+        Task<OrderVM> GetOrderSummary(int shippingAddressId);
+        Task<List<Order>> GetOrders();
     }
 }

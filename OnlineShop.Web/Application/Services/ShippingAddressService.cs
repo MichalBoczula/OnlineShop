@@ -18,29 +18,26 @@ namespace OnlineShop.Web.Application.Services
     {
         private readonly IShippingAddressRepository _repo;
         private readonly IMapper _mapper;
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IUserRepository _userRepository;
 
         public ShippingAddressService(IShippingAddressRepository repo,
                                       IMapper mapper,
-                                      UserManager<ApplicationUser> userManager,
-                                      IHttpContextAccessor httpContextAccessor)
+                                      IUserRepository userRepository)
         {
             _repo = repo;
             _mapper = mapper;
-            _userManager = userManager;
-            _httpContextAccessor = httpContextAccessor;
+            _userRepository = userRepository;
         }
 
         public async Task AddShippingAddress(ShippingAddressCreateVM shippingAddressAddVM)
         {
-            var shippingAddress = MapVMToEntityAndAssingUserId(shippingAddressAddVM);
+            var shippingAddress = await MapVMToEntityAndAssingUserId(shippingAddressAddVM);
             await _repo.AddShippingAddress(shippingAddress);
         }
 
         public async Task<List<ShippingAddressVM>> GetShippingAddresses()
         {
-            var userId = GetUserId();
+            var userId = await GetUserId();
             var list = await _repo.GetShippingAddresses(userId)
                                   .ProjectTo<ShippingAddressVM>(_mapper.ConfigurationProvider)
                                   .ToListAsync();
@@ -61,30 +58,29 @@ namespace OnlineShop.Web.Application.Services
 
         public async Task UpdateShippingAddress(ShippingAddressVM shippingAddressVM)
         {
-            var shippingAddress = MapVMToEntityAndAssingUserId(shippingAddressVM);
+            var shippingAddress = await MapVMToEntityAndAssingUserId(shippingAddressVM);
             await _repo.UpdateShippingAddress(shippingAddress);
         }
         
-        private ShippingAddress MapVMToEntityAndAssingUserId(ShippingAddressVM shippingAddressVM)
+        private async Task<ShippingAddress> MapVMToEntityAndAssingUserId(ShippingAddressVM shippingAddressVM)
         {
-            var userId = GetUserId();
+            var userId = await GetUserId();
             var shippingAddress = _mapper.Map<ShippingAddress>(shippingAddressVM);
             shippingAddress.ApplicationUserId = userId;
             return shippingAddress;
         }
 
-        private ShippingAddress MapVMToEntityAndAssingUserId(ShippingAddressCreateVM shippingAddressVM)
+        private async Task<ShippingAddress> MapVMToEntityAndAssingUserId(ShippingAddressCreateVM shippingAddressVM)
         {
-            var userId = GetUserId();
+            var userId = await GetUserId();
             var shippingAddress = _mapper.Map<ShippingAddress>(shippingAddressVM);
             shippingAddress.ApplicationUserId = userId;
             return shippingAddress;
         }
 
-        private string GetUserId()
+        private async Task<string> GetUserId()
         {
-            var loggedUser = _httpContextAccessor.HttpContext.User;
-            var userId = _userManager.GetUserId(loggedUser);
+            var userId = await _userRepository.GetUserId();
             return userId;
         }
 

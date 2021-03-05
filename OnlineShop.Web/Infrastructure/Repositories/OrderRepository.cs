@@ -54,7 +54,9 @@ namespace OnlineShop.Web.Infrastructure.Repositories
         public async Task<Order> GetOrderbyId(string orderId)
         {
             return await _context.Orders
+                .Include(sa => sa.ShippingAddressRef)
                 .Include(o => o.Items)
+                .ThenInclude(m => m.MobilePhoneRef)
                 .FirstOrDefaultAsync(o => o.Id == orderId);
         }
     }

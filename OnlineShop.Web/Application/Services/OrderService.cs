@@ -15,32 +15,29 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Web.Application.Services
 {
-    public class OrderService : IOrderService
+    public class OrderService : IOrderService   
     {
         private readonly IOrderRepository _repo;
         private readonly IMapper _mapper;
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IShoppingCartRepository _shoppingCartRepository;
         private readonly IShippingAddressRepository _shippingAddressRepository;
+        private readonly IUserRepository _userRepository;
 
         public OrderService(IOrderRepository repo,
                             IMapper mapper,
-                            UserManager<ApplicationUser> userManager,
-                            IHttpContextAccessor httpContextAccessor,
                             IShoppingCartRepository shoppingCartRepository,
-                            IShippingAddressRepository shippingAddressRepository)
+                            IShippingAddressRepository shippingAddressRepository,
+                            IUserRepository userRepository)
         {
             _repo = repo;
             _mapper = mapper;
-            _userManager = userManager;
-            _httpContextAccessor = httpContextAccessor;
             _shoppingCartRepository = shoppingCartRepository;
             _shippingAddressRepository = shippingAddressRepository;
+            _userRepository = userRepository;
         }
 
 
-        public async Task<OrderVM> GetOrderDetails(int shippingAddressId)
+        public async Task<OrderVM> GetOrderSummary(int shippingAddressId)
         {
             var shoppingCart = await _shoppingCartRepository.GetShoppingCart();
             var shoppingCartVM = _mapper.Map<ShoppingCartVM>(shoppingCart);
@@ -51,15 +48,24 @@ namespace OnlineShop.Web.Application.Services
             return new OrderVM()
             {
                 ShoppingCartVM = shoppingCartVM,
-                UserId = GetUserId(),
+                UserId = await GetUserId(),
                 ShippingAddressVM = shippingAddressVM
             };
         }
 
-        private string GetUserId()
+        public async Task<OrderVM> GetOrderDetails(string orderId)
         {
-            var loggedUser = _httpContextAccessor.HttpContext.User;
-            var userId = _userManager.GetUserId(loggedUser);
+            var order = _repo.GetOrderbyId(orderId);
+            return new OrderVM()
+            {
+                UserId = await GetUserId()
+            };
+        }
+
+
+        private async Task<string> GetUserId()
+        {
+            var userId = await _userRepository.GetUserId();
             return userId;
         }
 
@@ -69,6 +75,12 @@ namespace OnlineShop.Web.Application.Services
             var shoppingCart = await _shoppingCartRepository.GetShoppingCart();
             await _shoppingCartRepository.DeleteAllItems(shoppingCart);
             return result;
+        }
+
+        public async Task<List<Order>> GetOrders()
+        {
+            var userId = await GetUserId();
+            return _repo.GetOrders(userId).ToList();
         }
     }
 }

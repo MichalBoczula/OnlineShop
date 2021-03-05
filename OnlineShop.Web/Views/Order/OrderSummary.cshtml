@@ -65,7 +65,7 @@
         <thead>
             <tr>
                 <th class="shipping-address-th">
-                    Choose
+                    Change
                 </th>
                 <th class="shipping-address-th">
                     City
@@ -88,8 +88,8 @@
             <tr class="table-row">
                 <td>
                     <a asp-controller="Order" asp-action="OrderSummary" asp-route-shippingAddress="@Model">
-                        <div class="btn btn-primary choose-shipping-address-btn">
-                            <i class="far fa-hand-pointer"></i>
+                        <div class="btn btn-primary change-shipping-address-btn">
+                            <i class="fas fa-exchange-alt"></i>
                         </div>
                     </a>
                 </td>
@@ -120,8 +120,9 @@
             <input type="hidden" asp-for="@Model.ShippingAddressVM.Id" id="Id" class="form-control form-shipping-input" value="@Model.ShippingAddressVM.Id" />
         </div>
         <div class="check-out">
-            <input type="submit" value="Order" />
-            @*<p class="check-out-btn" id="check-id-btn">I Order!<i class="fas fa-truck fa-2x"></i></p>*@
+            <button type="submit" value="Order" id="check-out-btn">
+                <p class="check-out-btn" id="check-id-btn">I Order!   <i class="fas fa-truck fa-2x"></i></p>
+            </button>
         </div>
     </form>
 </div>

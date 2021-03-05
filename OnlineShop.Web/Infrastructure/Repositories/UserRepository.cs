@@ -15,15 +15,22 @@ namespace OnlineShop.Web.Infrastructure.Repositories
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public UserRepository(UserManager<ApplicationUser> userManager, IHttpContextAccessor httpContextAccessor = null)
+        public UserRepository(UserManager<ApplicationUser> userManager, IHttpContextAccessor httpContextAccessor)
         {
             _userManager = userManager;
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<ApplicationUser> GetActualLoggedInUser()
+        public async Task<ApplicationUser> GetActualUser()
         {
-            return await _userManager.GetUserAsync(_httpContextAccessor.HttpContext.User);
+            var user = await _userManager.GetUserAsync(_httpContextAccessor.HttpContext.User);
+            return user;
+        }
+
+        public async Task<string> GetUserId()
+        {
+            var user = await GetActualUser();
+            return user.Id;
         }
     }
 }
