@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using OnlineShop.Web.Application.Interfaces;
 using OnlineShop.Web.Application.ViewModels.Order;
 using OnlineShop.Web.Application.ViewModels.ShippingAddress;
@@ -15,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Web.Application.Services
 {
-    public class OrderService : IOrderService   
+    public class OrderService : IOrderService
     {
         private readonly IOrderRepository _repo;
         private readonly IMapper _mapper;
@@ -53,13 +55,13 @@ namespace OnlineShop.Web.Application.Services
             };
         }
 
-        public async Task<OrderVM> GetOrderDetails(string orderId)
+        public async Task<OrderDetailsVM> GetOrderDetails(string orderId)
         {
-            var order = _repo.GetOrderbyId(orderId);
-            return new OrderVM()
-            {
-                UserId = await GetUserId()
-            };
+            var VM = _mapper.Map<OrderDetailsVM>(
+                    await _repo.GetOrderbyId(orderId)
+                );
+            VM.CountTotal();
+            return VM;
         }
 
 
@@ -77,10 +79,12 @@ namespace OnlineShop.Web.Application.Services
             return result;
         }
 
-        public async Task<List<Order>> GetOrders()
+        public async Task<List<OrderForSummaryListVM>> GetOrders()
         {
             var userId = await GetUserId();
-            return _repo.GetOrders(userId).ToList();
+            return await _repo.GetOrders(userId)
+                .ProjectTo<OrderForSummaryListVM>(_mapper.ConfigurationProvider)
+                .ToListAsync();
         }
     }
 }

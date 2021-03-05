@@ -1,6 +1,14 @@
-﻿@model IEnumerable<OnlineShop.Web.Models.Entity.Order>
+﻿@model IEnumerable<OnlineShop.Web.Application.ViewModels.Order.OrderForSummaryListVM>
 
 <div class="details-container" id="orders-container">
+    <div class="shipping-address-title">
+        <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+            <span id="back-to-profile"><i class="fas fa-arrow-circle-left fa-2x"></i></span>
+        </a>
+        <p>
+            Your Orders History
+        </p>
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -18,7 +26,7 @@
                         @Html.DisplayFor(modelItem => item.Id)
                     </td>
                     <td>
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-controller="Order"  asp-action="OrderDetails" asp-route-orderId="@item.Id">Details</a> |
                     </td>
                 </tr>
             }

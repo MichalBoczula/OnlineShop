@@ -1,0 +1,117 @@
+﻿@model OnlineShop.Web.Application.ViewModels.Order.OrderDetailsVM
+<div class="details-container" id="list">
+    <div class="shipping-address-title">
+        <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+            <span id="back-to-profile"><i class="fas fa-arrow-circle-left fa-2x"></i></span>
+        </a>
+        <p>
+            Order Details
+        </p>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Photo
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Price
+                </th>
+                <th class="action-th">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr class="table-row">
+                    <td>
+                        <figure class="table-image-continer">
+                            <img class="d-block w-100" id="table-image" src="~/images/@item.MobilePhoneRef.MainImage">
+                        </figure>
+                    </td>
+                    <td>
+                        @item.MobilePhoneRef.Name
+                    </td>
+                    <td>
+                        @item.Quantity
+                    </td>
+                    <td>
+                        @{var price = item.Quantity * item.MobilePhoneRef.Price;}
+                        @price
+                    </td>
+                    <td class="action-td">
+                        <a asp-controller="MobilePhone" asp-action="Details" asp-route-mobilePhoneId="@item.MobilePhoneRef.Id">
+                            <p id="details-btn" class="return-desc"><span class="return-btn" aria-hidden="true"></span>Details</p>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr class="tfoot">
+                <td colspan="5" class="total">
+                    <p class="totalP">
+                        Total Price: @Model.Total
+                    </p>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+</div>
+
+<div class="details-container" id="list">
+    <div class="shipping-address-title">
+        <p>Delivery address</p>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="shipping-address-th">
+                    City
+                </th>
+                <th class="shipping-address-th">
+                    Postal Code
+                </th>
+                <th class="shipping-address-th">
+                    Street
+                </th>
+                <th class="shipping-address-th">
+                    House Number
+                </th>
+                <th class="shipping-address-th">
+                    Flat Number
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr class="table-row">
+                <td>
+                    @Model.ShippingAddressRef.City
+                </td>
+                <td>
+                    @Model.ShippingAddressRef.PostalCode
+                </td>
+                <td>
+                    @Model.ShippingAddressRef.Street
+                </td>
+                <td>
+                    @Model.ShippingAddressRef.HouseNumber
+                </td>
+                <td>
+                    @Model.ShippingAddressRef.FlatNumber
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>

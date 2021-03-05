@@ -684,6 +684,13 @@ tbody td {
             color: #0366d6;
         }
 
+
+#back-to-profile {
+    position: relative;
+    top: 30px;
+    left: 30px;
+}
+
 @media (max-width: 770px) {
     .shipping-address-th {
         font-size: 10px;

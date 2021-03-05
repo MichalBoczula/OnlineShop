@@ -58,5 +58,11 @@ namespace OnlineShop.Web.Controllers
             return RedirectToAction(nameof(IndexShippingAddress));
         }
 
+        public async Task<IActionResult> ShippingAddressProfile()
+        {
+            var VM = await _service.GetShippingAddresses();
+            return View(VM);
+        }
+
     }
 }

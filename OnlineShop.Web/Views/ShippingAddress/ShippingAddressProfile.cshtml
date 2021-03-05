@@ -1,0 +1,81 @@
+﻿@model List<OnlineShop.Web.Application.ViewModels.ShippingAddress.ShippingAddressVM>
+
+<div class="details-container" id="list">
+    <div class="shipping-address-title">
+        <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+            <span id="back-to-profile"><i class="fas fa-arrow-circle-left fa-2x"></i></span>
+        </a>
+        <p>
+            Your delivery addresses
+        </p>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="shipping-address-th">
+                    City
+                </th>
+                <th class="shipping-address-th">
+                    Postal Code
+                </th>
+                <th class="shipping-address-th">
+                    Street
+                </th>
+                <th class="shipping-address-th">
+                    House Number
+                </th>
+                <th class="shipping-address-th">
+                    Flat Number
+                </th>
+                <th class="action-th shipping-address-th">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var address in Model)
+            {
+                <tr class="table-row">
+                    <td>
+                        @address.City
+                    </td>
+                    <td>
+                        @address.PostalCode
+                    </td>
+                    <td>
+                        @address.Street
+                    </td>
+                    <td>
+                        @address.HouseNumber
+
+                    </td>
+                    <td>
+                        @address.FlatNumber
+                    </td>
+                    <td class="action-td" id="action-shipping-address">
+                        <a asp-controller="ShippingAddress" asp-action="EditShippingAddress" asp-route-shippingAddressId="@address.Id">
+                            <div class="btn btn-primary action-btn">
+                                <p class="action-desc">Update</p>
+                            </div>
+                        </a>
+                        <a asp-controller="ShippingAddress" asp-action="DeleteShippingAddress" asp-route-shippingAddressId="@address.Id">
+                            <div class="btn btn-primary action-btn">
+                                <p class="action-desc">Remove</p>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="add-shipping-address-btn-container">
+    <a asp-controller="ShippingAddress" asp-action="AddShippingAddress">
+        <div class="add-shipping-address-btn">
+            <p class="shipping-address-p">
+                Add New One
+            </p>
+        </div>
+    </a>
+</div>

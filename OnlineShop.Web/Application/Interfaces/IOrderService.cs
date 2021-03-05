@@ -12,6 +12,7 @@ namespace OnlineShop.Web.Application.Interfaces
     {
         Task<string> AddOrder(OrderVM orderVM);
         Task<OrderVM> GetOrderSummary(int shippingAddressId);
-        Task<List<Order>> GetOrders();
+        Task<List<OrderForSummaryListVM>> GetOrders();
+        Task<OrderDetailsVM> GetOrderDetails(string orderId);
     }
 }

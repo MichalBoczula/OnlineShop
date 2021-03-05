@@ -52,10 +52,10 @@ namespace OnlineShop.Web.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Details()
+        public async Task<IActionResult> OrderDetails(string orderId)
         {
-            //var model = await _service.GetOrderDetails();
-            return View();
+            var model = await _service.GetOrderDetails(orderId);
+            return View(model);
         }
 
 
