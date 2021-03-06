@@ -57,7 +57,7 @@ namespace OnlineShop.Web.Infrastructure.Repositories
                 .Include(sa => sa.ShippingAddressRef)
                 .Include(o => o.Items)
                 .ThenInclude(m => m.MobilePhoneRef)
-                .FirstOrDefaultAsync(o => o.Id == orderId);
+                .FirstOrDefaultAsync(o => string.Equals(o.Id, orderId));
         }
     }
 }

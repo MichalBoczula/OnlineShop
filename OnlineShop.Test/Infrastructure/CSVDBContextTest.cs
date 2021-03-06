@@ -13,23 +13,7 @@ namespace OnlineShop.Test.Infrastructure
     public class CSVDBContextTest
     {
         [Fact]
-        public void RetriveCamerasFromCSVTest()
-        {
-            //Arrange
-            var cameraPath = "..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper";
-            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper");
-            var cSVDBContext = new CSVDBContext(cameraPath, null, null, null, null, fileManager);
-            cSVDBContext.CreateCSVFiles();
-            //Act
-            var list = cSVDBContext.RetriveCamerasFromCSV();
-            //Assert
-            list.Should().HaveCount(30);
-            list.Should().BeOfType<List<CameraCSV>>();
-            File.Delete(cameraPath);
-        }
-
-        [Fact]
-        public void RetriveCamerasFromCSVTestWrongPathToFile()
+        public void RetriveCamerasFromCSVTestFileDoesntExist()
         {
             //Arrange
             var cameraPath = "..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper\\CSVSeed\\Camera.csv";
@@ -40,6 +24,23 @@ namespace OnlineShop.Test.Infrastructure
             //Assert
             list.Should().HaveCount(0);
             list.Should().BeOfType<List<CameraCSV>>();
+            File.Delete(cameraPath);
+        }
+
+        [Fact]
+        public void RetriveCamerasFromCSVTest()
+        {
+            //Arrange
+            var cameraPath = "..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper\\CSVSeed\\Camera.csv";
+            var fileManager = new FileManager("..\\..\\..\\..\\OnlineShop.Web\\Infrastructure\\Helper");
+            var cSVDBContext = new CSVDBContext(cameraPath, null, null, null, null, fileManager);
+            cSVDBContext.CreateCSVFiles();
+            //Act
+            var list = cSVDBContext.RetriveCamerasFromCSV();
+            //Assert
+            list.Should().HaveCount(30);
+            list.Should().BeOfType<List<CameraCSV>>();
+            File.Delete(cameraPath);
         }
 
         [Fact]

@@ -53,7 +53,10 @@ namespace OnlineShop.Test.Infrastructure.Repositories
             using (var dbContext = serviceProvider.GetService<DatabaseContext>())
             {
                 //Arrange
-                var shoppingCart = new ShoppingCart();
+                var shoppingCart = new ShoppingCart()
+                {
+                    Id = "1"
+                };
                 var user = new ApplicationUser()
                 {
                     Id = "1",

@@ -1,4 +1,6 @@
 using AutoMapper;
+using DinkToPdf;
+using DinkToPdf.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -56,6 +58,8 @@ namespace OnlineShop.Web
             services.AddTransient<IShippingAddressService, ShippingAddressService>();
 
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
+
 
             services.AddHttpContextAccessor();
             services.AddSession(opt =>

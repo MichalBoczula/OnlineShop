@@ -298,6 +298,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 order.Items.Add(item);
                 order.Items.Add(item2);
                 dbContext.Add(order);
+                await dbContext.SaveChangesAsync();
                 dbContext.Add(user);
                 await dbContext.SaveChangesAsync();
                 var mockHttpContextAccessor = new Mock<IHttpContextAccessor>();
@@ -308,7 +309,7 @@ namespace OnlineShop.Test.Infrastructure.Repositories
                 var userManager = MockUserManager<ApplicationUser>(_users).Object;
                 var orderRepository = new OrderRepository(dbContext);
                 //Act
-                var result = await orderRepository.GetOrderbyId(order.Id);
+                var result = await dbContext.Orders.FirstOrDefaultAsync(i => i.Id == order.Id);
                 //Assert
                 result.Should().BeOfType<Order>();
                 result.Items.Should().HaveCount(2);
