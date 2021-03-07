@@ -11,6 +11,7 @@ namespace OnlineShop.Web.Application.ViewModels.Mobile
     public class MobilePhoneForOrderSummaryVM : IMapFrom<MobilePhone>
     {
         public int Id { get; set; }
+        public string Brand { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
         public string MainImage { get; set; }

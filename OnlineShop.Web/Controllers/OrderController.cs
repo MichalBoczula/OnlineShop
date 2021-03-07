@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShop.Web.Application.Interfaces;
 using OnlineShop.Web.Application.Services;
+using OnlineShop.Web.Application.ViewModels.Mobile;
 using OnlineShop.Web.Application.ViewModels.Order;
 using OnlineShop.Web.Application.ViewModels.ShippingAddress;
 using OnlineShop.Web.Application.ViewModels.ShoppingCart;
@@ -20,10 +21,12 @@ namespace OnlineShop.Web.Controllers
     public class OrderController : Controller
     {
         private readonly IOrderService _service;
+        private readonly IDocumentService _document;
 
-        public OrderController(IOrderService service)
+        public OrderController(IOrderService service, IDocumentService document)
         {
             _service = service;
+            _document = document;
         }
 
         [HttpPost]
@@ -58,6 +61,60 @@ namespace OnlineShop.Web.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public async Task<ActionResult> GetInvoice(string orderId)
+        {
+            var orderVm = await _service.GetOrderDetails(orderId);
+            var file = _document.CreatePDFStream(orderVm, null);
+            return File(file, "application/pdf");
+        }
 
+        [HttpGet]
+        public ActionResult GetInvoice2(string orderId)
+        {
+            var orderVm = new OrderDetailsVM()
+            {
+                ShippingAddressRef = new Web.Application.ViewModels.ShippingAddress.ShippingAddressVM()
+                {
+                    City = "Wrolaw",
+                    PostalCode = "59-999",
+                    Street = "Long Street",
+                    HouseNumber = "54"
+                },
+                Total = 6000,
+                Items = new List<OrderMobilePhoneVM>()
+                {
+                    new OrderMobilePhoneVM()
+                    {
+                        Quantity = 1,
+                        MobilePhoneRef= new MobilePhoneForOrderSummaryVM()
+                        {
+                            Name = "Iphone12",
+                            Price = 3000
+                        }
+                    },
+                    new OrderMobilePhoneVM()
+                    {
+                        Quantity = 1,
+                        MobilePhoneRef= new MobilePhoneForOrderSummaryVM()
+                        {
+                            Name = "Iphone11",
+                            Price = 2000
+                        }
+                    },
+                    new OrderMobilePhoneVM()
+                    {
+                        Quantity = 1,
+                        MobilePhoneRef= new MobilePhoneForOrderSummaryVM()
+                        {
+                            Name = "Iphone10",
+                            Price = 1000
+                        }
+                    },
+                }
+            };
+            var file = _document.CreatePDFStream(orderVm, null);
+            return File(file, "application/pdf");
+        }
     }
 }

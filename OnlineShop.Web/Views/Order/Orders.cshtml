@@ -15,7 +15,12 @@
                 <th>
                     Id
                 </th>
-                <th>Details</th>
+                <th>
+                    Details
+                </th>
+                <th>
+                    Invoice
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -26,7 +31,10 @@
                         @Html.DisplayFor(modelItem => item.Id)
                     </td>
                     <td>
-                        <a asp-controller="Order"  asp-action="OrderDetails" asp-route-orderId="@item.Id">Details</a> |
+                        <a asp-controller="Order" asp-action="OrderDetails" asp-route-orderId="@item.Id">Details</a> |
+                    </td>
+                    <td>
+                        <a asp-controller="Order" asp-action="GetInvoice" asp-route-orderId="@item.Id">Invoice</a> |
                     </td>
                 </tr>
             }

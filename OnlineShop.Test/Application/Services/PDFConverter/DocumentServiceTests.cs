@@ -3,6 +3,7 @@ using DinkToPdf.Contracts;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using OnlineShop.Web.Application.Services.PDFConverter;
+using OnlineShop.Web.Application.ViewModels.Mobile;
 using OnlineShop.Web.Application.ViewModels.Order;
 using System;
 using System.Collections.Generic;
@@ -27,51 +28,45 @@ namespace OnlineShop.Test.Application.Services.PDFConverter
             //Arrange
             var converter = InjectServices().GetService<IConverter>();
             var documentService = new DocumentService(converter);
-            var orderVm = new OrderVM()
+            var orderVm = new OrderDetailsVM()
             {
-                ShoppingCartVM = new Web.Application.ViewModels.ShoppingCart.ShoppingCartVM()
-                {
-                    Items = new List<Web.Models.Entity.ShoppingCartMobilePhone>()
-                    {
-                        new Web.Models.Entity.ShoppingCartMobilePhone()
-                        {
-                            Quantity = 1,
-                            MobilePhoneRef = new Web.Models.Entity.MobilePhone()
-                            {
-                                Brand = "Apple",
-                                Name = "Iphone12",
-                                Price = 3000
-                            }
-                        },
-                        new Web.Models.Entity.ShoppingCartMobilePhone()
-                        {
-                            Quantity = 1,
-                            MobilePhoneRef = new Web.Models.Entity.MobilePhone()
-                            {
-                                Brand = "Apple",
-                                Name = "Iphone11",
-                                Price = 2000
-                            }
-                        },
-                        new Web.Models.Entity.ShoppingCartMobilePhone()
-                        {
-                            Quantity = 1,
-                            MobilePhoneRef = new Web.Models.Entity.MobilePhone()
-                            {
-                                Brand = "Apple",
-                                Name = "Iphone10",
-                                Price = 1000
-                            }
-                        }
-                    },
-                    Total = 6000
-                },
-                ShippingAddressVM = new Web.Application.ViewModels.ShippingAddress.ShippingAddressVM()
+                ShippingAddressRef = new Web.Application.ViewModels.ShippingAddress.ShippingAddressVM()
                 {
                     City = "Wrolaw",
                     PostalCode = "59-999",
                     Street = "Long Street",
                     HouseNumber = "54"
+                },
+                Total = 6000,
+                Items = new List<OrderMobilePhoneVM>()
+                {
+                    new OrderMobilePhoneVM()
+                    {
+                        Quantity = 1,
+                        MobilePhoneRef= new MobilePhoneForOrderSummaryVM()
+                        {
+                            Name = "Iphone12",
+                            Price = 3000
+                        }
+                    },
+                    new OrderMobilePhoneVM()
+                    {
+                        Quantity = 1,
+                        MobilePhoneRef= new MobilePhoneForOrderSummaryVM()
+                        {
+                            Name = "Iphone11",
+                            Price = 2000
+                        }
+                    },
+                    new OrderMobilePhoneVM()
+                    {
+                        Quantity = 1,
+                        MobilePhoneRef= new MobilePhoneForOrderSummaryVM()
+                        {
+                            Name = "Iphone10",
+                            Price = 1000
+                        }
+                    },
                 }
             };
             var css = @"A:\Programowanie\C#\Kurs\Apps\OnlineShop\OnlineShop.Web\Application\Services\PDFConverter\Assets\PDFStyles.css";

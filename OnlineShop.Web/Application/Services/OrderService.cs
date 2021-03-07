@@ -26,13 +26,15 @@ namespace OnlineShop.Web.Application.Services
         private readonly IShippingAddressRepository _shippingAddressRepository;
         private readonly IUserRepository _userRepository;
         private readonly IEmailSender _emailSender;
+        private readonly IDocumentService _documentService;
 
         public OrderService(IOrderRepository repo,
                             IMapper mapper,
                             IShoppingCartRepository shoppingCartRepository,
                             IShippingAddressRepository shippingAddressRepository,
                             IUserRepository userRepository,
-                            IEmailSender emailSender)
+                            IEmailSender emailSender,
+                            IDocumentService documentService)
         {
             _repo = repo;
             _mapper = mapper;
@@ -40,6 +42,7 @@ namespace OnlineShop.Web.Application.Services
             _shippingAddressRepository = shippingAddressRepository;
             _userRepository = userRepository;
             _emailSender = emailSender;
+            _documentService = documentService;
         }
 
 
@@ -67,7 +70,6 @@ namespace OnlineShop.Web.Application.Services
             VM.CountTotal();
             return VM;
         }
-
 
         private async Task<string> GetUserId()
         {

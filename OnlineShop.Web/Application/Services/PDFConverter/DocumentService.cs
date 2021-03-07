@@ -27,7 +27,7 @@ namespace OnlineShop.Web.Application.Services.PDFConverter
             _converter = converter;
         }
 
-        public string GetHTMLString(OrderVM order)
+        public string GetHTMLString(OrderDetailsVM order)
         {
             var sb = new StringBuilder();
 
@@ -54,15 +54,15 @@ namespace OnlineShop.Web.Application.Services.PDFConverter
                             <tbody>
                                 <tr>
                                     <td>CustomerName</td>
-                                    <td>{order.ShippingAddressVM.PostalCode} {order.ShippingAddressVM.City} </td>
+                                    <td>{order.ShippingAddressRef.PostalCode} {order.ShippingAddressRef.City} </td>
                                 </tr> ");
 
-            if (string.IsNullOrEmpty(order.ShippingAddressVM.FlatNumber))
+            if (string.IsNullOrEmpty(order.ShippingAddressRef.FlatNumber))
             {
                 sb.Append($@"
                                 <tr>
                                     <td>CustomerSurname</td>
-                                    <td>{order.ShippingAddressVM.Street} {order.ShippingAddressVM.HouseNumber}</td>
+                                    <td>{order.ShippingAddressRef.Street} {order.ShippingAddressRef.HouseNumber}</td>
                                 </tr>");
             }
             else
@@ -70,7 +70,7 @@ namespace OnlineShop.Web.Application.Services.PDFConverter
                 sb.Append($@"
                                 <tr>
                                     <td>CustomerSurname</td>
-                                    <td>{order.ShippingAddressVM.Street} {order.ShippingAddressVM.HouseNumber}/{order.ShippingAddressVM.FlatNumber}</td>
+                                    <td>{order.ShippingAddressRef.Street} {order.ShippingAddressRef.HouseNumber}/{order.ShippingAddressRef.FlatNumber}</td>
                                 </tr>");
             }
 
@@ -80,6 +80,9 @@ namespace OnlineShop.Web.Application.Services.PDFConverter
                         <table class='table'>
                             <thead class='Head'>
                                 <tr>
+                                    <th>
+                                        Brand
+                                    </th>
                                     <th>
                                         Product
                                     </th>
@@ -98,11 +101,12 @@ namespace OnlineShop.Web.Application.Services.PDFConverter
                         ");
 
 
-            foreach (var item in order.ShoppingCartVM.Items)
+            foreach (var item in order.Items)
             {
                 sb.Append($@"
                         <tr> 
-                            <td>{item.MobilePhoneRef.Brand} {item.MobilePhoneRef.Name}</td>
+                            <td>{item.MobilePhoneRef.Brand}</td>
+                            <td>{item.MobilePhoneRef.Name}</td>
                             <td>{item.Quantity}</td>
                             <td>{item.MobilePhoneRef.Price}</td>
                             <td>{item.MobilePhoneRef.Price * item.Quantity}</td>
@@ -113,9 +117,9 @@ namespace OnlineShop.Web.Application.Services.PDFConverter
                     </tbody>
                     <tfoot>
                         <tr class='Foot'>
-                            <td colspan='4'>
+                            <td colspan='5'>
                                 <p class='total'>
-                                    Total Price: {order.ShoppingCartVM.Total}
+                                    Total Price: {order.Total}
                                 </p>
                             </td>
                         </tr>
@@ -130,40 +134,11 @@ namespace OnlineShop.Web.Application.Services.PDFConverter
                 </div>
             </body>
             </html>");
-
-
-
-            //sb.Append(@"
-            //            <html>
-            //                <head>
-            //                </head>
-            //                <body>
-            //                    <div class='header'><h1>This is the generated PDF report!!!</h1></div>
-            //                    <table align='center'>
-            //                        <tr>
-            //                            <th>Brand</th>
-            //                            <th>Name</th>
-            //                            <th>Quantity</th>
-            //                            <th>Price</th>
-            //                            <th>Total</th>
-            //                        </tr>");
-
-            //sb.AppendFormat($@"<tr>
-            //                        <td>{order.ShoppingCartVM.Items[0].MobilePhoneRef.Brand}</td>
-            //                        <td>{order.ShoppingCartVM.Items[0].MobilePhoneRef.Name}</td>
-            //                        <td>{order.ShoppingCartVM.Items[0].Quantity}</td>
-            //                        <td>{order.ShoppingCartVM.Items[0].MobilePhoneRef.Price}</td>
-            //                        <td>{order.ShoppingCartVM.Items[0].MobilePhoneRef.Price * order.ShoppingCartVM.Items[0].Quantity}</td>
-            //                      </tr>");
-            //sb.Append(@"
-            //                    </table>
-            //                </body>
-            //            </html>");
             return sb.ToString();
         }
 
 # nullable enable
-        public void CreatePDF(OrderVM order, string? path)
+        public void CreatePDF(OrderDetailsVM order, string? path)
         {
             var globalSettings = new GlobalSettings
             {
@@ -191,6 +166,37 @@ namespace OnlineShop.Web.Application.Services.PDFConverter
             };
             _converter.Convert(pdf);
         }
+
+        public byte[] CreatePDFStream(OrderDetailsVM order, string? path)
+        {
+            var globalSettings = new GlobalSettings
+            {
+                ColorMode = ColorMode.Color,
+                Orientation = Orientation.Portrait,
+                PaperSize = PaperKind.A4,
+                Margins = new MarginSettings { Top = 10 },
+                DocumentTitle = "PDF Report",
+            };
+
+            path ??= Path.Combine(Directory.GetCurrentDirectory(), @"Application\Services\PDFConverter\Assets", "PDFStyles.css");
+            var objectSettings = new ObjectSettings
+            {
+                PagesCount = true,
+                HtmlContent = GetHTMLString(order),
+                WebSettings = { DefaultEncoding = "utf-8", UserStyleSheet = path },
+                HeaderSettings = { FontName = "Arial", FontSize = 9, Right = "Page [page] of [toPage]", Line = true },
+                FooterSettings = { FontName = "Arial", FontSize = 9, Line = true, Center = "Report Footer" }
+            };
+
+            var pdf = new HtmlToPdfDocument()
+            {
+                GlobalSettings = globalSettings,
+                Objects = { objectSettings }
+            };
+            var file = _converter.Convert(pdf);
+            return file;
+        }
 # nullable disable
+
     }
 }
