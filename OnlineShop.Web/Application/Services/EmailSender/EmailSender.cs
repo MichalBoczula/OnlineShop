@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Configuration;
 using OnlineShop.Web.Application.Interfaces;
 using OnlineShop.Web.Application.ViewModels.Order;
-using OnlineShop.Web.Infrastructure.Helper.EmailSender.Abstract;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System;
@@ -11,7 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OnlineShop.Web.Infrastructure.Helper.EmailSender
+namespace OnlineShop.Web.Application.Services.EmailSender
 {
     public class EmailSender : IEmailSenderExtension
     {

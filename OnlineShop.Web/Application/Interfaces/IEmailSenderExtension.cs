@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OnlineShop.Web.Infrastructure.Helper.EmailSender.Abstract
+namespace OnlineShop.Web.Application.Interfaces
 {
     public interface IEmailSenderExtension : IEmailSender
     {

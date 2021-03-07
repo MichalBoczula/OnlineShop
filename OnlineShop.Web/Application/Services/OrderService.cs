@@ -9,7 +9,6 @@ using OnlineShop.Web.Application.ViewModels.Order;
 using OnlineShop.Web.Application.ViewModels.ShippingAddress;
 using OnlineShop.Web.Application.ViewModels.ShoppingCart;
 using OnlineShop.Web.Infrastructure;
-using OnlineShop.Web.Infrastructure.Helper.EmailSender.Abstract;
 using OnlineShop.Web.Models.Entity;
 using OnlineShop.Web.Models.Interfaces;
 using System;
