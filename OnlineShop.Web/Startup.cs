@@ -14,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using OnlineShop.Web.Application;
 using OnlineShop.Web.Application.Interfaces;
 using OnlineShop.Web.Application.Services;
+using OnlineShop.Web.Application.Services.PDFConverter;
 using OnlineShop.Web.Infrastructure;
 using OnlineShop.Web.Infrastructure.Helper.EmailSender;
 using OnlineShop.Web.Infrastructure.Repositories;
@@ -59,7 +60,7 @@ namespace OnlineShop.Web
 
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
-
+            services.AddTransient<IDocumentService, DocumentService>();
 
             services.AddHttpContextAccessor();
             services.AddSession(opt =>

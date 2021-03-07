@@ -10,7 +10,7 @@ using System.IO;
 using System.Text;
 using Xunit;
 
-namespace OnlineShop.Test.Infrastructure.IOHelper.PDFConverter
+namespace OnlineShop.Test.Application.Services.PDFConverter
 {
     public class DocumentServiceTests
     {
@@ -42,12 +42,41 @@ namespace OnlineShop.Test.Infrastructure.IOHelper.PDFConverter
                                 Name = "Iphone12",
                                 Price = 3000
                             }
+                        },
+                        new Web.Models.Entity.ShoppingCartMobilePhone()
+                        {
+                            Quantity = 1,
+                            MobilePhoneRef = new Web.Models.Entity.MobilePhone()
+                            {
+                                Brand = "Apple",
+                                Name = "Iphone11",
+                                Price = 2000
+                            }
+                        },
+                        new Web.Models.Entity.ShoppingCartMobilePhone()
+                        {
+                            Quantity = 1,
+                            MobilePhoneRef = new Web.Models.Entity.MobilePhone()
+                            {
+                                Brand = "Apple",
+                                Name = "Iphone10",
+                                Price = 1000
+                            }
                         }
-                    }
+                    },
+                    Total = 6000
+                },
+                ShippingAddressVM = new Web.Application.ViewModels.ShippingAddress.ShippingAddressVM()
+                {
+                    City = "Wrolaw",
+                    PostalCode = "59-999",
+                    Street = "Long Street",
+                    HouseNumber = "54"
                 }
             };
+            var css = @"A:\Programowanie\C#\Kurs\Apps\OnlineShop\OnlineShop.Web\Application\Services\PDFConverter\Assets\PDFStyles.css";
             //Act
-            documentService.CreatePDF(orderVm);
+            documentService.CreatePDF(orderVm, css);
             var pathToFile = @"A:\Programowanie\C#\Kurs\Apps\OnlineShop\OnlineShop.Web\Application\Services\PDFConverter\PDF\Invoice.pdf";
             //Assert
             File.Exists(pathToFile).Should().BeTrue();

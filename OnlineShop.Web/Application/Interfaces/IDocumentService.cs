@@ -9,6 +9,8 @@ namespace OnlineShop.Web.Application.Interfaces
     public interface IDocumentService
     {
         string GetHTMLString(OrderVM order);
-        void CreatePDF(OrderVM order);
+# nullable enable
+        void CreatePDF(OrderVM order, string? path);
+# nullable disable
     }
 }

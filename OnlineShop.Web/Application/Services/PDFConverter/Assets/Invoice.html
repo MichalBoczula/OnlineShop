@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <link rel='stylesheet' href='./PDFStyles.css' />
+    <title></title>
+</head>
+<body>
+    <div class='SalesManData'>
+        <h3>John Smith</h3>
+        <p>1234 Wroclaw</p>
+        <p>Long Street 12/34</p>
+    </div>
+    <table class='CustomerDataTable'>
+        <thead>
+            <tr>
+                <th>Bill To</th>
+                <th>Ship To</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class='SalesManData'>
+                        <p id='check'>CustomerName</p>
+                    </div>
+                </td>
+                <td>CustomerSurname</td>
+            </tr>
+            <tr>
+                <td>1234 Wroclaw</td>
+                <td>Short Street 34/56</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class='table'>
+        <thead class='Head'>
+            <tr>
+                <th>
+                    Product
+                </th>
+                <th>
+                    Quntity
+                </th>
+                <th>
+                    Unit Price
+                </th>
+                <th>
+                    Total
+                </th>
+            </tr>
+        </thead>
+        <tbody class='Body'>
+            <tr>
+                <td>
+                    {order.ShoppingCartVM.Items[0].MobilePhoneRef.Brand} {order.ShoppingCartVM.Items[0].MobilePhoneRef.Name}
+                </td>
+                <td>
+                    {order.ShoppingCartVM.Items[0].Quantity}
+                </td>
+                <td>
+                    {order.ShoppingCartVM.Items[0].MobilePhoneRef.Price}
+                </td>
+                <td>
+                    {order.ShoppingCartVM.Items[0].MobilePhoneRef.Price * order.ShoppingCartVM.Items[0].Quantity}
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class='Foot'>
+                <td colspan='4'>
+                    <p class='total'>
+                        Total Price: @Model.Total
+                    </p>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <div>
+        <h3>Terms & Conditions</h3>
+        <p>Payment in due within 15 days</p>
+        <br />
+        <p>Name of Bank: PolBank</p>
+        <p>Account Number: 20 1111 2222 3333 4444 5555 66666</p>
+    </div>
+</body>
+</html>
