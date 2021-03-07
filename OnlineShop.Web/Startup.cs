@@ -17,6 +17,7 @@ using OnlineShop.Web.Application.Services;
 using OnlineShop.Web.Application.Services.PDFConverter;
 using OnlineShop.Web.Infrastructure;
 using OnlineShop.Web.Infrastructure.Helper.EmailSender;
+using OnlineShop.Web.Infrastructure.Helper.EmailSender.Abstract;
 using OnlineShop.Web.Infrastructure.Repositories;
 using OnlineShop.Web.Models;
 using OnlineShop.Web.Models.Entity;
@@ -57,8 +58,9 @@ namespace OnlineShop.Web
             services.AddTransient<IShoppingCartService, ShoppingCartService>();
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IShippingAddressService, ShippingAddressService>();
-
+            
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<IEmailSenderExtension, EmailSender>();
             services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
             services.AddTransient<IDocumentService, DocumentService>();
 

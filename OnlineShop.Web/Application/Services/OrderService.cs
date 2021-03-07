@@ -9,6 +9,7 @@ using OnlineShop.Web.Application.ViewModels.Order;
 using OnlineShop.Web.Application.ViewModels.ShippingAddress;
 using OnlineShop.Web.Application.ViewModels.ShoppingCart;
 using OnlineShop.Web.Infrastructure;
+using OnlineShop.Web.Infrastructure.Helper.EmailSender.Abstract;
 using OnlineShop.Web.Models.Entity;
 using OnlineShop.Web.Models.Interfaces;
 using System;
@@ -25,7 +26,7 @@ namespace OnlineShop.Web.Application.Services
         private readonly IShoppingCartRepository _shoppingCartRepository;
         private readonly IShippingAddressRepository _shippingAddressRepository;
         private readonly IUserRepository _userRepository;
-        private readonly IEmailSender _emailSender;
+        private readonly IEmailSenderExtension _emailSender;
         private readonly IDocumentService _documentService;
 
         public OrderService(IOrderRepository repo,
@@ -33,7 +34,7 @@ namespace OnlineShop.Web.Application.Services
                             IShoppingCartRepository shoppingCartRepository,
                             IShippingAddressRepository shippingAddressRepository,
                             IUserRepository userRepository,
-                            IEmailSender emailSender,
+                            IEmailSenderExtension emailSender,
                             IDocumentService documentService)
         {
             _repo = repo;
@@ -99,14 +100,19 @@ namespace OnlineShop.Web.Application.Services
 
         private async Task SendOrderEMail(string orderId)
         {
+            var order = await  GetOrderDetails(orderId);
             var subject = "Order";
-            var htmlMsg= $"Thank You for trust and order in our shop.\n" +
-                $"We will send product as fas as possible." +
-                $" Your order number: {orderId}.\n Regards Mobile Galactica Team";
-            await _emailSender.SendEmailAsync(
+            var htmlMsg= $"<strong>Thank You for trust and order in our shop.</strong><br/>\n" +
+                $"We will send product as fas as possible.<br/>" +
+                $"Your order number: {orderId}.<br/> " +
+                $"Invoice has been added to attachments, if you lose...<br/> " +
+                $"don't be scare and open your account in our website and generate a new one :)<br/> " +
+                $"Regards Mobile Galactica Team";
+            await _emailSender.SendEmailAsyncWithAttachment(
                 await _userRepository.GetUserEmail(),
                 subject,
-                htmlMsg);
+                htmlMsg,
+                order);
         }
     }
 }

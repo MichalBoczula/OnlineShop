@@ -69,52 +69,5 @@ namespace OnlineShop.Web.Controllers
             return File(file, "application/pdf");
         }
 
-        [HttpGet]
-        public ActionResult GetInvoice2(string orderId)
-        {
-            var orderVm = new OrderDetailsVM()
-            {
-                ShippingAddressRef = new Web.Application.ViewModels.ShippingAddress.ShippingAddressVM()
-                {
-                    City = "Wrolaw",
-                    PostalCode = "59-999",
-                    Street = "Long Street",
-                    HouseNumber = "54"
-                },
-                Total = 6000,
-                Items = new List<OrderMobilePhoneVM>()
-                {
-                    new OrderMobilePhoneVM()
-                    {
-                        Quantity = 1,
-                        MobilePhoneRef= new MobilePhoneForOrderSummaryVM()
-                        {
-                            Name = "Iphone12",
-                            Price = 3000
-                        }
-                    },
-                    new OrderMobilePhoneVM()
-                    {
-                        Quantity = 1,
-                        MobilePhoneRef= new MobilePhoneForOrderSummaryVM()
-                        {
-                            Name = "Iphone11",
-                            Price = 2000
-                        }
-                    },
-                    new OrderMobilePhoneVM()
-                    {
-                        Quantity = 1,
-                        MobilePhoneRef= new MobilePhoneForOrderSummaryVM()
-                        {
-                            Name = "Iphone10",
-                            Price = 1000
-                        }
-                    },
-                }
-            };
-            var file = _document.CreatePDFStream(orderVm, null);
-            return File(file, "application/pdf");
-        }
     }
 }

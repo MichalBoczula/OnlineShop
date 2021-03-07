@@ -12,16 +12,24 @@
                     <h3 class="description-title">Information</h3>
                     <p class="description">@Model.Description</p>
                 </div>
-                <div class="return-container">
-                    <a asp-controller="ShoppingCart" asp-action="AddItem" asp-route-mobileId="@Model.Id">
-                        <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Buy</p>
-                    </a>
+                <div class="details-action-container">
+                    <div class="details-actions">
+                        <div class="return-container">
+                            <a asp-controller="ShoppingCart" asp-action="AddItem" asp-route-mobileId="@Model.Id">
+                                <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Buy</p>
+                            </a>
+                        </div>
+                        <div class="return-container">
+                            <a asp-controller="MobilePhone" asp-action="Index">
+                                <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Back to List</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="details-price">
+                        <h3>Price: @Model.Price zł</h3>
+                    </div>
                 </div>
-                <div class="return-container">
-                    <a asp-controller="MobilePhone" asp-action="Index">
-                        <p class="return-desc"><span class="return-btn" aria-hidden="true"></span>Back to List</p>
-                    </a>
-                </div>
+                
             </div>
             <div class="col-lg-6">
                 <div class="carousel-container">
